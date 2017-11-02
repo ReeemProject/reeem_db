@@ -26,35 +26,43 @@ def log():
                                     datefmt='%Y-%m-%d %I:%M:%S')
     return logger
 
-
 def excel_dataframe(version, region, con):
     """read excel file and sheets and make dataframe"""
     
     # read data from file
-    path = (r'G:\\dtu\\reeem_db\\database\\database_adapter\\data\\TIMES_PANEU\\')
-    file = 'REEEM_TIMES_PanEU_Input_F1_TI1_P1.xlsx'  #'REEEM_TIMES_PanEU_Input.xlsx'
+    pathway = 'Test_data'
+    file = 'REEEM_TIMES_PanEU_Input_Structure.xlsx'
+    
+    # file = 'REEEM_TIMES_PanEU_Input_F1_TI1_P1.xlsx'  
+    # file = 'REEEM_TIMES_PanEU_Input.xlsx'
+    
+    #path = (r'G:\\github\\ReeemProject\\reeem_db\\database_adapter\\Model_Data\\Test_data')
+    path = os.path.join('Model_Data', pathway, 'TIMES PanEU',file)
+    
     logger = log()
     # logger.info('...read file: {}'.format(file))
-    xls = pd.ExcelFile(path+file)
+    xls = pd.ExcelFile(path)
     sheet = region
     logger.info('...read sheet: {}'.format(sheet))
-    df = pd.read_excel(xls, sheet, header=4, index_col='ID') # header=1
-    df.columns = ['name','unit','2010','2015','2020','2025','2030','2035',
-        '2040','2045','2050','table','aggregation','source'] # add source
+    
+    df = pd.read_excel(xls, sheet, header=4, index_col='ID')
+    df.columns = ['indicator', 'unit', 
+        '2010', '2015', '2020', '2025', '2030', '2035', '2040', '2045', '2050',
+        'field', 'category', 'aggregation', 'source']
     df.index.names = ['nid']
-    # logger.info('...read data...')
+    logger.info('...read data...')
     # print(df.dtypes)
     # print(df.head())
     
     # seperate columns
-    dfunit = df[['table','name','unit','aggregation','source']].copy().dropna() # add source
+    dfunit = df[['field', 'category', 'indicator', 'unit', 'aggregation', 'source']].copy().dropna()
     dfunit.index.names = ['nid']
-    dfunit.columns = ['table','name','unit','aggregation','source'] # add source
+    dfunit.columns = ['field', 'category', 'indicator', 'unit', 'aggregation', 'source']
     # print(dfunit)
     # print(dfunit.dtypes)
 
     # drop seperated columns
-    dfclean = df.drop(['table','name','unit','aggregation','source'],axis=1).dropna() # add source
+    dfclean = df.drop(['field', 'category', 'indicator', 'unit', 'aggregation', 'source'],axis=1).dropna()
     # print(dfclean)
     
     # stack
@@ -65,7 +73,7 @@ def excel_dataframe(version, region, con):
     # print(dfstack)
     
     # database dataframe
-    # logger.info('...reshape dataframe...')
+    logger.info('...reshape dataframe...')
     dfdb = dfstack.join(dfunit, on='nid')
     dfdb.index.names = ['dfid']
     dfdb['region'] = region
@@ -77,7 +85,7 @@ def excel_dataframe(version, region, con):
     # copy dataframe to database
     dfdb.to_sql(con=con, 
         schema='model_draft', 
-        name='times_paneu_service', 
+        name='reeem_times_paneu_input', 
         if_exists='append',
         index = True )
     logger.info('...dataframe sucessfully imported...')
@@ -87,19 +95,20 @@ if __name__ == '__main__':
     logger = log()
     start_time = time.time()
     logger.info('script started...')
+    logger.info('...establish database connection...')
     con = reeem_session()
-    version = 'F1_TI1_P1' # F1_TI1_P1
+    version = 'Test_data' # 'F1_TI1_P1' # 'F1_TI1_P1'
     # region = 'EU28'
     # excel_dataframe(version, region, con)
-    regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 
-        'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 
-        'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
-    #regions = ['EU28', 'AT', 'BE' ]
+    #regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 
+    #    'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 
+    #    'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
+    regions = ['EU28', 'AT', 'BE' ]
     for region in regions:
         excel_dataframe(version, region, con)
     reeem_scenario_log(con,version,'import', 'model_draft',
-        'times_paneu_service','reeem_times_paneu_service_input.py',
-        'REEEM_TIMES_PanEU_Input_F1_TI1_P1.xlsx') # add new filename
+        'reeem_times_paneu_input','reeem_times_paneu_input.py',
+        'REEEM_TIMES_PanEU_Input_Structure.xlsx') # add new filename
     con.close()
     logger.info('...database connection closed...')
     logger.info('...script successfully executed in {:.2f} seconds. Goodbye!'

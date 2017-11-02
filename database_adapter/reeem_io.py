@@ -19,7 +19,7 @@ import sys
 def reeem_session():
     """SQLAlchemy session object with valid connection to reeem database"""
     print('Please provide connection parameters to database:\n' +
-            'Hit [Enter] to take defaults')
+            'Hit [Enter] to take defaults:')
 
     #host = input('host (default 130.226.55.43): ')
     host = '130.226.55.43'
@@ -27,9 +27,9 @@ def reeem_session():
     port = '5432'
     #database = input("database name (default 'reeem'): ")
     database = 'reeem'
-    user = input('user (default test_user): ')
+    user = input('User name (default test_user): ')
     # password = input('password: ')
-    password = getpass.getpass(prompt='password: ',
+    password = getpass.getpass(prompt='Password: ',
                                 stream=sys.stderr)
     con = create_engine(
         'postgresql://' + '%s:%s@%s:%s/%s' % (user,
