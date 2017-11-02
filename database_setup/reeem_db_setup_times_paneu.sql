@@ -1,7 +1,7 @@
 /*
-Times PanEU table setup
-Times PanEU Input
-Times PanEU Output
+TIMES PanEU table setup
+TIMES PanEU Input
+TIMES PanEU Output
 
 __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
@@ -10,22 +10,23 @@ __author__      = "Ludwig Hülk"
 */
 
 
--- times paneu input
+-- TIMES PanEU input
 DROP TABLE IF EXISTS    model_draft.reeem_times_paneu_input CASCADE;
 CREATE TABLE            model_draft.reeem_times_paneu_input (
     id          serial NOT NULL,
     dfid        integer,
     version     varchar(10),
     region      varchar(4),
-    "table"     text,
-    name        text,
+    field       text,
+    category    text,   -- "table"
+    "indicator" text,   -- "name"
     nid         integer,
     "year"      integer,
     "value"     double precision,
     unit        varchar(15),
     aggregation boolean,
     updated     timestamp with time zone,
-    sources     text,
+    source      text,
     CONSTRAINT reeem_times_paneu_input_pkey PRIMARY KEY (id) );
 
 ALTER TABLE             model_draft.reeem_times_paneu_input OWNER TO reeem_user;
@@ -67,13 +68,14 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
             {"name": "dfid", "description": "Internal dataframe id", "unit": "none"},
-            {"name": "version", "description": "Internal version number", "unit": "none"},
+            {"name": "version", "description": "REEEM version number", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
-            {"name": "table", "description": "Times table name", "unit": "none"},
-            {"name": "name", "description": "Times variable name", "unit": "none"},
+            {"name": "field", "description": "Area or sector (1. level)", "unit": "none"},
+            {"name": "category", "description": "Group (2. level)", "unit": "none"},
+            {"name": "indicator", "description": "Parameter (3. level)", "unit": "none"},
             {"name": "nid", "description": "Row id", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
-            {"name": "value", "description": "Value", "unit": "unit"},
+            {"name": "value", "description": "Specific value", "unit": "unit"},
             {"name": "unit", "description": "Unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
@@ -86,22 +88,23 @@ SELECT obj_description('model_draft.reeem_times_paneu_input' ::regclass) ::json;
 SELECT reeem_scenario_log('v0.1.0','setup','model_draft','reeem_times_paneu_input','reeem_db_setup_times_paneu.sql',' ');
 
 
--- times paneu output
+-- TIMES PanEU Output
 DROP TABLE IF EXISTS    model_draft.reeem_times_paneu_output CASCADE;
 CREATE TABLE            model_draft.reeem_times_paneu_output (
     id          serial NOT NULL,
     dfid        integer,
     version     varchar(5),
     region      varchar(4),
-    "table"     text,
-    name        text,
+    field       text,
+    category    text,   -- "table"
+    "indicator" text,   -- "name"
     nid         integer,
     "year"      integer,
     "value"     double precision,
     unit        varchar(15),
     aggregation boolean,
     updated     timestamp with time zone,
-    sources     text,
+    source      text,
     CONSTRAINT reeem_times_paneu_output_pkey PRIMARY KEY (id) );
     
 ALTER TABLE        model_draft.reeem_times_paneu_output OWNER TO reeem_user;
@@ -143,13 +146,14 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_output IS
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
             {"name": "dfid", "description": "Internal dataframe id", "unit": "none"},
-            {"name": "version", "description": "Internal version number", "unit": "none"},
+            {"name": "version", "description": "REEEM version number", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
-            {"name": "table", "description": "Times table name", "unit": "none"},
-            {"name": "name", "description": "Times variable name", "unit": "none"},
+            {"name": "field", "description": "Area or sector (1. level)", "unit": "none"},
+            {"name": "category", "description": "Group (2. level)", "unit": "none"},
+            {"name": "indicator", "description": "Parameter (3. level)", "unit": "none"},
             {"name": "nid", "description": "Row id", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
-            {"name": "value", "description": "Value", "unit": "unit"},
+            {"name": "value", "description": "Specific value", "unit": "unit"},
             {"name": "unit", "description": "Unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
