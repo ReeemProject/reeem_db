@@ -16,100 +16,111 @@ import numpy as np
 from reeem_io import *
 from sqlalchemy import *
 
-# configure logging
-def log():
-    logger = logging.getLogger('EEEE')
-    logger.setLevel(logging.INFO)
-    ch = logging.StreamHandler()
-    ch.setLevel(logging.INFO)
-    formatter = logging.Formatter('%(asctime)s %(message)s',
-                                    datefmt='%Y-%m-%d %I:%M:%S')
-    return logger
 
-def excel_dataframe(version, region, con):
-    """read excel file and sheets and make dataframe"""
-    
-    # read data from file
-    pathway = 'Test_data'
-    file = 'REEEM_TIMES_PanEU_Input_Structure.xlsx'
-    
-    # file = 'REEEM_TIMES_PanEU_Input_F1_TI1_P1.xlsx'  
-    # file = 'REEEM_TIMES_PanEU_Input.xlsx'
-    
-    #path = (r'G:\\github\\ReeemProject\\reeem_db\\database_adapter\\Model_Data\\Test_data')
-    path = os.path.join('Model_Data', pathway, 'TIMES PanEU',file)
-    
-    logger = log()
-    # logger.info('...read file: {}'.format(file))
-    xls = pd.ExcelFile(path)
-    sheet = region
-    logger.info('...read sheet: {}'.format(sheet))
-    
-    df = pd.read_excel(xls, sheet, header=4, index_col='ID')
-    df.columns = ['indicator', 'unit', 
+## inputs
+model = 'TIMES PanEU'
+pathway = 'Test_data'       # 'BASE', 'BASE_TI1_P1', 'BASE_TI1_P2', 'Test_data', 'Pilot'
+version = 'V1'              # 'V2', 'V3'
+
+# regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 
+#     'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 
+#     'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
+regions = ['EU28', 'AT']
+
+file_name = 'REEEM_TIMES_PanEU_Input_Structure.xlsx'
+# file_name = 'REEEM_TIMES_PanEU_Input_BASE.xlsx'
+# file_name = 'REEEM_TIMES_PanEU_Input_F1_TI1_P1.xlsx'  
+# file_name = 'REEEM_TIMES_PanEU_Input.xlsx'
+
+empty_rows = 4
+column_names = ['indicator', 'unit', 
         '2010', '2015', '2020', '2025', '2030', '2035', '2040', '2045', '2050',
         'field', 'category', 'aggregation', 'source']
+
+# database table
+db_schema = 'model_draft' 
+db_table = 'reeem_times_paneu_input' 
+
+
+## functions
+def times_paneu_2_reeem_db(model, pathway, version, file_name, empty_rows, column_names, db_schema, db_table, region, con):
+    """read excel file and sheets, make dataframe and write to database"""
+    
+    logger = log()
+    
+    ## read file
+    path = os.path.join('Model_Data', pathway, model, file_name)
+    xls = pd.ExcelFile(path)
+    df = pd.read_excel(xls, region, header=empty_rows, index_col='ID')
+    logger.info('...read sheet: {}'.format(region))
+    
+    ## make dataframe
+    df.columns = column_names
     df.index.names = ['nid']
-    logger.info('...read data...')
     # print(df.dtypes)
     # print(df.head())
     
-    # seperate columns
+    ## seperate columns
     dfunit = df[['field', 'category', 'indicator', 'unit', 'aggregation', 'source']].copy().dropna()
     dfunit.index.names = ['nid']
     dfunit.columns = ['field', 'category', 'indicator', 'unit', 'aggregation', 'source']
     # print(dfunit)
     # print(dfunit.dtypes)
-
-    # drop seperated columns
+    
+    ## drop seperated columns
     dfclean = df.drop(['field', 'category', 'indicator', 'unit', 'aggregation', 'source'],axis=1).dropna()
     # print(dfclean)
     
-    # stack
+    ## stack dataframe
     dfstack = dfclean.stack().reset_index()
     dfstack.columns = ['nid','year','value']
     # dfstack.set_index(['nid','year'], inplace=True)
     dfstack.index.names = ['id']
     # print(dfstack)
-    
-    # database dataframe
-    logger.info('...reshape dataframe...')
+
+    # join dataframe for database
     dfdb = dfstack.join(dfunit, on='nid')
     dfdb.index.names = ['dfid']
-    dfdb['region'] = region
+    dfdb['pathway'] = pathway
     dfdb['version'] = version
+    dfdb['region'] = region
     dfdb['updated'] = (datetime.datetime.fromtimestamp(time.time())
         .strftime('%Y-%m-%d %H:%M:%S'))
     # print(dfdb)
     
     # copy dataframe to database
-    dfdb.to_sql(con=con, 
-        schema='model_draft', 
-        name='reeem_times_paneu_input', 
+    dfdb.to_sql(con = con, 
+        schema = db_schema,
+        name = db_table, 
         if_exists='append',
         index = True )
-    logger.info('...dataframe sucessfully imported...')
+    logger.info('......sheet {} sucessfully imported...'.format(region))
 
 
 if __name__ == '__main__':
+    # logging
     logger = log()
     start_time = time.time()
     logger.info('script started...')
+    logger.info('...pathway: {}'.format(pathway))
+    logger.info('...model: {}'.format(model))
+    logger.info('...version: {}'.format(version))
+    logger.info('...regions: {}'.format(regions))
+    logger.info('...read file: {}'.format(file_name))
     logger.info('...establish database connection...')
+    
+    # 
     con = reeem_session()
-    version = 'Test_data' # 'F1_TI1_P1' # 'F1_TI1_P1'
-    # region = 'EU28'
-    # excel_dataframe(version, region, con)
-    #regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 
-    #    'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 
-    #    'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
-    regions = ['EU28', 'AT', 'BE' ]
     for region in regions:
-        excel_dataframe(version, region, con)
-    reeem_scenario_log(con,version,'import', 'model_draft',
-        'reeem_times_paneu_input','reeem_times_paneu_input.py',
-        'REEEM_TIMES_PanEU_Input_Structure.xlsx') # add new filename
+        times_paneu_2_reeem_db(model, pathway, version, file_name, empty_rows, 
+            column_names, db_schema, db_table, region, con)
+    
+    # scenario log
+    reeem_scenario_log(con,version,'import', db_schema, db_table,
+        os.path.basename(__file__), file_name)
+    
+    # close connection
     con.close()
-    logger.info('...database connection closed...')
-    logger.info('...script successfully executed in {:.2f} seconds. Goodbye!'
+    logger.info('...script successfully executed in {:.2f} seconds...'
         .format(time.time() - start_time))
+    logger.info('...database connection closed. Goodbye!')

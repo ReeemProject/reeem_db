@@ -1,5 +1,6 @@
 /*
 TIMES PanEU table setup
+
 TIMES PanEU Input
 TIMES PanEU Output
 
@@ -13,22 +14,24 @@ __author__      = "Ludwig Hülk"
 -- TIMES PanEU input
 DROP TABLE IF EXISTS    model_draft.reeem_times_paneu_input CASCADE;
 CREATE TABLE            model_draft.reeem_times_paneu_input (
-    id          serial NOT NULL,
-    dfid        integer,
-    version     varchar(10),
-    region      varchar(4),
-    field       text,
-    category    text,   -- "table"
-    "indicator" text,   -- "name"
-    nid         integer,
-    "year"      integer,
-    "value"     double precision,
-    unit        varchar(15),
-    aggregation boolean,
-    updated     timestamp with time zone,
-    source      text,
+    id              serial NOT NULL,
+    nid             integer,
+    dfid            integer,
+    pathway         text,
+    version         text,
+    region          text,
+    field           text,
+    category        text,   -- "table"
+    "indicator"     text,   -- "name"
+    "year"          integer,
+    "value"         double precision,
+    unit            text,
+    aggregation     boolean,
+    updated         timestamp with time zone,
+    source          text,
     CONSTRAINT reeem_times_paneu_input_pkey PRIMARY KEY (id) );
 
+-- access rights
 ALTER TABLE             model_draft.reeem_times_paneu_input OWNER TO reeem_user;
 GRANT SELECT ON TABLE   model_draft.reeem_times_paneu_input TO reeem_read WITH GRANT OPTION;
 
@@ -61,19 +64,21 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
         {"name": "Ludee", "email": "none", "date": "2017-01-18", "comment": "Update metadata"},
         {"name": "Ludee", "email": "none", "date": "2017-07-24", "comment": "Update metadata"},
         {"name": "Ludee", "email": "none", "date": "2017-11-02", "comment": "Update structure"},
+        {"name": "Ludee", "email": "none", "date": "2017-11-06", "comment": "Include pathway"},
         {"name": "", "email": "", "date": "", "comment": ""} ],
     "resources": [
         {"name": "model_draft.reeem_times_paneu_input",        
         "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
+            {"name": "nid", "description": "Row id", "unit": "none"},
             {"name": "dfid", "description": "Internal dataframe id", "unit": "none"},
-            {"name": "version", "description": "REEEM version number", "unit": "none"},
+            {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
+            {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "field", "description": "Area or sector (1. level)", "unit": "none"},
             {"name": "category", "description": "Group (2. level)", "unit": "none"},
             {"name": "indicator", "description": "Parameter (3. level)", "unit": "none"},
-            {"name": "nid", "description": "Row id", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
             {"name": "value", "description": "Specific value", "unit": "unit"},
             {"name": "unit", "description": "Unit", "unit": "none"},
@@ -82,8 +87,6 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
             {"name": "sources", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
-SELECT obj_description('model_draft.reeem_times_paneu_input' ::regclass) ::json;
-
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT reeem_scenario_log('v0.1.0','setup','model_draft','reeem_times_paneu_input','reeem_db_setup_times_paneu.sql',' ');
 
@@ -91,22 +94,24 @@ SELECT reeem_scenario_log('v0.1.0','setup','model_draft','reeem_times_paneu_inpu
 -- TIMES PanEU Output
 DROP TABLE IF EXISTS    model_draft.reeem_times_paneu_output CASCADE;
 CREATE TABLE            model_draft.reeem_times_paneu_output (
-    id          serial NOT NULL,
-    dfid        integer,
-    version     varchar(5),
-    region      varchar(4),
-    field       text,
-    category    text,   -- "table"
-    "indicator" text,   -- "name"
-    nid         integer,
-    "year"      integer,
-    "value"     double precision,
-    unit        varchar(15),
-    aggregation boolean,
-    updated     timestamp with time zone,
-    source      text,
+    id              serial NOT NULL,
+    nid             integer,
+    dfid            integer,
+    pathway         text,
+    version         text,
+    region          text,
+    field           text,
+    category        text,   -- "table"
+    "indicator"     text,   -- "name"
+    "year"          integer,
+    "value"         double precision,
+    unit            text,
+    aggregation     boolean,
+    updated         timestamp with time zone,
+    source          text,
     CONSTRAINT reeem_times_paneu_output_pkey PRIMARY KEY (id) );
-    
+
+-- access rights
 ALTER TABLE        model_draft.reeem_times_paneu_output OWNER TO reeem_user;
 GRANT SELECT ON TABLE    model_draft.reeem_times_paneu_output TO reeem_read WITH GRANT OPTION;
 
@@ -139,19 +144,21 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_output IS
         {"name": "Ludee", "email": "none", "date": "2017-01-18", "comment": "Update metadata"},
         {"name": "Ludee", "email": "none", "date": "2017-07-24", "comment": "Update metadata"},
         {"name": "Ludee", "email": "none", "date": "2017-11-02", "comment": "Update structure"},
+        {"name": "Ludee", "email": "none", "date": "2017-11-06", "comment": "Include pathway"},
         {"name": "", "email": "", "date": "", "comment": ""} ],
     "resources": [
         {"name": "model_draft.reeem_times_paneu_output",        
         "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
+            {"name": "nid", "description": "Row id", "unit": "none"},
             {"name": "dfid", "description": "Internal dataframe id", "unit": "none"},
-            {"name": "version", "description": "REEEM version number", "unit": "none"},
+            {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
+            {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "field", "description": "Area or sector (1. level)", "unit": "none"},
             {"name": "category", "description": "Group (2. level)", "unit": "none"},
             {"name": "indicator", "description": "Parameter (3. level)", "unit": "none"},
-            {"name": "nid", "description": "Row id", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
             {"name": "value", "description": "Specific value", "unit": "unit"},
             {"name": "unit", "description": "Unit", "unit": "none"},
@@ -159,8 +166,6 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_output IS
             {"name": "updated", "description": "Timestamp", "unit": "none"},
             {"name": "sources", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
-
-SELECT obj_description('model_draft.reeem_times_paneu_output' ::regclass) ::json;
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT reeem_scenario_log('v0.1.0','setup','model_draft','reeem_times_paneu_output','reeem_db_setup_times_paneu.sql',' ');
