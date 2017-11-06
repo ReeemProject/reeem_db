@@ -23,28 +23,25 @@ model = 'TIMES PanEU'
 pathway = 'Test_data'       # 'BASE', 'BASE_TI1_P1', 'BASE_TI1_P2', 'Test_data', 'Pilot'
 version = 'V1'              # 'V2', 'V3'
 
-# regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 
-#     'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 
-#     'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
-regions = ['EU28', 'AT']
-
 file_name = 'REEEM_TIMES_PanEU_Input_Structure.xlsx'
 # file_name = 'REEEM_TIMES_PanEU_Input_BASE.xlsx'
 # file_name = 'REEEM_TIMES_PanEU_Input_F1_TI1_P1.xlsx'  
 # file_name = 'REEEM_TIMES_PanEU_Input.xlsx'
 
+regions = ['AT']
+# regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 
+#     'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 
+#     'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
+
 empty_rows = 4
-column_names = ['indicator', 'unit', 
-        '2010', '2015', '2020', '2025', '2030', '2035', '2040', '2045', '2050',
-        'field', 'category', 'aggregation', 'source']
 
 # database table
 db_schema = 'model_draft' 
 db_table = 'reeem_times_paneu_input' 
-
+#db_table = 'reeem_times_paneu_output' 
 
 ## functions
-def times_paneu_2_reeem_db(model, pathway, version, file_name, empty_rows, column_names, db_schema, db_table, region, con):
+def times_paneu_2_reeem_db(model, pathway, version, file_name, empty_rows, db_schema, db_table, region, con):
     """read excel file and sheets, make dataframe and write to database"""
     
     logger = log()
@@ -56,7 +53,9 @@ def times_paneu_2_reeem_db(model, pathway, version, file_name, empty_rows, colum
     logger.info('...read sheet: {}'.format(region))
     
     ## make dataframe
-    df.columns = column_names
+    df.columns = ['indicator', 'unit', 
+        '2010', '2015', '2020', '2025', '2030', '2035', '2040', '2045', '2050',
+        'field', 'category', 'aggregation', 'source']
     df.index.names = ['nid']
     # print(df.dtypes)
     # print(df.head())
@@ -114,7 +113,7 @@ if __name__ == '__main__':
     con = reeem_session()
     for region in regions:
         times_paneu_2_reeem_db(model, pathway, version, file_name, empty_rows, 
-            column_names, db_schema, db_table, region, con)
+            db_schema, db_table, region, con)
     
     # scenario log
     reeem_scenario_log(con,version,'import', db_schema, db_table,
