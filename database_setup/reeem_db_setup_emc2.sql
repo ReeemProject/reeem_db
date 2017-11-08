@@ -64,7 +64,7 @@ COMMENT ON TABLE model_draft.reeem_emc2_input IS
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
         {"name": "", "email": "", "date": "", "comment": ""} ],
     "resources": [
-        {"name": "model_draft.reeem_emc2_input",        
+        {"name": "model_draft.reeem_emc2_input",
         "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
@@ -136,7 +136,7 @@ COMMENT ON TABLE model_draft.reeem_emc2_output IS
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
         {"name": "", "email": "", "date": "", "comment": ""} ],
     "resources": [
-        {"name": "model_draft.reeem_emc2_output",        
+        {"name": "model_draft.reeem_emc2_output",
         "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
