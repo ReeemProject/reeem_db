@@ -1,8 +1,10 @@
 /*
-TIMES PanEU table setup
+TIMES PanEU Table Setup
 
 TIMES PanEU Input
 TIMES PanEU Output
+
+https://github.com/ReeemProject/reeem_db/issues/4
 
 __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
@@ -23,7 +25,7 @@ CREATE TABLE            model_draft.reeem_times_paneu_input (
     field           text,
     category        text,   -- "table"
     "indicator"     text,   -- "name"
-    "year"          integer,
+    "year"          smallint,
     "value"         double precision,
     unit            text,
     aggregation     boolean,
@@ -103,7 +105,7 @@ CREATE TABLE            model_draft.reeem_times_paneu_output (
     field           text,
     category        text,   -- "table"
     "indicator"     text,   -- "name"
-    "year"          integer,
+    "year"          smallint,
     "value"         double precision,
     unit            text,
     aggregation     boolean,
