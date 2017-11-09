@@ -1,4 +1,4 @@
-"""read data from excel and write to database"""
+"""read data from file and write to database"""
 
 __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
