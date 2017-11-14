@@ -35,10 +35,10 @@ empty_rows = 4
 
 # database table
 db_schema = 'model_draft' 
-db_table_input = 'reeem_times_paneu_input' 
-db_table_output = 'reeem_times_paneu_output' 
+db_table_input = 'reeem_osemosys_paneu_input' 
+db_table_output = 'reeem_osemosys_paneu_output' 
 
-## functions
+
 def times_paneu_2_reeem_db(model, pathway, version, file_name, empty_rows, db_schema, db_table, region, con):
     """read excel file and sheets, make dataframe and write to database"""
     
@@ -52,21 +52,26 @@ def times_paneu_2_reeem_db(model, pathway, version, file_name, empty_rows, db_sc
     
     ## make dataframe
     df.columns = ['indicator', 'unit', 
-        '2010', '2015', '2020', '2025', '2030', '2035', '2040', '2045', '2050',
+        '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', 
+        '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034', 
+        '2035', '2036', '2037', '2038', '2039', '2040', '2041', '2042', '2043', '2044', 
+        '2045', '2046', '2047', '2048', '2049', '2050', '2051', '2052', '2053', '2054', 
+        '2055', '2056', '2057', '2058', '2059', '2060', 
         'field', 'category', 'aggregation', 'source']
     df.index.names = ['nid']
-    # print(df.dtypes)
     # print(df.head())
+    # print(df.dtypes)
     
     ## seperate columns
     dfunit = df[['field', 'category', 'indicator', 'unit', 'aggregation', 'source']].copy().dropna()
     dfunit.index.names = ['nid']
     dfunit.columns = ['field', 'category', 'indicator', 'unit', 'aggregation', 'source']
-    # print(dfunit)
+    # print(dfunit.head())
     # print(dfunit.dtypes)
     
     ## drop seperated columns
     dfclean = df.drop(['field', 'category', 'indicator', 'unit', 'aggregation', 'source'],axis=1).dropna()
+    # print(dfclean.head())
     # print(dfclean)
     
     ## stack dataframe
@@ -84,7 +89,7 @@ def times_paneu_2_reeem_db(model, pathway, version, file_name, empty_rows, db_sc
     dfdb['region'] = region
     dfdb['updated'] = (datetime.datetime.fromtimestamp(time.time())
         .strftime('%Y-%m-%d %H:%M:%S'))
-    # print(dfdb)
+    # print(dfdb.head())
     
     # copy dataframe to database
     dfdb.to_sql(con = con, 

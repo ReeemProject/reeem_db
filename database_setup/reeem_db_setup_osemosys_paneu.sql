@@ -27,6 +27,7 @@ CREATE TABLE            model_draft.reeem_osemosys_paneu_input (
     "year"          smallint,
     "indicator"     text,   -- "name"
     "value"         double precision,
+    unit            text,
     aggregation     boolean,
     updated         timestamp with time zone,
     source          text,
