@@ -1,8 +1,8 @@
 /*
-Ecosense Table Setup
+EcoSense Table Setup
 
-Ecosense Input
-Ecosense Output
+EcoSense Input
+EcoSense Output
 
 https://github.com/ReeemProject/reeem_db/issues/7
 
@@ -13,7 +13,7 @@ __author__      = "Ludwig Hülk"
 */
 
 
--- Ecosense Input
+-- EcoSense Input
 DROP TABLE IF EXISTS    model_draft.reeem_ecosense_input CASCADE;
 CREATE TABLE            model_draft.reeem_ecosense_input (
     id              serial NOT NULL,
@@ -38,7 +38,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosense_input TO reeem_read WITH GRAN
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosense_input IS 
-    '{"title": "REEEM Ecosense Input - Emissions",
+    '{"title": "REEEM EcoSense Input - Emissions",
     "description": "none",
     "language": [ "eng" ],
     "spatial": 
@@ -89,7 +89,7 @@ COMMENT ON TABLE model_draft.reeem_ecosense_input IS
 SELECT reeem_scenario_log('v0.1.0','setup','model_draft','reeem_emc2_input','reeem_db_setup_ecosense.sql',' ');
 
 
--- Ecosense Output
+-- EcoSense Output
 DROP TABLE IF EXISTS    model_draft.reeem_ecosense_output CASCADE;
 CREATE TABLE            model_draft.reeem_ecosense_output (
     id              serial NOT NULL,
@@ -110,7 +110,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosense_output TO reeem_read WITH GRA
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosense_output IS 
-    '{"title": "REEEM Ecosense Output - Emissions",
+    '{"title": "REEEM EcoSense Output - Emissions",
     "description": "none",
     "language": [ "eng" ],
     "spatial": 
