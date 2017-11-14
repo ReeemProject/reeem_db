@@ -19,21 +19,21 @@ from sqlalchemy import *
 
 
 ## inputs
-model = 'EMC2'
+model = 'EcoSense'
 pathway = 'Test_data'       # 'BASE', 'BASE_TI1_P1', 'BASE_TI1_P2', 'Test_data', 'Pilot'
 version = 'V1'              # 'V2', 'V3'
 
 #file
-file_name_input = 'REEEM_EMC2_Input.csv'
-file_name_output = 'REEEM_EMC2_Output.csv'
+file_name_input = 'REEEM_Ecosense_Input.csv'
+file_name_output = 'REEEM_Ecosense_Output.csv'
 
 # database table
 db_schema = 'model_draft' 
-db_table_input = 'reeem_emc2_input' 
-db_table_output = 'reeem_emc2_output' 
+db_table_input = 'reeem_ecosense_input' 
+db_table_output = 'reeem_ecosense_output' 
 
 ## functions
-def emc2_input_2_reeem_db(model, pathway, version, 
+def ecosense_input_2_reeem_db(model, pathway, version, 
     file_name_input, db_schema, db_table, con):
     """read input file, make dataframe and write to database"""
     
@@ -41,11 +41,11 @@ def emc2_input_2_reeem_db(model, pathway, version,
     
     ## read file
     csv = os.path.join('Model_Data', pathway, model, file_name_input)
-    df = pd.read_csv(csv, sep=';', index_col='id')
+    df = pd.read_csv(csv, sep=';', index_col='nid')
     
     ## make dataframe
-    df.columns = ['region','indicator','sector_id','year','value', 'unit','notation']
-    df.index.names = ['nid']
+    df.columns = ['region','sector_id','sector_name','value','indicator','year','scenario_name','unit']
+    # df.index.names = ['nid']
     # print(df.dtypes)
     # print(df.head())
 
@@ -65,7 +65,7 @@ def emc2_input_2_reeem_db(model, pathway, version,
     logger.info('......file {} sucessfully imported...'.format(file_name_input))
 
 
-def emc2_output_2_reeem_db(model, pathway, version, 
+def ecosense_output_2_reeem_db(model, pathway, version, 
     file_name_output, db_schema, db_table_output, con):
     """read input file, make dataframe and write to database"""
     
@@ -73,11 +73,11 @@ def emc2_output_2_reeem_db(model, pathway, version,
     
     ## read file
     csv = os.path.join('Model_Data', pathway, model, file_name_output)
-    df = pd.read_csv(csv, sep=';')
+    df = pd.read_csv(csv, sep=';', index_col='nid')
     
     ## make dataframe
-    df.columns = ['grid_id','region', 'snap1', 'indicator','year','value', 'unit']
-    df.index.names = ['nid']
+    df.columns = ['indicator','region_iso','value_daly','value_euro']
+    # df.index.names = ['nid']
     # print(df.dtypes)
     # print(df.head())
 
@@ -112,16 +112,16 @@ if __name__ == '__main__':
     # connection
     con = reeem_session()
     
-    # # input
-    # emc2_input_2_reeem_db(model, pathway, version, file_name_input, 
-    #     db_schema, db_table_input, con)
-    # 
-    # # scenario log
-    # reeem_scenario_log(con,version,'import', db_schema, db_table_input,
-    #     os.path.basename(__file__), file_name_input)
+    # input
+    ecosense_input_2_reeem_db(model, pathway, version, file_name_input, 
+        db_schema, db_table_input, con)
+    
+    # scenario log
+    reeem_scenario_log(con,version,'import', db_schema, db_table_input,
+        os.path.basename(__file__), file_name_input)
     
     # output
-    emc2_output_2_reeem_db(model, pathway, version, file_name_output, 
+    ecosense_output_2_reeem_db(model, pathway, version, file_name_output, 
         db_schema, db_table_output, con)
     
     # scenario log

@@ -96,7 +96,7 @@ CREATE TABLE            model_draft.reeem_ecosense_output (
     pathway         text,
     version         text,
     nid             integer,
-    region          text,
+    region_iso      text,
     "indicator"     text,
     value_daly      double precision,
     value_euro      double precision,

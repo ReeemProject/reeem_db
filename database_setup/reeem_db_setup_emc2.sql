@@ -92,6 +92,7 @@ CREATE TABLE            model_draft.reeem_emc2_output (
     id              serial NOT NULL,
     pathway         text,
     version         text,
+    nid             integer,
     grid_id         integer,
     region          text,
     snap1           text,
