@@ -17,15 +17,15 @@ __author__      = "Ludwig Hülk"
 DROP TABLE IF EXISTS    model_draft.reeem_times_paneu_input CASCADE;
 CREATE TABLE            model_draft.reeem_times_paneu_input (
     id              serial NOT NULL,
-    nid             integer,
-    dfid            integer,
     pathway         text,
     version         text,
+    nid             integer,
+    dfid            integer,
     region          text,
     field           text,
     category        text,   -- "table"
-    "indicator"     text,   -- "name"
     "year"          smallint,
+    "indicator"     text,   -- "name"
     "value"         double precision,
     unit            text,
     aggregation     boolean,
@@ -73,15 +73,15 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
         "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
-            {"name": "nid", "description": "Row id", "unit": "none"},
-            {"name": "dfid", "description": "Internal dataframe id", "unit": "none"},
             {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
+            {"name": "nid", "description": "Row id", "unit": "none"},
+            {"name": "dfid", "description": "Internal dataframe id", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "field", "description": "Area or sector (1. level)", "unit": "none"},
             {"name": "category", "description": "Group (2. level)", "unit": "none"},
-            {"name": "indicator", "description": "Parameter (3. level)", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
+            {"name": "indicator", "description": "Parameter (3. level)", "unit": "none"},
             {"name": "value", "description": "Specific value", "unit": "unit"},
             {"name": "unit", "description": "Unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
@@ -97,15 +97,15 @@ SELECT reeem_scenario_log('v0.1.0','setup','model_draft','reeem_times_paneu_inpu
 DROP TABLE IF EXISTS    model_draft.reeem_times_paneu_output CASCADE;
 CREATE TABLE            model_draft.reeem_times_paneu_output (
     id              serial NOT NULL,
-    nid             integer,
-    dfid            integer,
     pathway         text,
     version         text,
+    nid             integer,
+    dfid            integer,
     region          text,
     field           text,
     category        text,   -- "table"
-    "indicator"     text,   -- "name"
     "year"          smallint,
+    "indicator"     text,   -- "name"
     "value"         double precision,
     unit            text,
     aggregation     boolean,
@@ -153,15 +153,15 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_output IS
         "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
-            {"name": "nid", "description": "Row id", "unit": "none"},
-            {"name": "dfid", "description": "Internal dataframe id", "unit": "none"},
             {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
+            {"name": "nid", "description": "Row id", "unit": "none"},
+            {"name": "dfid", "description": "Internal dataframe id", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "field", "description": "Area or sector (1. level)", "unit": "none"},
             {"name": "category", "description": "Group (2. level)", "unit": "none"},
-            {"name": "indicator", "description": "Parameter (3. level)", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
+            {"name": "indicator", "description": "Parameter (3. level)", "unit": "none"},
             {"name": "value", "description": "Specific value", "unit": "unit"},
             {"name": "unit", "description": "Unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
