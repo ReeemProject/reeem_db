@@ -2,7 +2,7 @@
 # reeem
 Model_Data
 reeem_io_config.ini
-database_setup\tables
+database_setup/tables
 
 # images
 *.png
