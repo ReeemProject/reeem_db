@@ -40,7 +40,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_times_paneu_input TO reeem_read WITH G
 -- metadata
 COMMENT ON TABLE model_draft.reeem_times_paneu_input IS 
     '{"title": "REEEM Times PanEU Input",
-    "description": "Service Demands, Fuel Prices, Potentials",
+    "description": "Input parameters: Service Demands, Fuel Prices, Potentials",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
