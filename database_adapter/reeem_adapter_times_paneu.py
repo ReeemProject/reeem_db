@@ -109,8 +109,10 @@ if __name__ == '__main__':
     logger.info('...read file: {}'.format(file_name))
     logger.info('...establish database connection...')
     
-    # 
+    # connection
     con = reeem_session()
+    
+    # input
     for region in regions:
         times_paneu_2_reeem_db(model, pathway, version, file_name, empty_rows, 
             db_schema, db_table, region, con)

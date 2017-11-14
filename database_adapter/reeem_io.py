@@ -55,7 +55,7 @@ def config_set(section, key, value):
         if not cfg.has_section(section):
             cfg.add_section(section)
         cfg.set(section, 'username', key)
-        cfg.set(section, 'database ', database)
+        cfg.set(section, 'database', database)
         cfg.set(section, 'host', '130.XXX.XX.XX')
         cfg.set(section, 'port', port)
         cfg.set(section, 'password', value)
@@ -123,7 +123,7 @@ def config_file_not_found_message(FILE):
     :type filename: str
     """
 
-    print('No config file!')
+    print('No config file found!')
 
 
 ## database connection
