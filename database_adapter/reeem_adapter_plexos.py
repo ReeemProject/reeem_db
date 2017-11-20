@@ -23,11 +23,11 @@ model = 'PLEXOS'
 pathway = 'Test_data'       # 'BASE', 'BASE_TI1_P1', 'BASE_TI1_P2', 'Test_data', 'Pilot'
 version = 'V1'              # 'V2', 'V3'
 
-file_name_input = 'REEEM_PLEXOS_Input.xlsx'
+file_name_input = 'REEEM_PLEXOS_Input_LH.xlsx'
 file_name_output = 'REEEM_PLEXOS_Output.xlsx'
 
-# regions = ['BG']
-regions = ['BG', 'HR', 'HU', 'RO', 'SI']
+regions = ['BG']
+# regions = ['BG', 'HR', 'HU', 'RO', 'SI']
 
 empty_rows = 4
 
@@ -51,20 +51,23 @@ def plexos_2_reeem_db(model, pathway, version, file_name, empty_rows, db_schema,
     ## make dataframe
     df.columns = ['indicator', 'unit', 
         '2030',
-        'field', 'category', 'aggregation', 'source']
+        'schema', 'field', 'category', 'aggregation', 'source']
     df.index.names = ['nid']
     # print(df.dtypes)
     # print(df.head())
     
     ## seperate columns
-    dfunit = df[['field', 'category', 'indicator', 'unit', 'aggregation', 'source']].copy().dropna()
+    dfunit = df[['schema', 'field', 'category', 
+        'indicator', 'unit', 'aggregation', 'source']].copy().dropna()
     dfunit.index.names = ['nid']
-    dfunit.columns = ['field', 'category', 'indicator', 'unit', 'aggregation', 'source']
+    dfunit.columns = ['schema', 'field', 'category', 
+        'indicator', 'unit', 'aggregation', 'source']
     # print(dfunit)
     # print(dfunit.dtypes)
     
     ## drop seperated columns
-    dfclean = df.drop(['field', 'category', 'indicator', 'unit', 'aggregation', 'source'],axis=1).dropna()
+    dfclean = df.drop(['schema', 'field', 'category', 
+        'indicator', 'unit', 'aggregation', 'source'],axis=1).dropna()
     # print(dfclean)
     
     ## stack dataframe
