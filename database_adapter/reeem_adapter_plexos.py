@@ -24,7 +24,7 @@ pathway = 'Test_data'       # 'BASE', 'BASE_TI1_P1', 'BASE_TI1_P2', 'Test_data',
 version = 'V1'              # 'V2', 'V3'
 
 file_name_input = 'REEEM_PLEXOS_Input_LH.xlsx'
-file_name_output = 'REEEM_PLEXOS_Output.xlsx'
+file_name_output = 'REEEM_PLEXOS_Output_LH.xlsx'
 
 regions = ['BG']
 # regions = ['BG', 'HR', 'HU', 'RO', 'SI']
@@ -37,7 +37,7 @@ db_table_input = 'reeem_plexos_input'
 db_table_output = 'reeem_plexos_output' 
 
 ## functions
-def plexos_2_reeem_db(model, pathway, version, file_name, empty_rows, db_schema, db_table, region, con):
+def plexos_input_2_reeem_db(model, pathway, version, file_name, empty_rows, db_schema, db_table, region, con):
     """read excel file and sheets, make dataframe and write to database"""
     
     logger = log()
@@ -95,6 +95,64 @@ def plexos_2_reeem_db(model, pathway, version, file_name, empty_rows, db_schema,
         index = True )
     logger.info('......sheet {} sucessfully imported...'.format(region))
 
+def plexos_output_2_reeem_db(model, pathway, version, file_name, empty_rows, db_schema, db_table, region, con):
+    """read excel file and sheets, make dataframe and write to database"""
+    
+    logger = log()
+    
+    ## read file
+    path = os.path.join('Model_Data', pathway, model, file_name)
+    xls = pd.ExcelFile(path)
+    df = pd.read_excel(xls, region, header=empty_rows, index_col='ID')
+    logger.info('...read sheet: {}'.format(region))
+    
+    ## make dataframe
+    df.columns = ['indicator', 'unit', 
+        '2030',
+        'schema', 'field', 'category', 'aggregation']
+    df.index.names = ['nid']
+    # print(df.dtypes)
+    # print(df.head())
+    
+    ## seperate columns
+    dfunit = df[['schema', 'field', 'category', 
+        'indicator', 'unit', 'aggregation']].copy().dropna()
+    dfunit.index.names = ['nid']
+    dfunit.columns = ['schema', 'field', 'category', 
+        'indicator', 'unit', 'aggregation']
+    # print(dfunit)
+    # print(dfunit.dtypes)
+    
+    ## drop seperated columns
+    dfclean = df.drop(['schema', 'field', 'category', 
+        'indicator', 'unit', 'aggregation'],axis=1).dropna()
+    # print(dfclean)
+    
+    ## stack dataframe
+    dfstack = dfclean.stack().reset_index()
+    dfstack.columns = ['nid','year','value']
+    # dfstack.set_index(['nid','year'], inplace=True)
+    dfstack.index.names = ['id']
+    # print(dfstack)
+
+    # join dataframe for database
+    dfdb = dfstack.join(dfunit, on='nid')
+    dfdb.index.names = ['dfid']
+    dfdb['pathway'] = pathway
+    dfdb['version'] = version
+    dfdb['region'] = region
+    dfdb['updated'] = (datetime.datetime.fromtimestamp(time.time())
+        .strftime('%Y-%m-%d %H:%M:%S'))
+    # print(dfdb)
+    
+    # copy dataframe to database
+    dfdb.to_sql(con = con, 
+        schema = db_schema,
+        name = db_table, 
+        if_exists = 'append',
+        index = True )
+    logger.info('......sheet {} sucessfully imported...'.format(region))
+
 
 if __name__ == '__main__':
     # logging
@@ -114,22 +172,24 @@ if __name__ == '__main__':
     logger.info('...read file(s)...')
     
     # input
+    logger.info('...read file: {}'.format(file_name_input))
     for region in regions:
-        plexos_2_reeem_db(model, pathway, version, file_name_input, empty_rows, 
+        plexos_input_2_reeem_db(model, pathway, version, file_name_input, empty_rows, 
             db_schema, db_table_input, region, con)
     
     # scenario log
     reeem_scenario_log(con,version,'import', db_schema, db_table_input,
         os.path.basename(__file__), file_name_input)
 
-    # # output
-    # for region in regions:
-    #     plexos_2_reeem_db(model, pathway, version, file_name_output, empty_rows, 
-    #         db_schema, db_table_output, region, con)
-    # 
-    # # scenario log
-    # reeem_scenario_log(con,version,'import', db_schema, db_table_output,
-    #     os.path.basename(__file__), file_name_output)
+    # output
+    logger.info('...read file: {}'.format(file_name_output))
+    for region in regions:
+        plexos_output_2_reeem_db(model, pathway, version, file_name_output, empty_rows, 
+            db_schema, db_table_output, region, con)
+    
+    # scenario log
+    reeem_scenario_log(con,version,'import', db_schema, db_table_output,
+        os.path.basename(__file__), file_name_output)
     
     # close connection
     con.close()
