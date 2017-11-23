@@ -1,0 +1,54 @@
+/*
+conda commands
+
+__copyright__   = "© Reiner Lemoine Institut"
+__license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
+__url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
+__author__      = "Ludwig Hülk"
+*/
+
+
+-- 0. System PATH
+
+echo %path%
+set PATH=%PATH%;C:\Anaconda3;C:\Anaconda3\Scripts\
+
+
+-- 1. version
+
+conda --version
+-> conda 4.0.5
+
+
+-- 2. Manage Environments
+
+conda info --envs
+
+conda create --name GIVEANAME python anaconda
+
+conda env create -f requirements_reeem.yml
+
+activate GIVEANAME 
+
+-- 2.1 reeem env
+conda create --name reeem python=3.5
+activate reeem
+conda install pandas -c conda-forge
+conda install sqlalchemy -c conda-forge
+conda install psycopg2 -c conda-forge
+conda install xlrd -c conda-forge
+
+-- 2.2 reeem env from yml
+conda env create -f requirements_reeem.yml
+activate reeem
+
+-- 2.3 Delete env
+deactivate
+conda remove --name reeem --all
+
+-- 3. Packages
+
+conda list
+
+python --version
+
