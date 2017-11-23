@@ -1,0 +1,39 @@
+
+-- [git commands]
+
+0.  Create a folder named "git" (somewhere)
+0.1 Computer -> Add new network adress -> add the C:/path../git folder as new drive (G:)
+0.2 Create a folder "GitHub"
+0.3 Create a folder "ReeemProject" (git/GitHub/ReeemProject)
+
+1.  Open git Bash       
+        user_name@pc_name MINGW64 /
+        $
+
+2.  Browse to folder "GitHub"
+cd G:
+        user_name@pc_name MINGW64 /g
+        $
+cd GitHub/ReeemProject
+        user_name@pc_name MINGW64 /g/github/ReeemProject
+        $
+
+3.  Clone the REEEM repository
+git clone git@github.com:ReeemProject/reeem_db.git
+        Cloning into 'reeem_db'...
+        ...
+        ...
+
+3.1 Enter master branch of git repo
+cd reeem_db
+        user_name@pc_name MINGW64 /g/github/ReeemProject/reeem_db (master)
+        $
+
+4.  Update your repo
+git pull
+        ...
+        ...
+
+5.  Upload your changes
+git commit -am "tell what you did and leave a issue number #4 and #5"
+git push
