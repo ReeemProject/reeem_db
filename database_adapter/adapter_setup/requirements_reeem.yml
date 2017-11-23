@@ -1,0 +1,10 @@
+name: reeem
+channels:
+    - conda-forge
+    - defaults
+dependencies:
+    - python=3.5.4=0
+    - pandas
+    - sqlalchemy
+    - psycopg2
+    - xlrd
