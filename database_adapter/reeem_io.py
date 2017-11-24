@@ -172,8 +172,11 @@ def reeem_session():
                                                     database)).connect()
     except:
         print('Password authentication failed for user "{}"'.format(user))
-        os.remove(configfile)
-        print('Existing config file deleted! Restart stript and try again!')
+        try:
+            os.remove(configfile)
+            print('Existing config file deleted! Restart stript and try again!')
+        except OSError:
+            print('Cannot delete file. Please check login parameters in config file!')
 
     return con
     print('Database connection established!')
