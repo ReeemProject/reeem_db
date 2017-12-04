@@ -4,7 +4,8 @@ __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Ludwig Hülk"
-__version__     = "v0.1.0"
+__issue__       = "https://github.com/ReeemProject/reeem_db/issues/13"
+__version__     = "v0.1.1"
 
 import os
 import sys
