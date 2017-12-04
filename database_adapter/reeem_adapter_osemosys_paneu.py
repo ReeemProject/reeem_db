@@ -42,13 +42,13 @@ db_table_output = 'reeem_osemosys_paneu_output'
 def times_paneu_2_reeem_db(model, pathway, version, file_name, empty_rows, db_schema, db_table, region, con):
     """read excel file and sheets, make dataframe and write to database"""
     
-    logger = log()
+    log = logger()
     
     ## read file
     path = os.path.join('Model_Data', pathway, model, file_name)
     xls = pd.ExcelFile(path)
     df = pd.read_excel(xls, region, header=empty_rows, index_col='ID')
-    logger.info('...read sheet: {}'.format(region))
+    log.info('...read sheet: {}'.format(region))
     
     ## make dataframe
     df.columns = ['indicator', 'unit', 
@@ -97,25 +97,25 @@ def times_paneu_2_reeem_db(model, pathway, version, file_name, empty_rows, db_sc
         name = db_table, 
         if_exists = 'append',
         index = True )
-    logger.info('......sheet {} sucessfully imported...'.format(region))
+    log.info('......sheet {} sucessfully imported...'.format(region))
 
 
 if __name__ == '__main__':
     # logging
-    logger = log()
+    log = logger()
     start_time = time.time()
-    logger.info('script started...')
-    logger.info('...pathway: {}'.format(pathway))
-    logger.info('...model: {}'.format(model))
-    logger.info('...version: {}'.format(version))
-    logger.info('...regions: {}'.format(regions))
-    logger.info('...read file: {}'.format(file_name_input))
-    logger.info('...read file: {}'.format(file_name_output))
-    logger.info('...establish database connection...')
+    log.info('script started...')
+    log.info('...pathway: {}'.format(pathway))
+    log.info('...model: {}'.format(model))
+    log.info('...version: {}'.format(version))
+    log.info('...regions: {}'.format(regions))
+    log.info('...read file: {}'.format(file_name_input))
+    log.info('...read file: {}'.format(file_name_output))
+    log.info('...establish database connection...')
     
     # connection
     con = reeem_session()
-    logger.info('...read file(s)...')
+    log.info('...read file(s)...')
     
     # input
     for region in regions:
@@ -137,6 +137,6 @@ if __name__ == '__main__':
 
     # close connection
     con.close()
-    logger.info('...script successfully executed in {:.2f} seconds...'
+    log.info('...script successfully executed in {:.2f} seconds...'
         .format(time.time() - start_time))
-    logger.info('...database connection closed. Goodbye!')
+    log.info('...database connection closed. Goodbye!')
