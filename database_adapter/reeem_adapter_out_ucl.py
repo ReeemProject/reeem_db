@@ -35,7 +35,9 @@ db_schema = 'model_draft'
 db_table = 'reeem_times_paneu_input'
 indicator = '(nid = \'70\' OR nid = \'63\')'
 sql = text('SELECT * FROM {}.{} '
-    'WHERE pathway = \'{}\' AND {}'.format(db_schema,db_table,pathway,indicator))
+    'WHERE pathway = \'{}\' '
+    'AND version = \'{}\' '
+    'AND {}'.format(db_schema,db_table,pathway,version,indicator))
 
 
 ## functions
@@ -53,15 +55,36 @@ def reeem_db_pathway(log, writer):
     # print (df_pathway)
     
     df_pathway.to_excel(writer,'pathways')
-    log.info('...write pathways to file...')
+    log.info('...write to sheet...')
+    
 
+def reeem_db_indicatorlist(log, writer, pathway, version, db_schema, db_table, file_name, con):
+    """read database table and get list of all indicators"""
+    
+    # list of all indicators
+    log.info('...execute SQL query:')
+    sql_ind_list = text(
+    'SELECT pathway,version,nid,field,category,indicator,count(value) AS indicator_count '
+    'FROM model_draft.reeem_times_paneu_input '
+    'WHERE pathway = \'{}\' '
+    'AND version = \'{}\' '
+    'GROUP BY pathway,version,nid,field,category,indicator '
+    'ORDER BY pathway,version,nid'.format(pathway,version))
+    print(sql_ind_list)
+    
+    df_indicator = pd.read_sql_query(sql_ind_list, con)
+    # print (df_indicator)
+    
+    df_indicator.to_excel(writer,'list_of_indicator')
+    log.info('...write to sheet...')
+    
 
 def reeem_db_2_excel(log, model, pathway, version, file_name, sql, con):
     """read database and write to excel file"""
     
     ## data
     # select data
-    log.info('...execute SQL query...')
+    log.info('...execute SQL query:')
     print(sql)
     
     df = pd.read_sql_query(sql, con)
@@ -78,16 +101,18 @@ def reeem_db_2_excel(log, model, pathway, version, file_name, sql, con):
     # print(df_header.T)
     
     df_header.to_excel(writer,'data',index = False)
+    log.info('...write data to sheet...')
     
     ## data_unstack
     # seperate columns
+    log.info('...unstack data...')
     dfunit = df[['nid', 'pathway', 'version', 'region', 'field', 'category', 
     'indicator', 'unit', 'aggregation', 'updated', 'source']].copy().dropna()
     dfunit = dfunit.drop_duplicates(subset=['nid', 'pathway', 'version', 
     'region', 'unit', 'aggregation', 'source' ], keep='first')
     # dfunit.index.names = ['nid']
     # print(dfunit.head())
-    print(dfunit)
+    # print(dfunit)
     
     # drop seperated columns
     dfclean = df.drop(['id','dfid', 'pathway', 'version', 'region', 'field', 'category', 
@@ -102,10 +127,11 @@ def reeem_db_2_excel(log, model, pathway, version, file_name, sql, con):
     
     # join dataframe with units
     # dfxls = dfunstack.join(dfunit, on='nid')
-    dfxls = dfunstack.merge(dfunit, on='nid', how='left', indicator=True)
-    print(dfxls)
+    dfxls = dfunstack.merge(dfunit, on='nid', how='left')
+    # print(dfxls)
     
     dfxls.to_excel(writer,'data_unstack',startrow=4,index = False)
+    log.info('...write data to sheet...')
     
     # add header
     today = datetime.date.today()
@@ -135,14 +161,18 @@ if __name__ == '__main__':
     
     # sql
     reeem_db_pathway(log, writer)
+    reeem_db_indicatorlist(log, writer, pathway, version, db_schema, db_table, file_name, con)
     reeem_db_2_excel(log, model, pathway, version, file_name, sql, con)
     
     # scenario log
     reeem_scenario_log(con, version, 'export', db_schema, db_table,
         os.path.basename(__file__), file_name)
     
+    # write to file
+    writer.save() 
+    log.info('...write to file...')
+    
     # close connection
-    writer.save() # write to excel
     con.close()
     log.info('...script successfully executed in {:.2f} seconds...'
         .format(time.time() - start_time))
