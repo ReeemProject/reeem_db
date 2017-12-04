@@ -10,12 +10,13 @@ from reeem_io import *
 
 if __name__ == '__main__':
     
-    logger = log()
-    logger.info('Script started...')
-    logger.info('...establish database connection...')
+    log = logger()
+    log.info('Script started...')
+    log.info('...establish database connection...')
     con = reeem_session()
     
-    logger.info('...Execute SQL...')
+    # select pathways example
+    log.info('...execute SQL...')
     sql = text('SELECT * FROM model_draft.reeem_pathway')
     print(sql)
     
@@ -31,5 +32,5 @@ if __name__ == '__main__':
     # print (table)
 
     con.close()
-    logger.info('...database connection closed. Goodbye!')
+    log.info('...database connection closed. Goodbye!')
     

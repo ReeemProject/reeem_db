@@ -60,6 +60,8 @@ def logger():
     fh.setLevel(logging.INFO)
     fh.setFormatter(formatter)
     rl.addHandler(fh)
+    
+    return rl
 
 
 ## config file
