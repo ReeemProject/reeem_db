@@ -4,7 +4,7 @@ __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Ludwig Hülk"
-__version__     = "v0.1.0"
+__version__     = "v0.1.1"
 
 import sys
 import os
@@ -27,15 +27,40 @@ configfile = 'reeem_io_config.ini'
 section = 'reeem'
 
 
-def log():
-    """configure logging"""
-    logger = logging.getLogger('EEEE')
-    logger.setLevel(logging.INFO)
+def logger():
+    """
+    Configure logging in console and log file
+    
+    Parameters
+    ----------
+    None
+    
+    Returns
+    -------
+    Logging in console and file
+    """
+    
+    # set root logger (rl)
+    rl = logging.getLogger('REEEMLogger')
+    rl.setLevel(logging.INFO)
+    rl.propagate = False
+    
+    # format
+    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s',
+                                    datefmt='%Y-%m-%d %H:%M:%S')
+        
+    # console handler (ch)
     ch = logging.StreamHandler()
     ch.setLevel(logging.INFO)
-    formatter = logging.Formatter('%(asctime)s %(message)s',
-                                    datefmt='%Y-%m-%d %I:%M:%S')
-    return logger
+    ch.setFormatter(formatter)
+    rl.addHandler(ch)
+    
+    # file handler (fh)
+    fh = logging.FileHandler(r'reeem_adapter.log')
+    fh.setLevel(logging.INFO)
+    fh.setFormatter(formatter)
+    rl.addHandler(fh)
+
 
 ## config file
 def config_set(section, key, value):
