@@ -11,18 +11,20 @@ __author__      = "Ludwig Hülk"
 -- table description
 DROP TABLE IF EXISTS    model_draft.template_table CASCADE;
 CREATE TABLE            model_draft.template_table (
-    id          serial NOT NULL,
-    version     text,
-    region      text,
-    field       text,
-    category    text,
-    "indicator" text,
-    "year"      integer,
-    "value"     double precision,
-    unit        text,
-    aggregation boolean,
-    updated     timestamp with time zone,
-    source      text,
+    "id"            serial NOT NULL,
+    "pathway"       text,
+    "version"       text,
+    "schema"        text,
+    "category"      text,
+    "tags"          hstore,
+    "region"        text,
+    "year"          smallint,
+    "indicator"     text,
+    "value"         double precision,
+    "unit"          text,
+    "aggregation"   boolean,
+    "updated"       timestamp with time zone,
+    "source"        text,
     CONSTRAINT template_table_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -61,17 +63,19 @@ COMMENT ON TABLE model_draft.template_table IS
         "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
-            {"name": "version", "description": "REEEM version number", "unit": "none"},
+            {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
+            {"name": "version", "description": "REEEM version", "unit": "none"},
+            {"name": "schema", "description": "1. classification", "unit": "none"},
+            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
-            {"name": "field", "description": "Area or sector (1. level)", "unit": "none"},
-            {"name": "category", "description": "Group (2. level)", "unit": "none"},
-            {"name": "indicator", "description": "Parameter (3. level)", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
-            {"name": "value", "description": "Specific value", "unit": "unit"},
-            {"name": "unit", "description": "Unit", "unit": "none"},
+            {"name": "indicator", "description": "Parameter name", "unit": "none"},
+            {"name": "value", "description": "Parameter value", "unit": "unit"},
+            {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "sources", "description": "Data source", "unit": "none"} ] } ],
+            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
@@ -79,6 +83,6 @@ SELECT reeem_scenario_log('v0.1.0','setup','model_draft','template_table','reeem
 
 
 -- insert data
-INSERT INTO model_draft.template_table (version,region,field,category,"indicator","year","value",unit,aggregation,updated,source) VALUES
-    ('v0.1.0', 'EU28', 'test', 'test', 'test', 2050, 100, '%', TRUE, now(), 'test' ),
-    ('v0.1.0', 'USD', 'test', 'test', 'test', 2050, 100, '%', TRUE, now(), 'test' );
+INSERT INTO model_draft.template_table (pathway, version, schema, category, tags, region, year, indicator, value, unit, aggregation, updated, source) VALUES
+    ('Test_data', 'v1', 'schema', 'category', '"energy_type" => "Electric"'::hstore, 'EU28', '2015', 'RE share', 2, '%', TRUE, now(), 'book' ),
+    ('Test_data', 'v1', 'schema', 'category', '"energy_type" => "Electric"'::hstore, 'EU28', '2050', 'RE share', 100, '%', TRUE, now(), 'book' );

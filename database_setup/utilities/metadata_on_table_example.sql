@@ -38,6 +38,10 @@ CREATE TABLE            model_draft.test_table (
     "source"        text,
     CONSTRAINT table_pkey PRIMARY KEY (id) );
 
+-- access rights
+ALTER TABLE             model_draft.test_table OWNER TO reeem_user;
+GRANT SELECT ON TABLE   model_draft.test_table TO reeem_read WITH GRANT OPTION;
+
 -- metadata description
 COMMENT ON TABLE model_draft.test_table IS 
     '{"title": "Good example title",
