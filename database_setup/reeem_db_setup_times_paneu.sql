@@ -10,27 +10,29 @@ __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Ludwig Hülk"
+__issue__       = "https://github.com/ReeemProject/reeem_db/issues/4"
 */
 
 
 -- TIMES PanEU input
 DROP TABLE IF EXISTS    model_draft.reeem_times_paneu_input CASCADE;
 CREATE TABLE            model_draft.reeem_times_paneu_input (
-    id              serial NOT NULL,
-    pathway         text,
-    version         text,
+    "id"            serial NOT NULL,
     nid             integer,
     dfid            integer,
-    region          text,
-    field           text,
-    category        text,   -- "table"
+    "pathway"       text,
+    "version"       text,
+    "schema"        text,
+    "category"      text,
+    "tags"          hstore,
+    "region"        text,
     "year"          smallint,
-    "indicator"     text,   -- "name"
+    "indicator"     text,
     "value"         double precision,
-    unit            text,
-    aggregation     boolean,
-    updated         timestamp with time zone,
-    source          text,
+    "unit"          text,
+    "aggregation"   boolean,
+    "updated"       timestamp with time zone,
+    "source"        text,
     CONSTRAINT reeem_times_paneu_input_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -73,20 +75,21 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
         "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
-            {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
-            {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "nid", "description": "Row id", "unit": "none"},
             {"name": "dfid", "description": "Internal dataframe id", "unit": "none"},
+            {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
+            {"name": "version", "description": "REEEM version", "unit": "none"},
+            {"name": "schema", "description": "1. classification", "unit": "none"},
+            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
-            {"name": "field", "description": "Area or sector (1. level)", "unit": "none"},
-            {"name": "category", "description": "Group (2. level)", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
-            {"name": "indicator", "description": "Parameter (3. level)", "unit": "none"},
-            {"name": "value", "description": "Specific value", "unit": "unit"},
-            {"name": "unit", "description": "Unit", "unit": "none"},
+            {"name": "indicator", "description": "Parameter name", "unit": "none"},
+            {"name": "value", "description": "Parameter value", "unit": "unit"},
+            {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "sources", "description": "Data source", "unit": "none"} ] } ],
+            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
