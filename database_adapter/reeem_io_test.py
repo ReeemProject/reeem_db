@@ -53,23 +53,23 @@ def reeem_db_test_scenario_log(con, log):
 
 
 if __name__ == '__main__':
-    # logger
-    logger = logger()
-    logger.info('Script started...')
-    logger.info('...establish database connection...')
+# logger
+log = logger()
+log.info('Script started...')
+log.info('...establish database connection...')
 
-    # connection
-    conn = reeem_session()
+# connection
+conn = reeem_session()
 
-    # test connection and return username
-    # get_db_username(conn, logger)
+# test connection and return username
+# get_db_username(conn, logger)
 
-    # select pathways example
-    # reeem_db_test_pathway(conn, logger)
+# select pathways example
+# reeem_db_test_pathway(conn, logger)
 
-    # scenario log test
-    reeem_db_test_scenario_log(conn, logger)
+# scenario log test
+reeem_db_test_scenario_log(conn, logger)
 
-    # close connection
-    conn.close()
-    logger.info('...database connection closed. Goodbye!')
+# close connection
+conn.close()
+log.info('...database connection closed. Goodbye!')

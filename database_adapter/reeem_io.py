@@ -258,3 +258,20 @@ def get_db_username(con, log):
     log.info('......your database username is {}!...'.format(username))
 
     return username
+
+
+def reeem_filenamesplit(filename):
+    """file name identification"""
+
+    filenamesplit = filename.replace(".xlsx", "").split("_")
+    fns = {}
+    fns['day'] = filenamesplit[0]
+    fns['pathway'] = filenamesplit[1]
+    fns['model'] = filenamesplit[2]
+    fns['framework'] = filenamesplit[3]
+    fns['version'] = filenamesplit[4]
+    fns['io'] = filenamesplit[5]
+    return fns
+
+    # import pprint
+    # pprint.pprint(fns)
