@@ -6,7 +6,6 @@ __license_url__ = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Ludwig Hülk"
 __version__     = "v0.1.2"
 
-import pandas as pd
 from reeem_io import *
 
 
@@ -40,7 +39,7 @@ def reeem_db_test_scenario_log(con, log):
     db_schema = 'model_draft'
     db_table = 'reeem_pathway'
     comment = 'test'
-    reeem_scenario_log(conn, version, 'test', db_schema, db_table,
+    reeem_scenario_log(con, version, 'test', db_schema, db_table,
                        os.path.basename(__file__), comment)
 
     # select last entry
@@ -53,23 +52,28 @@ def reeem_db_test_scenario_log(con, log):
 
 
 if __name__ == '__main__':
-# logger
-log = logger()
-log.info('Script started...')
-log.info('...establish database connection...')
+    # logging
+    log = logger()
+    log.info('Script started...')
+    log.info('...establish database connection...')
 
-# connection
-conn = reeem_session()
+    # connection
+    conn = reeem_session()
+    time.sleep(1)
 
-# test connection and return username
-# get_db_username(conn, logger)
+    # test connection and return username
+    # get_db_username(con, log)
 
-# select pathways example
-# reeem_db_test_pathway(conn, logger)
+    # Test latest Scenario Log entry
+    get_latest_scenariolog(conn, log)
 
-# scenario log test
-reeem_db_test_scenario_log(conn, logger)
+    # select pathways example
+    # reeem_db_test_pathway(conn, logger)
 
-# close connection
-conn.close()
-log.info('...database connection closed. Goodbye!')
+    # scenario log test
+    # reeem_db_test_scenario_log(conn, logger)
+
+    # close connection
+    time.sleep(1)
+    conn.close()
+    log.info('...database connection closed. Goodbye!')

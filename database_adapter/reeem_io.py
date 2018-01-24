@@ -1,17 +1,29 @@
-"""Open a database connection to reeem_db"""
+# -*- coding: utf-8 -*-
+
+"""
+Service functions for reeem_db
+
+This file is part of project REEEM.
+It's copyrighted by the contributors recorded in the version control history:
+github.com/ReeemProject/reeem_db/blob/master/database_adapter/reeem_io.py
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+"""
 
 __copyright__ = "© Reiner Lemoine Institut"
 __license__ = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __license_url__ = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__ = "Ludwig Hülk"
-__version__ = "v0.1.2"
+__version__ = "v0.1.3"
 
 import sys
 import os
+import time
 import getpass
 import logging
 from sqlalchemy import *
 import configparser as cp
+import pandas as pd
 
 # parameter
 config_file = 'reeem_io_config.ini'
@@ -192,6 +204,51 @@ def reeem_session():
     return conn
 
 
+def scenario_log(con, project, version, io, schema, table, script, comment):
+    """Write an entry in scenario log table.
+
+    Parameters
+    ----------
+    con : connection
+        SQLAlchemy connection object.
+    project : str
+        Project name.
+    version : str
+        Version number.
+    io : str
+        IO-type (input, output, temp).
+    schema : str
+        Database schema.
+    table : str
+        Database table.
+    script : str
+        Script name.
+    comment : str
+        Comment.
+
+    """
+
+    sql_scenario_log_entry = text("""
+        INSERT INTO model_draft.scenario_log
+            (project,version,io,schema_name,table_name,script_name,entries,
+            comment,user_name,timestamp,metadata)
+        SELECT  '{0}' AS project,
+                '{1}' AS version,
+                '{2}' AS io,
+                '{3}' AS schema_name,
+                '{4}' AS table_name,
+                '{5}' AS script_name,
+                COUNT(*) AS entries,
+                '{6}' AS comment,
+                session_user AS user_name,
+                NOW() AT TIME ZONE 'Europe/Berlin' AS timestamp,
+                obj_description('{3}.{4}' ::regclass) ::json AS metadata
+        FROM    {3}.{4};""".format(project,version, io, schema, table, script,
+                                   comment))
+
+    con.execute(sql_scenario_log_entry)
+
+
 def reeem_scenario_log(con, version, io, schema, table, script, comment):
     """Write an entry in scenario log table.
 
@@ -243,21 +300,37 @@ def get_db_username(con, log):
         The database username.
     """
 
-    # example select
-    log.info('...test database connection...')
-    sql_test = text('SELECT name FROM model_draft.test_table')
-    test_table = con.execute(sql_test.execution_options(autocommit=True))
-    for row in test_table:
-        print('username:', row['name'])
-
     # select session user
+    log.info('...query your database user name...')
     sql_username = text('SELECT session_user')
     username = con.execute(sql_username.execution_options(autocommit=True))
     row = username.fetchone()
     username = row['session_user']
-    log.info('......your database username is {}!...'.format(username))
+    log.info('...your database username is {}!...'.format(username))
 
     return username
+
+
+def get_latest_scenariolog(con, log):
+    """Test the database connection and return the username
+
+    Returns
+    -------
+    latest_scenariolog : str
+        Latest Scenario Log entry.
+    """
+
+    # example select
+    log.info('...query latest scenario log entry...')
+    sql_lastlog = text('SELECT * FROM model_draft.scenario_log'
+                    ' ORDER BY timestamp DESC LIMIT 1')
+    df = pd.read_sql_query(sql_lastlog, con)
+    print(df)
+
+    # alternative connection
+    # latest_log = con.execute(sql_lastlog.execution_options(autocommit=True))
+    # for row in latest_log:
+    #     print(row)
 
 
 def reeem_filenamesplit(filename):
