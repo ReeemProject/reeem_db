@@ -1,5 +1,6 @@
 ﻿/*
-database table setup
+Scenario Log setup
+REEEM Scenario Log setup (old)
 
 __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
