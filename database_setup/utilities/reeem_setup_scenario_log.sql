@@ -1,15 +1,23 @@
 ﻿/*
-Scenario Log setup
-REEEM Scenario Log setup (old)
+Scenario Log table setup
+
+- Scenario Log table
+- REEEM Scenario Log table (old)
 
 __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Ludwig Hülk"
+
+ * This file is part of project ReeemProject/reeem_db. It's copyrighted by the contributors
+ * recorded in the version control history of the file, available from
+ * its original location https://github.com/ReeemProject/reeem_db/blob/master/database_setup/utilities/reeem_setup_scenario_log.sql
+ * 
+ * SPDX-License-Identifier: AGPL-3.0-or-later
 */
 
 
--- scenario log
+-- Scenario Log table
 DROP TABLE IF EXISTS    model_draft.scenario_log CASCADE;
 CREATE TABLE            model_draft.scenario_log (
     id          SERIAL,
@@ -78,7 +86,7 @@ COMMENT ON TABLE model_draft.scenario_log IS '{
 SELECT scenario_log('REEEM','v0.1','setup','model_draft','scenario_log','reeem_setup_scenario_log.sql','Update metadata');
 
 
--- reeem scenario log
+-- REEEM Scenario Log table (old)
 DROP TABLE IF EXISTS    model_draft.reeem_scenario_log CASCADE;
 CREATE TABLE            model_draft.reeem_scenario_log (
     id          SERIAL,
