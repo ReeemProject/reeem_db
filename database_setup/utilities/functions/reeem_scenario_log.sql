@@ -38,20 +38,20 @@ __author__      = "Ludwig Hülk"
 -- Scenario Log function
 DROP FUNCTION IF EXISTS     scenario_log(text,text,text,text,text,text,text);
 CREATE OR REPLACE FUNCTION  scenario_log(text,text,text,text,text,text,text)
-    RETURNS int AS $PROC$
-DECLARE
-    _project        ALIAS FOR $1;
-    _version        ALIAS FOR $2;
-    _io             ALIAS FOR $3;
-    _schema_name    ALIAS FOR $4;
-    _table_name     ALIAS FOR $5;
-    _script_name    ALIAS FOR $6;
-    _comment        ALIAS FOR $7;
-
+    RETURNS text AS 
+    $$
+    DECLARE
+        _project        ALIAS FOR $1;
+        _version        ALIAS FOR $2;
+        _io             ALIAS FOR $3;
+        _schema_name    ALIAS FOR $4;
+        _table_name     ALIAS FOR $5;
+        _script_name    ALIAS FOR $6;
+        _comment        ALIAS FOR $7;
     BEGIN
         EXECUTE 'INSERT INTO model_draft.scenario_log ' ||
             '(project,version,io,schema_name,table_name,script_name,entries,comment,user_name,timestamp,metadata)
-            SELECT '|| quote_literal(_project) || ',' || 
+            SELECT ' || quote_literal(_project) || ',' || 
                 quote_literal(_version) || ',' || 
                 quote_literal(_io) || ',' ||
                 quote_literal(_schema_name) || ',' ||
@@ -63,16 +63,18 @@ DECLARE
                 E'NOW() AT TIME ZONE \'Europe/Berlin\' ,' ||
                 E'obj_description(\'' || _schema_name || '.' || _table_name  || E'\' ::regclass) ::json ' || 
             'FROM ' || _schema_name || '.' || _table_name || ';' ;
-        RETURN 'Scenario Log activated';
+        RETURN 'inserted';
     END;
-    $PROC$ LANGUAGE plpgsql;
+    $$ LANGUAGE plpgsql;
 
-ALTER FUNCTION              scenario_log(text,text,text,text,text,text) OWNER TO reeem_admin;
-GRANT EXECUTE ON FUNCTION   scenario_log(text,text,text,text,text,text) TO reeem_user;
+ALTER FUNCTION              scenario_log(text,text,text,text,text,text,text) OWNER TO reeem_admin;
+GRANT EXECUTE ON FUNCTION   scenario_log(text,text,text,text,text,text,text) TO reeem_user;
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','scenario_log','reeem_scenario_log.sql','Function test');
 
+-- select latest entry
+SELECT * FROM model_draft.scenario_log ORDER BY timestamp DESC LIMIT 1;
 
 
 -- REEEM scenario log function (old)
