@@ -1,10 +1,20 @@
-"""read data from file and write to database"""
+# -*- coding: utf-8 -*-
+
+"""
+Test database connection and reeem_io functions
+
+This file is part of project REEEM (https://github.com/ReeemProject/reeem_db).
+It's copyrighted by the contributors recorded in the version control history:
+ReeemProject/reeem_db/database_adapter/reeem_io_test.py
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+"""
 
 __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __license_url__ = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Ludwig Hülk"
-__version__     = "v0.1.2"
+__version__     = "v0.1.3"
 
 from reeem_io import *
 

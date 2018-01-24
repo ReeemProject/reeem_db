@@ -3,9 +3,9 @@
 """
 Service functions for reeem_db
 
-This file is part of project REEEM.
+This file is part of project REEEM (https://github.com/ReeemProject/reeem_db).
 It's copyrighted by the contributors recorded in the version control history:
-github.com/ReeemProject/reeem_db/blob/master/database_adapter/reeem_io.py
+ReeemProject/reeem_db/database_adapter/reeem_io.py
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 """
