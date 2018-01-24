@@ -11,50 +11,54 @@ __author__      = "Ludwig Hülk"
 -- scenario log
 DROP TABLE IF EXISTS    model_draft.reeem_scenario_log CASCADE;
 CREATE TABLE            model_draft.reeem_scenario_log (
-    id SERIAL,
-    version text,
-    io text,
+    id          SERIAL,
+    version     text,
+    io          text,
     schema_name text,
-    table_name text,
+    table_name  text,
     script_name text,
-    entries integer,
-    "comment" text,
-    user_name text,
+    entries     integer,
+    "comment"   text,
+    user_name   text,
     "timestamp" timestamp,
-    metadata text,
+    metadata    text,
     CONSTRAINT reeem_scenario_log_pkey PRIMARY KEY (id));
 
-ALTER TABLE             model_draft.reeem_scenario_log OWNER TO reeem_user; 
+ALTER TABLE             model_draft.reeem_scenario_log OWNER TO reeem_user;
 GRANT SELECT ON TABLE   model_draft.reeem_scenario_log TO reeem_read WITH GRANT OPTION;
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_scenario_log IS '{
-    "title": "REEEM scenario log",
-    "description": "Logging of inputs and outputs",
+    "title": "REEEM Scenario Log",
+    "description": "Logging of inputs and outputs of the reeem_db",
     "language": [ "eng" ],
-    "reference_date": "none",
     "spatial":
-        {"extent": "none",
+        {"location": "none",
+        "extent": "none",
         "resolution": "none"},
     "temporal":
-        {"start": "none",
+        {"reference_date": "none",
+        "start": "none",
         "end": "none",
         "resolution": "none"},
     "sources": [
-        {"name": "REEEM Project","description": "REEEM Database","url": "http://www.reeem.org/"} ],
-    "license": [
-        {"id": "tba",
-        "name": "tba",
-        "version": "tba",
-        "url": "tba",
-        "instruction": "tba",
-        "copyright": "tba"} ],
+        {"name": "REEEM Project","description": "REEEM Database","url": "http://www.reeem.org/"},
+        {"name": "", "description": "", "url": "", "license": "", "copyright": ""} ],
+    "license": 
+        {"id": "ODbL-1.0",
+        "name": "Open Data Commons Open Database License 1.0",
+        "version": "1.0",
+        "url": "https://opendatacommons.org/licenses/odbl/1.0/",
+        "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute, Share-Alike, Keep open!",
+        "copyright": "© Reiner Lemoine Institut"},
     "contributors": [
-        {"name": "Ludwig Hülk", "email": "ludwig.huelk@rl-institut.de", "date": "2016-12-01", "comment": "created table"},
-        {"name": "Ludwig Hülk", "email": "ludwig.huelk@rl-institut.de", "date": "2017-01-18", "comment": "updated metadata"} ],
+        {"name": "Ludee", "email": "none", "date": "2016-12-01", "comment": "Create table"},
+        {"name": "Ludee", "email": "none", "date": "2017-01-18", "comment": "Update metadata"},
+        {"name": "Ludee", "email": "none", "date": "2018-01-24", "comment": "Update metadata license"},
+        {"name": "", "email": "", "date": "", "comment": ""} ],
     "resources": [
         {"name": "model_draft.reeem_scenario_log",        
-        "format": "sql",
+        "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "unique identifier", "unit": "none" },
             {"name": "version", "description": "internal version number", "unit": "none" },
