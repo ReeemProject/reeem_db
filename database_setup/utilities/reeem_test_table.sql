@@ -1,5 +1,5 @@
 /*
-Example table
+Test table
 
 This script provides an SQL example and the metadata documentation.
 A definition of metadata can be found in the openmod glossary http://wiki.openmod-initiative.org/wiki/Metadata
