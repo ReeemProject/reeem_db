@@ -1,7 +1,19 @@
 /*
+Example table
+
 This script provides an SQL example of the metadata documentation
 A definition of metadata can be found in the openmod glossary http://wiki.openmod-initiative.org/wiki/Metadata
 A further description can be found on http://wiki.openmod-initiative.org/wiki/DatabaseRules
+
+- test table
+- metadata description
+- test data
+- metadata template
+
+Additional information:
+- Dates must follow the ISO8601 (JJJJ-MM-TT)
+- Use a space between Numbers and units (100 m)
+- If not applicable use "none"
 
 __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
@@ -9,13 +21,11 @@ __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Ludwig Hülk"
 __contains__    = "http://stackoverflow.com/questions/383692/what-is-json-and-why-would-i-use-it","https://specs.frictionlessdata.io/data-package/"
 
--- metadata description
--- metadata template
-
-Additional information:
-- Dates must follow the ISO8601 (JJJJ-MM-TT)
-- Use a space between Numbers and units (100 m)
-- If not applicable use "none"
+ * This file is part of project REEEM (https://github.com/ReeemProject/reeem_db).
+ * It's copyrighted by the contributors recorded in the version control history:
+ * ReeemProject/reeem_db/blob/master/database_setup/utilities/reeem_example_table.sql
+ * 
+ * SPDX-License-Identifier: AGPL-3.0-or-later
 */
 
 

@@ -9,9 +9,9 @@ __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Ludwig Hülk"
 
- * This file is part of project REEEM. It's copyrighted by the contributors
- * recorded in the version control history of the file, available from
- * its original location https://github.com/ReeemProject/reeem_db/blob/master/database_setup/utilities/reeem_setup_scenario_log.sql
+ * This file is part of project REEEM (https://github.com/ReeemProject/reeem_db).
+ * It's copyrighted by the contributors recorded in the version control history:
+ * ReeemProject/reeem_db/blob/master/database_setup/utilities/reeem_setup_scenario_log.sql
  * 
  * SPDX-License-Identifier: AGPL-3.0-or-later
 */
