@@ -1,3 +1,18 @@
+/*
+git commands for windows users
+
+__copyright__   = "© Reiner Lemoine Institut"
+__license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
+__url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
+__author__      = "Ludwig Hülk"
+
+ * This file is part of project REEEM (https://github.com/ReeemProject/reeem_db).
+ * It's copyrighted by the contributors recorded in the version control history:
+ * ReeemProject/reeem_db/database_setup/utilities/reeem_git4win.txt
+ * 
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+*/
+
 
 -- [git commands]
 
