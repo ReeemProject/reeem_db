@@ -37,7 +37,7 @@ CREATE TABLE            model_draft.model_data_template (
 ALTER TABLE             model_draft.model_data_template OWNER TO reeem_user;
 GRANT SELECT ON TABLE   model_draft.model_data_template TO reeem_read WITH GRANT OPTION;
 
--- metadata template
+-- metadata
 COMMENT ON TABLE model_draft.model_data_template IS 
     '{"title": "",
     "description": "",
@@ -85,10 +85,10 @@ COMMENT ON TABLE model_draft.model_data_template IS
     "metadata_version": "1.3"}';
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
-SELECT reeem_scenario_log('v0.1.0','setup','model_draft','model_data_template','reeem_db_templates.sql',' ');
+SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','model_data_template','reeem_db_templates.sql',' ');
 
 
--- insert data
+-- insert test data
 INSERT INTO model_draft.model_data_template (pathway, version, schema, category, tags, region, year, indicator, value, unit, aggregation, updated, source) VALUES
     ('Test_data', 'v1', 'schema', 'category', '"energy_type" => "Electric"'::hstore, 'EU28', '2015', 'RE share', 2, '%', TRUE, now(), 'book' ),
     ('Test_data', 'v1', 'schema', 'category', '"energy_type" => "Electric"'::hstore, 'EU28', '2050', 'RE share', 100, '%', TRUE, now(), 'book' );

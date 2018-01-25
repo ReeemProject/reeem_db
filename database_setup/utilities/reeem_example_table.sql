@@ -1,9 +1,8 @@
 /*
 Example table
 
-This script provides an SQL example of the metadata documentation
+This script provides an SQL example and the metadata documentation.
 A definition of metadata can be found in the openmod glossary http://wiki.openmod-initiative.org/wiki/Metadata
-A further description can be found on http://wiki.openmod-initiative.org/wiki/DatabaseRules
 
 - test table
 - access rights
