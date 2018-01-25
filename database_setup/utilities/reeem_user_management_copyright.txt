@@ -7,7 +7,7 @@ __copyright__       = "© Reiner Lemoine Institut"
 __license__         = "CC BY 4.0"
 __license_url__     = "https://creativecommons.org/licenses/by/4.0/"
 __instructions__    = "You are free to Share and Adapt as long as you Attribute and don't add additional restrictions"
-__citation__        = "REEEM user management, © Reiner Lemoine Institut, CC BY 4.0"
+__citation__        = "REEEM user management © Reiner Lemoine Institut | CC BY 4.0"
 
 __acknowledgement__= "Ludwig Hülk"
 
