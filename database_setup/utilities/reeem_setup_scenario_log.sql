@@ -11,7 +11,7 @@ __author__      = "Ludwig Hülk"
 
  * This file is part of project REEEM (https://github.com/ReeemProject/reeem_db).
  * It's copyrighted by the contributors recorded in the version control history:
- * ReeemProject/reeem_db/blob/master/database_setup/utilities/reeem_setup_scenario_log.sql
+ * ReeemProject/reeem_db/database_setup/utilities/reeem_setup_scenario_log.sql
  * 
  * SPDX-License-Identifier: AGPL-3.0-or-later
 */
