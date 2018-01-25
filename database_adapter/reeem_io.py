@@ -108,7 +108,7 @@ def config_file_init():
         cfg.read(config_file)
         global _loaded
         _loaded = True
-    except:
+    except FileNotFoundError:
         config_file_not_found_message()
 
 
