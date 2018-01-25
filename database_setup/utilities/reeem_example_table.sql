@@ -6,9 +6,11 @@ A definition of metadata can be found in the openmod glossary http://wiki.openmo
 A further description can be found on http://wiki.openmod-initiative.org/wiki/DatabaseRules
 
 - test table
+- access rights
 - metadata description
-- test data
-- metadata template
+- metadata validation
+- insert test data
+- select test data
 
 Additional information:
 - Dates must follow the ISO8601 (JJJJ-MM-TT)
@@ -105,7 +107,7 @@ COMMENT ON TABLE model_draft.test_table IS
             {"name": "source", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
--- select description
+-- metadata validation
 SELECT obj_description('model_draft.test_table' ::regclass) ::json;
 
 
@@ -134,44 +136,3 @@ WHERE   tags ? 'energy_type' AND tags -> 'energy_type' LIKE '%Thermal%';
 SELECT  *
 FROM    model_draft.test_table
 WHERE   tags ? 'energy_type' AND tags -> 'energy_type' LIKE '%Electric%';
-
-
--- metadata template
-COMMENT ON TABLE . IS 
-    '{"title": "",
-    "description": "",
-    "language": [ "eng", "ger" ],
-    "spatial": 
-        {"location": "",
-        "extent": "",
-        "resolution": ""},
-    "temporal": 
-        {"reference_date": "",
-        "start": "",
-        "end": "",
-        "resolution": ""},
-    "sources": [
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""},
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""} ],
-    "license":
-        {"id": "",
-        "name": "",
-        "version": "",
-        "url": "",
-        "instruction": "",
-        "copyright": ""},
-    "contributors": [
-        {"name": "", "email": "", "date": "", "comment": ""},
-        {"name": "", "email": "", "date": "", "comment": ""} ],
-    "resources": [
-        {"name": "",        
-        "format": "",
-        "fields": [
-            {"name": "id", "description": "Unique identifier", "unit": ""},
-            {"name": "year", "description": "Reference year", "unit": ""},
-            {"name": "value", "description": "Example value", "unit": ""},
-            {"name": "geom", "description": "Geometry", "unit": ""} ] } ],
-    "metadata_version": "1.3"}';
-
--- select description
-SELECT obj_description('.' ::regclass) ::json;
