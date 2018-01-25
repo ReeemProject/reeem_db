@@ -8,10 +8,11 @@ __author__      = "Ludwig Hülk"
 
  * This file is part of project REEEM (https://github.com/ReeemProject/reeem_db).
  * It's copyrighted by the contributors recorded in the version control history:
- * ReeemProject/reeem_db/blob/master/database_setup/utilities/reeem_setup_schema.sql
+ * ReeemProject/reeem_db/database_setup/utilities/reeem_setup_schema.sql
  * 
  * SPDX-License-Identifier: AGPL-3.0-or-later
 */
+
 
 CREATE SCHEMA boundaries; COMMENT ON SCHEMA boundaries IS 'legal land descriptions. examples: political and administrative boundaries'; 
 GRANT ALL ON SCHEMA boundaries TO reeem_user WITH GRANT OPTION;
