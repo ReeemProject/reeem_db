@@ -3,7 +3,7 @@
 
 0.  Create a folder named "git" (somewhere)
 0.1 Computer -> Add new network adress -> add the C:/path../git folder as new drive (G:)
-0.2 Create a folder "GitHub"
+0.2 Create a folder "GitHub" (git/GitHub)
 0.3 Create a folder "ReeemProject" (git/GitHub/ReeemProject)
 
 1.  Open git Bash       
@@ -28,7 +28,11 @@ git clone git@github.com:ReeemProject/reeem_db.git
 cd reeem_db
         user_name@pc_name MINGW64 /g/github/ReeemProject/reeem_db (master)
         $
-
+        
+3.2 Check status
+git status
+        
+        
 4.  Update your repo
 git pull
         ...

@@ -1,5 +1,5 @@
 /*
-REEEM database templates (SQL)
+Model Data template (SQL)
 
 __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
@@ -15,8 +15,8 @@ __author__      = "Ludwig Hülk"
 
 
 -- table description
-DROP TABLE IF EXISTS    model_draft.template_table CASCADE;
-CREATE TABLE            model_draft.template_table (
+DROP TABLE IF EXISTS    model_draft.model_data_template CASCADE;
+CREATE TABLE            model_draft.model_data_template (
     "id"            serial NOT NULL,
     "pathway"       text,
     "version"       text,
@@ -31,14 +31,14 @@ CREATE TABLE            model_draft.template_table (
     "aggregation"   boolean,
     "updated"       timestamp with time zone,
     "source"        text,
-    CONSTRAINT template_table_pkey PRIMARY KEY (id) );
+    CONSTRAINT model_data_template_pkey PRIMARY KEY (id) );
 
 -- access rights
-ALTER TABLE             model_draft.template_table OWNER TO reeem_user;
-GRANT SELECT ON TABLE   model_draft.template_table TO reeem_read WITH GRANT OPTION;
+ALTER TABLE             model_draft.model_data_template OWNER TO reeem_user;
+GRANT SELECT ON TABLE   model_draft.model_data_template TO reeem_read WITH GRANT OPTION;
 
 -- metadata template
-COMMENT ON TABLE model_draft.template_table IS 
+COMMENT ON TABLE model_draft.model_data_template IS 
     '{"title": "",
     "description": "",
     "language": [ "eng", "ger" ],
@@ -65,7 +65,7 @@ COMMENT ON TABLE model_draft.template_table IS
         {"name": "Ludee", "email": "none", "date": "2017--", "comment": "Create table"},
         {"name": "", "email": "", "date": "", "comment": ""} ],
     "resources": [
-        {"name": "model_draft.template_table",        
+        {"name": "model_draft.model_data_template",        
         "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
@@ -85,10 +85,10 @@ COMMENT ON TABLE model_draft.template_table IS
     "metadata_version": "1.3"}';
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
-SELECT reeem_scenario_log('v0.1.0','setup','model_draft','template_table','reeem_db_templates.sql',' ');
+SELECT reeem_scenario_log('v0.1.0','setup','model_draft','model_data_template','reeem_db_templates.sql',' ');
 
 
 -- insert data
-INSERT INTO model_draft.template_table (pathway, version, schema, category, tags, region, year, indicator, value, unit, aggregation, updated, source) VALUES
+INSERT INTO model_draft.model_data_template (pathway, version, schema, category, tags, region, year, indicator, value, unit, aggregation, updated, source) VALUES
     ('Test_data', 'v1', 'schema', 'category', '"energy_type" => "Electric"'::hstore, 'EU28', '2015', 'RE share', 2, '%', TRUE, now(), 'book' ),
     ('Test_data', 'v1', 'schema', 'category', '"energy_type" => "Electric"'::hstore, 'EU28', '2050', 'RE share', 100, '%', TRUE, now(), 'book' );
