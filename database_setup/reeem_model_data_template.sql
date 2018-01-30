@@ -84,7 +84,7 @@ COMMENT ON TABLE model_draft.reeem_model_data_template IS
             {"name": "source", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
--- scenario log (version,io,schema_name,table_name,script_name,comment)
+-- scenario log (project,version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_model_data_template','reeem_db_templates.sql',' ');
 
 

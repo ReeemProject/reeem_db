@@ -11,6 +11,12 @@ __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Ludwig Hülk"
 __issue__       = "https://github.com/ReeemProject/reeem_db/issues/4"
+
+ * This file is part of project REEEM (https://github.com/ReeemProject/reeem_db).
+ * It's copyrighted by the contributors recorded in the version control history:
+ * ReeemProject/reeem_db/database_setup/reeem_db_setup_times_paneu.sql
+ * 
+ * SPDX-License-Identifier: AGPL-3.0-or-later
 */
 
 
@@ -18,13 +24,15 @@ __issue__       = "https://github.com/ReeemProject/reeem_db/issues/4"
 DROP TABLE IF EXISTS    model_draft.reeem_times_paneu_input CASCADE;
 CREATE TABLE            model_draft.reeem_times_paneu_input (
     "id"            serial NOT NULL,
-    nid             integer,
-    dfid            integer,
+    "nid"           integer,
+    "dfid"          integer,
     "pathway"       text,
+    "framework"     text,
     "version"       text,
     "schema"        text,
     "category"      text,
     "tags"          hstore,
+    "field"         text,
     "region"        text,
     "year"          smallint,
     "indicator"     text,
@@ -78,10 +86,12 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
             {"name": "nid", "description": "Row id", "unit": "none"},
             {"name": "dfid", "description": "Internal dataframe id", "unit": "none"},
             {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
+            {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "schema", "description": "1. classification", "unit": "none"},
             {"name": "category", "description": "2. classification", "unit": "none"},
             {"name": "tags", "description": "Free classification", "unit": "none"},
+            {"name": "field", "description": "Old classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
@@ -92,8 +102,8 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
             {"name": "source", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
--- scenario log (version,io,schema_name,table_name,script_name,comment)
-SELECT reeem_scenario_log('v0.1.0','setup','model_draft','reeem_times_paneu_input','reeem_db_setup_times_paneu.sql',' ');
+-- scenario log (project,version,io,schema_name,table_name,script_name,comment)
+SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_times_paneu_input','reeem_db_setup_times_paneu.sql',' ');
 
 
 -- TIMES PanEU Output
