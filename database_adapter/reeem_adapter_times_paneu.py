@@ -10,7 +10,9 @@ __version__ = "v0.1.3"
 from reeem_io import *
 
 # input
-filename = "2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
+filename = "2017-11-15_Base(withRen.Target)_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
+#filename = "2017-10-27_Pilot_TIMESPanEU_Output.xlsx" NOT WORKING!!!
+#filename = "2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
 
 #regions = ['AT']
 #regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
@@ -91,10 +93,6 @@ def times_paneu_2_reeem_db(filename, fns, empty_rows, db_schema, region, con):
                 index=True)
     log.info('......sheet {} sucessfully imported...'.format(region))
 
-    # scenario log
-    scenario_log(con, 'REEEM', __version__, 'import', db_schema, db_table,
-                 os.path.basename(__file__), filename)
-
 
 if __name__ == '__main__':
     # logging
@@ -119,6 +117,10 @@ if __name__ == '__main__':
     for region in regions:
         times_paneu_2_reeem_db(filename, fns, empty_rows,
                                db_schema, region, con)
+
+    # scenario log
+    scenario_log(con, 'REEEM', __version__, 'import', db_schema, db_table,
+                 os.path.basename(__file__), filename)
 
     # close connection
     con.close()
