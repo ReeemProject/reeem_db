@@ -77,8 +77,7 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
         {"name": "Ludee", "email": "none", "date": "2017-07-24", "comment": "Update metadata"},
         {"name": "Ludee", "email": "none", "date": "2017-11-02", "comment": "Update structure"},
         {"name": "Ludee", "email": "none", "date": "2017-11-06", "comment": "Include pathway"},
-        {"name": "Ludee", "email": "none", "date": "2018-01-30", "comment": "New naming structure"},
-        {"name": "", "email": "", "date": "", "comment": ""} ],
+        {"name": "Ludee", "email": "none", "date": "2018-01-30", "comment": "New naming structure"} ],
     "resources": [
         {"name": "model_draft.reeem_times_paneu_input",        
         "format": "PostgreSQL",
@@ -131,8 +130,8 @@ CREATE TABLE            model_draft.reeem_times_paneu_output (
     CONSTRAINT reeem_times_paneu_output_pkey PRIMARY KEY (id) );
 
 -- access rights
-ALTER TABLE        model_draft.reeem_times_paneu_output OWNER TO reeem_user;
-GRANT SELECT ON TABLE    model_draft.reeem_times_paneu_output TO reeem_read WITH GRANT OPTION;
+ALTER TABLE             model_draft.reeem_times_paneu_output OWNER TO reeem_user;
+GRANT SELECT ON TABLE   model_draft.reeem_times_paneu_output TO reeem_read WITH GRANT OPTION;
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_times_paneu_output IS 
