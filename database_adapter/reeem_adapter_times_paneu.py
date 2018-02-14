@@ -11,16 +11,16 @@ from reeem_io import *
 
 # input
 filename = "2017-11-15_Base(withRen.Target)_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
-#filename = "2017-10-27_Pilot_TIMESPanEU_Output.xlsx" NOT WORKING!!!
-#filename = "2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
+# filename = "2017-10-27_Pilot_TIMESPanEU_Output.xlsx" NOT WORKING!!!
+# filename = "2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
 
-#regions = ['AT']
-#regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
+# regions = ['AT']
+# regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
 #    'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV',
 #    'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
 regions = ['AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
-    'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV',
-    'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
+           'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV',
+           'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
 
 empty_rows = 4
 
@@ -28,6 +28,7 @@ empty_rows = 4
 db_schema = 'model_draft'
 db_table_input = 'reeem_times_paneu_input'
 db_table_output = 'reeem_times_paneu_output'
+
 
 def times_paneu_2_reeem_db(filename, fns, empty_rows, db_schema, region, con):
     """read excel file and sheets, make dataframe and write to database"""
@@ -76,21 +77,22 @@ def times_paneu_2_reeem_db(filename, fns, empty_rows, db_schema, region, con):
     dfdb['version'] = fns['version']
     dfdb['region'] = region
     dfdb['updated'] = fns['day']
-        # (datetime.datetime.fromtimestamp(time.time())
-            # .strftime('%Y-%m-%d %H:%M:%S'))
+    # (datetime.datetime.fromtimestamp(time.time())
+    # .strftime('%Y-%m-%d %H:%M:%S'))
     # print(dfdb)
 
     # i/o
     if fns['io'] == "Input":
         db_table = db_table_input
-    else:   db_table = db_table_output
+    else:
+        db_table = db_table_output
 
     # copy dataframe to database
-    dfdb.to_sql(con = con,
-                schema = db_schema,
-                name = db_table,
-                if_exists = 'append',
-                index = True)
+    dfdb.to_sql(con=con,
+                schema=db_schema,
+                name=db_table,
+                if_exists='append',
+                index=True)
     log.info('......sheet {} sucessfully imported...'.format(region))
 
 
