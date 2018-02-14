@@ -86,11 +86,11 @@ def times_paneu_2_reeem_db(filename, fns, empty_rows, db_schema, region, con):
     else:   db_table = db_table_output
 
     # copy dataframe to database
-    dfdb.to_sql(con=con,
-                schema=db_schema,
-                name=db_table,
-                if_exists='append',
-                index=True)
+    dfdb.to_sql(con = con,
+                schema = db_schema,
+                name = db_table,
+                if_exists = 'append',
+                index = True)
     log.info('......sheet {} sucessfully imported...'.format(region))
 
 
