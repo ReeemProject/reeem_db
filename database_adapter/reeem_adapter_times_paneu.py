@@ -10,17 +10,17 @@ __version__ = "v0.1.3"
 from reeem_io import *
 
 # input
-filename = "2017-11-15_Base(withRen.Target)_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
+filename = "2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
+# filename = "2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
+# filename = "2017-11-15_Base(withRen.Target)_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
 # filename = "2017-10-27_Pilot_TIMESPanEU_Output.xlsx" NOT WORKING!!!
 # filename = "2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
 
 # regions = ['AT']
-# regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
-#    'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV',
-#    'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
-regions = ['AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
-           'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV',
-           'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
+regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
+    'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV',
+    'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
+
 
 empty_rows = 4
 
@@ -30,7 +30,8 @@ db_table_input = 'reeem_times_paneu_input'
 db_table_output = 'reeem_times_paneu_output'
 
 
-def times_paneu_2_reeem_db(filename, fns, empty_rows, db_schema, region, con):
+def times_paneu_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
+                           region, con):
     """read excel file and sheets, make dataframe and write to database"""
 
     # read file
@@ -42,23 +43,22 @@ def times_paneu_2_reeem_db(filename, fns, empty_rows, db_schema, region, con):
     # make dataframe
     df.columns = ['indicator', 'unit',
                   '2015', '2020', '2025', '2030', '2035', '2040',
-                  '2045', '2050', 'category', 'field', 'aggregation', 'source']
+                  '2045', '2050', 'field', 'category', 'aggregation']
     df.index.names = ['nid']
     #  print(df.dtypes)
     # print(df.head())
 
     # seperate columns
-    dfunit = df[['category', 'field', 'indicator', 'unit', 'aggregation',
-                 'source']].copy().dropna()
+    dfunit = df[['category', 'indicator', 'unit', 'aggregation'
+                 ]].copy().dropna()
     dfunit.index.names = ['nid']
-    dfunit.columns = ['category', 'field', 'indicator', 'unit', 'aggregation',
-                      'source']
+    dfunit.columns = ['category', 'indicator', 'unit', 'aggregation']
     # print(dfunit)
     # print(dfunit.dtypes)
 
     # drop seperated columns
     dfclean = df.drop(
-        ['category', 'field', 'indicator', 'unit', 'aggregation', 'source'],
+        ['field', 'category', 'indicator', 'unit', 'aggregation'],
         axis=1).dropna()
     # print(dfclean)
 
@@ -81,12 +81,6 @@ def times_paneu_2_reeem_db(filename, fns, empty_rows, db_schema, region, con):
     # .strftime('%Y-%m-%d %H:%M:%S'))
     # print(dfdb)
 
-    # i/o
-    if fns['io'] == "Input":
-        db_table = db_table_input
-    else:
-        db_table = db_table_output
-
     # copy dataframe to database
     dfdb.to_sql(con=con,
                 schema=db_schema,
@@ -97,18 +91,27 @@ def times_paneu_2_reeem_db(filename, fns, empty_rows, db_schema, region, con):
 
 
 if __name__ == '__main__':
+    # file and table
+    fns = reeem_filenamesplit(filename)
+
+    # i/o
+    if fns['io'] == "Input":
+        db_table = db_table_input
+    else:
+        db_table = db_table_output
+
     # logging
     log = logger()
     start_time = time.time()
     log.info('script started...')
     log.info('...file: {}'.format(filename))
-    fns = reeem_filenamesplit(filename)
     log.info('...pathway: {}'.format(fns['pathway']))
     log.info('...model: {}'.format(fns['model']))
     log.info('...framework: {}'.format(fns['framework']))
     log.info('...version: {}'.format(fns['version']))
     log.info('...i/o: {}'.format(fns['io']))
     log.info('...regions: {}'.format(regions))
+    log.info('...database table: model_draft.{}'.format(db_table))
     log.info('...establish database connection...')
 
     # connection
@@ -117,7 +120,7 @@ if __name__ == '__main__':
 
     # import
     for region in regions:
-        times_paneu_2_reeem_db(filename, fns, empty_rows,
+        times_paneu_2_reeem_db(filename, fns, db_table, empty_rows,
                                db_schema, region, con)
 
     # scenario log

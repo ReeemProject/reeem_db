@@ -29,18 +29,15 @@ CREATE TABLE            model_draft.reeem_times_paneu_input (
     "pathway"       text,
     "framework"     text,
     "version"       text,
-    "schema"        text,
-    "category"      text,
-    "tags"          hstore,
-    "field"         text,
     "region"        text,
     "year"          smallint,
+    "category"      text,
     "indicator"     text,
     "value"         double precision,
     "unit"          text,
     "aggregation"   boolean,
+    "tags"          hstore,
     "updated"       timestamp with time zone,
-    "source"        text,
     CONSTRAINT reeem_times_paneu_input_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -58,7 +55,7 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
         "resolution": "Country"},
     "temporal": 
         {"reference_date": "2010",
-        "start": "2010",
+        "start": "2015",
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
@@ -77,7 +74,8 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
         {"name": "Ludee", "email": "none", "date": "2017-07-24", "comment": "Update metadata"},
         {"name": "Ludee", "email": "none", "date": "2017-11-02", "comment": "Update structure"},
         {"name": "Ludee", "email": "none", "date": "2017-11-06", "comment": "Include pathway"},
-        {"name": "Ludee", "email": "none", "date": "2018-01-30", "comment": "New naming structure"} ],
+        {"name": "Ludee", "email": "none", "date": "2018-01-30", "comment": "New naming structure"},
+        {"name": "Ludee", "email": "none", "date": "2018-02-27", "comment": "Simplify structure"} ],
     "resources": [
         {"name": "model_draft.reeem_times_paneu_input",        
         "format": "PostgreSQL",
@@ -88,18 +86,15 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
             {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
-            {"name": "schema", "description": "1. classification", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
-            {"name": "tags", "description": "Free classification", "unit": "none"},
-            {"name": "field", "description": "Old classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
+            {"name": "category", "description": "2. classification", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
             {"name": "value", "description": "Parameter value", "unit": "unit"},
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
-            {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
+            {"name": "tags", "description": "Free classification", "unit": "none"},
+            {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
@@ -115,18 +110,15 @@ CREATE TABLE            model_draft.reeem_times_paneu_output (
     "pathway"       text,
     "framework"     text,
     "version"       text,
-    "schema"        text,
-    "category"      text,
-    "tags"          hstore,
-    "field"         text,
     "region"        text,
     "year"          smallint,
+    "category"      text,
     "indicator"     text,
     "value"         double precision,
     "unit"          text,
     "aggregation"   boolean,
+    "tags"          hstore,
     "updated"       timestamp with time zone,
-    "source"        text,
     CONSTRAINT reeem_times_paneu_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -164,7 +156,7 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_output IS
         {"name": "Ludee", "email": "none", "date": "2017-11-02", "comment": "Update structure"},
         {"name": "Ludee", "email": "none", "date": "2017-11-06", "comment": "Include pathway"},
         {"name": "Ludee", "email": "none", "date": "2018-01-30", "comment": "New naming structure"},
-        {"name": "", "email": "", "date": "", "comment": ""} ],
+        {"name": "Ludee", "email": "none", "date": "2018-02-27", "comment": "Simplify structure"} ],
     "resources": [
         {"name": "model_draft.reeem_times_paneu_output",        
         "format": "PostgreSQL",
@@ -175,18 +167,15 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_output IS
             {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
-            {"name": "schema", "description": "1. classification", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
-            {"name": "tags", "description": "Free classification", "unit": "none"},
-            {"name": "field", "description": "Old classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
+            {"name": "category", "description": "2. classification", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
             {"name": "value", "description": "Parameter value", "unit": "unit"},
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
-            {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
+            {"name": "tags", "description": "Free classification", "unit": "none"},
+            {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
