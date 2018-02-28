@@ -179,6 +179,47 @@ def reeem_session():
     print('Database connection established!')
 
 
+def scenario_log(con,version,io,schema,table,script,comment):
+    """
+        write entry in scenario log table
+        Parameters
+        ----------
+        con : SQLAlchemy connection object
+        version: str
+            Version number
+        io: str
+            IO-type (input, output, temp)
+        schema : str
+            Database schema
+        table : str
+            Database table
+        script : str
+            Script name
+        comment : str
+            Comment
+
+        Returns
+        -------
+        None
+    """
+    sql=text("""
+        INSERT INTO model_draft.reeem_scenario_log
+            (version,io,schema_name,table_name,script_name,entries,comment,
+            user_name,timestamp,metadata)
+        SELECT  '{0}' AS version,
+                '{1}' AS io,
+                '{2}' AS schema_name,
+                '{3}' AS table_name,
+                '{4}' AS script_name,
+                COUNT(*)AS entries,
+                '{5}' AS comment,
+                session_user AS user_name,
+                NOW() AT TIME ZONE 'Europe/Berlin' AS timestamp,
+                obj_description('{2}.{3}' ::regclass) ::json AS metadata
+        FROM    {2}.{3};""".format(version,io,schema,table,script,comment))
+    con.execute(sql)
+
+
 def reeem_scenario_log(con,version,io,schema,table,script,comment):
     """
         write entry in scenario log table
