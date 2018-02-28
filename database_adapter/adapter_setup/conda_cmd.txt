@@ -5,6 +5,7 @@ __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Ludwig Hülk"
+__version__     = "v0.1.1"
 */
 
 
@@ -37,6 +38,7 @@ conda install pandas -c conda-forge
 conda install sqlalchemy -c conda-forge
 conda install psycopg2 -c conda-forge
 conda install xlrd -c conda-forge
+conda install openpyxl -c conda-forge
 
 -- 2.2 reeem env from yml
 conda env create -f requirements_reeem.yml

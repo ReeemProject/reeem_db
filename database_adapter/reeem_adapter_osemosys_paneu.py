@@ -1,82 +1,73 @@
 """read data from file and write to database"""
 
-__copyright__   = "© Reiner Lemoine Institut"
-__license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
-__url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
-__author__      = "Ludwig Hülk"
-__version__     = "v0.1.0"
+__copyright__ = "© Reiner Lemoine Institut"
+__license__ = "GNU Affero General Public License Version 3 (AGPL-3.0)"
+__url__ = "https://www.gnu.org/licenses/agpl-3.0.en.html"
+__author__ = "Ludwig Hülk"
+__issue__ = "https://github.com/ReeemProject/reeem_db/issues/13"
+__version__ = "v0.1.3"
 
-import os
-import sys
-import getpass
-import logging
-import time
-import datetime
-import pandas as pd
-import numpy as np
 from reeem_io import *
-from sqlalchemy import *
 
+# input
+filename = "2017-02-07_Test_OSEMBE_FrameworkNA_DataV1_Output.xlsx"
 
-## inputs
-model = 'OSeMOSYS PanEU'
-pathway = 'Test_data'       # 'BASE', 'BASE_TI1_P1', 'BASE_TI1_P2', 'Test_data', 'Pilot'
-version = 'V1'              # 'V2', 'V3'
-
-file_name_input = 'REEEM_OSeMOSYS_OSEMBE_Input_Baltic.xlsx'
-file_name_output = 'REEEM_OSeMOSYS_OSEMBE_Output_Baltic_RM1.25.xlsx'
-
-regions = ['AT']
-# regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 
-#     'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 
-#     'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
+# regions = ['AT']
+# regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
+#    'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV',
+#    'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
+regions = {'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
+           'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV',
+           'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK'}
 
 empty_rows = 4
 
 # database table
-db_schema = 'model_draft' 
-db_table_input = 'reeem_osemosys_paneu_input' 
-db_table_output = 'reeem_osemosys_paneu_output' 
+db_schema = 'model_draft'
+db_table_input = 'reeem_osemosys_paneu_input'
+db_table_output = 'reeem_osemosys_paneu_output'
 
 
-def times_paneu_2_reeem_db(model, pathway, version, file_name, empty_rows, db_schema, db_table, region, con):
+def times_osembe_2_reeem_db(filename, fns, empty_rows, db_schema, region, con):
     """read excel file and sheets, make dataframe and write to database"""
-    
-    logger = log()
-    
-    ## read file
-    path = os.path.join('Model_Data', pathway, model, file_name)
+
+    # read file
+    path = os.path.join('Model_Data', 'OSeMOSYS PanEU', filename)
     xls = pd.ExcelFile(path)
     df = pd.read_excel(xls, region, header=empty_rows, index_col='ID')
-    logger.info('...read sheet: {}'.format(region))
-    
-    ## make dataframe
-    df.columns = ['indicator', 'unit', 
-        '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', 
-        '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034', 
-        '2035', '2036', '2037', '2038', '2039', '2040', '2041', '2042', '2043', '2044', 
-        '2045', '2046', '2047', '2048', '2049', '2050', '2051', '2052', '2053', '2054', 
-        '2055', '2056', '2057', '2058', '2059', '2060', 
-        'field', 'category', 'aggregation', 'source']
+    log.info('...read sheet: {}'.format(region))
+
+    # make dataframe
+    df.columns = ['indicator', 'unit',
+                  '2015', '2016', '2017', '2018', '2019', '2020', '2021',
+                  '2022', '2023', '2024',
+                  '2025', '2026', '2027', '2028', '2029', '2030', '2031',
+                  '2032', '2033', '2034',
+                  '2035', '2036', '2037', '2038', '2039', '2040', '2041',
+                  '2042', '2043', '2044',
+                  '2045', '2046', '2047', '2048', '2049', '2050', '2051',
+                  '2052', '2053', '2054',
+                  '2055', 'field', 'aggregation']
     df.index.names = ['nid']
     # print(df.head())
     # print(df.dtypes)
-    
-    ## seperate columns
-    dfunit = df[['field', 'category', 'indicator', 'unit', 'aggregation', 'source']].copy().dropna()
+
+    # seperate columns
+    dfunit = df[['field', 'indicator', 'unit', 'aggregation']].copy().dropna()
     dfunit.index.names = ['nid']
-    dfunit.columns = ['field', 'category', 'indicator', 'unit', 'aggregation', 'source']
+    dfunit.columns = ['field', 'indicator', 'unit', 'aggregation']
     # print(dfunit.head())
     # print(dfunit.dtypes)
-    
-    ## drop seperated columns
-    dfclean = df.drop(['field', 'category', 'indicator', 'unit', 'aggregation', 'source'],axis=1).dropna()
+
+    # drop seperated columns
+    dfclean = df.drop(['field', 'indicator', 'unit', 'aggregation'],
+                      axis=1).dropna()
     # print(dfclean.head())
     # print(dfclean)
-    
-    ## stack dataframe
+
+    # stack dataframe
     dfstack = dfclean.stack().reset_index()
-    dfstack.columns = ['nid','year','value']
+    dfstack.columns = ['nid', 'year', 'value']
     # dfstack.set_index(['nid','year'], inplace=True)
     dfstack.index.names = ['id']
     # print(dfstack)
@@ -84,59 +75,60 @@ def times_paneu_2_reeem_db(model, pathway, version, file_name, empty_rows, db_sc
     # join dataframe for database
     dfdb = dfstack.join(dfunit, on='nid')
     dfdb.index.names = ['dfid']
-    dfdb['pathway'] = pathway
-    dfdb['version'] = version
+    dfdb['pathway'] = fns['pathway']
+    dfdb['framework'] = fns['framework']
+    dfdb['version'] = fns['version']
     dfdb['region'] = region
-    dfdb['updated'] = (datetime.datetime.fromtimestamp(time.time())
-        .strftime('%Y-%m-%d %H:%M:%S'))
+    dfdb['updated'] = fns['day']
+    # dfdb['updated'] = (datetime.datetime.fromtimestamp(time.time())
+    #     .strftime('%Y-%m-%d %H:%M:%S'))
     # print(dfdb.head())
-    
+
+    # i/o
+    if fns['io'] == "Input":
+        db_table = db_table_input
+    else:
+        db_table = db_table_output
+
     # copy dataframe to database
-    dfdb.to_sql(con = con, 
-        schema = db_schema,
-        name = db_table, 
-        if_exists = 'append',
-        index = True )
-    logger.info('......sheet {} sucessfully imported...'.format(region))
+    dfdb.to_sql(con=con,
+                schema=db_schema,
+                name=db_table,
+                if_exists='append',
+                index=True)
+    log.info('......sheet {} sucessfully imported...'.format(region))
 
 
 if __name__ == '__main__':
     # logging
-    logger = log()
+    log = logger()
     start_time = time.time()
-    logger.info('script started...')
-    logger.info('...pathway: {}'.format(pathway))
-    logger.info('...model: {}'.format(model))
-    logger.info('...version: {}'.format(version))
-    logger.info('...regions: {}'.format(regions))
-    logger.info('...read file: {}'.format(file_name_input))
-    logger.info('...read file: {}'.format(file_name_output))
-    logger.info('...establish database connection...')
-    
+    log.info('script started...')
+    log.info('...file: {}'.format(filename))
+    fns = reeem_filenamesplit(filename)
+    log.info('...pathway: {}'.format(fns['pathway']))
+    log.info('...model: {}'.format(fns['model']))
+    log.info('...framework: {}'.format(fns['framework']))
+    log.info('...version: {}'.format(fns['version']))
+    log.info('...i/o: {}'.format(fns['io']))
+    log.info('...regions: {}'.format(regions))
+    log.info('...establish database connection...')
+
     # connection
     con = reeem_session()
-    logger.info('...read file(s)...')
-    
-    # input
-    for region in regions:
-        times_paneu_2_reeem_db(model, pathway, version, file_name_input, empty_rows, 
-            db_schema, db_table_input, region, con)
-    
-    # scenario log
-    reeem_scenario_log(con,version,'import', db_schema, db_table_input,
-        os.path.basename(__file__), file_name_input)
+    log.info('...read file(s)...')
 
-    # output
+    # import
     for region in regions:
-        times_paneu_2_reeem_db(model, pathway, version, file_name_output, empty_rows, 
-            db_schema, db_table_output, region, con)
-    
+        times_osembe_2_reeem_db(filename, fns, empty_rows,
+                                db_schema, region, con)
+
     # scenario log
-    reeem_scenario_log(con,version,'import', db_schema, db_table_output,
-        os.path.basename(__file__), file_name_output)
+    scenario_log(con, 'REEEM', __version__, 'import', db_schema, db_table,
+                 os.path.basename(__file__), filename)
 
     # close connection
     con.close()
-    logger.info('...script successfully executed in {:.2f} seconds...'
-        .format(time.time() - start_time))
-    logger.info('...database connection closed. Goodbye!')
+    log.info('...script successfully executed in {:.2f} seconds...'
+             .format(time.time() - start_time))
+    log.info('...database connection closed. Goodbye!')

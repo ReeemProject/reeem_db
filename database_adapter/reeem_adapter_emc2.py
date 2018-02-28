@@ -4,7 +4,8 @@ __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Ludwig Hülk"
-__version__     = "v0.1.0"
+__issue__       = "https://github.com/ReeemProject/reeem_db/issues/7"
+__version__     = "v0.1.1"
 
 import os
 import sys
@@ -37,7 +38,7 @@ def emc2_input_2_reeem_db(model, pathway, version,
     file_name_input, db_schema, db_table, con):
     """read input file, make dataframe and write to database"""
     
-    logger = log()
+    log = logger()
     
     ## read file
     csv = os.path.join('Model_Data', pathway, model, file_name_input)
@@ -62,14 +63,14 @@ def emc2_input_2_reeem_db(model, pathway, version,
         name = db_table_input, 
         if_exists='append',
         index = True )
-    logger.info('......file {} sucessfully imported...'.format(file_name_input))
+    log.info('......file {} sucessfully imported...'.format(file_name_input))
 
 
 def emc2_output_2_reeem_db(model, pathway, version, 
     file_name_output, db_schema, db_table_output, con):
     """read input file, make dataframe and write to database"""
     
-    logger = log()
+    log = logger()
     
     ## read file
     csv = os.path.join('Model_Data', pathway, model, file_name_output)
@@ -94,20 +95,20 @@ def emc2_output_2_reeem_db(model, pathway, version,
         name = db_table_output, 
         if_exists='append',
         index = True )
-    logger.info('......file {} sucessfully imported...'.format(file_name_output))
+    log.info('......file {} sucessfully imported...'.format(file_name_output))
 
 
 if __name__ == '__main__':
     # logging
-    logger = log()
+    log = logger()
     start_time = time.time()
-    logger.info('script started...')
-    logger.info('...pathway: {}'.format(pathway))
-    logger.info('...model: {}'.format(model))
-    logger.info('...version: {}'.format(version))
-    logger.info('...read file: {}'.format(file_name_input))
-    logger.info('...read file: {}'.format(file_name_output))
-    logger.info('...establish database connection...')
+    log.info('script started...')
+    log.info('...pathway: {}'.format(pathway))
+    log.info('...model: {}'.format(model))
+    log.info('...version: {}'.format(version))
+    log.info('...read file: {}'.format(file_name_input))
+    log.info('...read file: {}'.format(file_name_output))
+    log.info('...establish database connection...')
     
     # connection
     con = reeem_session()
@@ -131,6 +132,6 @@ if __name__ == '__main__':
     
     # close connection
     con.close()
-    logger.info('...script successfully executed in {:.2f} seconds...'
+    log.info('...script successfully executed in {:.2f} seconds...'
         .format(time.time() - start_time))
-    logger.info('...database connection closed. Goodbye!')
+    log.info('...database connection closed. Goodbye!')
