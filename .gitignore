@@ -7,6 +7,7 @@ database_setup/tables
 
 # images
 *.png
+*.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -17,6 +18,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+.idea
 .Python
 env/
 build/
