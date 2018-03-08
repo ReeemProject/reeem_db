@@ -35,6 +35,7 @@ activate GIVEANAME
 conda create --name reeem python=3.5
 activate reeem
 conda install pandas -c conda-forge
+conda install keyring -c conda-forge
 conda install sqlalchemy -c conda-forge
 conda install psycopg2 -c conda-forge
 conda install xlrd -c conda-forge
@@ -48,9 +49,28 @@ activate reeem
 deactivate
 conda remove --name reeem --all
 
--- 3. Packages
+-- 2.4 Packages
 
 conda list
-
 python --version
+
+
+-- 3.1 reeem_vis env
+conda create --name reeem_vis python=3.6.2
+activate reeem_vis
+conda install pandas -c conda-forge
+conda install sqlalchemy -c conda-forge
+conda install psycopg2 -c conda-forge
+conda install scipy -c conda-forge
+conda install jupyter -c conda-forge
+conda install seaborn -c conda-forge
+conda install plotly -c conda-forge
+conda install colorlover -c conda-forge
+conda install cartopy -c conda-forge
+pip install cufflinks
+jupyter notebook
+
+3.2 reeem_vis env from yml
+conda env create -f requirement_reeem_vis.yml
+activate reeem_vis
 
