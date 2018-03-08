@@ -1,0 +1,9 @@
+Filename: 2018-03-08_reeem_plot_3
+Category: Emissions by Emittant and Sector_CO2
+Indicator: CO2
+Unit: Mt
+Pathway: Base
+Year: 2015, 2020, 2025, 2030, 2035, 2040, 2045, 2050
+Region: AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GR, HR, HU, IE, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, UK
+Y-Axis: CO2 in Mt
+Title: Emissions by Emittant and Sector_CO2 in all regions
