@@ -140,15 +140,14 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_output IS
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""},
         {"name": "", "description": "", "url": "", "license": "", "copyright": ""} ],
     "license":
-        {"id": "tba",
-        "name": "tba",
-        "version": "tba",
-        "url": "tba",
-        "instruction": "tba",
-        "copyright": "tba"},
+        {"id": "ODC-BY-1.0",
+        "name": "Open Data Commons Attribution License 1.0",
+        "version": "1.0",
+        "url": "http://opendatacommons.org/licenses/by",
+        "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!",
+        "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2016-12-01", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-01-18", "comment": "Update metadata"},
@@ -156,7 +155,8 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_output IS
         {"name": "Ludee", "email": "none", "date": "2017-11-02", "comment": "Update structure"},
         {"name": "Ludee", "email": "none", "date": "2017-11-06", "comment": "Include pathway"},
         {"name": "Ludee", "email": "none", "date": "2018-01-30", "comment": "New naming structure"},
-        {"name": "Ludee", "email": "none", "date": "2018-02-27", "comment": "Simplify structure"} ],
+        {"name": "Ludee", "email": "none", "date": "2018-02-27", "comment": "Simplify structure"},
+        {"name": "Ludee", "email": "none", "date": "2018-03-15", "comment": "Add license"}],
     "resources": [
         {"name": "model_draft.reeem_times_paneu_output",        
         "format": "PostgreSQL",
