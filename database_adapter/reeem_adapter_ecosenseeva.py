@@ -20,8 +20,8 @@ file_name_output = 'REEEM_Ecosense_Output.csv'
 
 # database table
 db_schema = 'model_draft' 
-db_table_input = 'reeem_ecosense_input' 
-db_table_output = 'reeem_ecosense_eva_output'
+db_table_input = 'reeem_ecosenseeva_input' 
+db_table_output = 'reeem_ecosenseeva_output'
 
 ## functions
 def ecosense_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
@@ -44,6 +44,7 @@ def ecosense_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
     dfdb['framework'] = fns['framework']
     dfdb['version'] = fns['version']
     dfdb['updated'] = fns['day']
+    dfdb['aggregation'] = True
 
     # copy dataframe to database
     dfdb.to_sql(con=con,
