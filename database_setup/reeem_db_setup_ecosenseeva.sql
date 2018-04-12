@@ -43,7 +43,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosenseeva_output TO reeem_read WITH 
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosenseeva_output IS 
-    '{"title": "REEEM EcoSense Output",
+    '{"title": "REEEM EcoSense/EVA Output",
     "description": "Health externalities",
     "language": [ "eng" ],
     "spatial": 
