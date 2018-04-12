@@ -336,7 +336,7 @@ def get_latest_scenariolog(con, log):
 def reeem_filenamesplit(filename):
     """file name identification"""
 
-    filenamesplit = filename.replace(".xlsx", "").split("_")
+    filenamesplit = filename.replace(".xlsx", "").replace(".csv", "").split("_")
     fns = {}
     fns['day'] = filenamesplit[0]
     fns['pathway'] = filenamesplit[1]
