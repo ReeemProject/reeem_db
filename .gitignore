@@ -4,6 +4,7 @@ Model_Data
 reeem_io_config.ini
 reeem_adapter.log
 database_setup/tables
+database_views/reeem_jupyter/data
 
 # images
 *.png

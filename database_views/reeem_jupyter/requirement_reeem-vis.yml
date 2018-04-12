@@ -1,0 +1,19 @@
+name: reeem-vis
+channels:
+- conda-forge
+- defaults
+dependencies:
+- colorlover
+- jupyter
+- matplotlib
+- notebook
+- numpy
+- pandas
+- plotly
+- psycopg2
+- python=3.6
+- scipy
+- seaborn
+- sqlalchemy
+- xlrd
+- openpyxl

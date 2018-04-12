@@ -1,28 +1,18 @@
 """read data from file and write to database"""
 
-__copyright__   = "© Reiner Lemoine Institut"
-__license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
-__url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
-__author__      = "Ludwig Hülk"
-__issue__       = "https://github.com/ReeemProject/reeem_db/issues/7"
-__version__     = "v0.1.1"
+__copyright__ = "© Reiner Lemoine Institut"
+__license__ = "GNU Affero General Public License Version 3 (AGPL-3.0)"
+__url__ = "https://www.gnu.org/licenses/agpl-3.0.en.html"
+__author__ = "Ludwig Hülk"
+__issue__ = "https://github.com/ReeemProject/reeem_db/issues/7"
+__version__ = "v0.1.3"
 
-import os
-import sys
-import getpass
-import logging
-import time
-import datetime
-import pandas as pd
-import numpy as np
 from reeem_io import *
-from sqlalchemy import *
 
+# input
+filename = "2018-04-11_PathwayNA_EcoSenseEVA_FrameworkV2_DataV1_Output.csv"
 
-## inputs
-model = 'EcoSense'
-pathway = 'Test_data'       # 'BASE', 'BASE_TI1_P1', 'BASE_TI1_P2', 'Test_data', 'Pilot'
-version = 'V1'              # 'V2', 'V3'
+empty_rows = 1
 
 #file
 file_name_input = 'REEEM_Ecosense_Input.csv'
@@ -31,107 +21,76 @@ file_name_output = 'REEEM_Ecosense_Output.csv'
 # database table
 db_schema = 'model_draft' 
 db_table_input = 'reeem_ecosense_input' 
-db_table_output = 'reeem_ecosense_output' 
+db_table_output = 'reeem_ecosense_eva_output'
 
 ## functions
-def ecosense_input_2_reeem_db(model, pathway, version, 
-    file_name_input, db_schema, db_table, con):
-    """read input file, make dataframe and write to database"""
-    
-    log = logger()
-    
-    ## read file
-    csv = os.path.join('Model_Data', pathway, model, file_name_input)
-    df = pd.read_csv(csv, sep=';', index_col='nid')
-    
-    ## make dataframe
-    df.columns = ['region','sector_id','sector_name','value','indicator','year','scenario_name','unit']
-    # df.index.names = ['nid']
-    # print(df.dtypes)
-    # print(df.head())
+def ecosense_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
+    """read csv file, make dataframe and write to database"""
 
-    # join dataframe for database
-    df['pathway'] = pathway
-    df['version'] = version
-    df['updated'] = (datetime.datetime.fromtimestamp(time.time())
-        .strftime('%Y-%m-%d %H:%M:%S'))
-    # print(df)
-    
+    # read file
+    csv = os.path.join('Model_Data', 'EcoSense', filename)
+    df = pd.read_csv(csv, sep=';')
+
+    # make dataframe
+    df.columns = ['nid', 'category', 'region', 'year', 'indicator', 'value',
+                  'unit', 'source', 'TIMES_commodity']
+    df.index.names = ['id']
+    dfdb = df.drop(
+        ['source', 'TIMES_commodity'],
+        axis=1).dropna()
+
+
+    dfdb['pathway'] = fns['pathway']
+    dfdb['framework'] = fns['framework']
+    dfdb['version'] = fns['version']
+    dfdb['updated'] = fns['day']
+
     # copy dataframe to database
-    df.to_sql(con = con, 
-        schema = db_schema,
-        name = db_table_input, 
-        if_exists='append',
-        index = True )
-    log.info('......file {} sucessfully imported...'.format(file_name_input))
-
-
-def ecosense_output_2_reeem_db(model, pathway, version, 
-    file_name_output, db_schema, db_table_output, con):
-    """read input file, make dataframe and write to database"""
-    
-    log = logger()
-    
-    ## read file
-    csv = os.path.join('Model_Data', pathway, model, file_name_output)
-    df = pd.read_csv(csv, sep=';', index_col='nid')
-    
-    ## make dataframe
-    df.columns = ['indicator','region_iso','value_daly','value_euro']
-    # df.index.names = ['nid']
-    # print(df.dtypes)
-    # print(df.head())
-
-    # join dataframe for database
-    df['pathway'] = pathway
-    df['version'] = version
-    df['updated'] = (datetime.datetime.fromtimestamp(time.time())
-        .strftime('%Y-%m-%d %H:%M:%S'))
-    # print(df)
-    
-    # copy dataframe to database
-    df.to_sql(con = con, 
-        schema = db_schema,
-        name = db_table_output, 
-        if_exists='append',
-        index = True )
-    log.info('......file {} sucessfully imported...'.format(file_name_output))
+    dfdb.to_sql(con=con,
+                schema=db_schema,
+                name=db_table,
+                if_exists='append',
+                index=True)
+    log.info('......table sucessfully imported...')
 
 
 if __name__ == '__main__':
+    # file and table
+    fns = reeem_filenamesplit(filename)
+
+    # i/o
+    if fns['io'] == "Input":
+        db_table = db_table_input
+    else:
+        db_table = db_table_output
+
     # logging
     log = logger()
     start_time = time.time()
     log.info('script started...')
-    log.info('...pathway: {}'.format(pathway))
-    log.info('...model: {}'.format(model))
-    log.info('...version: {}'.format(version))
-    log.info('...read file: {}'.format(file_name_input))
-    log.info('...read file: {}'.format(file_name_output))
+    log.info('...file: {}'.format(filename))
+    log.info('...pathway: {}'.format(fns['pathway']))
+    log.info('...model: {}'.format(fns['model']))
+    log.info('...framework: {}'.format(fns['framework']))
+    log.info('...version: {}'.format(fns['version']))
+    log.info('...i/o: {}'.format(fns['io']))
+    #log.info('...regions: {}'.format(regions))
+    log.info('...database table: model_draft.{}'.format(db_table))
     log.info('...establish database connection...')
-    
+
     # connection
     con = reeem_session()
-    
-    # input
-    ecosense_input_2_reeem_db(model, pathway, version, file_name_input, 
-        db_schema, db_table_input, con)
-    
+    log.info('...read file(s)...')
+
+    # import
+    ecosense_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con)
+
     # scenario log
-    reeem_scenario_log(con,version,'import', db_schema, db_table_input,
-        os.path.basename(__file__), file_name_input)
-    
-    # output
-    ecosense_output_2_reeem_db(model, pathway, version, file_name_output, 
-        db_schema, db_table_output, con)
-    
-    # scenario log
-    reeem_scenario_log(con,version,'import', db_schema, db_table_output,
-        os.path.basename(__file__), file_name_output)
-    
-    
+    scenario_log(con, 'REEEM', __version__, 'import', db_schema, db_table,
+                 os.path.basename(__file__), filename)
+
     # close connection
     con.close()
     log.info('...script successfully executed in {:.2f} seconds...'
-        .format(time.time() - start_time))
+             .format(time.time() - start_time))
     log.info('...database connection closed. Goodbye!')
