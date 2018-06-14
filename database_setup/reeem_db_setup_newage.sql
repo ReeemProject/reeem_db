@@ -15,15 +15,22 @@ __author__      = "Ludwig Huelk"
 -- NEWAGE Output
 DROP TABLE IF EXISTS    model_draft.reeem_newage_output CASCADE;
 CREATE TABLE            model_draft.reeem_newage_output (
-    id         serial NOT NULL,
-    version     varchar(10),
-    nid         integer,
-    "table"     text,
-    region         varchar(5),
-    "year"         integer,
-    "value"     double precision,
-    unit         varchar(15),
-    updated     timestamp with time zone,
+    "id"            serial NOT NULL,
+    "nid"           integer,
+    "dfid"          integer,
+    "pathway"       text,
+    "framework"     text,
+    "version"       text,
+    "region"        text,
+    "scenario"      text,
+    "year"          smallint,
+    "category"      text,
+    "indicator"     text,
+    "value"         double precision,
+    "unit"          text,
+    "aggregation"   boolean,
+    "tags"          hstore,
+    "updated"       timestamp with time zone,
     CONSTRAINT reeem_newage_output_pkey PRIMARY KEY (id) );
     
 ALTER TABLE        model_draft.reeem_newage_output OWNER TO reeem_user;
