@@ -17,3 +17,5 @@ dependencies:
 - sqlalchemy
 - xlrd
 - openpyxl
+- pip:
+    - cufflinks
