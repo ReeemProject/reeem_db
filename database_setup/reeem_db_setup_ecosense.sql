@@ -21,6 +21,7 @@ __issue__       = "https://github.com/ReeemProject/reeem_db/issues/7"
 DROP TABLE IF EXISTS    model_draft.reeem_ecosense_output CASCADE;
 CREATE TABLE            model_draft.reeem_ecosense_output (
     "id"            serial NOT NULL,
+    "dfid"          integer,
     "nid"           integer,
     "pathway"       text,
     "framework"     text,
@@ -74,7 +75,8 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
         "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
-            {"name": "nid", "description": "Row id", "unit": "none"},
+            {"name": "dfid", "description": "Row id", "unit": "none"},
+            {"name": "nid", "description": "Model id", "unit": "none"},
             {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},

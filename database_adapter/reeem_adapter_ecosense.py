@@ -10,7 +10,7 @@ __version__ = "v0.1.3"
 from reeem_io import *
 
 # input
-filename = ""
+filename = "2018-06-07_HighRES_EcoSense_FrameworkV1_DataV2_output.csv"
 # filename = "2018-04-11_PathwayNA_EcoSenseEVA_FrameworkV2_DataV1_Output.csv"
 # filename = "2018-05-16_PathwayNA_EcoSenseEVA_FrameworkV2_DataV1_Output.csv"
 # filename = "2018-06-07_BASE_EcoSense_FrameworkV1_DataV3_Output.csv"
@@ -18,16 +18,11 @@ filename = ""
 
 empty_rows = 1
 
-#file
-#file_name_input = 'REEEM_Ecosense_Input.csv'
-#file_name_output = 'REEEM_Ecosense_Output.csv'
-
 # database table
 db_schema = 'model_draft' 
-#db_table_input = 'reeem_ecosenseeva_input' 
 db_table_output = 'reeem_ecosense_output'
 
-## functions
+
 def ecosense_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
     """read csv file, make dataframe and write to database"""
 
@@ -36,34 +31,33 @@ def ecosense_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
     df = pd.read_csv(csv, sep=';')
 
     # make dataframe
-    df.columns = ['nid', 'category', 'region', 'region_2' 'year', 'indicator', 'value',
-                  'unit', 'aggregation', 'source']
-    df.index.names = ['id']
+    df.columns = ['nid', 'category', 'region', 'region_2', 'year',
+                  'indicator', 'value', 'unit', 'aggregation', 'source']
+    df.index.names = ['dfid']
     dfdb = df.drop(
         ['source'],
         axis=1).dropna()
-
 
     dfdb['pathway'] = fns['pathway']
     dfdb['framework'] = fns['framework']
     dfdb['version'] = fns['version']
     dfdb['updated'] = fns['day']
+    #print(dfdb)
     
-
     # copy dataframe to database
     dfdb.to_sql(con=con,
                 schema=db_schema,
                 name=db_table,
                 if_exists='append',
                 index=True)
-    log.info('......table sucessfully imported...')
+    log.info('......file {} sucessfully imported...'.format(filename))
 
 
 if __name__ == '__main__':
     # file and table
     fns = reeem_filenamesplit(filename)
 
-    # i/o
+    # i/o (only output)
     if fns['io'] == "Input":
         db_table = db_table_input
     else:
