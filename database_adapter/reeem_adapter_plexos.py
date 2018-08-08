@@ -5,7 +5,7 @@ __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Ludwig Hülk"
 __issue__       = "https://github.com/ReeemProject/reeem_db/issues/14"
-__version__     = "v0.1.1"
+__version__     = "v0.1.3"
 
 import os
 import sys

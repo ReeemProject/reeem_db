@@ -10,7 +10,12 @@ __version__ = "v0.1.3"
 from reeem_io import *
 
 # input
-filename = ""
+# filename = ""
+filename = "2018-07-19_Base_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx"
+# filename = "2018-07-10_HighRES_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx"
+# filename = "2018-07-10_HighRES_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx"
+# filename = "2018-07-10_Base_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx"
+# filename = "2018-08-01_Base_TIMESPanEU_FrameworkV1_DataV3_Input.xlsx"
 # filename = "2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx"
 # filename = "2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Input.xlsx"
 # filename = "2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
@@ -23,6 +28,7 @@ filename = ""
 # filename = "2017-10-27_Pilot2_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
 # filename = "2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
 # filename = "2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
+
 
 # regions = ['AT']
 regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
@@ -50,8 +56,9 @@ def times_paneu_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
 
     # make dataframe
     df.columns = ['indicator', 'unit',
-                  '2015', '2020', '2025', '2030', '2035', '2040',
-                  '2045', '2050', 'field', 'category', 'aggregation', 'source'] #, 'source'
+                  '2015', '2020', '2025', '2030', '2035', 
+                  '2040', '2045', '2050', 'field', 'category', 
+                  'aggregation'] #, 'source'
     df.index.names = ['nid']
     #  print(df.dtypes)
     # print(df.head())
@@ -66,8 +73,8 @@ def times_paneu_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
 
     # drop seperated columns
     dfclean = df.drop(
-        ['field', 'category', 'indicator', 'unit', 'aggregation', 'source'],
-        axis=1).dropna()
+        ['field', 'category', 'indicator', 'unit', 'aggregation'],
+        axis=1).dropna() #, 'source'
     # print(dfclean)
 
     # stack dataframe
