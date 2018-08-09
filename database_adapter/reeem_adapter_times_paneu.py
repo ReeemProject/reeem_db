@@ -29,12 +29,10 @@ filename = "2018-07-19_Base_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx"
 # filename = "2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
 # filename = "2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
 
-
 # regions = ['AT']
 regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
     'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV',
     'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
-
 
 empty_rows = 4
 
@@ -60,7 +58,7 @@ def times_paneu_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
                   '2040', '2045', '2050', 'field', 'category', 
                   'aggregation'] #, 'source'
     df.index.names = ['nid']
-    #  print(df.dtypes)
+    # print(df.dtypes)
     # print(df.head())
 
     # seperate columns
