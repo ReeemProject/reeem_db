@@ -1,0 +1,18 @@
+
+__title__           = "EMP-E Model Matrix"
+__file_name__       = "EMP-E_model_matrix.graphml"
+__caption__         = "EMP-E model matrix (blue - EU, green - national, red - regional, yellow - other)\newline \textcopyright { }Reiner Lemoine Institut $\mid$ CC BY-SA 4.0"
+__date__            = "2017-07-04"
+__author__          = "Ludwig Hülk"
+__copyright__       = "© Reiner Lemoine Institut"
+__license__         = "Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)"
+__license_url__     = "https://creativecommons.org/licenses/by-sa/4.0/"
+__instructions__    = "You are free: To Share, To Create, To Adapt; As long as you: Attribute, Share-Alike, Keep open!"
+__citation__        = "EMP-E Model Matrix © Reiner Lemoine Institut | CC BY-SA 4.0"
+
+__acknowledgement__= "REEEM project; EMP-E" 
+
+## additional information
+# software: "yEd"
+# format: "graphml"
+# font: "Roboto Light"

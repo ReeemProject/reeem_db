@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:java="http://www.yworks.com/xml/yfiles-common/1.0/java" xmlns:sys="http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
+  <!--Created by yEd 3.16.2.1-->
+  <key attr.name="Description" attr.type="string" for="graph" id="d0"/>
+  <key for="port" id="d1" yfiles.type="portgraphics"/>
+  <key for="port" id="d2" yfiles.type="portgeometry"/>
+  <key for="port" id="d3" yfiles.type="portuserdata"/>
+  <key attr.name="url" attr.type="string" for="node" id="d4"/>
+  <key attr.name="description" attr.type="string" for="node" id="d5"/>
+  <key for="node" id="d6" yfiles.type="nodegraphics"/>
+  <key for="graphml" id="d7" yfiles.type="resources"/>
+  <key attr.name="url" attr.type="string" for="edge" id="d8"/>
+  <key attr.name="description" attr.type="string" for="edge" id="d9"/>
+  <key for="edge" id="d10" yfiles.type="edgegraphics"/>
+  <graph edgedefault="directed" id="G">
+    <data key="d0"/>
+    <node id="n0" yfiles.foldertype="group">
+      <data key="d6">
+        <y:TableNode configuration="YED_TABLE_NODE">
+          <y:Geometry height="720.5032816558889" width="1675.2967054477795" x="0.0" y="0.0"/>
+          <y:Fill color="#3366FF" color2="#0042F440" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="2.0" fontFamily="Roboto" fontSize="35" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="45.015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="327.08349609375" x="674.1066046770147" y="2.0">EMP-E Model Matrix</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Roboto" fontSize="40" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="50.875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" rotationAngle="270.0" textColor="#000000" verticalTextPosition="bottom" visible="true" width="435.38671875" x="3.0" y="192.55828145294447">Technology Richness --&gt;<y:LabelModel>
+              <y:RowNodeLabelModel offset="3.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_0" inside="true"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Roboto" fontSize="35" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.015625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="590.26708984375" x="567.5148078020147" y="53.0">Scope and Hybridisation (Sectors) ---&gt;<y:LabelModel>
+              <y:ColumnNodeLabelModel offset="3.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:ColumnNodeLabelModelParameter id="column_0" inside="true" verticalPosition="0.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_COLUMN_SELECTION_STYLE">
+              <y:SimpleStyle fillColor="#474A4380" lineColor="#000000" lineType="line" lineWidth="3.0"/>
+            </y:Property>
+            <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_ROW_SELECTION_STYLE">
+              <y:SimpleStyle fillColor="#474A4380" lineColor="#000000" lineType="line" lineWidth="3.0"/>
+            </y:Property>
+            <y:Property class="java.lang.Integer" name="yed.table.header.font.size" value="24"/>
+            <y:Property class="java.awt.Color" name="yed.table.lane.color.main" value="#ffffff"/>
+            <y:Property class="java.awt.Color" name="yed.table.lane.color.alternating" value="#c0c0c0"/>
+            <y:Property class="java.awt.Color" name="yed.table.header.color.main" value="#c0c0c0"/>
+            <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_ROW_STYLE">
+              <y:SimpleStyle fillColor="#474A4340" lineColor="#000000" lineType="line" lineWidth="1.0"/>
+            </y:Property>
+            <y:Property class="java.awt.Color" name="yed.table.section.color" value="#c0c0c0"/>
+            <y:Property class="java.lang.Double" name="yed.table.header.height" value="24.0"/>
+            <y:Property class="java.awt.Color" name="yed.table.header.color.alternating" value="#c0c0c0"/>
+            <y:Property class="java.lang.String" name="yed.table.lane.style" value="lane.style.rows"/>
+            <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_COLUMN_STYLE">
+              <y:SimpleStyle fillColor="#474A4340" lineColor="#000000" lineType="line" lineWidth="1.0"/>
+            </y:Property>
+          </y:StyleProperties>
+          <y:State autoResize="true" closed="false" closedHeight="80.0" closedWidth="100.0"/>
+          <y:Insets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+          <y:BorderInsets bottom="17" bottomF="17.00328165588894" left="20" leftF="20.0" right="25" rightF="25.29670544777946" top="21" topF="21.0"/>
+          <y:Table autoResizeTable="true" defaultColumnWidth="120.0" defaultMinimumColumnWidth="50.0" defaultMinimumRowHeight="50.0" defaultRowHeight="80.0">
+            <y:DefaultColumnInsets bottom="0.0" left="0.0" right="0.0" top="24.0"/>
+            <y:DefaultRowInsets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
+            <y:Insets bottom="0.0" left="0.0" right="0.0" top="50.0"/>
+            <y:Columns>
+              <y:Column id="column_0" minimumWidth="50.0" width="1625.2967054477795">
+                <y:Insets bottom="0.0" left="0.0" right="0.0" top="50.0"/>
+              </y:Column>
+            </y:Columns>
+            <y:Rows>
+              <y:Row height="620.5032816558889" id="row_0" minimumHeight="50.0">
+                <y:Insets bottom="0.0" left="50.0" right="0.0" top="0.0"/>
+              </y:Row>
+            </y:Rows>
+          </y:Table>
+        </y:TableNode>
+      </data>
+      <graph edgedefault="directed" id="n0:">
+        <node id="n0::n0">
+          <data key="d4"><![CDATA[http://oep.iks.cs.ovgu.de/factsheets/models/22/]]></data>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="70.0" y="622.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="147.0" x="16.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; SciGRID &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; NEXT ENERGY &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n1">
+          <data key="d4"><![CDATA[http://oep.iks.cs.ovgu.de/factsheets/models/22/]]></data>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="70.0" y="523.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.0" x="53.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; EGMM &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; REKK &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n2">
+          <data key="d4"><![CDATA[http://oep.iks.cs.ovgu.de/factsheets/models/22/]]></data>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="270.00000000000006" y="623.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="178.0" x="1.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; RESTORE &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; Wuppertal Institut &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n3">
+          <data key="d4"><![CDATA[http://oep.iks.cs.ovgu.de/factsheets/models/46/]]></data>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="470.0" y="623.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="156.0" x="12.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; Enerallt &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; Aalto University &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n4">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="470.0" y="523.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="169.0" x="5.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; E2M2 &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; IER, Uni Stuttgart &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n5">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="70.0" y="423.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="144.0" x="18.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; ASTRA &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; ISI Fraunhofer &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n6">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1270.0" y="323.5"/>
+              <y:Fill color="#FFFF99" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="161.0" x="9.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; MESSGE-CLEW &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; LEI &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n7">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="70.0" y="323.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="171.0" x="4.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; Balmorel Europe &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; DTU &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n8">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="270.0" y="223.5"/>
+              <y:Fill color="#FFFF99" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="169.0" x="5.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; PERSEUS-EU &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; IER, Uni Stuttgart &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n9">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="470.0" y="223.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="85.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="121.0" x="29.5" y="-2.5">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; OSeMOSYS&lt;br&gt;PAN-EU &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; KTH &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n10">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="470.0" y="323.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="157.0" x="11.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; GENESYS (I+II) &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; RWTH Aachen &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n11">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="270.0" y="423.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="170.0" x="5.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; PyPSA-EU-GRID &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; FIAS&lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n12">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="270.0" y="323.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="96.0" x="42.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; EMME &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; FZ Jülich &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n13">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1470.0" y="123.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="104.0" x="38.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; ENERPOL &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; ETHZ &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n14">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1470.0" y="223.5"/>
+              <y:Fill color="#FFFF99" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="141.0" x="19.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; ETSAP-TIAM &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; ETSAP &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n15">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1270.0" y="123.5"/>
+              <y:Fill color="#FFFF99" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="175.0" x="2.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; REMIND-MagPIE &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; PIK &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n16">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1070.0" y="123.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="94.0" x="43.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; PRIMES &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; E3M-Lab &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n17">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="870.0" y="123.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="169.0" x="5.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; TIMES-PanEU &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; IER, Uni Stuttgart &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n18">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="670.0" y="123.5"/>
+              <y:Fill color="#00CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="172.0" x="4.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; TIMES-Germany &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; IER, Uni Stuttgart &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n19">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="470.0" y="123.5"/>
+              <y:Fill color="#FFFF99" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="148.0" x="16.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; TIMES-Nordic &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; DTU &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n20">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="270.0" y="123.5"/>
+              <y:Fill color="#FFFF99" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="85.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="105.0" x="37.5" y="-2.5">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt;MESSAGE&lt;br&gt;BALTIC+&lt;/span&gt;&lt;br&gt;
+&lt;i&gt; LEI &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n21">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="70.0" y="123.5"/>
+              <y:Fill color="#FFFF99" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="96.0" x="42.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; GASOPT &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; FZ Jülich &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n22">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1270.0" y="623.5"/>
+              <y:Fill color="#FFFF99" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="169.0" x="5.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; TIAM-MACRO &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; IER, Uni Stuttgart &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n23">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1470.0" y="423.5"/>
+              <y:Fill color="#00CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="53.0" x="63.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; 3mE &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; TNO &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n24">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="670.0" y="223.5"/>
+              <y:Fill color="#00CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="116.0" x="32.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; EPIPHRON &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; UCD &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n25">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="670.0" y="623.5"/>
+              <y:Fill color="#00CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="163.0" x="8.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; Energy Security &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; LEI &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n26">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="470.0" y="423.5"/>
+              <y:Fill color="#00CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="85.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="121.0" x="29.5" y="-2.5">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt;OSeMOSYS
+&lt;br&gt;Greece&lt;/span&gt;&lt;br&gt;
+&lt;i&gt; KTH &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n27">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1070.0" y="523.5"/>
+              <y:Fill color="#00CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="100.0" x="40.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; EnEkonLt &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; LEI &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n28">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1270.0" y="523.5"/>
+              <y:Fill color="#FFFF99" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="169.0" x="5.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; NEWAGE &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; IER, Uni Stuttgart &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n29">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1470.0" y="523.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="167.0" x="6.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; MAGNET-GTAP &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; WUR &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n30">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="270.0" y="523.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="71.0" x="54.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; EEMM &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; REKK &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n31">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="870.0" y="623.5"/>
+              <y:Fill color="#00CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="97.0" x="41.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; STREAM &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; DTU &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n32">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1470.0" y="623.5"/>
+              <y:Fill color="#FFFF99" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="138.0" x="21.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; JRC-GEM-E3 &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; EC &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n33">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="670.0" y="323.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.0" x="53.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; METIS &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; Artelys &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n34">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="670.0" y="523.5"/>
+              <y:Fill color="#FF9999" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="58.0" x="61.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; t.b.d. &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; TNO &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n35">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1270.0" y="423.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="98.0" x="41.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; Hotmaps &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; TU Wien &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n36">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="870.0" y="223.5"/>
+              <y:Fill color="#00CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="107.0" x="36.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; TIMES PT &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; FCT &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n37">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="870.0" y="423.5"/>
+              <y:Fill color="#00CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="161.0" x="9.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; TIMES Belgium &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; VITO &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n38">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1070.0" y="423.5"/>
+              <y:Fill color="#FF9999" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="149.0" x="15.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; TIMES EVORA &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; FCT &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n39">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1070.0" y="223.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="144.0" x="18.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; FORECAST&lt;/span&gt;&lt;br&gt;
+&lt;i&gt; ISI Fraunhofer &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n40">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1270.0" y="223.5"/>
+              <y:Fill color="#00CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="96.0" x="42.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; IKARUS &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; FZ Jülich &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n41">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1470.0" y="323.5"/>
+              <y:Fill color="#00CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="99.0" x="40.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; EU-CALC &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; OIK &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n42">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="70.0" y="223.5"/>
+              <y:Fill color="#00CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="164.0" x="8.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; deeco &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; Robbie Morrison &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n43">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="870.0" y="523.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="153.0" x="13.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; Green-X &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; TU Wien, AXPO
+ &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n44">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="870.0" y="323.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="139.0" x="20.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; Energy PLAN &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; Aalborg Uni &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n45">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="1070.0" y="323.5"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="152.0" x="14.0" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt; EUOpenPlexos &lt;/span&gt;&lt;br&gt;
+&lt;i&gt; UCC &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n0::n46">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="80.0" width="180.0" x="670.0" y="423.5"/>
+              <y:Fill color="#00CC00" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="5.0" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="58.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="117.0" x="31.5" y="11.0">&lt;html&gt;
+&lt;div text-align:center"&gt;
+&lt;span style="font-weight:bold"&gt;renpassG!S&lt;/span&gt;&lt;br&gt;
+&lt;i&gt; ZNES &lt;/i&gt;
+&lt;/div&gt;
+&lt;/html&gt;</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+      </graph>
+    </node>
+  </graph>
+  <data key="d7">
+    <y:Resources/>
+  </data>
+</graphml>
