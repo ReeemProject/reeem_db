@@ -5,16 +5,21 @@ __license__ = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__ = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__ = "Ludwig Hülk"
 __issue__ = "https://github.com/ReeemProject/reeem_db/issues/32"
-__version__ = "v0.1.3"
+__version__ = "v0.2"
 
 from reeem_io import *
 
-# input
-filename = "2018-06-07_HighRES_EcoSense_FrameworkV1_DataV2_output.csv"
+# input (old)
 # filename = "2018-04-11_PathwayNA_EcoSenseEVA_FrameworkV2_DataV1_Output.csv"
 # filename = "2018-05-16_PathwayNA_EcoSenseEVA_FrameworkV2_DataV1_Output.csv"
 # filename = "2018-06-07_BASE_EcoSense_FrameworkV1_DataV3_Output.csv"
 # filename = "2018-06-07_HighRES_EcoSense_FrameworkV1_DataV2_output.csv"
+
+# input
+filename = "2018-07-17_BASE_EcoSense_FrameworkV1_DataV3_Output.csv"
+# filename = "2018-07-17_BASE_EcoSense_FrameworkV2_DataV1_Output.csv"
+# filename = "2018-07-17_HighRES_EcoSense_FrameworkV1_DataV3_Output.csv"
+# filename = "2018-07-17_HighRES_EcoSense_FrameworkV2_DataV1_Output.csv"
 
 empty_rows = 1
 

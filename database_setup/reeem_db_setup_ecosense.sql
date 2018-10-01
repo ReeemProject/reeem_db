@@ -69,7 +69,7 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
         {"name": "Ludee", "email": "none", "date": "2017-05-09", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
         {"name": "Ludee", "email": "none", "date": "2018-04-12", "comment": "Finalize structure and update metadata"},
-        {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metada"} ],
+        {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_ecosense_output",
         "format": "PostgreSQL",
@@ -93,4 +93,4 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
     "metadata_version": "1.3"}';
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
-SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_ecosense_output','reeem_db_setup_ecosense.sql',' ');
+SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_ecosense_output','reeem_db_setup_ecosense.sql',' ');
