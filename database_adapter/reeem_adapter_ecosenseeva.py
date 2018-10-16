@@ -10,13 +10,9 @@ __version__ = "v0.1.3"
 from reeem_io import *
 
 # input
-filename = "2018-04-11_PathwayNA_EcoSenseEVA_FrameworkV2_DataV1_Output.csv"
+filename = "2018-05-16_PathwayNA_EcoSenseEVA_FrameworkV2_DataV1_Output.csv"
 
 empty_rows = 1
-
-#file
-file_name_input = 'REEEM_Ecosense_Input.csv'
-file_name_output = 'REEEM_Ecosense_Output.csv'
 
 # database table
 db_schema = 'model_draft' 
@@ -28,7 +24,7 @@ def ecosense_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
     """read csv file, make dataframe and write to database"""
 
     # read file
-    csv = os.path.join('Model_Data', 'EcoSense', filename)
+    csv = os.path.join('Model_Data', 'EcoSenseEVA', filename)
     df = pd.read_csv(csv, sep=';')
 
     # make dataframe
