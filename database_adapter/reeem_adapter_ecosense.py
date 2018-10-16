@@ -13,13 +13,8 @@ from reeem_io import *
 # filename = "2018-07-17_BASE_EcoSense_FrameworkV1_DataV3_Output.csv"
 # filename = "2018-07-17_BASE_EcoSense_FrameworkV2_DataV1_Output.csv"
 # filename = "2018-07-17_HighRES_EcoSense_FrameworkV1_DataV3_Output.csv"
-filename = "2018-07-17_HighRES_EcoSense_FrameworkV2_DataV1_Output.csv"
+# filename = "2018-07-17_HighRES_EcoSense_FrameworkV2_DataV1_Output.csv"
 
-# input (old)
-# filename = "2018-04-11_PathwayNA_EcoSenseEVA_FrameworkV2_DataV1_Output.csv"
-# filename = "2018-05-16_PathwayNA_EcoSenseEVA_FrameworkV2_DataV1_Output.csv"
-# filename = "2018-06-07_BASE_EcoSense_FrameworkV1_DataV3_Output.csv"
-# filename = "2018-06-07_HighRES_EcoSense_FrameworkV1_DataV2_output.csv"
 
 empty_rows = 1
 
