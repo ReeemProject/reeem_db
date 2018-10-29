@@ -10,24 +10,31 @@ __version__ = "v0.1.3"
 from reeem_io import *
 
 # input
-# filename = ""
-filename = "2018-07-19_Base_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx"
-# filename = "2018-07-10_HighRES_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx"
-# filename = "2018-07-10_HighRES_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx"
-# filename = "2018-07-10_Base_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx"
-# filename = "2018-08-01_Base_TIMESPanEU_FrameworkV1_DataV3_Input.xlsx"
-# filename = "2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx"
-# filename = "2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Input.xlsx"
-# filename = "2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
-# filename = "2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
-# filename = "2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
-# filename = "2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
-# filename = "2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
-# filename = "2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
-# filename = "2017-11-15_Base(withRen.Target)_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
-# filename = "2017-10-27_Pilot2_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
-# filename = "2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
+
 # filename = "2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
+# filename = "2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
+
+# filename = "2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
+# filename = "2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
+# filename = "2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx" #MISSING!
+# filename = "2018-07-10_HighRES_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx"
+# filename = "2018-07-10_HighRES_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx"
+
+# filename = "2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
+# filename = "2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
+
+# filename = "2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
+# filename = "2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
+
+# filename = "2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Input.xlsx" 
+# filename = "2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx"
+
+# filename = "2018-07-10_Base_TIMESPanEU_FrameworkV2_DataV1_Input.xlsx" #SP?
+# filename = "2018-07-10_Base_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx"
+
+# filename = "2018-08-01_Base_TIMESPanEU_FrameworkV1_DataV3_Input.xlsx"
+# filename = "2018-07-19_Base_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx"
+
 
 # regions = ['AT']
 regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',

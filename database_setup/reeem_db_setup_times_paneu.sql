@@ -4,8 +4,6 @@ TIMES PanEU Table Setup
 TIMES PanEU Input
 TIMES PanEU Output
 
-https://github.com/ReeemProject/reeem_db/issues/4
-
 __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
