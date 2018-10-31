@@ -37,6 +37,7 @@ CREATE TABLE            model_draft.reeem_energypro_input (
     "aggregation"   boolean,
     "tags"          hstore,
     "updated"       timestamp with time zone,
+    "source"        text,
     CONSTRAINT reeem_energypro_input_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -106,6 +107,8 @@ CREATE TABLE            model_draft.reeem_energypro_output (
     "version"       text,
     "region"        text,
     "year"          smallint,
+    "month"         smallint,
+    "year_month"    text,
     "field"         text,
     "category"      text,
     "indicator"     text,
@@ -156,7 +159,7 @@ COMMENT ON TABLE model_draft.reeem_energypro_output IS
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "region", "description": "Country", "unit": "none"},
-            {"name": "year", "description": "Year", "unit": "none"},
+            {"name": "month", "description": "Month", "unit": "none"},
             {"name": "field", "description": "2. classification", "unit": "none"},
             {"name": "category", "description": "3. classification", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
