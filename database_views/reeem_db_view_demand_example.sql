@@ -31,7 +31,7 @@ CREATE VIEW         model_draft.reeem_db_energydemand_view AS
             md.mj AS metadata
     FROM    model_draft.reeem_times_paneu_input,
             (SELECT obj_description('model_draft.reeem_times_paneu_input' ::regclass) ::json AS mj) AS md
-    WHERE   pathway = 'Base' AND
+    WHERE   (pathway = 'Base' OR pathway = 'HighRES') AND
             version = 'DataV1' AND
             --region = 'SE' AND
             tags @> '"model"=>"times_paneu"'::hstore AND
