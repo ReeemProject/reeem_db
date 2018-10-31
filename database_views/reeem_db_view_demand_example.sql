@@ -15,7 +15,8 @@ __author__      = "Ludwig Hülk"
 
 
 -- view
-CREATE OR REPLACE VIEW model_draft.reeem_db_energydemand_view AS
+DROP VIEW IF EXISTS model_draft.reeem_db_energydemand_view;
+CREATE VIEW         model_draft.reeem_db_energydemand_view AS
     SELECT  id,
             pathway,
             framework,
@@ -27,9 +28,9 @@ CREATE OR REPLACE VIEW model_draft.reeem_db_energydemand_view AS
             aggregation,
             tags,
             updated,
-            md AS metadata
+            md.mj AS metadata
     FROM    model_draft.reeem_times_paneu_input,
-            (SELECT obj_description('model_draft.reeem_times_paneu_input' ::regclass) ::json) AS md
+            (SELECT obj_description('model_draft.reeem_times_paneu_input' ::regclass) ::json AS mj) AS md
     WHERE   pathway = 'Base' AND
             version = 'DataV1' AND
             --region = 'SE' AND
