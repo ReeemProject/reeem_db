@@ -26,10 +26,13 @@ CREATE OR REPLACE VIEW model_draft.reeem_db_energydemand_view AS
             unit,
             aggregation,
             tags,
-            updated
-    FROM    model_draft.reeem_times_paneu_input
+            updated,
+            md AS metadata
+    FROM    model_draft.reeem_times_paneu_input,
+            (SELECT obj_description('model_draft.reeem_times_paneu_input' ::regclass) ::json) AS md
     WHERE   pathway = 'Base' AND
-            region = 'SE' AND
+            version = 'DataV1' AND
+            --region = 'SE' AND
             tags @> '"model"=>"times_paneu"'::hstore AND
             tags @> '"field"=>"service_demand"'::hstore AND
             tags @> '"demand_sector"=>"agriculture"'::hstore
