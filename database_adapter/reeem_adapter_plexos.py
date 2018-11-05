@@ -10,7 +10,6 @@ __version__     = "v0.1.3"
 from reeem_io import *
 
 # input
-# filename = ""
 filename = "2018-04-25_Base_Plexos_FrameworkV1_DataV2_Output.xlsx"
 # filename = "2018-04-25_Base_Plexos_FrameworkV1_DataV2_Input.xlsx"
 # filename = "2018-02-02_Base_Plexos_FrameworkV1_DataV1_Output.xlsx"
@@ -47,7 +46,7 @@ def plexos_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
         
         # seperate columns
         dfunit = df[['schema', 'field', 'category', 'indicator', 'unit', 
-            'aggregation', 'source']].copy().dropna()
+            'aggregation', 'source']].copy()
         dfunit.index.names = ['nid']
         dfunit.columns = ['schema', 'field', 'category', 'indicator', 'unit', 
             'aggregation', 'source']
@@ -56,8 +55,9 @@ def plexos_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
         
         # drop seperated columns
         dfclean = df.drop(['schema', 'field', 'category', 
-            'indicator', 'unit', 'aggregation', 'source'],axis=1).dropna()
+            'indicator', 'unit', 'aggregation', 'source'],axis=1)
         # print(dfclean)
+    
     else:
         df.columns = ['indicator', 'unit', '2030',
             'schema', 'field', 'category', 'aggregation']
@@ -67,7 +67,7 @@ def plexos_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
         
         # seperate columns
         dfunit = df[['schema', 'field', 'category', 
-            'indicator', 'unit', 'aggregation']].copy().dropna()
+            'indicator', 'unit', 'aggregation']].copy()
         dfunit.index.names = ['nid']
         dfunit.columns = ['schema', 'field', 'category', 
             'indicator', 'unit', 'aggregation']
@@ -76,7 +76,7 @@ def plexos_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
         
         # drop seperated columns
         dfclean = df.drop(['schema', 'field', 'category', 
-            'indicator', 'unit', 'aggregation'],axis=1).dropna()
+            'indicator', 'unit', 'aggregation'],axis=1)
         # print(dfclean)
     
     # stack dataframe
