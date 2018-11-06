@@ -10,14 +10,13 @@ __version__ = "v0.2.0"
 from reeem_io import *
 
 # input
+filenames = ['2018-10-30_Base_EnergyPRO_FrameworkV1_DataV1_Input.xlsx', 
+             '2018-10-30_Base_EnergyPRO_FrameworkV1_DataV1_Output.xlsx',
+             '2018-10-30_Base_EnergyPRO_FrameworkV1_DataV2_Input.xlsx',
+             '2018-10-30_Base_EnergyPRO_FrameworkV1_DataV2_Output.xlsx']
 
-filename = "2018-10-30_Base_EnergyPRO_FrameworkV1_DataV2_Output.xlsx"
-# filename = "2018-10-30_Base_EnergyPRO_FrameworkV1_DataV2_Input.xlsx"
-# filename = "2018-10-30_Base_EnergyPRO_FrameworkV1_DataV1_Output.xlsx"
-# filename = "2018-10-30_Base_EnergyPRO_FrameworkV1_DataV1_Input.xlsx"
 
-
-# regions = ['AT']
+# regions
 regions = ['PL-Warsaw', 'FI-Helsinki']
 
 empty_rows = 4
@@ -36,8 +35,7 @@ def energypro_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
     path = os.path.join('Model_Data', 'EnergyPRO', filename)
     xls = pd.ExcelFile(path)
     df = pd.read_excel(xls, region, header=empty_rows, index_col='id')
-    log.info('...read sheet: {}'.format(region))
-
+    log.info('......read sheet: {}'.format(region))
 
     if fns['io'] == "Input":
         
@@ -122,44 +120,50 @@ def energypro_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
 
 
 if __name__ == '__main__':
-    # file and table
-    fns = reeem_filenamesplit(filename)
-
-    # i/o
-    if fns['io'] == "Input":
-        db_table = db_table_input
-    else:
-        db_table = db_table_output
-
+    
     # logging
     log = logger()
     start_time = time.time()
     log.info('script started...')
-    log.info('...file: {}'.format(filename))
-    log.info('...pathway: {}'.format(fns['pathway']))
-    log.info('...model: {}'.format(fns['model']))
-    log.info('...framework: {}'.format(fns['framework']))
-    log.info('...version: {}'.format(fns['version']))
-    log.info('...i/o: {}'.format(fns['io']))
-    log.info('...regions: {}'.format(regions))
-    log.info('...database table: model_draft.{}'.format(db_table))
-    log.info('...establish database connection...')
-
+    
     # connection
+    log.info('...establish database connection:')
     con = reeem_session()
-    log.info('...read file(s)...')
+    
+    # import files
+    for filename in filenames:
+        
+        # file and table
+        fns = reeem_filenamesplit(filename)
+    
+        # i/o
+        if fns['io'] == "Input":
+            db_table = db_table_input
+        else:
+            db_table = db_table_output
+    
+        # log files
+        log.info('read file: {}'.format(filename))
+        log.info('...model: {}'.format(fns['model']))
+        log.info('...pathway: {}'.format(fns['pathway']))
+        log.info('...framework: {}'.format(fns['framework']))
+        log.info('...version: {}'.format(fns['version']))
+        log.info('...i/o: {}'.format(fns['io']))
+        log.info('...regions: {}'.format(regions))
+        log.info('...database table: model_draft.{}'.format(db_table))
 
-    # import
-    for region in regions:
-        energypro_2_reeem_db(filename, fns, db_table, empty_rows,
-                               db_schema, region, con)
+        # import sheets
+        for region in regions:
+            energypro_2_reeem_db(filename, fns, db_table, empty_rows,
+                                db_schema, region, con)
 
-    # scenario log
-    scenario_log(con, 'REEEM', __version__, 'import', db_schema, db_table,
-                 os.path.basename(__file__), filename)
+        # scenario log
+        scenario_log(con, 'REEEM', __version__, 'import', db_schema, db_table,
+                    os.path.basename(__file__), filename)
+
 
     # close connection
     con.close()
-    log.info('...script successfully executed in {:.2f} seconds...'
+    log.info('script successfully executed in {:.2f} seconds...'
              .format(time.time() - start_time))
-    log.info('...database connection closed. Goodbye!')
+    log.info('database connection closed. Goodbye!')

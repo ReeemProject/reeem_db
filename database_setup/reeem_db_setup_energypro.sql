@@ -106,7 +106,7 @@ SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_energypro_inpu
 
 
 
--- EnergyPRO Input
+-- EnergyPRO Output
 DROP TABLE IF EXISTS    model_draft.reeem_energypro_output CASCADE;
 CREATE TABLE            model_draft.reeem_energypro_output (
     "id"            serial NOT NULL,

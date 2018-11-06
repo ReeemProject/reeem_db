@@ -5,15 +5,15 @@ __license__ = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__ = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__ = "Ludwig Hülk"
 __issue__ = "https://github.com/ReeemProject/reeem_db/issues/32"
-__version__ = "v0.2"
+__version__ = "v0.2.0"
 
 from reeem_io import *
 
 # input
-# filename = "2018-07-17_BASE_EcoSense_FrameworkV1_DataV3_Output.csv"
-# filename = "2018-07-17_BASE_EcoSense_FrameworkV2_DataV1_Output.csv"
-# filename = "2018-07-17_HighRES_EcoSense_FrameworkV1_DataV3_Output.csv"
-# filename = "2018-07-17_HighRES_EcoSense_FrameworkV2_DataV1_Output.csv"
+filenames = ['2018-07-17_BASE_EcoSense_FrameworkV1_DataV3_Output.csv',
+             '2018-07-17_BASE_EcoSense_FrameworkV2_DataV1_Output.csv',
+             '2018-07-17_HighRES_EcoSense_FrameworkV1_DataV3_Output.csv',
+             '2018-07-17_HighRES_EcoSense_FrameworkV2_DataV1_Output.csv']
 
 
 empty_rows = 1
@@ -34,9 +34,7 @@ def ecosense_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
     df.columns = ['nid', 'category', 'region', 'region_2', 'year',
                   'indicator', 'value', 'unit', 'aggregation', 'source']
     df.index.names = ['dfid']
-    dfdb = df.drop(
-        ['source'],
-        axis=1).dropna()
+    dfdb = df.drop(['source'], axis=1)
 
     dfdb['pathway'] = fns['pathway']
     dfdb['framework'] = fns['framework']
@@ -54,39 +52,44 @@ def ecosense_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
 
 
 if __name__ == '__main__':
-    # file and table
-    fns = reeem_filenamesplit(filename)
-
-    # i/o (only output)
-    if fns['io'] == "Input":
-        db_table = db_table_input
-    else:
-        db_table = db_table_output
-
+    
     # logging
     log = logger()
     start_time = time.time()
     log.info('script started...')
-    log.info('...file: {}'.format(filename))
-    log.info('...pathway: {}'.format(fns['pathway']))
-    log.info('...model: {}'.format(fns['model']))
-    log.info('...framework: {}'.format(fns['framework']))
-    log.info('...version: {}'.format(fns['version']))
-    log.info('...i/o: {}'.format(fns['io']))
-    #log.info('...regions: {}'.format(regions))
-    log.info('...database table: model_draft.{}'.format(db_table))
-    log.info('...establish database connection...')
-
+    
     # connection
+    log.info('...establish database connection:')
     con = reeem_session()
-    log.info('...read file(s)...')
-
-    # import
-    ecosense_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con)
-
-    # scenario log
-    scenario_log(con, 'REEEM', __version__, 'import', db_schema, db_table,
-                 os.path.basename(__file__), filename)
+    
+    # import files
+    for filename in filenames:
+    
+        # file and table
+        fns = reeem_filenamesplit(filename)
+    
+        # i/o (only output)
+        if fns['io'] == "Input":
+            db_table = db_table_input
+        else:
+            db_table = db_table_output
+    
+        # log files
+        log.info('read file: {}'.format(filename))
+        log.info('...model: {}'.format(fns['model']))
+        log.info('...pathway: {}'.format(fns['pathway']))
+        log.info('...framework: {}'.format(fns['framework']))
+        log.info('...version: {}'.format(fns['version']))
+        log.info('...i/o: {}'.format(fns['io']))
+        # log.info('...regions: {}'.format(regions))
+        log.info('...database table: model_draft.{}'.format(db_table))
+        
+        # import sheets
+        ecosense_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con)
+    
+        # scenario log
+        scenario_log(con, 'REEEM', __version__, 'import', db_schema, db_table,
+                    os.path.basename(__file__), filename)
 
     # close connection
     con.close()

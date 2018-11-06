@@ -5,7 +5,7 @@ __license__ = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__ = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__ = "Ludwig Hülk"
 __issue__ = "https://github.com/ReeemProject/reeem_db/issues/32"
-__version__ = "v0.1.3"
+__version__ = "v0.2.0"
 
 from reeem_io import *
 
@@ -19,7 +19,7 @@ db_schema = 'model_draft'
 db_table_input = 'reeem_ecosenseeva_input' 
 db_table_output = 'reeem_ecosenseeva_output'
 
-## functions
+
 def ecosense_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
     """read csv file, make dataframe and write to database"""
 
