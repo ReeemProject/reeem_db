@@ -5,18 +5,20 @@ __license__ = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__ = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__ = "Ludwig Hülk"
 __issue__ = "https://github.com/ReeemProject/reeem_db/issues/8"
-__version__ = "v0.1.3"
+__version__ = "v0.2.0"
 
 from reeem_io import *
 
 # input
 
-# filename = "2018-05-11_Base_EnergyPRO_FrameworkV1_DataV1_Input.xlsx"
-filename = "2018-05-11_Base_EnergyPRO_FrameworkV1_DataV1_Output.xlsx"
+filename = "2018-10-30_Base_EnergyPRO_FrameworkV1_DataV2_Output.xlsx"
+# filename = "2018-10-30_Base_EnergyPRO_FrameworkV1_DataV2_Input.xlsx"
+# filename = "2018-10-30_Base_EnergyPRO_FrameworkV1_DataV1_Output.xlsx"
+# filename = "2018-10-30_Base_EnergyPRO_FrameworkV1_DataV1_Input.xlsx"
 
 
 # regions = ['AT']
-regions = ['Warsaw', 'Helsinki region']
+regions = ['PL-Warsaw', 'FI-Helsinki']
 
 empty_rows = 4
 
@@ -48,7 +50,7 @@ def energypro_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
         # seperate columns
         dfunit = df[['field', 'category', 'indicator', 'unit', 
                      'source', 'aggregation'
-                    ]].copy().dropna()
+                    ]].copy()
         dfunit.index.names = ['nid']
         dfunit.columns = ['field', 'category', 'indicator', 'unit', 
                           'source', 'aggregation']
@@ -56,7 +58,7 @@ def energypro_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
         # drop seperated columns
         dfclean = df.drop(
             ['field', 'category', 'indicator', 'unit', 'source', 'aggregation'],
-            axis=1).dropna()
+            axis=1)
         
         # stack dataframe
         dfstack = dfclean.stack().reset_index()
@@ -78,7 +80,7 @@ def energypro_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
         # seperate columns
         dfunit = df[['field', 'category', 'indicator', 'unit', 
                      'aggregation'
-                    ]].copy().dropna()
+                    ]].copy()
         dfunit.index.names = ['nid']
         dfunit.columns = ['field', 'category', 'indicator', 'unit', 
                           'aggregation']
@@ -86,7 +88,7 @@ def energypro_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
         # drop seperated columns
         dfclean = df.drop(
             ['field', 'category', 'indicator', 'unit', 'aggregation'],
-            axis=1).dropna()
+            axis=1)
 
         # stack dataframe
         dfstack = dfclean.stack().reset_index()
