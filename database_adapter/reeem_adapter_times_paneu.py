@@ -5,37 +5,38 @@ __license__ = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__ = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__ = "Ludwig Hülk"
 __issue__ = "https://github.com/ReeemProject/reeem_db/issues/4"
-__version__ = "v0.1.3"
+__version__ = "v0.2.0"
 
 from reeem_io import *
 
 # input
+filenames = ['2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
+             '2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
 
-# filename = "2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
-# filename = "2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
+             '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
+             '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
 
-# filename = "2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
-# filename = "2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
-# filename = "2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx" #MISSING!
-# filename = "2018-07-10_HighRES_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx"
-# filename = "2018-07-10_HighRES_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx"
+             '2018-07-10_HighRES_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx',
+             '2018-07-10_HighRES_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx',
 
-# filename = "2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
-# filename = "2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
+             '2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
+             '2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
 
-# filename = "2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx"
-# filename = "2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx"
+             '2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
+             '2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
 
-# filename = "2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Input.xlsx" 
-# filename = "2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx"
+             '2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Input.xlsx',
+             '2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx',
 
-# filename = "2018-07-10_Base_TIMESPanEU_FrameworkV2_DataV1_Input.xlsx" #SP?
-# filename = "2018-07-10_Base_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx"
+             '2018-07-10_Base_TIMESPanEU_FrameworkV2_DataV1_Input.xlsx',
+             '2018-07-10_Base_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx',
 
-# filename = "2018-08-01_Base_TIMESPanEU_FrameworkV1_DataV3_Input.xlsx"
-# filename = "2018-07-19_Base_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx"
+             '2018-08-01_Base_TIMESPanEU_FrameworkV1_DataV3_Input.xlsx',
+             '2018-07-19_Base_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx']
 
+#            '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx" #MISSING!
 
+# regions
 # regions = ['AT']
 regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
     'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV',
@@ -65,22 +66,17 @@ def times_paneu_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
                   '2040', '2045', '2050', 'field', 'category', 
                   'aggregation'] #, 'source'
     df.index.names = ['nid']
-    # print(df.dtypes)
-    # print(df.head())
 
     # seperate columns
     dfunit = df[['category', 'indicator', 'unit', 'aggregation'
-                 ]].copy().dropna()
+                 ]].copy()
     dfunit.index.names = ['nid']
     dfunit.columns = ['category', 'indicator', 'unit', 'aggregation']
-    # print(dfunit)
-    # print(dfunit.dtypes)
 
     # drop seperated columns
     dfclean = df.drop(
         ['field', 'category', 'indicator', 'unit', 'aggregation'],
-        axis=1).dropna() #, 'source'
-    # print(dfclean)
+        axis=1) #, 'source'
 
     # stack dataframe
     dfstack = dfclean.stack().reset_index()
@@ -111,41 +107,46 @@ def times_paneu_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
 
 
 if __name__ == '__main__':
-    # file and table
-    fns = reeem_filenamesplit(filename)
-
-    # i/o
-    if fns['io'] == "Input":
-        db_table = db_table_input
-    else:
-        db_table = db_table_output
-
+    
     # logging
     log = logger()
     start_time = time.time()
     log.info('script started...')
-    log.info('...file: {}'.format(filename))
-    log.info('...pathway: {}'.format(fns['pathway']))
-    log.info('...model: {}'.format(fns['model']))
-    log.info('...framework: {}'.format(fns['framework']))
-    log.info('...version: {}'.format(fns['version']))
-    log.info('...i/o: {}'.format(fns['io']))
-    log.info('...regions: {}'.format(regions))
-    log.info('...database table: model_draft.{}'.format(db_table))
-    log.info('...establish database connection...')
-
+    
     # connection
+    log.info('...establish database connection:')
     con = reeem_session()
-    log.info('...read file(s)...')
-
-    # import
-    for region in regions:
-        times_paneu_2_reeem_db(filename, fns, db_table, empty_rows,
-                               db_schema, region, con)
-
-    # scenario log
-    scenario_log(con, 'REEEM', __version__, 'import', db_schema, db_table,
-                 os.path.basename(__file__), filename)
+    
+    # import files
+    for filename in filenames:
+    
+        # file and table
+        fns = reeem_filenamesplit(filename)
+    
+        # i/o
+        if fns['io'] == "Input":
+            db_table = db_table_input
+        else:
+            db_table = db_table_output
+    
+        # log files
+        log.info('read file: {}'.format(filename))
+        log.info('...model: {}'.format(fns['model']))
+        log.info('...pathway: {}'.format(fns['pathway']))
+        log.info('...framework: {}'.format(fns['framework']))
+        log.info('...version: {}'.format(fns['version']))
+        log.info('...i/o: {}'.format(fns['io']))
+        log.info('...regions: {}'.format(regions))
+        log.info('...database table: model_draft.{}'.format(db_table))
+    
+        # import
+        for region in regions:
+            times_paneu_2_reeem_db(filename, fns, db_table, empty_rows,
+                                db_schema, region, con)
+    
+        # scenario log
+        scenario_log(con, 'REEEM', __version__, 'import', db_schema, db_table,
+                    os.path.basename(__file__), filename)
 
     # close connection
     con.close()
