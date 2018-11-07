@@ -20,7 +20,7 @@
           <y:Geometry height="835.58269525268" width="1879.663093415008" x="0.0" y="-10.0"/>
           <y:Fill color="#3366FF" color2="#0042F440" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="2.0" fontFamily="Roboto" fontSize="35" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="45.015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="327.08349609375" x="776.289798660629" y="2.0">EMP-E Model Matrix</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="2.0" fontFamily="Roboto" fontSize="35" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="45.015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="373.56787109375" x="753.047611160629" y="2.0">EMP-E Model Matrix v4</y:NodeLabel>
           <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Roboto" fontSize="40" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="50.875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" rotationAngle="270.0" textColor="#000000" verticalTextPosition="bottom" visible="true" width="435.38671875" x="3.0" y="255.09798825133998">Technology Richness --&gt;<y:LabelModel>
               <y:RowNodeLabelModel offset="3.0"/>
             </y:LabelModel>
@@ -1071,7 +1071,7 @@
     <node id="n1">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.bpmn.Artifact.withShadow">
-          <y:Geometry height="40.0" width="425.0" x="1235.692" y="0.30400000000000205"/>
+          <y:Geometry height="40.0" width="425.0" x="1407.5" y="0.30400000000000205"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Roboto" fontSize="22" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="29.78125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="399.01171875" x="12.994140625" y="5.109375">© Reiner Lemoine Institut | CC BY-SA 4.0<y:LabelModel>
