@@ -96,7 +96,7 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
     "metadata_version": "1.3"}';
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
-SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_times_paneu_input','reeem_db_setup_times_paneu.sql',' ');
+SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_times_paneu_input','reeem_db_setup_times_paneu.sql',' ');
 
 
 -- TIMES PanEU Output
@@ -178,4 +178,4 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_output IS
     "metadata_version": "1.3"}';
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
-SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_times_paneu_output','reeem_db_setup_times_paneu.sql',' ');
+SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_times_paneu_output','reeem_db_setup_times_paneu.sql',' ');
