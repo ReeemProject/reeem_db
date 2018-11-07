@@ -15,11 +15,11 @@ filenames = ['2018-07-17_BASE_EcoSense_FrameworkV1_DataV3_Output.csv',
              '2018-07-17_HighRES_EcoSense_FrameworkV1_DataV3_Output.csv',
              '2018-07-17_HighRES_EcoSense_FrameworkV2_DataV1_Output.csv']
 
-
 empty_rows = 1
 
 # database table
-db_schema = 'model_draft' 
+db_schema = 'model_draft'
+db_table_input = 'reeem_ecosense_input' 
 db_table_output = 'reeem_ecosense_output'
 
 
@@ -64,7 +64,7 @@ if __name__ == '__main__':
     
     # import files
     for filename in filenames:
-    
+        
         # file and table
         fns = reeem_filenamesplit(filename)
     
@@ -90,6 +90,7 @@ if __name__ == '__main__':
         # scenario log
         scenario_log(con, 'REEEM', __version__, 'import', db_schema, db_table,
                     os.path.basename(__file__), filename)
+
 
     # close connection
     con.close()
