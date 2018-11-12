@@ -16,15 +16,16 @@ __author__      = "Ludwig Huelk"
 DROP TABLE IF EXISTS    model_draft.reeem_newage_output CASCADE;
 CREATE TABLE            model_draft.reeem_newage_output (
     "id"            serial NOT NULL,
+    "rid"           integer,
     "nid"           integer,
-    "dfid"          integer,
     "pathway"       text,
     "framework"     text,
     "version"       text,
-    "region"        text,
     "scenario"      text,
-    "year"          smallint,
+    "region"        text,
+    "field"         text,
     "category"      text,
+    "year"          smallint,
     "indicator"     text,
     "value"         double precision,
     "unit"          text,
@@ -65,18 +66,22 @@ COMMENT ON TABLE model_draft.reeem_newage_output IS '{
         {"name": "model_draft.reeem_newage_output",        
         "format": "PostgreSQL",
         "fields": [
-            {"name": "id", "description": "unique identifier", "unit": "" },
-            {"name": "version", "description": "internal version number", "unit": "" },
-            {"name": "nid", "description": "row id", "unit": "" },
-            {"name": "table", "description": "table name", "unit": "" },
-            {"name": "region", "description": "country or region", "unit": "" },
-            {"name": "year", "description": "year", "unit": "" },
-            {"name": "value", "description": "value", "unit": "" },
-            {"name": "unit", "description": "unit", "unit": "" },
-            {"name": "updated", "description": "timestamp", "unit": "" } ] } ],
+            {"name": "id", "description": "Unique identifier", "unit": "none"},
+            {"name": "nid", "description": "Row id", "unit": "none"},
+            {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
+            {"name": "framework", "description": "REEEM framework", "unit": "none"},
+            {"name": "version", "description": "REEEM version", "unit": "none"},
+            {"name": "region", "description": "Country or region", "unit": "none"},
+            {"name": "scenario", "description": "Scenario", "unit": "none"},
+            {"name": "year", "description": "Year", "unit": "none"},
+            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "indicator", "description": "Parameter name", "unit": "none"},
+            {"name": "value", "description": "Parameter value", "unit": "unit"},
+            {"name": "unit", "description": "Parameter unit", "unit": "none"},
+            {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
+            {"name": "tags", "description": "Free classification", "unit": "none"},
+            {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
-SELECT obj_description('model_draft.reeem_newage_output' ::regclass) ::json;
-
--- scenario log (version,io,schema_name,table_name,script_name,comment)
-SELECT reeem_scenario_log('v0.1','setup','model_draft','reeem_newage_output','database_setup_times_paneu.sql',' ');
+-- scenario log (project,version,io,schema_name,table_name,script_name,comment)
+SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_newage_output','database_setup_newage.sql',' ');
