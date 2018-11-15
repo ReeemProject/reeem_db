@@ -39,8 +39,8 @@ filenames = ['2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
 # regions
 # regions = ['AT']
 regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
-    'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV',
-    'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
+           'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV',
+           'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
 
 empty_rows = 4
 
@@ -61,29 +61,56 @@ def times_paneu_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
     log.info('...read sheet: {}'.format(region))
 
     # make dataframe
-    df.columns = ['indicator', 'unit',
-                  '2015', '2020', '2025', '2030', '2035', 
-                  '2040', '2045', '2050', 'field', 'category', 
-                  'aggregation'] #, 'source'
-    df.index.names = ['nid']
+    if fns['io'] == "Input":
 
-    # seperate columns
-    dfunit = df[['category', 'indicator', 'unit', 'aggregation'
-                 ]].copy()
-    dfunit.index.names = ['nid']
-    dfunit.columns = ['category', 'indicator', 'unit', 'aggregation']
-
-    # drop seperated columns
-    dfclean = df.drop(
-        ['field', 'category', 'indicator', 'unit', 'aggregation'],
-        axis=1) #, 'source'
+        # label columns
+        df.columns = ['indicator', 'unit',
+                    '2015', '2020', '2025', '2030', '2035', 
+                    '2040', '2045', '2050', 'field', 'category', 
+                    'aggregation', 'source']
+        df.index.names = ['nid']
+    
+        # seperate columns
+        dfunit = df[['category', 'indicator', 'unit', 'aggregation', 'source'
+                    ]].copy()
+        dfunit.index.names = ['nid']
+        # dfunit.columns = ['category', 'indicator', 'unit', 'aggregation']
+        # print(dfunit.head())
+    
+        # drop seperated columns
+        dfclean = df.drop(
+            ['field', 'category', 'indicator', 'unit', 'aggregation', 'source'],
+            axis=1) #, 'source'
+        # print(dfclean.head())
+        
+    else:
+        
+        # label columns
+        df.columns = ['indicator', 'unit',
+                    '2015', '2020', '2025', '2030', '2035', 
+                    '2040', '2045', '2050', 'field', 'category', 
+                    'aggregation']
+        df.index.names = ['nid']
+    
+        # seperate columns
+        dfunit = df[['category', 'indicator', 'unit', 'aggregation'
+                    ]].copy()
+        dfunit.index.names = ['nid']
+        # dfunit.columns = ['category', 'indicator', 'unit', 'aggregation']
+        # print(dfunit.head())
+        
+        # drop seperated columns
+        dfclean = df.drop(
+            ['field', 'category', 'indicator', 'unit', 'aggregation'],
+            axis=1)
+        # print(dfclean.head())
 
     # stack dataframe
     dfstack = dfclean.stack().reset_index()
     dfstack.columns = ['nid', 'year', 'value']
     # dfstack.set_index(['nid','year'], inplace=True)
     dfstack.index.names = ['id']
-    # print(dfstack)
+    # print(dfstack.head())
 
     # join dataframe for database
     dfdb = dfstack.join(dfunit, on='nid')

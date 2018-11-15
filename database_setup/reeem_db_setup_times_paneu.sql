@@ -36,6 +36,7 @@ CREATE TABLE            model_draft.reeem_times_paneu_input (
     "aggregation"   boolean,
     "tags"          hstore,
     "updated"       timestamp with time zone,
+    "source"        text,
     CONSTRAINT reeem_times_paneu_input_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -92,7 +93,8 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "tags", "description": "Free classification", "unit": "none"},
-            {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
+            {"name": "updated", "description": "Timestamp", "unit": "none"},
+            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
