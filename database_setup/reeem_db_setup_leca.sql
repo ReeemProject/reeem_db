@@ -17,6 +17,7 @@ __author__      = "Ludwig Hülk"
 DROP TABLE IF EXISTS    model_draft.reeem_leca_input CASCADE;
 CREATE TABLE            model_draft.reeem_leca_input (
     "id"            serial NOT NULL,
+    "nid"           integer,
     "pathway"       text,
     "version"       text,
     "schema"        text,
@@ -94,17 +95,23 @@ SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_leca_input','r
 DROP TABLE IF EXISTS    model_draft.reeem_leca_output CASCADE;
 CREATE TABLE            model_draft.reeem_leca_output (
     "id"            serial NOT NULL,
+    "rid"           integer,
+    "nid"           integer,
     "pathway"       text,
+    "framework"     text,
     "version"       text,
-    "schema"        text,
-    "category"      text,
-    "tags"          hstore,
+    "scenario"      text,
     "region"        text,
+    "schema"        text,
+    "field"         text,
+    "category"      text,
+    "set"           text,
     "year"          smallint,
     "indicator"     text,
     "value"         double precision,
     "unit"          text,
     "aggregation"   boolean,
+    "tags"          hstore,
     "updated"       timestamp with time zone,
     "source"        text,
     CONSTRAINT reeem_leca_output_pkey PRIMARY KEY (id) );
@@ -148,7 +155,6 @@ COMMENT ON TABLE model_draft.reeem_leca_output IS
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
             {"name": "nid", "description": "Row id", "unit": "none"},
-            {"name": "dfid", "description": "Internal dataframe id", "unit": "none"},
             {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
