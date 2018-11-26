@@ -13,6 +13,33 @@ __author__      = "Ludwig Huelk"
 
 
 -- NEWAGE Output
+DROP TABLE IF EXISTS    model_draft.reeem_newage_input CASCADE;
+CREATE TABLE            model_draft.reeem_newage_input (
+    "id"            serial NOT NULL,
+    "rid"           integer,
+    "nid"           integer,
+    "pathway"       text,
+    "framework"     text,
+    "version"       text,
+    "scenario"      text,
+    "region"        text,
+    "field"         text,
+    "category"      text,
+    "year"          smallint,
+    "indicator"     text,
+    "value"         double precision,
+    "unit"          text,
+    "aggregation"   boolean,
+    "tags"          hstore,
+    "updated"       timestamp with time zone,
+    CONSTRAINT reeem_newage_input_pkey PRIMARY KEY (id) );
+    
+ALTER TABLE        model_draft.reeem_newage_input OWNER TO reeem_user;
+GRANT SELECT ON TABLE    model_draft.reeem_newage_input TO reeem_read WITH GRANT OPTION;
+
+
+
+-- NEWAGE Output
 DROP TABLE IF EXISTS    model_draft.reeem_newage_output CASCADE;
 CREATE TABLE            model_draft.reeem_newage_output (
     "id"            serial NOT NULL,

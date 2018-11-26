@@ -125,7 +125,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosense_output TO reeem_read WITH GRA
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosense_output IS 
     '{"title": "REEEM EcoSense Output",
-    "description": "Health externalities",
+    "description": "Impacts on human health and biodiversity due to air pollution (externalities)",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
@@ -137,7 +137,7 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
-        {"name": "TIMES PanEU emisison data", "description": "Uses emission data from TIMES PanEU results for respective pahtways, framework and data version", "url": "none", "license": "none", "copyright": "none"} ],
+        {"name": "TIMES PanEU emisison data", "description": "Uses emission data from TIMES PanEU results for respective pahtways, framework and data version", "url": "none", "license": "ODC-BY-1.0", "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"} ],
     "license":
         {"id": "ODC-BY-1.0",
         "name": "Open Data Commons Attribution License 1.0",
@@ -149,7 +149,8 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
         {"name": "Ludee", "email": "none", "date": "2017-05-09", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
         {"name": "Ludee", "email": "none", "date": "2018-04-12", "comment": "Finalize structure and update metadata"},
-        {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metadata"} ],
+        {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metadata"},
+        {"name": "doroschmid", "email": "none", "date": "2018-11-08", "comment": "Update metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_ecosense_output",
         "format": "PostgreSQL",
