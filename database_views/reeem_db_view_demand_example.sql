@@ -66,3 +66,48 @@ SELECT reeem_scenario_log('v0.3.0','view','model_draft','reeem_db_energydemand_v
     ORDER BY region,year,"category";
     
     
+   WITH v1 AS (SELECT "pathway","framework","version","region","year","category","indicator","value","unit","updated"
+        FROM    model_draft.reeem_db_energydemand_view
+        WHERE   pathway = 'Base' AND "framework" = 'FrameworkV1' AND version = 'DataV1'), --AND year = '2010' AND "category" = 'Service demands agriculture'
+        v2 AS (SELECT "pathway","framework","version","region","year","category","indicator","value","unit","updated"
+        FROM    model_draft.reeem_db_energydemand_view
+        WHERE   pathway = 'HighRES' AND "framework" = 'FrameworkV1' AND version = 'DataV1')
+    SELECT  v1."pathway",v1."framework",v1."version",
+			v1."category",v1."year",v1."indicator",
+            v1."region",-- AS region_1,v2."region" AS region_2,
+            v1."value" AS value_1,v2."value" AS value_2, v1."value" - v2."value" AS diff,
+            v1."unit",v1."updated"
+    FROM    v1 INNER JOIN v2 ON (v1.region = v2.region AND v1.category = v2.category AND v1.indicator = v2.indicator)
+    WHERE   v1.indicator = 'Agriculture' AND
+			v1."framework" = 'FrameworkV1' AND v1.version = 'DataV1' AND
+			v1.year = v2.year AND
+            --v1.year = '2010' AND
+            --v1.region = 'DE' AND
+            v1."value" <> v2."value"
+    ORDER BY region,year,"category";
+    
+    
+   WITH v1 AS (SELECT "pathway","framework","version","region","year","category","indicator","value","unit","updated"
+        FROM    model_draft.reeem_times_paneu_output
+        WHERE   pathway = 'Base' AND "framework" = 'FrameworkV1' AND version = 'DataV3'
+				AND tags @> '"field"=>"new_installed_capacity"'::hstore
+				AND year = '2050' AND region = 'AT'
+				AND category = 'NEW Capacities Public and Industrial Power Plants by Fuel and Technology_Solar_Photovoltaics'
+				AND indicator = 'Photovoltaics'), --AND year = '2010' AND "category" = 'Service demands agriculture'
+        v2 AS (SELECT "pathway","framework","version","region","year","category","indicator","value","unit","updated"
+        FROM    model_draft.reeem_times_paneu_output
+        WHERE   pathway = 'HighRES' AND "framework" = 'FrameworkV1' AND version = 'DataV3'
+                AND tags @> '"field"=>"new_installed_capacity"'::hstore
+				AND year = '2050' AND region = 'AT'
+				AND category = 'NEW Capacities Public and Industrial Power Plants by Fuel and Technology_Solar_Photovoltaics'
+				AND indicator = 'Photovoltaics')
+    SELECT  v1."pathway",v1."framework",v1."version",
+			v1."category",v1."year",v1."indicator",
+            v1."region",-- AS region_1,v2."region" AS region_2,
+            v1."value" AS value_1,v2."value" AS value_2, v1."value" - v2."value" AS diff,
+            v1."unit",v1."updated"
+    FROM    v1 INNER JOIN v2 ON (v1.region = v2.region AND v1.category = v2.category AND v1.indicator = v2.indicator)
+    WHERE   v1."framework" = 'FrameworkV1' AND v1.version = 'DataV1' AND
+			v1.year = v2.year AND
+            v1."value" <> v2."value"
+    ORDER BY region,year,"category";
