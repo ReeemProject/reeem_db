@@ -11,18 +11,19 @@ from reeem_io import *
 
 # input
 # filename = "2017-02-07_Test_OSEMBE_FrameworkNA_DataV1_Output.xlsx"
-filename = "2018-09-10_Base_OSEMBE_FrameworkNA_DataV1_Output.xlsx"
+# filename = "2018-09-10_Base_OSEMBE_FrameworkNA_DataV1_Output.xlsx"
+filename = "2018-11-27_Base_OSeMBE_FrameworkNA_DataV1_Output.xlsx"
 
 # regions = ['EU28']
 # regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
 #            'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV',
 #            'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
-regions = ['EU28', 'AT', 'BE', 'BG', 'CH', 'CY', 'CZ', 'DE', 'DK', 'EE', 
+regions = ['EU30', 'AT', 'BE', 'BG', 'CH', 'CY', 'CZ', 'DE', 'DK', 'EE', 
            'ES', 'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 
            'LV', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 
            'UK']
 
-empty_rows = 4
+empty_rows = 5
 
 # database table
 db_schema = 'model_draft'
@@ -47,23 +48,21 @@ def osembe_2_reeem_db(filename, fns, empty_rows, db_schema, region, con):
                   '2032', '2033', '2034',
                   '2035', '2036', '2037', '2038', '2039', '2040', '2041',
                   '2042', '2043', '2044',
-                  '2045', '2046', '2047', '2048', '2049', '2050', '2051',
-                  '2052', '2053', '2054',
-                  '2055', 'field', 'aggregation']
+                  '2045', '2046', '2047', '2048', '2049', '2050', 'category',
+                  'aggregation']
     df.index.names = ['nid']
     # print(df.head())
     # print(df.dtypes)
 
     # seperate columns
-    dfunit = df[['field', 'indicator', 'unit', 'aggregation']].copy().dropna()
+    dfunit = df[['category', 'indicator', 'unit', 'aggregation']].copy().dropna()
     dfunit.index.names = ['nid']
-    dfunit.columns = ['field', 'indicator', 'unit', 'aggregation']
+    dfunit.columns = ['category', 'indicator', 'unit', 'aggregation']
     # print(dfunit.head())
     # print(dfunit.dtypes)
 
     # drop seperated columns
-    dfclean = df.drop(['field', 'indicator', 'unit', 'aggregation', 
-                       '2051', '2052', '2053', '2054', '2055'],
+    dfclean = df.drop(['category', 'indicator', 'unit', 'aggregation'],
                       axis=1).dropna()
     # print(dfclean.head())
     # print(dfclean)
