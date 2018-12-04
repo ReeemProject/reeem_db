@@ -1,5 +1,5 @@
 /*
-TIMES PanEU Data Cleaning
+TIMES PanEU Data Cleaning and Tagging
 
 TIMES PanEU Input
 TIMES PanEU Output
@@ -20,6 +20,10 @@ __issue__       = "https://github.com/ReeemProject/reeem_db/issues/4"
 */
 
 
+-----------
+-- CLEANING
+-----------
+
 -- remove leading white space - regexp_replace(indicator, '^\s+', '')
 UPDATE model_draft.reeem_times_paneu_input
     SET indicator = regexp_replace(indicator, '^\s+', '');
@@ -30,6 +34,10 @@ UPDATE model_draft.reeem_times_paneu_output
 UPDATE model_draft.reeem_times_paneu_output
     SET category = regexp_replace(category, '^\s+', '');
 
+
+----------
+-- TAGGING
+----------
 
 -- remove all tags
 UPDATE model_draft.reeem_times_paneu_input
@@ -201,6 +209,10 @@ UPDATE model_draft.reeem_times_paneu_output
     WHERE   category LIKE 'External Costs%';
 
 
+---------------------------------------
+-- SELECT (execute as separate queries)
+---------------------------------------
+
 -- example selects
 SELECT  category, indicator, tags
 FROM    model_draft.reeem_times_paneu_output
@@ -214,17 +226,6 @@ FROM    model_draft.reeem_times_paneu_output
 WHERE   tags IS NULL
 GROUP BY category, indicator, tags
 ORDER BY category, indicator;
-
-
-
--- template
-
-UPDATE model_draft.reeem_times_paneu_output
-    SET     tags = COALESCE(tags, '') || hstore('field', '')
-    WHERE   category LIKE '%';
-
-
-
 
 -- example selects
 SELECT  category, indicator, tags
@@ -262,21 +263,29 @@ WHERE   tags @> '"model"=>"times_paneu"'::hstore
 ORDER BY category, indicator;
 
 
+---------------------------------------
+-- MISC
+---------------------------------------
+
+-- template
+
+--UPDATE model_draft.reeem_times_paneu_output
+--    SET     tags = COALESCE(tags, '') || hstore('field', '')
+--    WHERE   category LIKE '%';
+
+
+-- TODO
 -- set schema
-UPDATE model_draft.reeem_times_paneu_input
-    SET     tags = tags || hstore('schema', 'energy_demand')
-    WHERE   category = 'Service demands residential' OR
+--UPDATE model_draft.reeem_times_paneu_input
+--    SET     tags = tags || hstore('schema', 'energy_demand')
+--    WHERE   category = 'Service demands residential' OR
     
-    
 
+----------
+-- LOGGING
+----------
 
-
-
-
-
-
-
-
-
--- scenario log (project,version,io,schema_name,table_name,script_name,comment)
-SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_times_paneu_output','reeem_db_setup_times_paneu.sql',' ');
+-- INPUT scenario log (project,version,io,schema_name,table_name,script_name,comment)
+SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_times_paneu_input','reeem_db_clean_times_paneu.sql',' ');
+-- OUTPUT scenario log (project,version,io,schema_name,table_name,script_name,comment)
+SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_times_paneu_output','reeem_db_clean_times_paneu.sql',' ');
