@@ -271,7 +271,7 @@ UPDATE model_draft.reeem_times_paneu_input
     WHERE   category LIKE 'Final energy consumption%' OR
             category LIKE 'Net electricity consumption%' OR
             category LIKE 'Net import%' OR
-            category LIKE 'Primary energy consumption%'
+            category LIKE 'Primary energy consumption%' OR
             indicator LIKE 'Final energy consumption Transport' OR
             indicator LIKE 'Electricity Exchange - Import' OR
             indicator LIKE 'Electricity Exchange - Net Imports%' OR
