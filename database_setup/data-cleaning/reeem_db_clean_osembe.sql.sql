@@ -102,8 +102,60 @@ UPDATE model_draft.reeem_osembe_output
 -- OUTPUT set field tag
 -----------------------
 UPDATE model_draft.reeem_osembe_output
-    SET     tags = COALESCE(tags, '') || hstore('field', '')
-    WHERE   category LIKE 'xyz';
+    SET     tags = COALESCE(tags, '') || hstore('field', 'activity')
+    WHERE   field LIKE 'Activity%';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'avg_price')
+    WHERE   field LIKE 'Average electricity price';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'biomass_production')
+    WHERE   field LIKE 'Biomass production%' OR
+            category LIKE 'Biomass production';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'electricity_exchange')
+    WHERE   field LIKE 'Electricity Exchange%' OR
+            category LIKE 'Electricity Exchange%';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'electricity_production')
+    WHERE   field LIKE 'Electricity Production%' OR
+            category LIKE 'Electricity Production%';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'emission')
+    WHERE   field LIKE 'Emissions%' OR
+            category LIKE 'Emissions';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'energy_consumption')
+    WHERE   field LIKE 'Final energy consumption%' OR
+            category LIKE 'Final energy consumption%';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'fuel_input')
+    WHERE   field LIKE 'Fuel Input%' OR
+            category LIKE 'Fuel Input%';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'heat_production')
+    WHERE   field LIKE 'Heat Production%';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'installed_capacities')
+    WHERE   field LIKE 'Installed Capacities%' OR
+            category LIKE 'Installed Capacities%';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'primary_energy_consumption')
+    WHERE   field LIKE 'Primary energy consumption%' OR
+            category LIKE 'Primary energy consumption%';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'stock')
+    WHERE   field LIKE '%Stock%';
 
 --------------------------
 -- OUTPUT set category tag
