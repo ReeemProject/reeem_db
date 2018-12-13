@@ -39,23 +39,27 @@ UPDATE model_draft.reeem_times_paneu_output
 -- TAGGING
 ----------
 
--- remove all tags
+--------------------------
+-- INPUT|OUTPUT remove all
+--------------------------
 UPDATE model_draft.reeem_times_paneu_input
     SET tags = NULL;
 
 UPDATE model_draft.reeem_times_paneu_output
     SET tags = NULL;
 
-
--- set model tag
+-------------------------
+-- INPUT|OUTPUT set model
+-------------------------
 UPDATE model_draft.reeem_times_paneu_input
     SET tags = COALESCE(tags, '') || hstore('model', 'times_paneu');
 
 UPDATE model_draft.reeem_times_paneu_output
     SET tags = COALESCE(tags, '') || hstore('model', 'times_paneu');
 
-
+-------------------
 -- INPUT set schema
+-------------------
 UPDATE model_draft.reeem_times_paneu_input
     SET     tags = COALESCE(tags, '') || hstore('schema', 'economy')
     WHERE   category LIKE '%prices%' OR
@@ -75,7 +79,9 @@ UPDATE model_draft.reeem_times_paneu_input
             category LIKE '%electricity production%' OR
             category LIKE 'Potentials of biomass';
 
+------------------
 -- INPUT set field
+------------------
 UPDATE model_draft.reeem_times_paneu_input
     SET     tags = COALESCE(tags, '') || hstore('field', 'service_demand')
     WHERE   category LIKE 'Service demands%';
@@ -104,7 +110,6 @@ UPDATE model_draft.reeem_times_paneu_input
     SET     tags = COALESCE(tags, '') || hstore('demand_sector', 'household')
     WHERE   category LIKE '%households';
 
-
 UPDATE model_draft.reeem_times_paneu_input
     SET     tags = COALESCE(tags, '') || hstore('field', 'price')
     WHERE   LOWER(category) LIKE '%fuel prices';
@@ -114,7 +119,6 @@ UPDATE model_draft.reeem_times_paneu_input
     WHERE   category = 'Minimal electricity production of renewables' OR
             category = 'Maximum electricity production of renewables' OR
             category = 'Potentials of biomass';
-
 
 UPDATE model_draft.reeem_times_paneu_input
     SET     tags = COALESCE(tags, '') || hstore('field', 'costs')
@@ -132,7 +136,6 @@ UPDATE model_draft.reeem_times_paneu_input
     SET     tags = COALESCE(tags, '') || hstore('costs', 'var')
     WHERE   category LIKE 'Variable%';
 
-
 UPDATE model_draft.reeem_times_paneu_input
     SET     tags = COALESCE(tags, '') || hstore('field', 'lifetime')
     WHERE   category LIKE 'Lifetime%';
@@ -145,7 +148,9 @@ UPDATE model_draft.reeem_times_paneu_input
     SET     tags = COALESCE(tags, '') || hstore('field', 'energy_carrier_price')
     WHERE   category LIKE 'Approximation energy carrier prices%';
 
+---------------------
 -- INPUT set category
+---------------------
 UPDATE model_draft.reeem_times_paneu_input
     SET     tags = COALESCE(tags, '') || hstore('category', 'public_heating_plant;biomass')
     WHERE   category LIKE '%public heating plants Biomass';
@@ -242,8 +247,9 @@ UPDATE model_draft.reeem_times_paneu_input
     SET     tags = COALESCE(tags, '') || hstore('category', 'biomass')
     WHERE   category LIKE 'Potentials of biomass';
 
-
+--------------------
 -- OUTPUT set schema
+--------------------
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('schema', 'economy')
     WHERE   category LIKE 'Activity%' OR
@@ -306,8 +312,9 @@ UPDATE model_draft.reeem_times_paneu_output
     WHERE   category LIKE 'Emissions%' OR
             indicator LIKE 'Emissions%';
 
-
+-------------------
 -- OUTPUT set field
+-------------------
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('field', 'final_energy_consumption')
     WHERE   category LIKE 'Final energy consumption%' OR
@@ -341,7 +348,7 @@ UPDATE model_draft.reeem_times_paneu_output
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('field', 'new_installed_capacity')
     WHERE   category LIKE 'NEW Capacities%' OR
-            category LIKE 'NEW Capacities%';
+            indicator LIKE 'NEW Capacities%';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('field', 'electricity_production')
@@ -419,8 +426,17 @@ UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('field', 'var_costs')
     WHERE   indicator LIKE 'Variable O&M costs%';
 
+UPDATE model_draft.reeem_times_paneu_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'discount_rate')
+    WHERE   indicator LIKE 'Discount rate';
 
+UPDATE model_draft.reeem_times_paneu_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'inv_costs')
+    WHERE   indicator LIKE 'Investment costs%';
+
+----------------------
 -- OUTPUT set category
+----------------------
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'bus')
     WHERE   category LIKE 'Activity Bus' OR
@@ -435,7 +451,8 @@ UPDATE model_draft.reeem_times_paneu_output
             category LIKE 'Fixed O&M costs car' OR
             category LIKE 'Investment costs car' OR
             category LIKE 'Variable O&M costs car%' OR
-            category LIKE 'Vehicle Stock Car';
+            category LIKE 'Vehicle Stock Car' OR
+            indicator LIKE 'Investment costs car';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'motorcycle')
@@ -447,11 +464,13 @@ UPDATE model_draft.reeem_times_paneu_output
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'rail')
     WHERE   category LIKE 'Activity rail' OR
-            category LIKE 'Fuel Input rail%';
+            category LIKE 'Fuel Input rail%' OR
+            indicator LIKE 'Fuel Input rail';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'navigation')
-    WHERE   category LIKE 'Fuel Input navigation%';
+    WHERE   category LIKE 'Fuel Input navigation%' OR
+            indicator LIKE 'Fuel Input navigation';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'truck')
@@ -460,74 +479,106 @@ UPDATE model_draft.reeem_times_paneu_output
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'truck_heavy')
     WHERE   category LIKE 'Activity Truck Heavy' OR
-            category LIKE 'Vehicle Stock Truck HDV';
+            category LIKE 'Vehicle Stock Truck HDV' OR
+            indicator LIKE '%Truck HDV';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'truck_light')
     WHERE   category LIKE 'Activity Truck Light' OR
-            category LIKE 'Vehicle Stock Truck LDV';
+            category LIKE 'Vehicle Stock Truck LDV' OR
+            indicator LIKE '%Truck LDV';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'district')
-    WHERE   category LIKE 'Distric Heat price%';
+    WHERE   category LIKE 'Distric Heat price%' OR
+            indicator LIKE 'District Heat price per timeslice';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'capacity')
-    WHERE   category LIKE 'Electricity Exchange - Capacities';
+    WHERE   category LIKE 'Electricity Exchange - Capacities' OR
+            indicator LIKE 'Electricity Exchange - Capacities';
+
+UPDATE model_draft.reeem_times_paneu_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'export')
+    WHERE   indicator LIKE 'Electricity Exchange - Export';
+
+UPDATE model_draft.reeem_times_paneu_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'import')
+    WHERE   indicator LIKE 'Electricity Exchange - Import';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'net_import')
-    WHERE   category LIKE 'Electricity Exchange - Net Imports%';
+    WHERE   category LIKE 'Electricity Exchange - Net Imports%' OR
+            indicator LIKE 'Electricity Exchange - Net Imports%';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'household')
     WHERE   category LIKE 'Electricity price per timeslice household' OR
             LOWER(category) LIKE 'final energy consumption household%' OR
             category LIKE 'Fixed O&M costs household%' OR
-            category LIKE 'Investment costs household%';
+            category LIKE 'Investment costs household%' OR
+            indicator LIKE 'Final energy consumption Households';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'industry')
     WHERE   category LIKE 'Electricity price per timeslice industry' OR
             LOWER(category) LIKE 'final energy consumption industry%' OR
             category LIKE 'Fixed O&M costs industry%' OR
-            category LIKE 'Investment costs industry%';
+            category LIKE 'Investment costs industry%' OR
+            indicator LIKE 'Final energy consumption Industry';
+
+UPDATE model_draft.reeem_times_paneu_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'industry;subsector')
+    WHERE   indicator LIKE '%industry by subsector';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'transport')
-    WHERE   category LIKE 'Electricity price per timeslice transport';
+    WHERE   category LIKE 'Electricity price per timeslice transport' OR
+            indicator LIKE 'Final energy consumption Transport';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'combined_heat_and_power_plant;industrial;public')
-    WHERE   category LIKE '%Public and Industrial CHP Plants%';
+    WHERE   category LIKE '%Public and Industrial CHP Plants%' OR
+            indicator LIKE '%Public and Industrial CHP Plants%';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'power_plant;industrial;public')
-    WHERE   category LIKE '%Public and Industrial Power Plants%';
+    WHERE   category LIKE '%Public and Industrial Power Plants%' OR
+            indicator LIKE '%Public and Industrial Power Plants%';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'emittant')
-    WHERE   category LIKE 'External Costs by Emittant%';
+    WHERE   category LIKE 'External Costs by Emittant%' OR
+            category LIKE 'Emissions by Emittant%';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'agriculture')
-    WHERE   category LIKE 'Final energy consumption Agriculture';
+    WHERE   category LIKE 'Final energy consumption Agriculture' OR
+            indicator LIKE 'Final energy consumption Agriculture';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'energy_carrier')
-    WHERE   category LIKE '%energy carrier%';
+    WHERE   category LIKE '%energy carrier%' OR
+            indicator LIKE '%energy carrier%';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'sector')
-    WHERE   category LIKE '%consumption by sector%';
+    WHERE   category LIKE '%consumption by sector%' OR
+            indicator LIKE '%consumption by sector%';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'commercial')
-    WHERE   category LIKE 'Final energy consumption Commercial';
+    WHERE   category LIKE 'Final energy consumption Commercial' OR
+            indicator LIKE 'Final energy consumption Commercial';
+
+UPDATE model_draft.reeem_times_paneu_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'household;demand_type;fuel_type')
+    WHERE   indicator LIKE '%household by demand type and fuel type';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'renewables')
-    WHERE   category LIKE '%consumption of renewables%';
+    WHERE   category LIKE '%consumption of renewables%' OR
+            indicator LIKE '%consumption of renewables%';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'transport')
@@ -535,7 +586,8 @@ UPDATE model_draft.reeem_times_paneu_output
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'aviation')
-    WHERE   category LIKE 'Fuel Input aviation%';
+    WHERE   category LIKE 'Fuel Input aviation%' OR
+            indicator LIKE 'Fuel Input aviation%';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'power_plant')
@@ -543,11 +595,13 @@ UPDATE model_draft.reeem_times_paneu_output
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'variable_costs;domestic_production')
-    WHERE   category LIKE 'Variable O&M costs Domestic production';
+    WHERE   category LIKE 'Variable O&M costs Domestic production' OR
+            indicator LIKE 'Variable O&M costs Domestic production';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'variable_costs;household')
-    WHERE   category LIKE 'Variable O&M costs household%';
+    WHERE   category LIKE 'Variable O&M costs household%' OR
+            indicator LIKE 'Variable O&M costs household%';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'variable_costs;industry')
@@ -555,15 +609,16 @@ UPDATE model_draft.reeem_times_paneu_output
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'bus')
-    WHERE   indicator LIKE 'Activity Bus';
+    WHERE   indicator LIKE '%Bus';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'car')
-    WHERE   indicator LIKE 'Activity Car';
+    WHERE   indicator LIKE '%Car' OR
+            indicator LIKE 'Fixed O&M costs car';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'motorcycle')
-    WHERE   indicator LIKE 'Activity Motorcycles';
+    WHERE   indicator LIKE '%Motorcycles';
 
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'rail')
@@ -652,9 +707,9 @@ GROUP BY category, unit, tags
 ORDER BY category;
 
 
----------------------------------------
+-------
 -- MISC
----------------------------------------
+-------
 
 -- template
 
@@ -662,13 +717,6 @@ ORDER BY category;
 --    SET     tags = COALESCE(tags, '') || hstore('field', '')
 --    WHERE   category LIKE '%';
 
-
--- TODO
--- set schema
---UPDATE model_draft.reeem_times_paneu_input
---    SET     tags = tags || hstore('schema', 'energy_demand')
---    WHERE   category = 'Service demands residential' OR
-    
 
 ----------
 -- LOGGING
