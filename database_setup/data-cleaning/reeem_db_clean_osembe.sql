@@ -14,7 +14,7 @@ __issue__       = "https://github.com/ReeemProject/reeem_db/issues/13"
 
  * This file is part of project REEEM (https://github.com/ReeemProject/reeem_db).
  * It's copyrighted by the contributors recorded in the version control history:
- * ReeemProject/reeem_db/database_setup/data-cleaning/reeem_db_clean_osembe.sql.sql
+ * ReeemProject/reeem_db/database_setup/data-cleaning/reeem_db_clean_osembe.sql
  *
  * SPDX-License-Identifier: AGPL-3.0-or-later
 */
@@ -161,8 +161,61 @@ UPDATE model_draft.reeem_osembe_output
 -- OUTPUT set category tag
 --------------------------
 UPDATE model_draft.reeem_osembe_output
-    SET     tags = COALESCE(tags, '') || hstore('category', '')
-    WHERE   category LIKE 'xyz';
+    SET     tags = COALESCE(tags, '') || hstore('category', 'rail')
+    WHERE   field LIKE 'Activity rail%' OR
+            field LIKE 'Fuel Input rail%' OR
+            field LIKE 'Vehicle Stock rail%';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'road')
+    WHERE   field LIKE 'Activity Road%' OR
+            field LIKE 'Fuel Input Road%' OR
+            field LIKE 'Road Vehicle%';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'capacities')
+    WHERE   field LIKE 'Electricity Exchange - Capacities' OR
+            category LIKE 'Electricity Exchange - Capacities';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'net_imports')
+    WHERE   field LIKE 'Electricity Exchange - Net Imports%' OR
+            category LIKE 'Electricity Exchange - Net Imports';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'power_plant;chp_plant;public;industrial')
+    WHERE   field LIKE '%Public and Industrial Power and CHP Plants%' OR
+            category LIKE '%Public and Industrial Power and CHP Plants%';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'energy_carrier')
+    WHERE   field LIKE 'Final energy consumption by energy carrier%' OR
+            category LIKE 'Final energy consumption by energy carrier%';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'sector')
+    WHERE   field LIKE 'Final energy consumption by sector';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'commercial')
+    WHERE   field LIKE 'Final energy consumption Commercial';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'household')
+    WHERE   field LIKE 'Final energy consumption Households';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'industry')
+    WHERE   field LIKE 'Final energy consumption Industry';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'transport')
+    WHERE   field LIKE 'Final energy consumption Transport';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'renewables')
+    WHERE   field LIKE 'Primary energy consumption of renewables' OR
+            category LIKE 'Primary energy consumption of renewables';
 
 
 ---------------------------------------
@@ -204,6 +257,6 @@ ORDER BY category;
 ----------
 
 -- INPUT scenario log (project,version,io,schema_name,table_name,script_name,comment)
--- TODO: INPUT SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_osembe_input','reeem_db_clean_osembe.sql.sql',' ');
+-- TODO: INPUT SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_osembe_input','reeem_db_clean_osembe.sql',' ');
 -- OUTPUT scenario log (project,version,io,schema_name,table_name,script_name,comment)
-SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_osembe_output','reeem_db_clean_osembe.sql.sql',' ');
+SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_osembe_output','reeem_db_clean_osembe.sql',' ');
