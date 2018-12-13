@@ -23,8 +23,12 @@ __issue__       = "https://github.com/ReeemProject/reeem_db/issues/13"
 -----------
 -- CLEANING
 -----------
+-- remove leading white space - regexp_replace(indicator, '^\s+', '')
+UPDATE model_draft.reeem_osembe_output
+    SET field = regexp_replace(field, '^\s+', '');
 
--- No usage for data cleaning yet.
+UPDATE model_draft.reeem_osembe_output
+    SET indicator = regexp_replace(indicator, '^\s+', '');
 
 
 ----------
@@ -53,7 +57,36 @@ UPDATE model_draft.reeem_osembe_output
 -- TODO: INPUT
 
 UPDATE model_draft.reeem_osembe_output
-    SET tags = COALESCE(tags, '') || hstore('schema', 'economy');
+    SET     tags = COALESCE(tags, '') || hstore('schema', 'economy')
+    WHERE   field LIKE 'Activity%' OR
+            field LIKE 'Average electricity price' OR
+            field LIKE '%Vehicle%';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('schema', 'supply')
+    WHERE   field LIKE 'Biomass production%' OR
+            field LIKE 'Electricity Exchange%' OR
+            field LIKE 'Electricity Production%' OR
+            field LIKE 'Heat Production%' OR
+            field LIKE 'Installed Capacities%' OR
+            category LIKE 'Biomass production' OR
+            category LIKE 'Electricity Exchange%' OR
+            category LIKE 'Electricity Production%' OR
+            category LIKE 'Installed Capacities%';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('schema', 'environment')
+    WHERE   field LIKE 'Emissions%' OR
+            category LIKE 'Emissions';
+
+UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('schema', 'demand')
+    WHERE   field LIKE 'Final energy consumption%' OR
+            field LIKE 'Fuel Input%' OR
+            field LIKE 'Primary energy consumption%' OR
+            category LIKE 'Final energy consumption%' OR
+            category LIKE 'Fuel Input%' OR
+            category LIKE 'Primary energy consumption%';
 
 ----------------------
 -- INPUT set field tag
@@ -100,6 +133,18 @@ FROM    model_draft.reeem_osembe_output
 WHERE   tags IS NULL
 GROUP BY field, category, indicator, tags
 ORDER BY field, indicator;
+
+SELECT  category, tags
+FROM    model_draft.reeem_osembe_output
+WHERE   tags IS NOT NULL
+GROUP BY category, tags
+ORDER BY category;
+
+SELECT  category, tags
+FROM    model_draft.reeem_osembe_output
+WHERE   tags IS NULL
+GROUP BY category, tags
+ORDER BY category;
 
 
 ----------
