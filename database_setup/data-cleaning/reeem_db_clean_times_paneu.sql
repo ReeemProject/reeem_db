@@ -630,13 +630,13 @@ ORDER BY category, indicator;
 SELECT  category, indicator, tags
 FROM    model_draft.reeem_times_paneu_output
 WHERE   tags IS NOT NULL
-GROUP BY data, category, indicator, tags
+GROUP BY category, indicator, tags
 ORDER BY category, indicator;
 
 SELECT  category, indicator, tags
 FROM    model_draft.reeem_times_paneu_output
 WHERE   tags IS NULL
-GROUP BY data, category, indicator, tags
+GROUP BY category, indicator, tags
 ORDER BY category, indicator;
 
 SELECT  category, indicator, unit, tags
