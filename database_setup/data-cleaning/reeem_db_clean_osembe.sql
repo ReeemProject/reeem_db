@@ -1,7 +1,7 @@
 /*
 OSeMBE Data Cleaning and TAGGING
 
--- TODO: OSeMBE Input
+OSeMBE Input: Input data and model are combined an therefore not mappable to a database.
 OSeMBE Output
 
 https://github.com/ReeemProject/reeem_db/issues/13
@@ -23,6 +23,7 @@ __issue__       = "https://github.com/ReeemProject/reeem_db/issues/13"
 -----------
 -- CLEANING
 -----------
+
 -- remove leading white space - regexp_replace(indicator, '^\s+', '')
 UPDATE model_draft.reeem_osembe_output
     SET field = regexp_replace(field, '^\s+', '');
@@ -36,26 +37,20 @@ UPDATE model_draft.reeem_osembe_output
 ----------
 
 -------------------------------
--- INPUT|OUTPUT remove all tags
+-- OUTPUT remove all tags
 -------------------------------
--- TODO: INPUT
-
 UPDATE model_draft.reeem_osembe_output
     SET tags = NULL;
 
 -----------------------------
--- INPUT|OUTPUT set model tag
+-- OUTPUT set model tag
 -----------------------------
--- TODO: INPUT
-
 UPDATE model_draft.reeem_osembe_output
     SET tags = COALESCE(tags, '') || hstore('model', 'osembe');
 
 ------------------------------
--- INPUT|OUTPUT set schema tag
+-- OUTPUT set schema tag
 ------------------------------
--- TODO: INPUT
-
 UPDATE model_draft.reeem_osembe_output
     SET     tags = COALESCE(tags, '') || hstore('schema', 'economy')
     WHERE   field LIKE 'Activity%' OR
@@ -87,16 +82,6 @@ UPDATE model_draft.reeem_osembe_output
             category LIKE 'Final energy consumption%' OR
             category LIKE 'Fuel Input%' OR
             category LIKE 'Primary energy consumption%';
-
-----------------------
--- INPUT set field tag
-----------------------
--- TODO: INPUT
-
--------------------------
--- INPUT set category tag
--------------------------
--- TODO: INPUT
 
 -----------------------
 -- OUTPUT set field tag
@@ -218,15 +203,10 @@ UPDATE model_draft.reeem_osembe_output
             category LIKE 'Primary energy consumption of renewables';
 
 
----------------------------------------
--- SELECT (execute as separate queries)
----------------------------------------
+--------------------------------------------------------------
+-- SELECT: OUTPUT example select (execute as separate queries)
+--------------------------------------------------------------
 
--- INPUT example selects
--- TODO: INPUT
--- TODO: INPUT
-
--- OUTPUT example select
 SELECT  field, category, indicator, tags
 FROM    model_draft.reeem_osembe_output
 WHERE   tags IS NOT NULL
@@ -256,7 +236,5 @@ ORDER BY category;
 -- LOGGING
 ----------
 
--- INPUT scenario log (project,version,io,schema_name,table_name,script_name,comment)
--- TODO: INPUT SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_osembe_input','reeem_db_clean_osembe.sql',' ');
 -- OUTPUT scenario log (project,version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_osembe_output','reeem_db_clean_osembe.sql',' ');
