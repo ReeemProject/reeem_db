@@ -173,6 +173,10 @@ UPDATE model_draft.reeem_osembe_output
             category LIKE '%Public and Industrial Power and CHP Plants%';
 
 UPDATE model_draft.reeem_osembe_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'chp_plant;public;industrial')
+    WHERE   field LIKE '%Public and Industrial CHP Plants%';
+
+UPDATE model_draft.reeem_osembe_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'energy_carrier')
     WHERE   field LIKE 'Final energy consumption by energy carrier%' OR
             category LIKE 'Final energy consumption by energy carrier%';
