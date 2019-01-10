@@ -52,13 +52,13 @@ COMMENT ON TABLE pathway.reeem_keymessage IS '{
     "sources": [
         {"name": "", "description": "", "url": "", "license": "", "copyright": ""},
         {"name": "", "description": "", "url": "", "license": "", "copyright": ""} ],
-    "license": 
-        {"id": "tba",
-        "name": "tba",
-        "version": "tba",
-        "url": "tba",
-        "instruction": "tba",
-        "copyright": "tba"},
+    "license":
+        {"id": "CC-BY-4.0",
+        "name": "Creative Commons Attribution 4.0 International",
+        "version": "4.0",
+        "url": "http://creativecommons.org/licenses/by/4.0/legalcode",
+        "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!",
+        "copyright": "© REEEM Project"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2019-01-10", "comment": "Create table and metadata"} ],
     "resources": [
