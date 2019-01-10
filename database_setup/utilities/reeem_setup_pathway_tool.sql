@@ -33,7 +33,7 @@ CREATE TABLE            pathway.reeem_keymessage (
 
 -- access rights
 ALTER TABLE             pathway.reeem_keymessage OWNER TO reeem_pathway;
-GRANT SELECT ON TABLE   pathway.reeem_keymessage TO reeem_pathway WITH GRANT OPTION;
+GRANT SELECT ON TABLE   pathway.reeem_keymessage TO reeem_read WITH GRANT OPTION;
 
 -- metadata
 COMMENT ON TABLE pathway.reeem_keymessage IS '{
@@ -94,7 +94,7 @@ CREATE TABLE            pathway.reeem_usercomment (
 
 -- access rights
 ALTER TABLE             pathway.reeem_usercomment OWNER TO reeem_pathway;
-GRANT SELECT ON TABLE   pathway.reeem_usercomment TO reeem_pathway WITH GRANT OPTION;
+GRANT SELECT ON TABLE   pathway.reeem_usercomment TO reeem_read WITH GRANT OPTION;
 
 -- metadata
 COMMENT ON TABLE pathway.reeem_usercomment IS '{
