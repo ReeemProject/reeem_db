@@ -547,6 +547,11 @@ UPDATE model_draft.reeem_times_paneu_output
             indicator LIKE '%Public and Industrial Power Plants%';
 
 UPDATE model_draft.reeem_times_paneu_output
+    SET     tags = COALESCE(tags, '') || hstore('electricity_storage', 'battery')
+    WHERE   category LIKE '%_Electricity Storage' AND
+            indicator LIKE '%Batteries' OR indicator LIKE 'Batteries';
+
+UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('category', 'emittant')
     WHERE   category LIKE 'External Costs by Emittant%' OR
             category LIKE 'Emissions by Emittant%';
