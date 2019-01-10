@@ -18,7 +18,7 @@ __issue__       = "https://github.com/ReeemProject/reeem_db/issues/40"
 */
 
 
--- EcoSenseEVA Output
+-- ESME Output
 DROP TABLE IF EXISTS    model_draft.reeem_esme_input CASCADE;
 CREATE TABLE            model_draft.reeem_esme_input (
     "id"            serial NOT NULL,
@@ -92,15 +92,16 @@ COMMENT ON TABLE model_draft.reeem_esme_input IS
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_esme_input','reeem_db_setup_esme.sql',' ');
 
 
--- EcoSenseEVA Output
+-- ESME Output
 DROP TABLE IF EXISTS    model_draft.reeem_esme_output CASCADE;
 CREATE TABLE            model_draft.reeem_esme_output (
     "id"            serial NOT NULL,
     "nid"           integer,
+    "dfid"          integer,
     "pathway"       text,
     "framework"     text,
     "version"       text,
-    "region"        text,
+    "scenario"      text,
     "year"          smallint,
     "category"      text,
     "indicator"     text,
@@ -118,7 +119,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_esme_output TO reeem_read WITH GRANT O
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_esme_output IS 
-    '{"title": "REEEM EcoSenseEVA Output",
+    '{"title": "REEEM ESME Output",
     "description": "Health externalities (unit cost factors) due to air pollution",
     "language": [ "eng" ],
     "spatial": 
@@ -147,10 +148,11 @@ COMMENT ON TABLE model_draft.reeem_esme_output IS
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
             {"name": "nid", "description": "Model id", "unit": "none"},
+            {"name": "dfid", "description": "Internal dataframe id", "unit": "none"},
             {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
-            {"name": "region", "description": "Country", "unit": "none"},
+            {"name": "scenario", "description": "Model scenario id", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
             {"name": "category", "description": "2. classification", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
