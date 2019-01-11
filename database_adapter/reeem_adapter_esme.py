@@ -28,6 +28,8 @@ def esme_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
     xls = pd.ExcelFile(path)
     df = pd.read_excel(xls, 'Metrics', header=empty_rows, index_col='ID', nrows=2)
     log.info('...read sheet: {}'.format(fns['model']))
+    dfcat = pd.read_excel(xls, 'Cat', header=empty_rows, index_col='indicator')
+    log.info('...read sheet: Categorisation')
 
     # make dataframe
     #df.columns = ['nid', 'category', 'region', 'year', 'indicator', 'value',
@@ -56,7 +58,11 @@ def esme_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
     
     
     # join dataframe for database
-    dfdb = dfstack.join(dfbase, on='nid')
+    dfd = dfstack.join(dfbase, on='nid')
+    dfd.index.names = ['dfid']
+    # print(dfd.head())
+
+    dfdb = dfd.join(dfcat, on='indicator')
     dfdb.index.names = ['dfid']
     print(dfdb.head())
 
