@@ -37,16 +37,16 @@ filenames = [
 #              '2018-08-01_Base_TIMESPanEU_FrameworkV1_DataV3_Input.xlsx',
 #              '2018-07-19_Base_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx']
 
-             '2018-12-20_Base_TIMESPanEU_FrameworkV1_DataV4_Input.xlsx',
+             # '2018-12-20_Base_TIMESPanEU_FrameworkV1_DataV4_Input.xlsx',
              '2018-12-20_Base_TIMESPanEU_FrameworkV1_DataV4_Output.xlsx',
              '2018-12-20_Base_TIMESPanEU_FrameworkV2_DataV2_Output.xlsx',
              '2018-12-20_HighRES_TIMESPanEU_FrameworkV1_DataV4_Output.xlsx']
 
 # regions
 # regions = ['AT']
-regions = ['EU28', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES',
-           'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV',
-           'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK']
+regions = ['EU28','AT','BE','BG','CH','CY','CZ','DE','DK','EE','ES',
+            'FI','FR','GR','HR','HU','IE','IT','LT','LU','LV',
+            'MT','NL','NO','PL','PT','RO','SE','SI','SK','UK']
 
 empty_rows = 4
 
