@@ -141,6 +141,18 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA pathway GRANT SELECT ON TABLES TO reeem_read;
 ALTER DEFAULT PRIVILEGES IN SCHEMA pathway GRANT SELECT ON SEQUENCES TO reeem_read;
 ALTER SCHEMA pathway OWNER TO reeem_pathway;
 
+CREATE SCHEMA IF NOT EXISTS hdb_catalog;
+GRANT ALL ON SCHEMA hdb_catalog TO reeem_pathway WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON SCHEMA hdb_catalog TO reeem_pathway;
+
+CREATE SCHEMA IF NOT EXISTS hdb_views;
+GRANT ALL ON SCHEMA hdb_views TO reeem_pathway WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON SCHEMA hdb_views TO reeem_pathway;
+
+GRANT SELECT ON ALL TABLES IN SCHEMA information_schema TO reeem_pathway;
+GRANT SELECT ON ALL TABLES IN SCHEMA pg_catalog TO reeem_pathway;
+
+
 -- QGIS
 ALTER TABLE             public.layer_styles OWNER TO reeem_user; 
 GRANT SELECT ON TABLE   public.layer_styles TO reeem_read WITH GRANT OPTION;
