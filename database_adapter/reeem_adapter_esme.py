@@ -26,7 +26,7 @@ def esme_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
     # read file
     path = os.path.join('Model_Data', 'ESME', filename)
     xls = pd.ExcelFile(path)
-    df = pd.read_excel(xls, 'Metrics', header=empty_rows, index_col='ID', nrows=2)
+    df = pd.read_excel(xls, 'Metrics', header=empty_rows, index_col='ID')
     log.info('...read sheet: {}'.format(fns['model']))
     dfcat = pd.read_excel(xls, 'Cat', header=empty_rows, index_col='indicator')
     log.info('...read sheet: Categorisation')
