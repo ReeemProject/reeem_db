@@ -147,10 +147,12 @@ ALTER SCHEMA pathway OWNER TO reeem_pathway;
 CREATE SCHEMA IF NOT EXISTS hdb_catalog;
 GRANT ALL ON SCHEMA hdb_catalog TO reeem_pathway WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON SCHEMA hdb_catalog TO reeem_pathway;
+ALTER SCHEMA hdb_catalog OWNER TO reeem_pathway;
 
 CREATE SCHEMA IF NOT EXISTS hdb_views;
 GRANT ALL ON SCHEMA hdb_views TO reeem_pathway WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON SCHEMA hdb_views TO reeem_pathway;
+ALTER SCHEMA hdb_views OWNER TO reeem_pathway;
 
 GRANT SELECT ON ALL TABLES IN SCHEMA information_schema TO reeem_pathway;
 GRANT SELECT ON ALL TABLES IN SCHEMA pg_catalog TO reeem_pathway;
