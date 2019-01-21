@@ -54,3 +54,32 @@ CREATE VIEW         model_draft.reeem_db_km_batteries_view AS
     FROM    model_draft.reeem_db_km_batteries_mview;
     
 ALTER TABLE model_draft.reeem_db_km_batteries_view OWNER TO reeem_pathway; 
+
+
+-- direct view
+DROP VIEW IF EXISTS model_draft.reeem_db_km_batteries_dview;
+CREATE VIEW         model_draft.reeem_db_km_batteries_dview AS
+    SELECT  id,
+            pathway,
+            framework,
+            version,
+            region,
+            year,
+            category,
+            indicator,
+            value,
+            unit,
+            aggregation,
+            tags,
+            updated,
+            md.mj AS metadata
+    FROM    model_draft.reeem_times_paneu_output,
+            (SELECT obj_description('model_draft.reeem_times_paneu_input' ::regclass) ::json AS mj) AS md
+    WHERE   category = 'Installed Capacities Public and Industrial Power Plants by Fuel and Technology_Electricity Storage' AND
+            (indicator = 'Batteries' OR indicator = '   Batteries') AND
+            ((framework = 'FrameworkV1' AND pathway = 'HighRES' AND version = 'DataV1') OR
+            (framework = 'FrameworkV1' AND pathway = 'Base' AND version = 'DataV4')) AND 
+            (year IN ('2020', '2030', '2040', '2050'))
+    ORDER BY pathway, version, region, year;
+
+ALTER TABLE model_draft.reeem_db_km_batteries_dview OWNER TO reeem_pathway; 
