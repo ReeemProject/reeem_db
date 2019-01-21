@@ -1,5 +1,5 @@
 
--- view
+-- mview
 DROP MATERIALIZED VIEW IF EXISTS model_draft.reeem_db_km_batteries_mview;
 CREATE MATERIALIZED VIEW         model_draft.reeem_db_km_batteries_mview AS
     SELECT  id,
@@ -45,3 +45,12 @@ REFRESH MATERIALIZED VIEW model_draft.reeem_db_km_batteries_mview;
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.3.0','view','model_draft','reeem_db_km_batteries_mview','reeem_db_view_keymessage_batteries.sql',' ');
 SELECT scenario_log('REEEM','v0.3.0','view','model_draft','reeem_times_paneu_output','reeem_db_view_keymessage_batteries.sql',' ');
+
+
+-- view for hasura
+DROP VIEW IF EXISTS model_draft.reeem_db_km_batteries_view;
+CREATE VIEW         model_draft.reeem_db_km_batteries_view AS
+    SELECT  *
+    FROM    model_draft.reeem_db_km_batteries_mview;
+    
+ALTER TABLE model_draft.reeem_db_km_batteries_view OWNER TO reeem_pathway; 
