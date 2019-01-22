@@ -99,7 +99,7 @@ INSERT INTO model_draft.reeem_model_data_template (nid, pathway, framework, vers
     (1, 'PathwayV1', 'FramworkV1', 'DataV1', 'schema1', 'field1', 'category1', 'EU28', '2015', 'RE share', 2, '%', TRUE, '"energy_type" => "Electric"'::hstore, now(), 'book' ),
     (2, 'PathwayV1', 'FramworkV1', 'DataV1', 'schema1', 'field1', 'category1', 'EU28', '2050', 'RE share', 100, '%', TRUE, '"energy_type" => "Electric"'::hstore, now(), 'book' );
 
--- insert test data
+-- insert test data 2
 INSERT INTO model_draft.reeem_model_data_template (nid, pathway, framework, version, schema, field, category, region, year, indicator, value, unit, aggregation, tags, updated, source) VALUES
     (1, 'PathwayV2', 'FramworkV2', 'DataV2', 'schema1', 'field1', 'category1', 'EU28', '2015', 'RE share', 2, '%', TRUE, '"energy_type" => "Electric"'::hstore, now(), 'book' ),
     (2, 'PathwayV2', 'FramworkV2', 'DataV2', 'schema1', 'field1', 'category1', 'EU28', '2050', 'RE share', 99, '%', TRUE, '"energy_type" => "Electric"'::hstore, now(), 'book' );
