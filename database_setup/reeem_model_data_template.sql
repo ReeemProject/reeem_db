@@ -18,17 +18,20 @@ __author__      = "Ludwig Hülk"
 DROP TABLE IF EXISTS    model_draft.reeem_model_data_template CASCADE;
 CREATE TABLE            model_draft.reeem_model_data_template (
     "id"            serial NOT NULL,
+    "nid"           integer,
     "pathway"       text,
+    "framework"     text,
     "version"       text,
     "schema"        text,
+    "field"         text,
     "category"      text,
-    "tags"          hstore,
     "region"        text,
     "year"          smallint,
     "indicator"     text,
     "value"         double precision,
     "unit"          text,
     "aggregation"   boolean,
+    "tags"          hstore,
     "updated"       timestamp with time zone,
     "source"        text,
     CONSTRAINT reeem_model_data_template_pkey PRIMARY KEY (id) );
@@ -69,7 +72,9 @@ COMMENT ON TABLE model_draft.reeem_model_data_template IS
         "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
+            {"name": "nid", "description": "Parameter ID", "unit": "none"},
             {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
+            {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "schema", "description": "1. classification", "unit": "none"},
             {"name": "category", "description": "2. classification", "unit": "none"},
@@ -80,6 +85,7 @@ COMMENT ON TABLE model_draft.reeem_model_data_template IS
             {"name": "value", "description": "Parameter value", "unit": "unit"},
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
+            {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
             {"name": "source", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
@@ -89,6 +95,11 @@ SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_model_data_tem
 
 
 -- insert test data
-INSERT INTO model_draft.reeem_model_data_template (pathway, version, schema, category, tags, region, year, indicator, value, unit, aggregation, updated, source) VALUES
-    ('Test_data', 'v1', 'schema', 'category', '"energy_type" => "Electric"'::hstore, 'EU28', '2015', 'RE share', 2, '%', TRUE, now(), 'book' ),
-    ('Test_data', 'v1', 'schema', 'category', '"energy_type" => "Electric"'::hstore, 'EU28', '2050', 'RE share', 100, '%', TRUE, now(), 'book' );
+INSERT INTO model_draft.reeem_model_data_template (nid, pathway, framework, version, schema, field, category, region, year, indicator, value, unit, aggregation, tags, updated, source) VALUES
+    (1, 'PathwayV1', 'FramworkV1', 'DataV1', 'schema1', 'field1', 'category1', 'EU28', '2015', 'RE share', 2, '%', TRUE, '"energy_type" => "Electric"'::hstore, now(), 'book' ),
+    (2, 'PathwayV1', 'FramworkV1', 'DataV1', 'schema1', 'field1', 'category1', 'EU28', '2050', 'RE share', 100, '%', TRUE, '"energy_type" => "Electric"'::hstore, now(), 'book' );
+
+-- insert test data
+INSERT INTO model_draft.reeem_model_data_template (nid, pathway, framework, version, schema, field, category, region, year, indicator, value, unit, aggregation, tags, updated, source) VALUES
+    (1, 'PathwayV2', 'FramworkV2', 'DataV2', 'schema1', 'field1', 'category1', 'EU28', '2015', 'RE share', 2, '%', TRUE, '"energy_type" => "Electric"'::hstore, now(), 'book' ),
+    (2, 'PathwayV2', 'FramworkV2', 'DataV2', 'schema1', 'field1', 'category1', 'EU28', '2050', 'RE share', 99, '%', TRUE, '"energy_type" => "Electric"'::hstore, now(), 'book' );
