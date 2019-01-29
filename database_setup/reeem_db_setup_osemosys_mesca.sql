@@ -48,11 +48,11 @@ GRANT SELECT ON TABLE   model_draft.reeem_osemosys_mesca_input TO reeem_read WIT
 -- metadata
 COMMENT ON TABLE model_draft.reeem_osemosys_mesca_input IS 
     '{"title": "REEEM OSeMOSYS MESCA Input",
-    "description": "Input parameters: Service Demands, Fuel Prices, Potentials",
+    "description": "Input parameters: Costs, Lifetime, Efficiency, Final demand",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
-        "extent": "Europe",
+        "extent": "EE, FI, LT, LV",
         "resolution": "Country"},
     "temporal": 
         {"reference_date": "2015",
@@ -60,8 +60,9 @@ COMMENT ON TABLE model_draft.reeem_osemosys_mesca_input IS
         "end": "2050",
         "resolution": "1 years"},
     "sources": [
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""},
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""} ],
+        {"name": "TIMES PanEU", "description": "", "url": "", "license": "", "copyright": ""},
+	{"name": "MESSAGE", "description": "", "url": "", "license": "", "copyright": ""},
+        {"name": "Technology data catalogue, 2018", "description": "", "url": "", "license": "", "copyright": ""} ],
     "license":
         {"id": "tba",
         "name": "tba",
@@ -82,8 +83,8 @@ COMMENT ON TABLE model_draft.reeem_osemosys_mesca_input IS
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "schema", "description": "1. classification", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
-            {"name": "tags", "description": "Free classification", "unit": "none"},
+            {"name": "field", "description": "2. classification", "unit": "none"},
+            {"name": "category", "description": "3. classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
@@ -128,11 +129,11 @@ GRANT SELECT ON TABLE   model_draft.reeem_osemosys_mesca_output TO reeem_read WI
 -- metadata
 COMMENT ON TABLE model_draft.reeem_osemosys_mesca_output IS 
     '{"title": "REEEM OSeMOSYS MESCA Output",
-    "description": "Energy Consumption, Installed Capacities, Electricity Production, Heat Production, Fuel Input, Emissions, Mobility, Electricity Exchange",
+    "description": "Model provides Energy Security Coefficient (ESC)",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
-        "extent": "Europe",
+        "extent": "EE, FI, LT, LV",
         "resolution": "Country"},
     "temporal": 
         {"reference_date": "2015",
@@ -140,7 +141,7 @@ COMMENT ON TABLE model_draft.reeem_osemosys_mesca_output IS
         "end": "2050",
         "resolution": "1 years"},
     "sources": [
-        {"name": "OSeMOSYS MESCA", "description": "tba", "url": "tba", "license": "none", "copyright": "none"} ],
+        {"name": "OSeMOSYS MESCA", "description": "Model provides Energy Security Coefficient (ESC)", "url": "tba", "license": "none", "copyright": "none"} ],
     "license":
         {"id": "tba",
         "name": "tba",
@@ -161,8 +162,8 @@ COMMENT ON TABLE model_draft.reeem_osemosys_mesca_output IS
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "schema", "description": "1. classification", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
-            {"name": "tags", "description": "Free classification", "unit": "none"},
+            {"name": "field", "description": "2. classification", "unit": "none"},
+            {"name": "category", "description": "3. classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
