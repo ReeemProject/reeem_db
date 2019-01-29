@@ -71,7 +71,8 @@ COMMENT ON TABLE model_draft.reeem_osemosys_mesca_input IS
         "instruction": "tba",
         "copyright": "tba"},
     "contributors": [
-        {"name": "Ludee", "email": "none", "date": "2019-01-28", "comment": "Create table and metadata"} ],
+        {"name": "Ludee", "email": "none", "date": "2019-01-28", "comment": "Create table and metadata"},
+        {"name": "Linas", "email": "none", "date": "2019-01-29", "comment": "Update metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_osemosys_mesca_input",
         "format": "PostgreSQL",
@@ -150,7 +151,8 @@ COMMENT ON TABLE model_draft.reeem_osemosys_mesca_output IS
         "instruction": "tba",
         "copyright": "tba"},
     "contributors": [
-        {"name": "Ludee", "email": "none", "date": "2019-01-28", "comment": "Create table and metadata"} ],
+        {"name": "Ludee", "email": "none", "date": "2019-01-28", "comment": "Create table and metadata"},
+        {"name": "Linas", "email": "none", "date": "2019-01-29", "comment": "Update metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_osemosys_mesca_output",
         "format": "PostgreSQL",
