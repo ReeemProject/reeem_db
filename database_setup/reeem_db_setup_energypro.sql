@@ -78,7 +78,8 @@ COMMENT ON TABLE model_draft.reeem_energypro_input IS
         "copyright": "© Aalto University"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2018-10-02", "comment": "Create table"},
-        {"name": "Ludee", "email": "none", "date": "2018-10-31", "comment": "Update metadata and license"} ],
+        {"name": "Ludee", "email": "none", "date": "2018-10-31", "comment": "Update metadata and license"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
     "resources": [
         {"name": "model_draft.reeem_energypro_input",
         "format": "PostgreSQL",
@@ -100,6 +101,10 @@ COMMENT ON TABLE model_draft.reeem_energypro_input IS
             {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
+
+-- Add missing column
+ALTER TABLE model_draft.reeem_energypro_input
+  ADD COLUMN "schema" text;
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_energypro_input','reeem_db_setup_energypro.sql',' ');
@@ -162,7 +167,8 @@ COMMENT ON TABLE model_draft.reeem_energypro_output IS
         "copyright": "© Aalto University"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2018-10-25", "comment": "Create table"},
-        {"name": "Ludee", "email": "none", "date": "2018-10-31", "comment": "Update metadata and license"}],
+        {"name": "Ludee", "email": "none", "date": "2018-10-31", "comment": "Update metadata and license"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
     "resources": [
         {"name": "model_draft.reeem_energypro_output",
         "format": "PostgreSQL",
@@ -184,6 +190,10 @@ COMMENT ON TABLE model_draft.reeem_energypro_output IS
             {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
+
+-- Add missing column
+ALTER TABLE model_draft.reeem_energypro_output
+  ADD COLUMN "schema" text;
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_energypro_output','reeem_db_setup_energypro.sql',' ');
