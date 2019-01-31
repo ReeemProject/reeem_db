@@ -1,7 +1,7 @@
 /*
 EcoSenseEVA Table Setup
 
-EcoSenseEVA Input
+EcoSenseEVA Input (NA)
 EcoSenseEVA Output
 
 __copyright__   = "© Reiner Lemoine Institut"
@@ -47,31 +47,37 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosenseeva_input TO reeem_read WITH G
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosenseeva_input IS 
     '{"title": "REEEM EcoSenseEVA Input",
-    "description": "Health externalities",
+    "description": "Data implemented in the models to estimate exposure to air pollution and associated health impacts",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
         "extent": "Europe",
-        "resolution": "Country"},
+        "resolution": "Country, grid"},
     "temporal": 
-        {"reference_date": "2010",
-        "start": "2015",
-        "end": "2050",
-        "resolution": "5 years"},
+        {"reference_date": "",
+        "start": "",
+        "end": "",
+        "resolution": ""},
     "sources": [
-        {"name": "TIMES PanEU emisison data", "description": "Uses emission data from TIMES PanEU results for respective pahtways, framework and data version", "url": "none", "license": "none", "copyright": "none"} ],
+        {"name": "JRC population density grid (disaggregated with Corine land cover 2000)", "description": "gridded population data used in EcoSense", "url": "https://www.eea.europa.eu/data-and-maps/data/population-density-disaggregated-with-corine-land-cover-2000-2", "license": "EEA standard re-use policy (https://www.eea.europa.eu/legal/copyright)", "copyright": "Joint Research Centre (JRC)"},
+        {"name": "Eurostat population grid 2011", "description": "gridded population data used in EVA", "url": "https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/population-distribution-demography/geostat#geostat11", "license": "https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/population-distribution-demography", "copyright": "Eurostat, European Forum for Geography and Statistics (EFGS)"},
+        {"name": "WHO Data Warehouse", "description": "health data for background disease rates", "url": "https://dw.euro.who.int/", "license": "http://www.euro.who.int/en/home/copyright-notice", "copyright": "World Health Organisation, Regional Office for Europe"},
+        {"name": "Eurostat mortality database", "description": "health data for background disease rates", "url" : "https://ec.europa.eu/eurostat/web/population-demography-migration-projections/data/database", "license": "https://ec.europa.eu/eurostat/about/policies/copyright", "copyright": "Eurostat"},
+        {"name": "Eurostat health care database", "description": "health data for background disease rates", "url" : "https://ec.europa.eu/eurostat/web/health/health-care/data/database", "license": "https://ec.europa.eu/eurostat/about/policies/copyright", "copyright": "Eurostat"},
+        {"name": "EMEP/CEIP 2017 Present state of emission data", "description": "Emissions (2013) used to derive unit cost factors", "url": "http://www.ceip.at/ms/ceip_home1/ceip_home/webdab_emepdatabase/emissions_emepmodels/", "license": "", "copyright": "Centre on Emission Inventories and Projections (CEIP)"}],
     "license":
         {"id": "ODC-BY-1.0",
         "name": "Open Data Commons Attribution License 1.0",
         "version": "1.0",
         "url": "http://opendatacommons.org/licenses/by",
         "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!",
-        "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"},
+        "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart / Departement of Environmental Science, Aarhus University"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2017-05-09", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
         {"name": "Ludee", "email": "none", "date": "2018-04-12", "comment": "Finalize structure and update metadata"},
         {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metadata"},
+        {"name": "doroschmid", "email": "none", "date": "2019-01-31", "comment": "Update structure and metadata"},
         {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Update structure and metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_ecosenseeva_input",
@@ -105,6 +111,7 @@ DROP TABLE IF EXISTS    model_draft.reeem_ecosenseeva_output CASCADE;
 CREATE TABLE            model_draft.reeem_ecosenseeva_output (
     "id"            serial NOT NULL,
     "nid"           integer,
+    "dfid"          integer,
     "pathway"       text,
     "framework"     text,
     "version"       text,
@@ -127,7 +134,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosenseeva_output TO reeem_read WITH 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosenseeva_output IS 
     '{"title": "REEEM EcoSenseEVA Output",
-    "description": "Health externalities (unit cost factors) due to air pollution",
+    "description": "Unit cost factors for health impacts due to air pollution in Europe to be used in energy system models. Cost factors are given in €/kg emissions released for Particulate Matter (PM2.5, PM10), SO2, NOX, NMVOC and NH3 and are estimated following the 'Polluter Pays Principle'",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
@@ -135,11 +142,13 @@ COMMENT ON TABLE model_draft.reeem_ecosenseeva_output IS
         "resolution": "Country"},
     "temporal": 
         {"reference_date": "2010",
-        "start": "2015",
+        "start": "2010",
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
-        {"name": "EMEP/CEIP 2017 Present state of emission data", "description": "Emissions used to derive unit cost factors", "url": " http://www.ceip.at/webdab_emepdatabase/reported_emissiondata/", "license": "", "copyright": ""} ],
+         {"name": "EcoSense", "description": "EcoSense is an integrated impact assessment model following the Impact Pathway Appraoch. Assessment of external costs and health impacts in Europe due to air pollution.", "url": "http://ecosenseweb.ier.uni-stuttgart.de/", "license": "proprietary", "copyright": "Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"},
+         {"name": "OEP Model Factsheet (EcoSense)", "description": "", "url": "https://openenergy-platform.org/factsheets/models/146/", "license": "none", "copyright": "none"},
+         {"name": "EVA", "description": "Economic valuation of Air Pollution. EVA is an integrated impact assessment model to estimate health impacts and associated costs due to air pollution.", "url": "https://openenergy-platform.org/factsheets/models/153/", "license": "proprietary", "copyright": "Departement of Environmental Science, Aarhus University"}],
     "license":
         {"id": "ODC-BY-1.0",
         "name": "Open Data Commons Attribution License 1.0",
@@ -152,20 +161,21 @@ COMMENT ON TABLE model_draft.reeem_ecosenseeva_output IS
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
         {"name": "Ludee", "email": "none", "date": "2018-04-12", "comment": "Finalize structure and update metadata"},
         {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metadata"},
-        {"name": "doroschmid", "email": "none", "date": "2018-11-08", "comment": "Update metadata"}  ],
+        {"name": "doroschmid", "email": "none", "date": "2019-01-31", "comment": "Update metadata"}],
     "resources": [
         {"name": "model_draft.reeem_ecosenseeva_output",
         "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
             {"name": "nid", "description": "Model id", "unit": "none"},
+            {"name": "dfid", "description": "Row id", "unit": "none"},
             {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "region", "description": "Country", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
             {"name": "category", "description": "2. classification", "unit": "none"},
-            {"name": "indicator", "description": "Parameter name", "unit": "none"},
+            {"name": "indicator", "description": "Parameter name (pollutant)", "unit": "none"},
             {"name": "value", "description": "Parameter value", "unit": "unit"},
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
