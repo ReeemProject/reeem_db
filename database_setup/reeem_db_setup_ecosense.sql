@@ -47,7 +47,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosense_input TO reeem_read WITH GRAN
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosense_input IS 
     '{"title": "REEEM EcoSense Input",
-    "description": "tba",
+    "description": "Sources of input data used to assess health and envrionmental impacts due to emissions of air pollutants as provided by the European energy system model TIMES PanEU.",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
@@ -59,19 +59,24 @@ COMMENT ON TABLE model_draft.reeem_ecosense_input IS
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
-        {"name": "TIMES PanEU emisison data", "description": "Uses emission data from TIMES PanEU results for respective pahtways, framework and data version", "url": "none", "license": "none", "copyright": "none"} ],
+        {"name": "JRC population density grid (disaggregated with Corine land cover 2000)", "description": "gridded population data used in EcoSense", "url": "https://www.eea.europa.eu/data-and-maps/data/population-density-disaggregated-with-corine-land-cover-2000-2", "license": "EEA standard re-use policy (https://www.eea.europa.eu/legal/copyright)", "copyright": "Joint Research Centre (JRC)"},
+        {"name": "WHO Data Warehouse", cription": "health data for background disease rates", "url": "https://dw.euro.who.int/", "license": "http://www.euro.who.int/en/home/copyright-notice", "copyright"des": "World Health Organisation, Regional Office for Europe"},
+        {"name": "Eurostat mortality database", "description": "health data for background disease rates", "url" : "https://ec.europa.eu/eurostat/web/population-demography-migration-projections/data/database", "license": "https://ec.europa.eu/eurostat/about/policies/copyright", "copyright": "Eurostat"},
+        {"name": "Eurostat health care database", "description": "health data for background disease rates", "url" : "https://ec.europa.eu/eurostat/web/health/health-care/data/database", "license": "https://ec.europa.eu/eurostat/about/policies/copyright", "copyright": "Eurostat"},
+        {"name": "TIMES PanEU emisison data", "description": "Uses emission data from TIMES PanEU results for respective pahtway, framework and data version", "url": "", "license": "ODC-BY-1.0", "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"} ],
     "license":
-        {"id": "none",
-        "name": "none",
-        "version": "none",
-        "url": "none",
-        "instruction": "none",
+        {"id": "ODC-BY-1.0",
+        "name": "Open Data Commons Attribution License 1.0",
+        "version": "1.0",
+        "url": "http://opendatacommons.org/licenses/by",
+        "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!"
         "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2017-05-09", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
         {"name": "Ludee", "email": "none", "date": "2018-04-12", "comment": "Finalize structure and update metadata"},
         {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metadata"},
+        {"name": "doroschmid", "email": "none", "date": "2019-01-31", "comment": "Update metadata"},
         {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Update structure and metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_ecosense_input",
@@ -128,7 +133,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosense_output TO reeem_read WITH GRA
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosense_output IS 
     '{"title": "REEEM EcoSense Output",
-    "description": "Impacts on human health and biodiversity due to air pollution (externalities)",
+    "description": "Impacts on human health and biodiversity due to air pollution. Health impacts are stated in 'Disability adjusted lifeyears (DALY)' and in terms of external costs atributed to countries following the 'Polluter Pays Principle'. Impacts on biodiverstiy are only given in monetary terms. All impacts are estimated based on emissions of air pollutants as provided by TIMES PanEU, to which the contained information about Pathway, Framework and Data version refer to.",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
@@ -140,7 +145,7 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
-        {"name": "EcoSense", "description": "Integrated Impact Assessment, Assessment of external costs, health impact of emissions", "url": "http://ecosenseweb.ier.uni-stuttgart.de/", "license": "none", "copyright": "none"},
+        {"name": "EcoSense", "description": "EcoSense is an integrated impact assessment model following the Impact Pathway Appraoch. Assessment of external costs and health impacts in Europe due to air pollution.", "url": "http://ecosenseweb.ier.uni-stuttgart.de/", "license": "proprietary", "copyright": "Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"},,
         {"name": "OEP Model Factsheet", "description": "", "url": "https://openenergy-platform.org/factsheets/models/146/", "license": "none", "copyright": "none"} ],
     "license":
         {"id": "ODC-BY-1.0",
@@ -156,6 +161,7 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
         {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metadata"},
         {"name": "doroschmid", "email": "none", "date": "2018-11-08", "comment": "Update metadata"},
         {"name": "Ludee", "email": "none", "date": "2019-10-22", "comment": "Update metadata sources"},
+        {"name": "doroschmid", "email": "none", "date": "2019-01-31", "comment": "Update metadata"],
         {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
     "resources": [
         {"name": "model_draft.reeem_ecosense_output",
