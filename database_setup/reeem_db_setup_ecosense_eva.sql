@@ -105,6 +105,7 @@ DROP TABLE IF EXISTS    model_draft.reeem_ecosenseeva_output CASCADE;
 CREATE TABLE            model_draft.reeem_ecosenseeva_output (
     "id"            serial NOT NULL,
     "nid"           integer,
+    "dfid"          integer,
     "pathway"       text,
     "framework"     text,
     "version"       text,
@@ -161,6 +162,7 @@ COMMENT ON TABLE model_draft.reeem_ecosenseeva_output IS
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
             {"name": "nid", "description": "Model id", "unit": "none"},
+            {"name": "dfid", "description": "Row id", "unit": "none"},
             {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
