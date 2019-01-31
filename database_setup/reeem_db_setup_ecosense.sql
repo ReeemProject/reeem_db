@@ -155,7 +155,8 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
         {"name": "Ludee", "email": "none", "date": "2018-04-12", "comment": "Finalize structure and update metadata"},
         {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metadata"},
         {"name": "doroschmid", "email": "none", "date": "2018-11-08", "comment": "Update metadata"},
-        {"name": "Ludee", "email": "none", "date": "2019-10-22", "comment": "Update metadata sources"}],
+        {"name": "Ludee", "email": "none", "date": "2019-10-22", "comment": "Update metadata sources"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
     "resources": [
         {"name": "model_draft.reeem_ecosense_output",
         "format": "PostgreSQL",
@@ -177,6 +178,11 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
             {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
+
+-- Add missing columns
+ALTER TABLE model_draft.reeem_ecosense_output
+  ADD COLUMN "schema" text,
+  ADD COLUMN "field"  text;
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_ecosense_output','reeem_db_setup_ecosense.sql',' ');
