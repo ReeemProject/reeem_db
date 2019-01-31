@@ -74,7 +74,8 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
         {"name": "Ludee", "email": "none", "date": "2017-11-02", "comment": "Update structure"},
         {"name": "Ludee", "email": "none", "date": "2017-11-06", "comment": "Include pathway"},
         {"name": "Ludee", "email": "none", "date": "2018-01-30", "comment": "New naming structure"},
-        {"name": "Ludee", "email": "none", "date": "2018-02-27", "comment": "Simplify structure"} ],
+        {"name": "Ludee", "email": "none", "date": "2018-02-27", "comment": "Simplify structure"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
     "resources": [
         {"name": "model_draft.reeem_times_paneu_input",
         "format": "PostgreSQL",
@@ -96,6 +97,11 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
             {"name": "updated", "description": "Timestamp", "unit": "none"},
             {"name": "source", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
+
+-- Add missing columns
+ALTER TABLE model_draft.reeem_times_paneu_input
+  ADD COLUMN "schema" text,
+  ADD COLUMN "field"  text;
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_times_paneu_input','reeem_db_setup_times_paneu.sql',' ');
@@ -157,7 +163,8 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_output IS
         {"name": "Ludee", "email": "none", "date": "2018-01-30", "comment": "New naming structure"},
         {"name": "Ludee", "email": "none", "date": "2018-02-27", "comment": "Simplify structure"},
         {"name": "Ludee", "email": "none", "date": "2018-03-15", "comment": "Add license"},
-        {"name": "Ludee", "email": "none", "date": "2018-10-08", "comment": "Add source"}],
+        {"name": "Ludee", "email": "none", "date": "2018-10-08", "comment": "Add source"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"}],
     "resources": [
         {"name": "model_draft.reeem_times_paneu_output",
         "format": "PostgreSQL",
@@ -178,6 +185,11 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_output IS
             {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
+
+-- Add missing columns
+ALTER TABLE model_draft.reeem_times_paneu_output
+  ADD COLUMN "schema" text,
+  ADD COLUMN "field"  text;
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_times_paneu_output','reeem_db_setup_times_paneu.sql',' ');
