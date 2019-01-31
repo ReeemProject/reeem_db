@@ -143,7 +143,8 @@ COMMENT ON TABLE model_draft.reeem_esme_output IS
         "instruction": "tba",
         "copyright": "tba"},
     "contributors": [
-        {"name": "Ludee", "email": "none", "date": "2019-01-09", "comment": "Create table and metadata"} ],
+        {"name": "Ludee", "email": "none", "date": "2019-01-09", "comment": "Create table and metadata"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
     "resources": [
         {"name": "model_draft.reeem_esme_output",
         "format": "PostgreSQL",
@@ -165,6 +166,12 @@ COMMENT ON TABLE model_draft.reeem_esme_output IS
             {"name": "updated", "description": "Timestamp", "unit": "none"},
             {"name": "source", "description": "Data source (model)", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
+
+-- Add missing columns
+ALTER TABLE model_draft.reeem_esme_output
+  ADD COLUMN "schema"        text,
+  ADD COLUMN "field"         text,
+  ADD COLUMN "region"        text;
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_esme_output','reeem_db_setup_esme.sql',' ');
