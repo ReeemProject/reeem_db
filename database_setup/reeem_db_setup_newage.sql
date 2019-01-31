@@ -138,7 +138,8 @@ COMMENT ON TABLE model_draft.reeem_newage_output IS '{
         "instruction": "tba",
         "copyright": "tba"},
     "contributors": [
-        {"name": "Ludwig Hülk", "email": "ludwig.huelk@rl-institut.de", "date": "2017-07-24", "comment": "Create table"} ],
+        {"name": "Ludwig Hülk", "email": "ludwig.huelk@rl-institut.de", "date": "2017-07-24", "comment": "Create table"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
     "resources": [
         {"name": "model_draft.reeem_newage_output",        
         "format": "PostgreSQL",
@@ -159,6 +160,10 @@ COMMENT ON TABLE model_draft.reeem_newage_output IS '{
             {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
+
+-- Add missing columns
+ALTER TABLE model_draft.reeem_newage_output
+  ADD COLUMN "schema" text;
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_newage_output','database_setup_newage.sql',' ');
