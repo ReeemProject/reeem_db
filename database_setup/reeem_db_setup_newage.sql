@@ -5,7 +5,7 @@ NEWAGE Output
 
 https://github.com/ReeemProject/reeem_db/issues/12
 
-__copyright__   = "� Reiner Lemoine Institut"
+__copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Ludwig Huelk"
@@ -85,6 +85,9 @@ COMMENT ON TABLE model_draft.reeem_newage_input IS '{
             {"name": "source", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
+-- scenario log (project,version,io,schema_name,table_name,script_name,comment)
+SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_newage_input','database_setup_newage.sql',' ');
+
 
 -- NEWAGE Output
 DROP TABLE IF EXISTS    model_draft.reeem_newage_output CASCADE;
@@ -135,7 +138,7 @@ COMMENT ON TABLE model_draft.reeem_newage_output IS '{
         "instruction": "tba",
         "copyright": "tba"},
     "contributors": [
-        {"name": "Ludwig H�lk", "email": "ludwig.huelk@rl-institut.de", "date": "2017-07-24", "comment": "Create table"} ],
+        {"name": "Ludwig Hülk", "email": "ludwig.huelk@rl-institut.de", "date": "2017-07-24", "comment": "Create table"} ],
     "resources": [
         {"name": "model_draft.reeem_newage_output",        
         "format": "PostgreSQL",
