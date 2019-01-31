@@ -8,7 +8,7 @@ __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Ludwig Hülk"
-__issue__       = "https://github.com/ReeemProject/reeem_db/issues/7"
+__issue__       = "https://github.com/ReeemProject/reeem_db/issues/32"
 
  * This file is part of project REEEM (https://github.com/ReeemProject/reeem_db).
  * It's copyrighted by the contributors recorded in the version control history:
@@ -26,6 +26,9 @@ CREATE TABLE            model_draft.reeem_ecosense_input (
     "pathway"       text,
     "framework"     text,
     "version"       text,
+    "schema"        text,
+    "field"         text,
+    "category"      text,
     "region"        text,
     "year"          smallint,
     "indicator"     text,
@@ -68,17 +71,21 @@ COMMENT ON TABLE model_draft.reeem_ecosense_input IS
         {"name": "Ludee", "email": "none", "date": "2017-05-09", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
         {"name": "Ludee", "email": "none", "date": "2018-04-12", "comment": "Finalize structure and update metadata"},
-        {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metadata"} ],
+        {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metadata"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Update structure and metadata"}, ],
     "resources": [
         {"name": "model_draft.reeem_ecosense_input",
         "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
-            {"name": "nid", "description": "Model id", "unit": "none"},
+            {"name": "nid", "description": "Parameter ID", "unit": "none"},
             {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
-            {"name": "region", "description": "Country (responsible for impacts)", "unit": "none"},
+            {"name": "schema", "description": "1. classification", "unit": "none"},
+            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "tags", "description": "Free classification", "unit": "none"},
+            {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
             {"name": "value", "description": "Parameter value", "unit": "unit"},
