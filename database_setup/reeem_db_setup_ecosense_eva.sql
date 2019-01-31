@@ -139,9 +139,9 @@ COMMENT ON TABLE model_draft.reeem_ecosenseeva_output IS
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
-         {"name": "EcoSense", "description": "EcoSense is an integrated impact assessment model following the Impact Pathway Appraoch. Assessment of external costs and health impacts in Europe due to air pollution.", "url": "http://ecosenseweb.ier.uni-stuttgart.de/", "license": "none", "copyright": "Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"},
+         {"name": "EcoSense", "description": "EcoSense is an integrated impact assessment model following the Impact Pathway Appraoch. Assessment of external costs and health impacts in Europe due to air pollution.", "url": "http://ecosenseweb.ier.uni-stuttgart.de/", "license": "proprietary", "copyright": "Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"},
          {"name": "OEP Model Factsheet (EcoSense)", "description": "", "url": "https://openenergy-platform.org/factsheets/models/146/", "license": "none", "copyright": "none"},
-         {"name": "OEP Model Factsheet (EVA)", "description": "Economic valuation of Air Pollution. EVA is an integrated impact assessment model to estimate health impacts and associated costs due to air pollution.", "url": "https://openenergy-platform.org/factsheets/models/153/", "license": "none", "copyright": "none"}],
+         {"name": "OEP Model Factsheet (EVA)", "description": "Economic valuation of Air Pollution. EVA is an integrated impact assessment model to estimate health impacts and associated costs due to air pollution.", "url": "https://openenergy-platform.org/factsheets/models/153/", "license": "proprietary", "copyright": "Departement of Environmental Science, Aarhus University"}],
     "license":
         {"id": "ODC-BY-1.0",
         "name": "Open Data Commons Attribution License 1.0",
