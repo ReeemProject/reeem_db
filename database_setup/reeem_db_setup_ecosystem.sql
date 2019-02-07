@@ -15,39 +15,42 @@ __issue__       = "https://github.com/ReeemProject/reeem_db/issues/35"
 */
 
 
--- Ecosystem output
-DROP TABLE IF EXISTS    model_draft.reeem_ecosystem CASCADE;
-CREATE TABLE            model_draft.reeem_ecosystem (
+-- Ecosystem input
+DROP TABLE IF EXISTS    model_draft.reeem_ecosystem_input CASCADE;
+CREATE TABLE            model_draft.reeem_ecosystem_input (
     "id"            serial NOT NULL,
+    "nid"           integer,
     "pathway"       text,
+    "framework"     text,
     "version"       text,
     "schema"        text,
+    "field"         text,
     "category"      text,
-    "tags"          hstore,
     "region"        text,
     "year"          smallint,
     "indicator"     text,
     "value"         double precision,
     "unit"          text,
     "aggregation"   boolean,
+    "tags"          hstore,
     "updated"       timestamp with time zone,
     "source"        text,
-    CONSTRAINT reeem_ecosystem_pkey PRIMARY KEY (id) );
+    CONSTRAINT reeem_ecosystem_input_pkey PRIMARY KEY (id) );
 
 -- access rights
-ALTER TABLE             model_draft.reeem_ecosystem OWNER TO reeem_user;
-GRANT SELECT ON TABLE   model_draft.reeem_ecosystem TO reeem_read WITH GRANT OPTION;
+ALTER TABLE             model_draft.reeem_ecosystem_input OWNER TO reeem_user;
+GRANT SELECT ON TABLE   model_draft.reeem_ecosystem_input TO reeem_read WITH GRANT OPTION;
 
 -- metadata
-COMMENT ON TABLE model_draft.reeem_ecosystem IS 
+COMMENT ON TABLE model_draft.reeem_ecosystem_input IS
     '{"title": "",
     "description": "",
     "language": [ "eng", "ger" ],
-    "spatial": 
+    "spatial":
         {"location": "",
         "extent": "",
         "resolution": ""},
-    "temporal": 
+    "temporal":
         {"reference_date": "",
         "start": "",
         "end": "",
@@ -63,14 +66,16 @@ COMMENT ON TABLE model_draft.reeem_ecosystem IS
         "instruction": "",
         "copyright": ""},
     "contributors": [
-        {"name": "Ludee", "email": "none", "date": "2017--", "comment": "Create table"},
+        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Create table"},
         {"name": "", "email": "", "date": "", "comment": ""} ],
     "resources": [
-        {"name": "model_draft.reeem_model_data_template",        
+        {"name": "model_draft.reeem_model_data_template",
         "format": "PostgreSQL",
         "fields": [
             {"name": "id", "description": "Unique identifier", "unit": "none"},
+            {"name": "nid", "description": "Parameter ID", "unit": "none"},
             {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
+            {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "schema", "description": "1. classification", "unit": "none"},
             {"name": "category", "description": "2. classification", "unit": "none"},
@@ -81,9 +86,89 @@ COMMENT ON TABLE model_draft.reeem_ecosystem IS
             {"name": "value", "description": "Parameter value", "unit": "unit"},
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
+            {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
             {"name": "source", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
-SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_ecosystem','reeem_db_setup_ecosystem.sql',' ');
+SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_ecosystem_input','reeem_db_setup_ecosystem.sql',' ');
+
+
+-- Ecosystem output
+DROP TABLE IF EXISTS    model_draft.reeem_ecosystem_output CASCADE;
+CREATE TABLE            model_draft.reeem_ecosystem_output (
+    "id"            serial NOT NULL,
+    "nid"           integer,
+    "pathway"       text,
+    "framework"     text,
+    "version"       text,
+    "schema"        text,
+    "field"         text,
+    "category"      text,
+    "region"        text,
+    "year"          smallint,
+    "indicator"     text,
+    "value"         double precision,
+    "unit"          text,
+    "aggregation"   boolean,
+    "tags"          hstore,
+    "updated"       timestamp with time zone,
+    "source"        text,
+    CONSTRAINT reeem_ecosystem_output_pkey PRIMARY KEY (id) );
+
+-- access rights
+ALTER TABLE             model_draft.reeem_ecosystem_output OWNER TO reeem_user;
+GRANT SELECT ON TABLE   model_draft.reeem_ecosystem_output TO reeem_read WITH GRANT OPTION;
+
+-- metadata
+COMMENT ON TABLE model_draft.reeem_ecosystem_output IS
+    '{"title": "",
+    "description": "",
+    "language": [ "eng", "ger" ],
+    "spatial":
+        {"location": "",
+        "extent": "",
+        "resolution": ""},
+    "temporal":
+        {"reference_date": "",
+        "start": "",
+        "end": "",
+        "resolution": ""},
+    "sources": [
+        {"name": "", "description": "", "url": "", "license": "", "copyright": ""},
+        {"name": "", "description": "", "url": "", "license": "", "copyright": ""} ],
+    "license":
+        {"id": "",
+        "name": "",
+        "version": "",
+        "url": "",
+        "instruction": "",
+        "copyright": ""},
+    "contributors": [
+        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Create table"} ],
+    "resources": [
+        {"name": "model_draft.reeem_model_data_template",
+        "format": "PostgreSQL",
+        "fields": [
+            {"name": "id", "description": "Unique identifier", "unit": "none"},
+            {"name": "nid", "description": "Parameter ID", "unit": "none"},
+            {"name": "pathway", "description": "REEEM pathway", "unit": "none"},
+            {"name": "framework", "description": "REEEM framework", "unit": "none"},
+            {"name": "version", "description": "REEEM version", "unit": "none"},
+            {"name": "schema", "description": "1. classification", "unit": "none"},
+            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "tags", "description": "Free classification", "unit": "none"},
+            {"name": "region", "description": "Country or region", "unit": "none"},
+            {"name": "year", "description": "Year", "unit": "none"},
+            {"name": "indicator", "description": "Parameter name", "unit": "none"},
+            {"name": "value", "description": "Parameter value", "unit": "unit"},
+            {"name": "unit", "description": "Parameter unit", "unit": "none"},
+            {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
+            {"name": "tags", "description": "Free classification", "unit": "none"},
+            {"name": "updated", "description": "Timestamp", "unit": "none"},
+            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
+    "metadata_version": "1.3"}';
+
+-- scenario log (project,version,io,schema_name,table_name,script_name,comment)
+SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_ecosystem_output','reeem_db_setup_ecosystem.sql',' ');
