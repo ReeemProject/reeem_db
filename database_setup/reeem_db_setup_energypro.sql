@@ -38,6 +38,7 @@ CREATE TABLE            model_draft.reeem_energypro_input (
     "tags"          hstore,
     "updated"       timestamp with time zone,
     "source"        text,
+    "schema"        text,
     CONSTRAINT reeem_energypro_input_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -78,7 +79,8 @@ COMMENT ON TABLE model_draft.reeem_energypro_input IS
         "copyright": "© Aalto University"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2018-10-02", "comment": "Create table"},
-        {"name": "Ludee", "email": "none", "date": "2018-10-31", "comment": "Update metadata and license"} ],
+        {"name": "Ludee", "email": "none", "date": "2018-10-31", "comment": "Update metadata and license"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
     "resources": [
         {"name": "model_draft.reeem_energypro_input",
         "format": "PostgreSQL",
@@ -105,7 +107,6 @@ COMMENT ON TABLE model_draft.reeem_energypro_input IS
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_energypro_input','reeem_db_setup_energypro.sql',' ');
 
 
-
 -- EnergyPRO Output
 DROP TABLE IF EXISTS    model_draft.reeem_energypro_output CASCADE;
 CREATE TABLE            model_draft.reeem_energypro_output (
@@ -127,6 +128,7 @@ CREATE TABLE            model_draft.reeem_energypro_output (
     "aggregation"   boolean,
     "tags"          hstore,
     "updated"       timestamp with time zone,
+    "schema"        text,
     CONSTRAINT reeem_energypro_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -162,7 +164,8 @@ COMMENT ON TABLE model_draft.reeem_energypro_output IS
         "copyright": "© Aalto University"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2018-10-25", "comment": "Create table"},
-        {"name": "Ludee", "email": "none", "date": "2018-10-31", "comment": "Update metadata and license"}],
+        {"name": "Ludee", "email": "none", "date": "2018-10-31", "comment": "Update metadata and license"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
     "resources": [
         {"name": "model_draft.reeem_energypro_output",
         "format": "PostgreSQL",

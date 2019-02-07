@@ -4,12 +4,12 @@ EMC2 Table Setup
 EMC2 Input
 EMC2 Output
 
-https://github.com/ReeemProject/reeem_db/issues/7
+https://github.com/ReeemProject/reeem_db/issues/48
 
-__copyright__   = "© Reiner Lemoine Institut"
+__copyright__   = "Â© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
-__author__      = "Ludwig Hülk"
+__author__      = "Ludwig HÃ¼lk"
 */
 
 
@@ -29,6 +29,12 @@ CREATE TABLE            model_draft.reeem_emc2_input (
     notation        text,
     updated         timestamp with time zone,
     source          text,
+    "framework"     text,
+    "schema"        text,
+    "field"         text,
+    "category"      text,
+    "aggregation"   boolean,
+    "tags"          hstore,
     CONSTRAINT reeem_emc2_input_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -62,7 +68,7 @@ COMMENT ON TABLE model_draft.reeem_emc2_input IS
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2017-05-09", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
-        {"name": "", "email": "", "date": "", "comment": ""} ],
+        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Update structure"} ],
     "resources": [
         {"name": "model_draft.reeem_emc2_input",
         "format": "PostgreSQL",
@@ -102,6 +108,12 @@ CREATE TABLE            model_draft.reeem_emc2_output (
     unit            text,
     updated         timestamp with time zone,
     source          text,
+    "framework"     text,
+    "schema"        text,
+    "field"         text,
+    "category"      text,
+    "aggregation"   boolean,
+    "tags"          hstore,
     CONSTRAINT reeem_emc2_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -135,7 +147,7 @@ COMMENT ON TABLE model_draft.reeem_emc2_output IS
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2017-05-09", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
-        {"name": "", "email": "", "date": "", "comment": ""} ],
+        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Update structure"} ],
     "resources": [
         {"name": "model_draft.reeem_emc2_output",
         "format": "PostgreSQL",
@@ -153,8 +165,6 @@ COMMENT ON TABLE model_draft.reeem_emc2_output IS
             {"name": "updated", "description": "Timestamp", "unit": "none"},
             {"name": "sources", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
-
-SELECT obj_description('model_draft.reeem_emc2_output' ::regclass) ::json;
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT reeem_scenario_log('v0.1','setup','model_draft','reeem_emc2_output','reeem_db_setup_emc2.sql',' ');

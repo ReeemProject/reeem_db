@@ -125,6 +125,8 @@ CREATE TABLE            model_draft.reeem_ecosenseeva_output (
     "tags"          hstore,
     "updated"       timestamp with time zone,
     "source"        text,
+    "schema"        text,
+    "field"         text,
     CONSTRAINT reeem_ecosenseeva_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -134,7 +136,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosenseeva_output TO reeem_read WITH 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosenseeva_output IS 
     '{"title": "REEEM EcoSenseEVA Output",
-    "description": "Unit cost factors for health impacts due to air pollution in Europe to be used in energy system models. Cost factors are given in €/kg emissions released for Particulate Matter (PM2.5, PM10), SO2, NOX, NMVOC and NH3 and are estimated following the 'Polluter Pays Principle'",
+    "description": "Unit cost factors for health impacts due to air pollution in Europe to be used in energy system models. Cost factors are given in €/kg emissions released for Particulate Matter (PM2.5, PM10), SO2, NOX, NMVOC and NH3 and are estimated following the ''Polluter Pays Principle''",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
@@ -161,7 +163,9 @@ COMMENT ON TABLE model_draft.reeem_ecosenseeva_output IS
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
         {"name": "Ludee", "email": "none", "date": "2018-04-12", "comment": "Finalize structure and update metadata"},
         {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metadata"},
-        {"name": "doroschmid", "email": "none", "date": "2019-01-31", "comment": "Update metadata"}],
+        {"name": "doroschmid", "email": "none", "date": "2018-11-08", "comment": "Update metadata"},
+        {"name": "doroschmid", "email": "none", "date": "2019-01-31", "comment": "Update metadata"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
     "resources": [
         {"name": "model_draft.reeem_ecosenseeva_output",
         "format": "PostgreSQL",

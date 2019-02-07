@@ -109,6 +109,7 @@ CREATE TABLE            model_draft.reeem_newage_output (
     "aggregation"   boolean,
     "tags"          hstore,
     "updated"       timestamp with time zone,
+    "schema"        text,
     CONSTRAINT reeem_newage_output_pkey PRIMARY KEY (id) );
     
 ALTER TABLE        model_draft.reeem_newage_output OWNER TO reeem_user;
@@ -138,7 +139,8 @@ COMMENT ON TABLE model_draft.reeem_newage_output IS '{
         "instruction": "tba",
         "copyright": "tba"},
     "contributors": [
-        {"name": "Ludwig Hülk", "email": "ludwig.huelk@rl-institut.de", "date": "2017-07-24", "comment": "Create table"} ],
+        {"name": "Ludwig Hülk", "email": "ludwig.huelk@rl-institut.de", "date": "2017-07-24", "comment": "Create table"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
     "resources": [
         {"name": "model_draft.reeem_newage_output",        
         "format": "PostgreSQL",

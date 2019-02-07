@@ -113,6 +113,9 @@ CREATE TABLE            model_draft.reeem_esme_output (
     "tags"          hstore,
     "updated"       timestamp with time zone,
     "source"        text,
+    "schema"        text,
+    "field"         text,
+    "region"        text,
     CONSTRAINT reeem_esme_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -143,7 +146,8 @@ COMMENT ON TABLE model_draft.reeem_esme_output IS
         "instruction": "tba",
         "copyright": "tba"},
     "contributors": [
-        {"name": "Ludee", "email": "none", "date": "2019-01-09", "comment": "Create table and metadata"} ],
+        {"name": "Ludee", "email": "none", "date": "2019-01-09", "comment": "Create table and metadata"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
     "resources": [
         {"name": "model_draft.reeem_esme_output",
         "format": "PostgreSQL",

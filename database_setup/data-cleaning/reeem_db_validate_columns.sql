@@ -309,12 +309,12 @@ FROM information_schema.columns
 WHERE table_schema = 'model_draft'
   AND table_name   = 'reeem_model_data_template'),
       testee AS (
-SELECT column_name AS reeem_energypro_ouput
+SELECT column_name AS reeem_energypro_output
 FROM information_schema.columns
 WHERE table_schema = 'model_draft'
-  AND table_name   = 'reeem_energypro_ouput')
+  AND table_name   = 'reeem_energypro_output')
 SELECT *
-  FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_energypro_ouput
+  FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_energypro_output
   WHERE spec.mandatory <> 'source';
 
 -- Extra
@@ -324,13 +324,13 @@ FROM information_schema.columns
 WHERE table_schema = 'model_draft'
   AND table_name   = 'reeem_model_data_template'),
       testee AS (
-SELECT column_name AS reeem_energypro_ouput
+SELECT column_name AS reeem_energypro_output
 FROM information_schema.columns
 WHERE table_schema = 'model_draft'
-  AND table_name   = 'reeem_energypro_ouput')
+  AND table_name   = 'reeem_energypro_output')
 SELECT *
 FROM spec
-FULL JOIN testee ON spec.mandatory = testee.reeem_energypro_ouput
+FULL JOIN testee ON spec.mandatory = testee.reeem_energypro_output
 WHERE spec is NULL;
 
 -- Missing
@@ -340,13 +340,13 @@ FROM information_schema.columns
 WHERE table_schema = 'model_draft'
   AND table_name   = 'reeem_model_data_template'),
       testee AS (
-SELECT column_name AS reeem_energypro_ouput
+SELECT column_name AS reeem_energypro_output
 FROM information_schema.columns
 WHERE table_schema = 'model_draft'
-  AND table_name   = 'reeem_energypro_ouput')
+  AND table_name   = 'reeem_energypro_output')
 SELECT *
 FROM spec
-FULL JOIN testee ON spec.mandatory = testee.reeem_energypro_ouput
+FULL JOIN testee ON spec.mandatory = testee.reeem_energypro_output
 WHERE testee is NULL AND spec.mandatory <> 'source';
 
 

@@ -37,6 +37,8 @@ CREATE TABLE            model_draft.reeem_times_paneu_input (
     "tags"          hstore,
     "updated"       timestamp with time zone,
     "source"        text,
+    "schema"        text,
+    "field"         text,
     CONSTRAINT reeem_times_paneu_input_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -74,7 +76,8 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
         {"name": "Ludee", "email": "none", "date": "2017-11-02", "comment": "Update structure"},
         {"name": "Ludee", "email": "none", "date": "2017-11-06", "comment": "Include pathway"},
         {"name": "Ludee", "email": "none", "date": "2018-01-30", "comment": "New naming structure"},
-        {"name": "Ludee", "email": "none", "date": "2018-02-27", "comment": "Simplify structure"} ],
+        {"name": "Ludee", "email": "none", "date": "2018-02-27", "comment": "Simplify structure"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
     "resources": [
         {"name": "model_draft.reeem_times_paneu_input",
         "format": "PostgreSQL",
@@ -119,6 +122,8 @@ CREATE TABLE            model_draft.reeem_times_paneu_output (
     "aggregation"   boolean,
     "tags"          hstore,
     "updated"       timestamp with time zone,
+    "schema"        text,
+    "field"         text,
     CONSTRAINT reeem_times_paneu_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -157,7 +162,8 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_output IS
         {"name": "Ludee", "email": "none", "date": "2018-01-30", "comment": "New naming structure"},
         {"name": "Ludee", "email": "none", "date": "2018-02-27", "comment": "Simplify structure"},
         {"name": "Ludee", "email": "none", "date": "2018-03-15", "comment": "Add license"},
-        {"name": "Ludee", "email": "none", "date": "2018-10-08", "comment": "Add source"}],
+        {"name": "Ludee", "email": "none", "date": "2018-10-08", "comment": "Add source"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"}],
     "resources": [
         {"name": "model_draft.reeem_times_paneu_output",
         "format": "PostgreSQL",

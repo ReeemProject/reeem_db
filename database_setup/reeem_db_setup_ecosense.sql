@@ -124,6 +124,8 @@ CREATE TABLE            model_draft.reeem_ecosense_output (
     "aggregation"   boolean,
     "tags"          hstore,
     "updated"       timestamp with time zone,
+    "schema"        text,
+    "field"         text,
     CONSTRAINT reeem_ecosense_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -133,7 +135,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosense_output TO reeem_read WITH GRA
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosense_output IS 
     '{"title": "REEEM EcoSense Output",
-    "description": "Impacts on human health and biodiversity due to air pollution. Health impacts are stated in 'Disability adjusted lifeyears (DALY)' and in terms of external costs atributed to countries following the 'Polluter Pays Principle'. Impacts on biodiverstiy are only given in monetary terms. All impacts are estimated based on emissions of air pollutants as provided by TIMES PanEU, to which the contained information about Pathway, Framework and Data version refer to.",
+    "description": "Impacts on human health and biodiversity due to air pollution. Health impacts are stated in ''Disability adjusted lifeyears (DALY)'' and in terms of external costs atributed to countries following the ''Polluter Pays Principle''. Impacts on biodiverstiy are only given in monetary terms. All impacts are estimated based on emissions of air pollutants as provided by TIMES PanEU, to which the contained information about Pathway, Framework and Data version refer to.",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
@@ -145,7 +147,7 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
-        {"name": "EcoSense", "description": "EcoSense is an integrated impact assessment model following the Impact Pathway Appraoch. Assessment of external costs and health impacts in Europe due to air pollution.", "url": "http://ecosenseweb.ier.uni-stuttgart.de/", "license": "proprietary", "copyright": "Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"},,
+        {"name": "EcoSense", "description": "EcoSense is an integrated impact assessment model following the Impact Pathway Appraoch. Assessment of external costs and health impacts in Europe due to air pollution.", "url": "http://ecosenseweb.ier.uni-stuttgart.de/", "license": "proprietary", "copyright": "Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"},
         {"name": "OEP Model Factsheet", "description": "", "url": "https://openenergy-platform.org/factsheets/models/146/", "license": "none", "copyright": "none"} ],
     "license":
         {"id": "ODC-BY-1.0",
@@ -160,8 +162,9 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
         {"name": "Ludee", "email": "none", "date": "2018-04-12", "comment": "Finalize structure and update metadata"},
         {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metadata"},
         {"name": "doroschmid", "email": "none", "date": "2018-11-08", "comment": "Update metadata"},
-        {"name": "Ludee", "email": "none", "date": "2019-01-22", "comment": "Update metadata sources"},
-        {"name": "doroschmid", "email": "none", "date": "2019-01-31", "comment": "Update metadata"],
+        {"name": "Ludee", "email": "none", "date": "2019-10-22", "comment": "Update metadata sources"},
+        {"name": "doroschmid", "email": "none", "date": "2019-01-31", "comment": "Update metadata"},
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
     "resources": [
         {"name": "model_draft.reeem_ecosense_output",
         "format": "PostgreSQL",
