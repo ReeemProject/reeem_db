@@ -1,23 +1,23 @@
 /*
-Ecosystem  Table Setup
+Hydrology Table Setup
 
 __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
-__author__      = "Ludwig Hülk"
-__issue__       = "https://github.com/ReeemProject/reeem_db/issues/35"
+__author__      = "Alexis Michaltsis"
+__issue__       = "https://github.com/ReeemProject/reeem_db/issues/50"
 
  * This file is part of project REEEM (https://github.com/ReeemProject/reeem_db).
  * It's copyrighted by the contributors recorded in the version control history:
- * ReeemProject/reeem_db/blob/master/database_setup/utilities/reeem_example_table.sql
+ * ReeemProject/reeem_db/blob/master/database_setup/reeem_db_setup_hydrology.sql
  * 
  * SPDX-License-Identifier: AGPL-3.0-or-later
 */
 
 
--- Ecosystem input
-DROP TABLE IF EXISTS    model_draft.reeem_ecosystem_input CASCADE;
-CREATE TABLE            model_draft.reeem_ecosystem_input (
+-- Hydrology input
+DROP TABLE IF EXISTS    model_draft.reeem_hydrology_input CASCADE;
+CREATE TABLE            model_draft.reeem_hydrology_input (
     "id"            serial NOT NULL,
     "nid"           integer,
     "pathway"       text,
@@ -35,14 +35,14 @@ CREATE TABLE            model_draft.reeem_ecosystem_input (
     "tags"          hstore,
     "updated"       timestamp with time zone,
     "source"        text,
-    CONSTRAINT reeem_ecosystem_input_pkey PRIMARY KEY (id) );
+    CONSTRAINT reeem_hydrology_input_pkey PRIMARY KEY (id) );
 
 -- access rights
-ALTER TABLE             model_draft.reeem_ecosystem_input OWNER TO reeem_user;
-GRANT SELECT ON TABLE   model_draft.reeem_ecosystem_input TO reeem_read WITH GRANT OPTION;
+ALTER TABLE             model_draft.reeem_hydrology_input OWNER TO reeem_user;
+GRANT SELECT ON TABLE   model_draft.reeem_hydrology_input TO reeem_read WITH GRANT OPTION;
 
 -- metadata
-COMMENT ON TABLE model_draft.reeem_ecosystem_input IS
+COMMENT ON TABLE model_draft.reeem_hydrology_input IS
     '{"title": "",
     "description": "",
     "language": [ "eng", "ger" ],
@@ -92,12 +92,12 @@ COMMENT ON TABLE model_draft.reeem_ecosystem_input IS
     "metadata_version": "1.3"}';
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
-SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_ecosystem_input','reeem_db_setup_ecosystem.sql',' ');
+SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_hydrology_input','reeem_db_setup_hydrology.sql',' ');
 
 
--- Ecosystem output
-DROP TABLE IF EXISTS    model_draft.reeem_ecosystem_output CASCADE;
-CREATE TABLE            model_draft.reeem_ecosystem_output (
+-- Hydrology output
+DROP TABLE IF EXISTS    model_draft.reeem_hydrology_output CASCADE;
+CREATE TABLE            model_draft.reeem_hydrology_output (
     "id"            serial NOT NULL,
     "nid"           integer,
     "pathway"       text,
@@ -115,14 +115,14 @@ CREATE TABLE            model_draft.reeem_ecosystem_output (
     "tags"          hstore,
     "updated"       timestamp with time zone,
     "source"        text,
-    CONSTRAINT reeem_ecosystem_output_pkey PRIMARY KEY (id) );
+    CONSTRAINT reeem_hydrology_output_pkey PRIMARY KEY (id) );
 
 -- access rights
-ALTER TABLE             model_draft.reeem_ecosystem_output OWNER TO reeem_user;
-GRANT SELECT ON TABLE   model_draft.reeem_ecosystem_output TO reeem_read WITH GRANT OPTION;
+ALTER TABLE             model_draft.reeem_hydrology_output OWNER TO reeem_user;
+GRANT SELECT ON TABLE   model_draft.reeem_hydrology_output TO reeem_read WITH GRANT OPTION;
 
 -- metadata
-COMMENT ON TABLE model_draft.reeem_ecosystem_output IS
+COMMENT ON TABLE model_draft.reeem_hydrology_output IS
     '{"title": "",
     "description": "",
     "language": [ "eng", "ger" ],
@@ -171,4 +171,4 @@ COMMENT ON TABLE model_draft.reeem_ecosystem_output IS
     "metadata_version": "1.3"}';
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
-SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_ecosystem_output','reeem_db_setup_ecosystem.sql',' ');
+SELECT scenario_log('REEEM','v0.1.0','setup','model_draft','reeem_hydrology_output','reeem_db_setup_hydrology.sql',' ');
