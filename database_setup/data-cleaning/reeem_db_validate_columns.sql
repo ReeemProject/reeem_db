@@ -21,7 +21,52 @@ __issue__       = "https://github.com/ReeemProject/reeem_db/issues/4"
 --------
 -- INPUT
 --------
--- no
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_ecosense_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_ecosense_input')
+SELECT *
+FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_ecosense_input;
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_ecosense_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_ecosense_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_ecosense_input
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_ecosense_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_ecosense_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_ecosense_input
+WHERE testee is NULL;
+
 ---------
 -- OUTPUT
 ---------
@@ -73,13 +118,59 @@ FROM spec
 FULL JOIN testee ON spec.mandatory = testee.reeem_ecosense_output
 WHERE testee is NULL AND spec.mandatory <> 'source';
 
+
 --------------
 -- EcoSenseEVA
 --------------
 --------
 -- INPUT
 --------
--- no
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_ecosenseeva_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_ecosenseeva_input')
+SELECT *
+FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_ecosenseeva_input;
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_ecosenseeva_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_ecosenseeva_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_ecosenseeva_input
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_ecosenseeva_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_ecosenseeva_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_ecosenseeva_input
+WHERE testee is NULL;
+
 ---------
 -- OUTPUT
 ---------
@@ -240,11 +331,101 @@ WHERE testee is NULL AND spec.mandatory <> 'source';
 --------
 -- INPUT
 --------
--- n/a
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_energyplan_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_energyplan_input')
+SELECT *
+FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_energyplan_input;
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_energyplan_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_energyplan_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_energyplan_input
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_energyplan_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_energyplan_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_energyplan_input
+WHERE testee is NULL;
+
 ---------
 -- OUTPUT
 ---------
--- n/a
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_energyplan_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_energyplan_output')
+SELECT *
+  FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_energyplan_output
+  WHERE spec.mandatory <> 'source';
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_energyplan_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_energyplan_output')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_energyplan_output
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_energyplan_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_energyplan_output')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_energyplan_output
+WHERE testee is NULL AND spec.mandatory <> 'source';
 
 
 ------------
@@ -356,7 +537,52 @@ WHERE testee is NULL AND spec.mandatory <> 'source';
 --------
 -- INPUT
 --------
--- n/a
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_esme_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_esme_input')
+SELECT *
+FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_esme_input;
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_esme_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_esme_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_esme_input
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_esme_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_esme_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_esme_input
+WHERE testee is NULL;
+
 ---------
 -- OUTPUT
 ---------
@@ -414,11 +640,101 @@ WHERE testee is NULL AND spec.mandatory <> 'source';
 --------
 -- INPUT
 --------
--- n/a
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_hydrology_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_hydrology_input')
+SELECT *
+FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_hydrology_input;
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_hydrology_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_hydrology_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_hydrology_input
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_hydrology_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_hydrology_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_hydrology_input
+WHERE testee is NULL;
+
 ---------
 -- OUTPUT
 ---------
--- n/a
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_hydrology_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_hydrology_output')
+SELECT *
+  FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_hydrology_output
+  WHERE spec.mandatory <> 'source';
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_hydrology_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_hydrology_output')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_hydrology_output
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_hydrology_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_hydrology_output')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_hydrology_output
+WHERE testee is NULL AND spec.mandatory <> 'source';
 
 
 ------
@@ -427,11 +743,101 @@ WHERE testee is NULL AND spec.mandatory <> 'source';
 --------
 -- INPUT
 --------
--- n/a
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_lca_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_lca_input')
+SELECT *
+FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_lca_input;
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_lca_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_lca_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_lca_input
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_lca_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_lca_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_lca_input
+WHERE testee is NULL;
+
 ---------
 -- OUTPUT
 ---------
--- n/a
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_lca_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_lca_output')
+SELECT *
+  FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_lca_output
+  WHERE spec.mandatory <> 'source';
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_lca_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_lca_output')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_lca_output
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_lca_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_lca_output')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_lca_output
+WHERE testee is NULL AND spec.mandatory <> 'source';
 
 
 -------
@@ -440,7 +846,52 @@ WHERE testee is NULL AND spec.mandatory <> 'source';
 --------
 -- INPUT
 --------
--- no
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_leca_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_leca_input')
+SELECT *
+FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_leca_input;
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_leca_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_leca_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_leca_input
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_leca_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_leca_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_leca_input
+WHERE testee is NULL;
+
 ---------
 -- OUTPUT
 ---------
@@ -491,17 +942,108 @@ FROM spec
 FULL JOIN testee ON spec.mandatory = testee.reeem_leca_output
 WHERE testee is NULL AND spec.mandatory <> 'source';
 
+
 ----------
 -- MESSAGE
 ----------
 --------
 -- INPUT
 --------
--- n/a
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_message_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_message_input')
+SELECT *
+FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_message_input;
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_message_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_message_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_message_input
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_message_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_message_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_message_input
+WHERE testee is NULL;
+
 ---------
 -- OUTPUT
 ---------
--- n/a
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_message_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_message_output')
+SELECT *
+  FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_message_output
+  WHERE spec.mandatory <> 'source';
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_message_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_message_output')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_message_output
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_message_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_message_output')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_message_output
+WHERE testee is NULL AND spec.mandatory <> 'source';
 
 
 ---------
@@ -510,7 +1052,52 @@ WHERE testee is NULL AND spec.mandatory <> 'source';
 --------
 -- INPUT
 --------
--- no
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_newage_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_newage_input')
+SELECT *
+FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_newage_input;
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_newage_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_newage_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_newage_input
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_newage_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_newage_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_newage_input
+WHERE testee is NULL;
+
 ---------
 -- OUTPUT
 ---------
@@ -569,7 +1156,52 @@ WHERE testee is NULL AND spec.mandatory <> 'source';
 --------
 -- INPUT
 --------
--- n/a
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_osembe_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_osembe_input')
+SELECT *
+FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_osembe_input;
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_osembe_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_osembe_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_osembe_input
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_osembe_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_osembe_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_osembe_input
+WHERE testee is NULL;
+
 ---------
 -- OUTPUT
 ---------
@@ -620,6 +1252,7 @@ SELECT *
 FROM spec
 FULL JOIN testee ON spec.mandatory = testee.reeem_osembe_output
 WHERE testee is NULL AND spec.mandatory <> 'source';
+
 
 -----------------
 -- OSeMOSYS-MESCA
@@ -942,8 +1575,98 @@ WHERE testee is NULL AND spec.mandatory <> 'source';
 --------
 -- INPUT
 --------
--- n/a
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_ucl_behaviour_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_ucl_behaviour_input')
+SELECT *
+FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_ucl_behaviour_input;
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_ucl_behaviour_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_ucl_behaviour_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_ucl_behaviour_input
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_ucl_behaviour_input
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_ucl_behaviour_input')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_ucl_behaviour_input
+WHERE testee is NULL;
+
 ---------
 -- OUTPUT
 ---------
--- n/a
+-- Full compare
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_ucl_behaviour_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_ucl_behaviour_output')
+SELECT *
+  FROM spec FULL JOIN testee ON spec.mandatory = testee.reeem_ucl_behaviour_output
+  WHERE spec.mandatory <> 'source';
+
+-- Extra
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_ucl_behaviour_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_ucl_behaviour_output')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_ucl_behaviour_output
+WHERE spec is NULL;
+
+-- Missing
+WITH spec AS (
+SELECT column_name AS mandatory
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_model_data_template'),
+      testee AS (
+SELECT column_name AS reeem_ucl_behaviour_output
+FROM information_schema.columns
+WHERE table_schema = 'model_draft'
+  AND table_name   = 'reeem_ucl_behaviour_output')
+SELECT *
+FROM spec
+FULL JOIN testee ON spec.mandatory = testee.reeem_ucl_behaviour_output
+WHERE testee is NULL AND spec.mandatory <> 'source';
