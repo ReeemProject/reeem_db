@@ -124,6 +124,8 @@ CREATE TABLE            model_draft.reeem_ecosense_output (
     "aggregation"   boolean,
     "tags"          hstore,
     "updated"       timestamp with time zone,
+    "schema"        text,
+    "field"         text,
     CONSTRAINT reeem_ecosense_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -184,11 +186,6 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
             {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
-
--- Add missing columns
-ALTER TABLE model_draft.reeem_ecosense_output
-  ADD COLUMN "schema" text,
-  ADD COLUMN "field"  text;
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_ecosense_output','reeem_db_setup_ecosense.sql',' ');
