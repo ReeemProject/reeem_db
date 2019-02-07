@@ -38,6 +38,7 @@ CREATE TABLE            model_draft.reeem_energypro_input (
     "tags"          hstore,
     "updated"       timestamp with time zone,
     "source"        text,
+    "schema"        text,
     CONSTRAINT reeem_energypro_input_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -102,13 +103,8 @@ COMMENT ON TABLE model_draft.reeem_energypro_input IS
             {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
--- Add missing column
-ALTER TABLE model_draft.reeem_energypro_input
-  ADD COLUMN "schema" text;
-
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_energypro_input','reeem_db_setup_energypro.sql',' ');
-
 
 
 -- EnergyPRO Output
@@ -132,6 +128,7 @@ CREATE TABLE            model_draft.reeem_energypro_output (
     "aggregation"   boolean,
     "tags"          hstore,
     "updated"       timestamp with time zone,
+    "schema"        text,
     CONSTRAINT reeem_energypro_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -190,10 +187,6 @@ COMMENT ON TABLE model_draft.reeem_energypro_output IS
             {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
-
--- Add missing column
-ALTER TABLE model_draft.reeem_energypro_output
-  ADD COLUMN "schema" text;
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_energypro_output','reeem_db_setup_energypro.sql',' ');
