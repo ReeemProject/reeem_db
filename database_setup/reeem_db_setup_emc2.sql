@@ -4,12 +4,12 @@ EMC2 Table Setup
 EMC2 Input
 EMC2 Output
 
-https://github.com/ReeemProject/reeem_db/issues/7
+https://github.com/ReeemProject/reeem_db/issues/48
 
-__copyright__   = "© Reiner Lemoine Institut"
+__copyright__   = "Â© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
-__author__      = "Ludwig Hülk"
+__author__      = "Ludwig HÃ¼lk"
 */
 
 
@@ -62,7 +62,7 @@ COMMENT ON TABLE model_draft.reeem_emc2_input IS
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2017-05-09", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
-        {"name": "", "email": "", "date": "", "comment": ""} ],
+        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Update structure"} ],
     "resources": [
         {"name": "model_draft.reeem_emc2_input",
         "format": "PostgreSQL",
@@ -81,6 +81,15 @@ COMMENT ON TABLE model_draft.reeem_emc2_input IS
             {"name": "updated", "description": "Timestamp", "unit": "none"},
             {"name": "sources", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
+
+-- Add missing columns
+ALTER TABLE model_draft.reeem_emc2_input
+  ADD COLUMN "framework"     text,
+  ADD COLUMN "schema"        text,
+  ADD COLUMN "field"         text,
+  ADD COLUMN "category"      text,
+  ADD COLUMN "aggregation"   boolean,
+  ADD COLUMN "tags"          hstore;
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT reeem_scenario_log('v0.1.0','setup','model_draft','reeem_emc2_input','reeem_db_setup_emc2.sql',' ');
@@ -135,7 +144,7 @@ COMMENT ON TABLE model_draft.reeem_emc2_output IS
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2017-05-09", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
-        {"name": "", "email": "", "date": "", "comment": ""} ],
+        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Update structure"} ],
     "resources": [
         {"name": "model_draft.reeem_emc2_output",
         "format": "PostgreSQL",
@@ -154,7 +163,14 @@ COMMENT ON TABLE model_draft.reeem_emc2_output IS
             {"name": "sources", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
-SELECT obj_description('model_draft.reeem_emc2_output' ::regclass) ::json;
+-- Add missing columns
+ALTER TABLE model_draft.reeem_emc2_output
+  ADD COLUMN "framework"     text,
+  ADD COLUMN "schema"        text,
+  ADD COLUMN "field"         text,
+  ADD COLUMN "category"      text,
+  ADD COLUMN "aggregation"   boolean,
+  ADD COLUMN "tags"          hstore;
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT reeem_scenario_log('v0.1','setup','model_draft','reeem_emc2_output','reeem_db_setup_emc2.sql',' ');
