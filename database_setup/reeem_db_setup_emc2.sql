@@ -29,6 +29,12 @@ CREATE TABLE            model_draft.reeem_emc2_input (
     notation        text,
     updated         timestamp with time zone,
     source          text,
+    "framework"     text,
+    "schema"        text,
+    "field"         text,
+    "category"      text,
+    "aggregation"   boolean,
+    "tags"          hstore,
     CONSTRAINT reeem_emc2_input_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -82,15 +88,6 @@ COMMENT ON TABLE model_draft.reeem_emc2_input IS
             {"name": "sources", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
--- Add missing columns
-ALTER TABLE model_draft.reeem_emc2_input
-  ADD COLUMN "framework"     text,
-  ADD COLUMN "schema"        text,
-  ADD COLUMN "field"         text,
-  ADD COLUMN "category"      text,
-  ADD COLUMN "aggregation"   boolean,
-  ADD COLUMN "tags"          hstore;
-
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT reeem_scenario_log('v0.1.0','setup','model_draft','reeem_emc2_input','reeem_db_setup_emc2.sql',' ');
 
@@ -111,6 +108,12 @@ CREATE TABLE            model_draft.reeem_emc2_output (
     unit            text,
     updated         timestamp with time zone,
     source          text,
+    "framework"     text,
+    "schema"        text,
+    "field"         text,
+    "category"      text,
+    "aggregation"   boolean,
+    "tags"          hstore,
     CONSTRAINT reeem_emc2_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -162,15 +165,6 @@ COMMENT ON TABLE model_draft.reeem_emc2_output IS
             {"name": "updated", "description": "Timestamp", "unit": "none"},
             {"name": "sources", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
-
--- Add missing columns
-ALTER TABLE model_draft.reeem_emc2_output
-  ADD COLUMN "framework"     text,
-  ADD COLUMN "schema"        text,
-  ADD COLUMN "field"         text,
-  ADD COLUMN "category"      text,
-  ADD COLUMN "aggregation"   boolean,
-  ADD COLUMN "tags"          hstore;
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT reeem_scenario_log('v0.1','setup','model_draft','reeem_emc2_output','reeem_db_setup_emc2.sql',' ');
