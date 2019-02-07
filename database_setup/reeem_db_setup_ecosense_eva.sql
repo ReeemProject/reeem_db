@@ -136,7 +136,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosenseeva_output TO reeem_read WITH 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosenseeva_output IS 
     '{"title": "REEEM EcoSenseEVA Output",
-    "description": "Unit cost factors for health impacts due to air pollution in Europe to be used in energy system models. Cost factors are given in €/kg emissions released for Particulate Matter (PM2.5, PM10), SO2, NOX, NMVOC and NH3 and are estimated following the 'Polluter Pays Principle'",
+    "description": "Unit cost factors for health impacts due to air pollution in Europe to be used in energy system models. Cost factors are given in €/kg emissions released for Particulate Matter (PM2.5, PM10), SO2, NOX, NMVOC and NH3 and are estimated following the ''Polluter Pays Principle''",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
