@@ -125,6 +125,8 @@ CREATE TABLE            model_draft.reeem_ecosenseeva_output (
     "tags"          hstore,
     "updated"       timestamp with time zone,
     "source"        text,
+    "schema"        text,
+    "field"         text,
     CONSTRAINT reeem_ecosenseeva_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -185,11 +187,6 @@ COMMENT ON TABLE model_draft.reeem_ecosenseeva_output IS
             {"name": "updated", "description": "Timestamp", "unit": "none"},
             {"name": "source", "description": "Data source (model)", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
-
--- Add missing columns
-ALTER TABLE model_draft.reeem_ecosenseeva_output
-  ADD COLUMN "schema" text,
-  ADD COLUMN "field"  text;
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_ecosenseeva_output','reeem_db_setup_ecosense_eva.sql',' ');
