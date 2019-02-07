@@ -5,7 +5,7 @@ __copyright__   = "© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
 __author__      = "Alexis Michaltsis"
-__issue__       = "https://github.com/ReeemProject/reeem_db/issues/49"
+__issue__       = "https://github.com/ReeemProject/reeem_db/issues/23"
 
  * This file is part of project REEEM (https://github.com/ReeemProject/reeem_db).
  * It's copyrighted by the contributors recorded in the version control history:
