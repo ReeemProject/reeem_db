@@ -32,7 +32,7 @@ def ecosenseeva_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
                   'unit', 'source', 'TIMES_commodity']
     df.index.names = ['dfid']
     dfdb = df.drop(
-        ['source', 'TIMES_commodity'],
+        ['TIMES_commodity'],
         axis=1)
 
     dfdb['pathway'] = fns['pathway']
