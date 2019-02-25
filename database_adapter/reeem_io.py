@@ -29,7 +29,7 @@ import pandas as pd
 config_file = 'reeem_io_config.ini'
 config_section = 'reeem'
 log_file = 'reeem_adapter.log'
-sys.tracebacklimit = 0
+# sys.tracebacklimit = 0
 cfg = cp.RawConfigParser()
 
 

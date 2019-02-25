@@ -104,6 +104,7 @@ CREATE TABLE            model_draft.reeem_esme_output (
     "id"            serial NOT NULL,
     "nid"           integer,
     "dfid"          integer,
+    "run_id"        text,
     "pathway"       text,
     "framework"     text,
     "version"       text,

@@ -26,7 +26,7 @@ def esme_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
     # read file
     path = os.path.join('Model_Data', 'ESME', filename)
     xls = pd.ExcelFile(path)
-    df = pd.read_excel(xls, 'Metrics', header=empty_rows, index_col='ID')
+    df = pd.read_excel(xls, 'Metrics', header=empty_rows, index_col='id')
     log.info('...read sheet: {}'.format(fns['model']))
     dfcat = pd.read_excel(xls, 'Cat', header=empty_rows, index_col='indicator')
     log.info('...read sheet: Categorisation')
@@ -39,12 +39,12 @@ def esme_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
     # print(df.dtypes)
 
     # seperate base
-    dfbase = df[['scenario', 'year']].copy()
+    dfbase = df[['run_id', 'scenario', 'year']].copy()
     # print(dfbase.head())
     # print(dfbase)
     
     # seperate data
-    dfdata = df.copy().drop(['scenario', 'year'], axis=1)
+    dfdata = df.copy().drop(['run_id', 'scenario', 'year'], axis=1)
     dfdata.index.names = ['nid']
     # print(dfdata.head())
     # print(dfdata.dtypes)
@@ -55,8 +55,7 @@ def esme_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
     # dfstack.set_index(['nid','year'], inplace=True)
     dfstack.index.names = ['id']
     # print(dfstack.head())
-    
-    
+
     # join dataframe for database
     dfd = dfstack.join(dfbase, on='nid')
     dfd.index.names = ['dfid']
@@ -64,13 +63,14 @@ def esme_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
 
     dfdb = dfd.join(dfcat, on='indicator')
     dfdb.index.names = ['dfid']
-    print(dfdb.head())
+    # print(dfdb.head())
 
     dfdb['pathway'] = fns['pathway']
     dfdb['framework'] = fns['framework']
     dfdb['version'] = fns['version']
     dfdb['updated'] = fns['day']
-    dfdb['aggregation'] = True
+    dfdb['aggregation'] = False
+    # print(dfdb)
 
     # copy dataframe to database
     dfdb.to_sql(con=con,
@@ -78,6 +78,9 @@ def esme_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
                 name=db_table,
                 if_exists='append',
                 index=True)
+    # csvname = 'reeem_ESME_data.csv'
+    # dfdb.to_csv(csvname, sep=';')
+
     log.info('......file {} sucessfully imported...'.format(filename))
 
 
