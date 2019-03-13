@@ -10,10 +10,13 @@ __version__ = "v0.2.0"
 from reeem_io import *
 
 # input
-filenames = ['2018-07-17_BASE_EcoSense_FrameworkV1_DataV3_Output.csv',
-             '2018-07-17_BASE_EcoSense_FrameworkV2_DataV1_Output.csv',
-             '2018-07-17_HighRES_EcoSense_FrameworkV1_DataV3_Output.csv',
-             '2018-07-17_HighRES_EcoSense_FrameworkV2_DataV1_Output.csv']
+filenames = [#'2018-07-17_BASE_EcoSense_FrameworkV1_DataV3_Output.csv',
+             #'2018-07-17_BASE_EcoSense_FrameworkV2_DataV1_Output.csv',
+             #'2018-07-17_HighRES_EcoSense_FrameworkV1_DataV3_Output.csv',
+             #'2018-07-17_HighRES_EcoSense_FrameworkV2_DataV1_Output.csv',
+             '2019-01-28_BASE_EcoSense_FrameworkV1_DataV4_Output.csv',
+             '2019-01-28_BASE_EcoSense_FrameworkV2_DataV2_Output.csv',
+             '2019-01-28_HighRES_EcoSense_FrameworkV1_DataV4_output.csv']
 
 empty_rows = 1
 
