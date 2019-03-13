@@ -60,7 +60,7 @@ COMMENT ON TABLE model_draft.reeem_ecosense_input IS
         "resolution": "5 years"},
     "sources": [
         {"name": "JRC population density grid (disaggregated with Corine land cover 2000)", "description": "gridded population data used in EcoSense", "url": "https://www.eea.europa.eu/data-and-maps/data/population-density-disaggregated-with-corine-land-cover-2000-2", "license": "EEA standard re-use policy (https://www.eea.europa.eu/legal/copyright)", "copyright": "Joint Research Centre (JRC)"},
-        {"name": "WHO Data Warehouse", cription": "health data for background disease rates", "url": "https://dw.euro.who.int/", "license": "http://www.euro.who.int/en/home/copyright-notice", "copyright"des": "World Health Organisation, Regional Office for Europe"},
+        {"name": "WHO Data Warehouse", "description": "health data for background disease rates", "url": "https://dw.euro.who.int/", "license": "http://www.euro.who.int/en/home/copyright-notice", "copyright": "World Health Organisation, Regional Office for Europe"},
         {"name": "Eurostat mortality database", "description": "health data for background disease rates", "url" : "https://ec.europa.eu/eurostat/web/population-demography-migration-projections/data/database", "license": "https://ec.europa.eu/eurostat/about/policies/copyright", "copyright": "Eurostat"},
         {"name": "Eurostat health care database", "description": "health data for background disease rates", "url" : "https://ec.europa.eu/eurostat/web/health/health-care/data/database", "license": "https://ec.europa.eu/eurostat/about/policies/copyright", "copyright": "Eurostat"},
         {"name": "TIMES PanEU emisison data", "description": "Uses emission data from TIMES PanEU results for respective pahtway, framework and data version", "url": "", "license": "ODC-BY-1.0", "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"} ],
@@ -69,7 +69,7 @@ COMMENT ON TABLE model_draft.reeem_ecosense_input IS
         "name": "Open Data Commons Attribution License 1.0",
         "version": "1.0",
         "url": "http://opendatacommons.org/licenses/by",
-        "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!"
+        "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!",
         "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2017-05-09", "comment": "Create table"},
