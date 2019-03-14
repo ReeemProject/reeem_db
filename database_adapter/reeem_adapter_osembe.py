@@ -68,7 +68,35 @@ filenames = [
             # '2019-01-03_C0T1E23_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
             # '2019-01-03_C0T1E24_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
             # '2019-01-03_C0T1E25_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
-            # '2019-01-03_C0T1E26_OSeMBE_FrameworkNA_DataV1_Output.xlsx']
+            # '2019-01-03_C0T1E26_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+
+            '2019-03-06_C1T0E0_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E1_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E2_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E3_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E4_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E5_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E6_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E7_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E8_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E9_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E10_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E11_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E12_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E13_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E14_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E15_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E16_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E17_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E18_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E19_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E20_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E21_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E22_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E23_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E24_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E25_OSeMBE_FrameworkNA_DataV1_Output.xlsx',
+            '2019-03-06_C1T0E26_OSeMBE_FrameworkNA_DataV1_Output.xlsx' ]
 
 
 # regions = ['EU28']
