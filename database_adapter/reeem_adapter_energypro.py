@@ -10,10 +10,14 @@ __version__ = "v0.2.0"
 from reeem_io import *
 
 # input
-filenames = ['2018-10-30_Base_EnergyPRO_FrameworkV1_DataV1_Input.xlsx', 
-             '2018-10-30_Base_EnergyPRO_FrameworkV1_DataV1_Output.xlsx',
-             '2018-10-30_Base_EnergyPRO_FrameworkV1_DataV2_Input.xlsx',
-             '2018-10-30_Base_EnergyPRO_FrameworkV1_DataV2_Output.xlsx']
+filenames = [#'2018-10-30_Base_EnergyPRO_FrameworkV1_DataV1_Input.xlsx',
+             #'2018-10-30_Base_EnergyPRO_FrameworkV1_DataV1_Output.xlsx',
+             #'2018-10-30_Base_EnergyPRO_FrameworkV1_DataV2_Input.xlsx',
+             #'2018-10-30_Base_EnergyPRO_FrameworkV1_DataV2_Output.xlsx',
+             '2018-02-05_Base_EnergyPRO_FrameworkV1_DataV3_Input.xlsx',
+             '2018-02-05_Base_EnergyPRO_FrameworkV1_DataV3_Output.xlsx',
+             '2018-02-05_Base_EnergyPRO_FrameworkV1_DataV4_Input.xlsx',
+             '2018-02-05_Base_EnergyPRO_FrameworkV1_DataV4_Output.xlsx']
 
 
 # regions
