@@ -10,7 +10,8 @@ __version__ = "v0.2.0"
 from reeem_io import *
 
 # input
-filenames = ['2018-05-16_PathwayNA_EcoSenseEVA_FrameworkV2_DataV1_Output.csv']
+filenames = ['2018-05-16_PathwayNA_EcoSenseEVA_FrameworkV2_DataV1_Output.csv',
+             '2018-12-11_PathwayNA_EcoSenseEVA_FrameworkV2_DataV2_Output.csv']
 
 empty_rows = 1
 

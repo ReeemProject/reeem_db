@@ -115,9 +115,11 @@ CREATE TABLE            model_draft.reeem_ecosenseeva_output (
     "pathway"       text,
     "framework"     text,
     "version"       text,
+    "schema"        text,
+    "field"         text,
+    "category"      text,
     "region"        text,
     "year"          smallint,
-    "category"      text,
     "indicator"     text,
     "value"         double precision,
     "unit"          text,
@@ -125,8 +127,6 @@ CREATE TABLE            model_draft.reeem_ecosenseeva_output (
     "tags"          hstore,
     "updated"       timestamp with time zone,
     "source"        text,
-    "schema"        text,
-    "field"         text,
     CONSTRAINT reeem_ecosenseeva_output_pkey PRIMARY KEY (id) );
 
 -- access rights
