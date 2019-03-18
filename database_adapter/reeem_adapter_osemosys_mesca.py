@@ -10,9 +10,12 @@ __version__ = "v0.2.0"
 from reeem_io import *
 
 # input
-filenames = [
-            '2019-01-28_Pilot_OSeMOSYSMESCA_FrameworkNA_DataV1_Input.xlsx',
-            '2019-01-28_Pilot_OSeMOSYSMESCA_FrameworkNA_DataV1_Output.xlsx']
+filenames = [#'2019-01-28_Pilot_OSeMOSYSMESCA_FrameworkNA_DataV1_Input.xlsx',
+             #'2019-01-28_Pilot_OSeMOSYSMESCA_FrameworkNA_DataV1_Output.xlsx',
+             '2019-02-28_Base_MESCA_FrameworkV1_DataV1_Input.xlsx',
+             '2019-02-28_Base_MESCA_FrameworkV1_DataV1_Output.xlsx',
+             '2019-02-28_BaseCO2Lin_MESCA_FrameworkV1_DataV1_Input.xlsx',
+             '2019-02-28_BaseCO2Lin_MESCA_FrameworkV1_DataV1_Output.xlsx']
 
 # regions
 # regions = ['EE']
