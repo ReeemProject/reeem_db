@@ -13,34 +13,36 @@ from reeem_io import *
 filenames = [
 #              '2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
 #              '2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
-# 
+#
 #              '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
 #              '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
-# 
+#
 # #            '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx", #MISSING!
-# 
+#
 #              '2018-07-10_HighRES_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx',
 #              '2018-07-10_HighRES_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx',
-# 
+#
 #              '2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
 #              '2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
-# 
+#
 #              '2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
 #              '2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
-# 
+#
 #              '2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Input.xlsx',
 #              '2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx',
-# 
+#
 #              '2018-07-10_Base_TIMESPanEU_FrameworkV2_DataV1_Input.xlsx',
 #              '2018-07-10_Base_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx',
-# 
+#
 #              '2018-08-01_Base_TIMESPanEU_FrameworkV1_DataV3_Input.xlsx',
-#              '2018-07-19_Base_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx']
+#              '2018-07-19_Base_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx'
+#
+#              '2018-12-20_Base_TIMESPanEU_FrameworkV1_DataV4_Input.xlsx',
+#              '2018-12-20_Base_TIMESPanEU_FrameworkV1_DataV4_Output.xlsx',
+#              '2018-12-20_Base_TIMESPanEU_FrameworkV2_DataV2_Output.xlsx',
+#              '2018-12-20_HighRES_TIMESPanEU_FrameworkV1_DataV4_Output.xlsx',
 
-             # '2018-12-20_Base_TIMESPanEU_FrameworkV1_DataV4_Input.xlsx',
-             '2018-12-20_Base_TIMESPanEU_FrameworkV1_DataV4_Output.xlsx',
-             '2018-12-20_Base_TIMESPanEU_FrameworkV2_DataV2_Output.xlsx',
-             '2018-12-20_HighRES_TIMESPanEU_FrameworkV1_DataV4_Output.xlsx']
+            '2019-02-07_LocalSolutions_TIMESPanEU_FrameworkV1_Output.xlsx']
 
 # regions
 # regions = ['AT']
