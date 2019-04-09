@@ -34,7 +34,7 @@ cd ~/code/path/to/bubble_chart_v4
 Then start a webserver locally. If you are on a Linux or Mac, you should be able to use python's built in webserver:
 
 ```
-python -m SimpleHTTPServer 3000
+python -m http.server 8000
 ```
 
 Alternatively, I have switched to using node's [http-server](https://www.npmjs.com/package/http-server)
