@@ -295,7 +295,7 @@ function bubbleChart() {
                   '<span class="name">Value: </span><span class="value">' +
                   d.key_value +
                   '</span><br/>' +
-                  '<span class="name">Amount: </span><span class="value">' +
+                  '<span class="name">Records: </span><span class="value">' +
                   addCommas(d.value) +
                   '</span>';
 
