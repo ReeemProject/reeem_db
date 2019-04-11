@@ -37,9 +37,9 @@ models = [
 
 for model in models:
     sql = """
-        SELECT (EACH(tags)).*, COUNT(*) AS amount
+        SELECT (EACH(tags)).*, tags -> 'schema' AS schema, COUNT(*) AS amount
         FROM model_draft.{0}
-        GROUP BY EACH(tags)
+        GROUP BY EACH(tags), tags -> 'schema'
     """.format(model)
     df = pd.read_sql_query(sql, con)
     df.index.name = 'id'
