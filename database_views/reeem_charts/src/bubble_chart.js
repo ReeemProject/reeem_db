@@ -120,7 +120,7 @@ function bubbleChart() {
         value: +d.amount,
         key: d.key,
         key_value: d.value,
-        org: d.organization,
+        schema: d.schema,
         x: Math.random() * 900,
         y: Math.random() * 800
       };
@@ -290,6 +290,9 @@ function bubbleChart() {
     d3.select(this).attr('stroke', 'black');
 
     var content = '<span class="name">Key: </span><span class="value">' +
+                  d.schema +
+                  '</span><br/>' +
+                  '<span class="name">Key: </span><span class="value">' +
                   d.key +
                   '</span><br/>' +
                   '<span class="name">Value: </span><span class="value">' +
