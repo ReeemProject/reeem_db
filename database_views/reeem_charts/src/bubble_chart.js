@@ -9,7 +9,7 @@
 function bubbleChart() {
   // Constants for sizing
   var width = 940;
-  var height = 600;
+  var height = 700;
 
   // tooltip for mouseover functionality
   var tooltip = floatingTooltip('gates_tooltip', 360);
@@ -397,7 +397,7 @@ function addCommas(nStr) {
 }
 
 // Load the data.
-d3.csv('data/reeem_times_paneu_input.csv', display);
+d3.csv('data/reeem_osembe_output.csv', display);
 
 // setup the buttons.
 setupButtons();
