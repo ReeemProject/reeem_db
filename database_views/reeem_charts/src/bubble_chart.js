@@ -74,8 +74,16 @@ function bubbleChart() {
   // Nice looking colors - no reason to buck the trend
   // @v4 scales now have a flattened naming scheme
   var fillColor = d3.scaleOrdinal()
-    .domain(['low', 'medium', 'high'])
-    .range(['#d84b2a', '#beccae', '#7aa25c']);
+    .domain([1, 2, 3, 4, 5, 6, 7, 8])
+    .range(['#67001f',
+            '#d6604d',
+            '#92c5de',
+            '#2166ac',
+            '#40004b',
+            '#9970ab',
+            '#a6dba0',
+            '#1b7837'
+    ]);
 
 
   /*
@@ -93,7 +101,7 @@ function bubbleChart() {
   function createNodes(rawData) {
     // Use the max total_amount in the data as the max in the scale's domain
     // note we have to ensure the total_amount is a number.
-    var maxAmount = d3.max(rawData, function (d) { return +d.total_amount; });
+    var maxAmount = d3.max(rawData, function (d) { return +d.amount; });
 
     // Sizes bubbles based on area.
     // @v4: new flattened scale names.
@@ -108,12 +116,11 @@ function bubbleChart() {
     var myNodes = rawData.map(function (d) {
       return {
         id: d.id,
-        radius: radiusScale(+d.total_amount),
-        value: +d.total_amount,
-        name: d.grant_title,
+        radius: radiusScale(+d.amount),
+        value: +d.amount,
+        key: d.key,
+        key_value: d.value,
         org: d.organization,
-        group: d.group,
-        year: d.start_year,
         x: Math.random() * 900,
         y: Math.random() * 800
       };
@@ -161,11 +168,20 @@ function bubbleChart() {
     var bubblesE = bubbles.enter().append('circle')
       .classed('bubble', true)
       .attr('r', 0)
-      .attr('fill', function (d) { return fillColor(d.group); })
-      .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); })
+      .attr('fill', function (d) { return fillColor(d.key); })
+      .attr('stroke', function (d) { return d3.rgb(fillColor(d.key)).darker(); })
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
+
+    // Test, add text
+    // bubblesE
+    //   .attr("x", function(d) { return d.x; })
+    //   .attr("y", function(d) { return d.y; })
+    //   .text( function (d) { return "example text"; })
+    //   .attr("font-family", "sans-serif")
+    //   .attr("font-size", "20px")
+    //   .attr("fill", "red");
 
     // @v4 Merge the original empty selection and the enter selection
     bubbles = bubbles.merge(bubblesE);
@@ -273,14 +289,14 @@ function bubbleChart() {
     // change outline to indicate hover state.
     d3.select(this).attr('stroke', 'black');
 
-    var content = '<span class="name">Title: </span><span class="value">' +
-                  d.name +
+    var content = '<span class="name">Key: </span><span class="value">' +
+                  d.key +
                   '</span><br/>' +
-                  '<span class="name">Amount: </span><span class="value">$' +
+                  '<span class="name">Value: </span><span class="value">' +
+                  d.key_value +
+                  '</span><br/>' +
+                  '<span class="name">Amount: </span><span class="value">' +
                   addCommas(d.value) +
-                  '</span><br/>' +
-                  '<span class="name">Year: </span><span class="value">' +
-                  d.year +
                   '</span>';
 
     tooltip.showTooltip(content, d3.event);
@@ -292,7 +308,7 @@ function bubbleChart() {
   function hideDetail(d) {
     // reset outline
     d3.select(this)
-      .attr('stroke', d3.rgb(fillColor(d.group)).darker());
+      .attr('stroke', d3.rgb(fillColor(d.key)).darker());
 
     tooltip.hideTooltip();
   }
@@ -378,7 +394,7 @@ function addCommas(nStr) {
 }
 
 // Load the data.
-d3.csv('data/gates_money.csv', display);
+d3.csv('data/reeem_times_paneu_input.csv', display);
 
 // setup the buttons.
 setupButtons();
