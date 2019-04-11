@@ -311,7 +311,7 @@ function bubbleChart() {
   function hideDetail(d) {
     // reset outline
     d3.select(this)
-      .attr('stroke', d3.rgb(fillColor(d.key)).darker());
+      .attr('stroke', d3.rgb(fillColor(d.schema)).darker());
 
     tooltip.hideTooltip();
   }
