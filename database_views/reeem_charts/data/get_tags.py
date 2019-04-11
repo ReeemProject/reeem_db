@@ -44,5 +44,6 @@ for model in models:
     df = pd.read_sql_query(sql, con)
     df.index.name = 'id'
     df = df[df.key != 'model']
+    df = df[df.key != 'schema']
     df.to_csv("{0}.csv".format(model), encoding='utf-8')
     print(df)
