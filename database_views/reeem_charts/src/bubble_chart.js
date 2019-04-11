@@ -168,8 +168,8 @@ function bubbleChart() {
     var bubblesE = bubbles.enter().append('circle')
       .classed('bubble', true)
       .attr('r', 0)
-      .attr('fill', function (d) { return fillColor(d.key); })
-      .attr('stroke', function (d) { return d3.rgb(fillColor(d.key)).darker(); })
+      .attr('fill', function (d) { return fillColor(d.schema); })
+      .attr('stroke', function (d) { return d3.rgb(fillColor(d.schema)).darker(); })
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
