@@ -29,30 +29,20 @@ def reeem_session():
 con = reeem_session()
 
 # Number of entries in table
-tables = [
-    {'reeem_energypro_input': 'DataV1'},
-    {'reeem_energypro_output': 'DataV1'},
+models = [
+    'reeem_times_paneu_input',
+    'reeem_times_paneu_output',
+    'reeem_osembe_output'
 ]
 
-for table in tables:
-    for io_model, data_version in table.items():
-        sql = """
-            SELECT tags -> 'model' AS value_name, count(*) AS amount FROM model_draft.{0}
-            WHERE version LIKE '{1}'
-            GROUP BY value_name
-            UNION ALL
-            SELECT tags -> 'schema' AS value_name, count(*) AS amount FROM model_draft.{0}
-            WHERE version LIKE '{1}'
-            GROUP BY value_name
-            UNION ALL
-            SELECT tags -> 'field' AS value_name, count(*) AS amount FROM model_draft.{0}
-            WHERE version LIKE '{1}'
-            GROUP BY value_name
-            UNION ALL
-            SELECT tags -> 'category' AS value_name, count(*) AS amount FROM model_draft.{0}
-            WHERE version LIKE '{1}'
-            GROUP BY value_name""".format(io_model, data_version)
-        df = pd.read_sql_query(sql, con)
-        df.index.name = 'id'
-        df.to_csv("{}_{}.csv".format(io_model, data_version), encoding='utf-8')
-        print(df)
+for model in models:
+    sql = """
+        SELECT (EACH(tags)).*, COUNT(*) AS amount
+        FROM model_draft.{0}
+        GROUP BY EACH(tags)
+    """.format(model)
+    df = pd.read_sql_query(sql, con)
+    df.index.name = 'id'
+    df = df[df.key != 'model']
+    df.to_csv("{0}.csv".format(model), encoding='utf-8')
+    print(df)
