@@ -311,3 +311,8 @@ elements.forEach(el => {
 
 // setup the buttons.
 setupButtons();
+
+// Set which bubble charts should be shown on startup
+startup = 'times_paneu_input'
+d3.csv(`data/${startup}.csv`, display);
+document.getElementById(`${startup}`).classList.add('active');
