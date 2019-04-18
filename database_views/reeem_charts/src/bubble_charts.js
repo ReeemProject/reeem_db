@@ -262,9 +262,27 @@ function display(error, data) {
     console.log(error);
   }
 
+  // Delete content in element with vis id
   document.getElementById('vis').innerHTML = "";
 
   myBubbleChart('#vis', data);
+}
+
+/*
+ * Sets up the layout buttons to allow for toggling between view modes.
+ */
+function setupButtons() {
+  d3.select('#toolbar')
+    .selectAll('.button')
+    .on('click', function () {
+      // Remove active class from all buttons
+      d3.selectAll('.button').classed('active', false);
+      // Find the button just clicked
+      var button = d3.select(this);
+
+      // Set it as the active button
+      button.classed('active', true);
+    });
 }
 
 /*
@@ -288,5 +306,8 @@ function addCommas(nStr) {
 const elements = document.querySelectorAll("#toolbar a");
 
 elements.forEach(el => {
-  d3.csv(`data/${el.id}.csv`, display);
+    el.addEventListener('click', () => { d3.csv(`data/${el.id}.csv`, display); });
 });
+
+// setup the buttons.
+setupButtons();
