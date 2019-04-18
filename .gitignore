@@ -1,5 +1,6 @@
 # reeem_charts
 node_modules/
+database_views/reeem_charts/data/*.csv
 
 # reeem
 Model_Data
