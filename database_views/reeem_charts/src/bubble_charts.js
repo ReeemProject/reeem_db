@@ -168,7 +168,7 @@ function bubbleChart() {
     bubblesE.append('text')
       .attr('id', d => d.id)
       .attr('fill', 'white')
-      .attr("text-anchor", "middle")
+      .attr('text-anchor", "middle')
       .text(d => d.schema);
 
     // @v4 Merge the original empty selection and the enter selection
@@ -196,7 +196,7 @@ function bubbleChart() {
    * These x and y values are modified by the force simulation.
    */
   function ticked() {
-    bubbles.select("circle")
+    bubbles.select('circle')
       .attr('cx', function (d) { return d.x; })
       .attr('cy', function (d) { return d.y; });
 
