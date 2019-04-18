@@ -305,7 +305,7 @@ function addCommas(nStr) {
 }
 
 // Load the data.
-const elements = document.querySelectorAll("#toolbar a");
+const elements = document.querySelectorAll('#toolbar a');
 
 elements.forEach(el => {
     el.addEventListener('click', () => { d3.csv(`data/${el.id}.csv`, display); });
@@ -314,7 +314,10 @@ elements.forEach(el => {
 // Setup the buttons.
 setupButtons();
 
-// Set which bubble charts should be shown on startup
-const startup = 'times_paneu_input'
-d3.csv(`data/${startup}.csv`, display);
-document.getElementById(`${startup}`).classList.add('active');
+/*
+ * Set bubble chart on startup, defined by active class in HTML
+ * If you set more than one element to the class 'active',
+ * it will take the first element.
+*/
+const el_startup = document.querySelectorAll('.active')[0].id
+d3.csv(`data/${el_startup}.csv`, display);
