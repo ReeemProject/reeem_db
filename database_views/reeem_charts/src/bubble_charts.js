@@ -165,6 +165,12 @@ function bubbleChart() {
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
 
+    bubblesE.append('text')
+      .attr('id', d => d.id)
+      .attr('fill', 'white')
+      .attr("text-anchor", "middle")
+      .text(d => d.schema);
+
     // @v4 Merge the original empty selection and the enter selection
     bubbles = bubbles.merge(bubblesE);
 
@@ -193,6 +199,11 @@ function bubbleChart() {
     bubbles.select("circle")
       .attr('cx', function (d) { return d.x; })
       .attr('cy', function (d) { return d.y; });
+
+    bubbles.select('text')
+      .style('font-size', function (d) { return d.radius / 3; })
+      .attr('x', function (d) { return d.x; })
+      .attr('y', function (d) { return d.y; });
   }
 
   /*
