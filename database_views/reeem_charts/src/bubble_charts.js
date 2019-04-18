@@ -262,6 +262,8 @@ function display(error, data) {
     console.log(error);
   }
 
+  document.getElementById('vis').innerHTML = "";
+
   myBubbleChart('#vis', data);
 }
 
@@ -283,4 +285,8 @@ function addCommas(nStr) {
 }
 
 // Load the data.
-d3.csv('data/times_paneu_input.csv', display);
+const elements = document.querySelectorAll("#toolbar a");
+
+elements.forEach(el => {
+  d3.csv(`data/${el.id}.csv`, display);
+});
