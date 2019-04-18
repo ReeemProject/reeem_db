@@ -146,7 +146,7 @@ function bubbleChart() {
       .attr('height', height);
 
     // Bind nodes data to what will become DOM elements to represent them.
-    bubbles = svg.selectAll('.bubble')
+    bubbles = svg.selectAll('g')
       .data(nodes, function (d) { return d.id; });
 
     // Create new circle elements each with class `bubble`.
@@ -154,7 +154,9 @@ function bubbleChart() {
     // Initially, their radius (r attribute) will be 0.
     // @v4 Selections are immutable, so lets capture the
     //  enter selection to apply our transtition to below.
-    const bubblesE = bubbles.enter().append('circle')
+    let bubblesE = bubbles.enter().append('g');
+
+    bubblesE.append('circle')
       .classed('bubble', true)
       .attr('r', 0)
       .attr('fill', function (d) { return fillColor(d.schema); })
@@ -168,7 +170,7 @@ function bubbleChart() {
 
     // Fancy transition to make bubbles appear, ending with the
     // correct radius
-    bubbles.transition()
+    bubbles.select('circle').transition()
       .duration(2000)
       .attr('r', function (d) { return d.radius; });
 
@@ -188,7 +190,7 @@ function bubbleChart() {
    * These x and y values are modified by the force simulation.
    */
   function ticked() {
-    bubbles
+    bubbles.select("circle")
       .attr('cx', function (d) { return d.x; })
       .attr('cy', function (d) { return d.y; });
   }
