@@ -1,3 +1,5 @@
+'use strict';
+
 /* bubbleChart creation function. Returns a function that will
  * instantiate a new bubble chart given a DOM element to display
  * it in and a dataset to visualize.
@@ -8,23 +10,23 @@
  */
 function bubbleChart() {
   // Constants for sizing
-  var width = 940;
-  var height = 700;
+  const width = 940;
+  const height = 700;
 
   // tooltip for mouseover functionality
-  var tooltip = floatingTooltip('gates_tooltip', 360);
+  const tooltip = floatingTooltip('gates_tooltip', 360);
 
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
-  var center = { x: width / 2, y: height / 2 };
+  const center = { x: width / 2, y: height / 2 };
 
   // @v4 strength to apply to the position forces
-  var forceStrength = 0.03;
+  const forceStrength = 0.03;
 
   // These will be set in create_nodes and create_vis
-  var svg = null;
-  var bubbles = null;
-  var nodes = [];
+  let svg = null;
+  let bubbles = null;
+  let nodes = [];
 
   // Charge function that is called for each node.
   // As part of the ManyBody force.
@@ -47,7 +49,7 @@ function bubbleChart() {
   // Here we create a force layout and
   // @v4 We create a force simulation now and
   //  add forces to it.
-  var simulation = d3.forceSimulation()
+  const simulation = d3.forceSimulation()
     .velocityDecay(0.2)
     .force('x', d3.forceX().strength(forceStrength).x(center.x))
     .force('y', d3.forceY().strength(forceStrength).y(center.y))
@@ -60,7 +62,7 @@ function bubbleChart() {
 
   // Nice looking colors - no reason to buck the trend
   // @v4 scales now have a flattened naming scheme
-  var fillColor = d3.scaleOrdinal()
+  const fillColor = d3.scaleOrdinal()
     .domain([1, 2, 3, 4, 5, 6, 7, 8])
     .range(['#67001f',
             '#d6604d',
@@ -88,11 +90,11 @@ function bubbleChart() {
   function createNodes(rawData) {
     // Use the max total_amount in the data as the max in the scale's domain
     // note we have to ensure the total_amount is a number.
-    var maxAmount = d3.max(rawData, function (d) { return +d.amount; });
+    const maxAmount = d3.max(rawData, function (d) { return +d.amount; });
 
     // Sizes bubbles based on area.
     // @v4: new flattened scale names.
-    var radiusScale = d3.scalePow()
+    const radiusScale = d3.scalePow()
       .exponent(0.5)
       .range([2, 85])
       .domain([0, maxAmount]);
@@ -100,7 +102,7 @@ function bubbleChart() {
     // Use map() to convert raw data into node data.
     // Checkout http://learnjsdata.com/ for more on
     // working with data.
-    var myNodes = rawData.map(function (d) {
+    const myNodes = rawData.map(function (d) {
       return {
         id: d.id,
         radius: radiusScale(+d.amount),
@@ -132,7 +134,7 @@ function bubbleChart() {
    * rawData is expected to be an array of data objects as provided by
    * a d3 loading function like d3.csv.
    */
-  var chart = function chart(selector, rawData) {
+  const chart = function chart(selector, rawData) {
     // convert raw data into nodes data
     nodes = createNodes(rawData);
 
@@ -152,7 +154,7 @@ function bubbleChart() {
     // Initially, their radius (r attribute) will be 0.
     // @v4 Selections are immutable, so lets capture the
     //  enter selection to apply our transtition to below.
-    var bubblesE = bubbles.enter().append('circle')
+    const bubblesE = bubbles.enter().append('circle')
       .classed('bubble', true)
       .attr('r', 0)
       .attr('fill', function (d) { return fillColor(d.schema); })
@@ -215,7 +217,7 @@ function bubbleChart() {
     // change outline to indicate hover state.
     d3.select(this).attr('stroke', 'black');
 
-    var content = '<span class="name">Schema: </span><span class="value">' +
+    const content = '<span class="name">Schema: </span><span class="value">' +
                   d.schema +
                   '</span><br/>' +
                   '<span class="name">Key: </span><span class="value">' +
@@ -251,7 +253,7 @@ function bubbleChart() {
  * to create a new bubble chart instance, load the data, and display it.
  */
 
-var myBubbleChart = bubbleChart();
+const myBubbleChart = bubbleChart();
 
 /*
  * Function called once data is loaded from CSV.
@@ -291,10 +293,10 @@ function setupButtons() {
  */
 function addCommas(nStr) {
   nStr += '';
-  var x = nStr.split('.');
-  var x1 = x[0];
-  var x2 = x.length > 1 ? '.' + x[1] : '';
-  var rgx = /(\d+)(\d{3})/;
+  const x = nStr.split('.');
+  let x1 = x[0];
+  const x2 = x.length > 1 ? '.' + x[1] : '';
+  const rgx = /(\d+)(\d{3})/;
   while (rgx.test(x1)) {
     x1 = x1.replace(rgx, '$1' + ',' + '$2');
   }
@@ -313,6 +315,6 @@ elements.forEach(el => {
 setupButtons();
 
 // Set which bubble charts should be shown on startup
-startup = 'times_paneu_input'
+const startup = 'times_paneu_input'
 d3.csv(`data/${startup}.csv`, display);
 document.getElementById(`${startup}`).classList.add('active');

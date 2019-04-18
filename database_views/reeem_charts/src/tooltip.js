@@ -1,3 +1,5 @@
+'use strict';
+
 /*
  * Creates tooltip with provided id that
  * floats on top of visualization.
@@ -7,7 +9,7 @@
 function floatingTooltip(tooltipId, width) {
   // Local variable to hold tooltip div for
   // manipulation in other functions.
-  var tt = d3.select('body')
+  const tt = d3.select('body')
     .append('div')
     .attr('class', 'tooltip')
     .attr('id', tooltipId)
@@ -47,25 +49,25 @@ function floatingTooltip(tooltipId, width) {
    * based on d3 mouse event.
    */
   function updatePosition(event) {
-    var xOffset = 20;
-    var yOffset = 10;
+    const xOffset = 20;
+    const yOffset = 10;
 
-    var ttw = tt.style('width');
-    var tth = tt.style('height');
+    const ttw = tt.style('width');
+    const tth = tt.style('height');
 
-    var wscrY = window.scrollY;
-    var wscrX = window.scrollX;
+    const wscrY = window.scrollY;
+    const wscrX = window.scrollX;
 
-    var curX = (document.all) ? event.clientX + wscrX : event.pageX;
-    var curY = (document.all) ? event.clientY + wscrY : event.pageY;
-    var ttleft = ((curX - wscrX + xOffset * 2 + ttw) > window.innerWidth) ?
+    const curX = (document.all) ? event.clientX + wscrX : event.pageX;
+    const curY = (document.all) ? event.clientY + wscrY : event.pageY;
+    let ttleft = ((curX - wscrX + xOffset * 2 + ttw) > window.innerWidth) ?
                  curX - ttw - xOffset * 2 : curX + xOffset;
 
     if (ttleft < wscrX + xOffset) {
       ttleft = wscrX + xOffset;
     }
 
-    var tttop = ((curY - wscrY + yOffset * 2 + tth) > window.innerHeight) ?
+    let tttop = ((curY - wscrY + yOffset * 2 + tth) > window.innerHeight) ?
                 curY - tth - yOffset * 2 : curY + yOffset;
 
     if (tttop < wscrY + yOffset) {
