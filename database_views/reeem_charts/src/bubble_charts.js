@@ -171,7 +171,7 @@ function bubbleChart() {
     // Fancy transition to make bubbles appear, ending with the
     // correct radius
     bubbles.select('circle').transition()
-      .duration(2000)
+      .duration(1000)
       .attr('r', function (d) { return d.radius; });
 
     // Set the simulation's nodes to our newly created nodes array.
