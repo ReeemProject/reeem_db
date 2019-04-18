@@ -169,6 +169,7 @@ function bubbleChart() {
       .attr('id', d => d.id)
       .attr('fill', 'white')
       .attr('text-anchor', 'middle')
+      .attr('dominant-baseline', 'central')
       .text(d => d.schema);
 
     // @v4 Merge the original empty selection and the enter selection
