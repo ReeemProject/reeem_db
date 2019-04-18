@@ -397,7 +397,7 @@ function addCommas(nStr) {
 }
 
 // Load the data.
-d3.csv('data/reeem_times_paneu_input.csv', display);
+d3.csv('data/times_paneu_input.csv', display);
 
 // setup the buttons.
 setupButtons();

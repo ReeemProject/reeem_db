@@ -397,7 +397,7 @@ function addCommas(nStr) {
 }
 
 // Load the data.
-d3.csv('data/reeem_osembe_output.csv', display);
+d3.csv('data/osembe_output.csv', display);
 
 // setup the buttons.
 setupButtons();
