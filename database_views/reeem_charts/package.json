@@ -1,0 +1,15 @@
+{
+  "name": "reeem_charts",
+  "version": "1.0.0",
+  "description": "Creating Animated Bubble Charts using [D3 version 4](https://d3js.org/)!",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "lite-server": "^2.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexis Michaltsis",
+  "license": "AGPL-3.0-or-later"
+}
