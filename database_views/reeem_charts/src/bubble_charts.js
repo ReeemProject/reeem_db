@@ -181,7 +181,7 @@ function bubbleChart() {
   /*
    * Callback function that is called after every tick of the
    * force simulation.
-   * Here we do the acutal repositioning of the SVG circles
+   * Here we do the actual repositioning of the SVG circles
    * based on the current x and y values of their bound node data.
    * These x and y values are modified by the force simulation.
    */
@@ -309,7 +309,7 @@ elements.forEach(el => {
     el.addEventListener('click', () => { d3.csv(`data/${el.id}.csv`, display); });
 });
 
-// setup the buttons.
+// Setup the buttons.
 setupButtons();
 
 // Set which bubble charts should be shown on startup
