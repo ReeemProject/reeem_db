@@ -202,7 +202,7 @@ function bubbleChart() {
       .attr('cy', function (d) { return d.y; });
 
     bubbles.select('text')
-      .style('font-size', function (d) { return d.radius / 3; })
+      .style('font-size', function (d) { return d.radius / 3 + 'px'; })
       .attr('x', function (d) { return d.x; })
       .attr('y', function (d) { return d.y; });
   }
