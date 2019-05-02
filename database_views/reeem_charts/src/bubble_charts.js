@@ -161,7 +161,7 @@ function bubbleChart() {
       .classed('bubble', true)
       .attr('r', 0)
       .attr('fill', function (d) { return fillColor(d.schema); })
-      .attr('stroke', function (d) { return d3.rgb(fillColor(d.schema)).darker(); })
+      .attr('stroke', function (d) { return d3.rgb(fillColor(d.schema)).darker(2); })
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
@@ -230,7 +230,12 @@ function bubbleChart() {
    */
   function showDetail(d) {
     // change outline to indicate hover state.
-    d3.select(this).attr('stroke', 'black');
+    d3.select(this)
+        .attr('stroke', function (d) { return d3.rgb(fillColor(d.schema)); });
+    d3.select(this)
+        .attr('fill', function (d) { return d3.rgb(fillColor(d.schema)).brighter(1); });
+    d3.select(this)
+        .attr('r', function (d) { return d.radius + 4; });
 
     const content = '<span class="name">Model: </span><span class="value">' +
                   d.model +
@@ -257,7 +262,11 @@ function bubbleChart() {
   function hideDetail(d) {
     // reset outline
     d3.select(this)
-      .attr('stroke', d3.rgb(fillColor(d.schema)).darker());
+      .attr('fill', function (d) { return d3.rgb(fillColor(d.schema)); });
+    d3.select(this)
+      .attr('stroke', d3.rgb(fillColor(d.schema)).darker(2));
+    d3.select(this)
+        .attr('r', function (d) { return d.radius; });
 
     tooltip.hideTooltip();
   }
