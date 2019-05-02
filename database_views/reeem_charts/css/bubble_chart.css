@@ -1,3 +1,7 @@
+h1 {
+    text-align: center;
+}
+
 a, a:visited, a:active {
     color: #444;
 }
