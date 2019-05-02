@@ -110,6 +110,7 @@ function bubbleChart() {
         key: d.key,
         key_value: d.value,
         schema: d.schema,
+        model: d.model,
         x: Math.random() * 900,
         y: Math.random() * 800
       };
@@ -231,7 +232,10 @@ function bubbleChart() {
     // change outline to indicate hover state.
     d3.select(this).attr('stroke', 'black');
 
-    const content = '<span class="name">Schema: </span><span class="value">' +
+    const content = '<span class="name">Model: </span><span class="value">' +
+                  d.model +
+                  '</span><br/>' +
+                  '<span class="name">Schema: </span><span class="value">' +
                   d.schema +
                   '</span><br/>' +
                   '<span class="name">Key: </span><span class="value">' +
