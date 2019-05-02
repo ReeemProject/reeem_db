@@ -1,5 +1,7 @@
 import os
+import numpy as np
 import pandas as pd
+
 
 files = [f for f in os.listdir('.') if os.path.isfile(f)]
 input_files = []
@@ -30,18 +32,18 @@ df_i = pd.DataFrame()
 for file in input_files:
     df = pd.read_csv(file, encoding='utf-8')
     df = df.groupby(['schema', 'model']).sum()
-    df.drop('id', axis=1, inplace=True)
     df_i = df_i.append(df)
     df_i = df_i.groupby(['schema', 'model']).sum()
+df_i.id = np.arange(0, len(df_i))
 df_i.to_csv('model_schema_i.csv', encoding='utf-8')
 
 df_o = pd.DataFrame()
 for file in output_files:
     df = pd.read_csv(file, encoding='utf-8')
     df = df.groupby(['schema', 'model']).sum()
-    df.drop('id', axis=1, inplace=True)
     df_o = df_o.append(df)
     df_o = df_o.groupby(['schema', 'model']).sum()
+df_o.id = np.arange(0, len(df_o))
 df_o.to_csv('model_schema_o.csv', encoding='utf-8')
 
 
@@ -49,7 +51,7 @@ df_io = pd.DataFrame()
 for file in io_files:
     df = pd.read_csv(file, encoding='utf-8')
     df = df.groupby(['schema', 'model']).sum()
-    df.drop('id', axis=1, inplace=True)
     df_io = df_io.append(df)
     df_io = df_io.groupby(['schema', 'model']).sum()
+df_io.id = np.arange(0, len(df_io))
 df_io.to_csv('model_schema_io.csv', encoding='utf-8')
