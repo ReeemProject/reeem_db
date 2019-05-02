@@ -30,16 +30,26 @@ con = reeem_session()
 
 # Number of entries in table
 models = [
-    'times_paneu_input',
-    'times_paneu_output',
-    'osembe_output'
+    # 'times_paneu_input',
+    # 'times_paneu_output',
+    # 'osembe_output',
+    'plexos_input',
+    'plexos_output',
+    'energypro_input',
+    'energypro_output',
+    'ecosense_output',
+    'ecosenseeva_output',
+    'newage_output'
 ]
 
 for model in models:
     sql = """
-        SELECT (EACH(tags)).*, tags -> 'schema' AS schema, COUNT(*) AS amount
+        SELECT (EACH(tags)).*,
+                tags -> 'schema' AS schema,
+                tags -> 'model' AS model,
+                COUNT(*) AS amount
         FROM model_draft.reeem_{0}
-        GROUP BY EACH(tags), tags -> 'schema'
+        GROUP BY EACH(tags), tags -> 'schema', tags -> 'model'
     """.format(model)
     df = pd.read_sql_query(sql, con)
     df.index.name = 'id'
