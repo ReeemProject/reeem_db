@@ -264,6 +264,7 @@ UPDATE model_draft.reeem_times_paneu_output
             category LIKE 'Investment costs%' OR
             category LIKE 'Variable O&M costs%' OR
             indicator LIKE 'Activity%' OR
+            indicator LIKE 'Average electricity price' OR
             indicator LIKE 'CO2 prices%' OR
             indicator LIKE 'Discount rate' OR
             indicator LIKE 'District Heat price per timeslice' OR
@@ -275,6 +276,7 @@ UPDATE model_draft.reeem_times_paneu_output
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('schema', 'demand')
     WHERE   category LIKE 'Final energy consumption%' OR
+            LOWER(category) LIKE 'fuel input%' OR
             category LIKE 'Net electricity consumption%' OR
             category LIKE 'Net import%' OR
             category LIKE 'Primary energy consumption%' OR
@@ -291,7 +293,6 @@ UPDATE model_draft.reeem_times_paneu_output
     WHERE   category LIKE 'Biomass production' OR
             category LIKE 'Domestic production%' OR
             category LIKE 'Electricity Production%' OR
-            category LIKE 'Fuel Input%' OR
             category LIKE 'Heat Production%' OR
             category LIKE 'Installed Capacities%' OR
             category LIKE 'NEW Capacities%' OR
@@ -310,6 +311,7 @@ UPDATE model_draft.reeem_times_paneu_output
 UPDATE model_draft.reeem_times_paneu_output
     SET     tags = COALESCE(tags, '') || hstore('schema', 'environment')
     WHERE   category LIKE 'Emissions%' OR
+            category LIKE 'CO2 Emission%' OR
             indicator LIKE 'Emissions%';
 
 -------------------
