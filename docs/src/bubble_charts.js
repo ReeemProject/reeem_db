@@ -110,6 +110,7 @@ function bubbleChart() {
         key: d.key,
         key_value: d.value,
         schema: d.schema,
+        model: d.model,
         x: Math.random() * 900,
         y: Math.random() * 800
       };
@@ -160,7 +161,7 @@ function bubbleChart() {
       .classed('bubble', true)
       .attr('r', 0)
       .attr('fill', function (d) { return fillColor(d.schema); })
-      .attr('stroke', function (d) { return d3.rgb(fillColor(d.schema)).darker(); })
+      .attr('stroke', function (d) { return d3.rgb(fillColor(d.schema)).darker(2); })
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
@@ -229,9 +230,17 @@ function bubbleChart() {
    */
   function showDetail(d) {
     // change outline to indicate hover state.
-    d3.select(this).attr('stroke', 'black');
+    d3.select(this)
+        .attr('stroke', function (d) { return d3.rgb(fillColor(d.schema)); });
+    d3.select(this)
+        .attr('fill', function (d) { return d3.rgb(fillColor(d.schema)).brighter(1); });
+    d3.select(this)
+        .attr('r', function (d) { return d.radius + 4; });
 
-    const content = '<span class="name">Schema: </span><span class="value">' +
+    const content = '<span class="name">Model: </span><span class="value">' +
+                  d.model +
+                  '</span><br/>' +
+                  '<span class="name">Schema: </span><span class="value">' +
                   d.schema +
                   '</span><br/>' +
                   '<span class="name">Key: </span><span class="value">' +
@@ -253,7 +262,11 @@ function bubbleChart() {
   function hideDetail(d) {
     // reset outline
     d3.select(this)
-      .attr('stroke', d3.rgb(fillColor(d.schema)).darker());
+      .attr('fill', function (d) { return d3.rgb(fillColor(d.schema)); });
+    d3.select(this)
+      .attr('stroke', d3.rgb(fillColor(d.schema)).darker(2));
+    d3.select(this)
+        .attr('r', function (d) { return d.radius; });
 
     tooltip.hideTooltip();
   }

@@ -1,0 +1,11 @@
+id,key,value,schema,model,amount
+0,category,biomass,economy,energypro,288
+1,category,bio_oil,economy,energypro,288
+2,category,coal,economy,energypro,288
+3,category,electricity,economy,energypro,288
+4,category,heat_and_electricity,economy,energypro,864
+5,category,heavy_fuel_oil,economy,energypro,288
+6,category,light_fuel_oil,economy,energypro,288
+7,category,natural_gas,economy,energypro,288
+8,category,waste,economy,energypro,288
+9,category,wood_pellet,economy,energypro,288

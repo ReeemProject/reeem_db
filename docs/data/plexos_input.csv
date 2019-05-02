@@ -1,0 +1,7 @@
+id,key,value,schema,model,amount
+0,category,capacity;exchange,demand,plexos,20
+1,category,capacity;installed,demand,plexos,150
+2,category,demand,demand,plexos,10
+3,category,price,demand,plexos,50
+4,field,electricity,demand,plexos,180
+5,field,resource,demand,plexos,50

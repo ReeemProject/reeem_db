@@ -1,5 +1,6 @@
 schema,id,amount
-demand,1075,2552692
-economy,2245,5664238
-environment,151,423264
-supply,1735,7560136
+demand,0,2553152
+economy,1,6556124
+environment,2,423264
+society,3,102240
+supply,4,7560842
