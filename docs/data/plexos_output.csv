@@ -1,0 +1,11 @@
+id,key,value,schema,model,amount
+0,category,consumption,supply,plexos,50
+1,category,emission,supply,plexos,10
+2,category,exchange;export,supply,plexos,31
+3,category,exchange;import,supply,plexos,31
+4,category,exchange;net,supply,plexos,31
+5,category,generation,supply,plexos,160
+6,category,load,supply,plexos,30
+7,category,price,supply,plexos,10
+8,field,electricity,supply,plexos,303
+9,field,resource,supply,plexos,50
