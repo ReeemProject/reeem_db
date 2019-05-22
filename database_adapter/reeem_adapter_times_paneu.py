@@ -17,7 +17,7 @@ filenames = [
 #              '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
 #              '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
 #
-# #            '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx", #MISSING!
+#              '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx",  # MISSING!
 #
 #              '2018-07-10_HighRES_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx',
 #              '2018-07-10_HighRES_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx',
@@ -41,11 +41,17 @@ filenames = [
 #              '2018-12-20_Base_TIMESPanEU_FrameworkV1_DataV4_Output.xlsx',
 #              '2018-12-20_Base_TIMESPanEU_FrameworkV2_DataV2_Output.xlsx',
 #              '2018-12-20_HighRES_TIMESPanEU_FrameworkV1_DataV4_Output.xlsx',
-
-            # '2019-02-07_LocalSolutions_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
-    '2019-03-28_GHG_TIMESPanEU_FrameworkV3_DataV1_Output.xlsx',
-    '2019-04-17_Base_TIMESPanEU_FrameworkV3_DataV1_Output.xlsx',
-    '2019-05-02_LocalSolutions_TIMESPanEU_FrameworkV3_DataV2_Output.xlsx' ]
+#
+#              '2019-02-07_LocalSolutions_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
+#
+#              '2019-03-28_GHG_TIMESPanEU_FrameworkV3_DataV1_Output.xlsx',
+#              '2019-04-17_Base_TIMESPanEU_FrameworkV3_DataV1_Output.xlsx',
+#              '2019-05-02_LocalSolutions_TIMESPanEU_FrameworkV3_DataV2_Output.xlsx',
+#
+#    '2019-05-06_All Pathways_TIMESPanEU_Input.xlsx',  # Can't process, wrong naming
+    '2019-05-20_LS_TIMESPanEU_FrameworkV3_DataV2_Output.xlsx',
+    '2019-05-20_PA_TIMESPanEU_FrameworkV3_DataV1_Output.xlsx'
+]
 
 # regions
 # regions = ['AT']
