@@ -11,46 +11,47 @@ from reeem_io import *
 
 # input
 filenames = [
-#              '2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
-#              '2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
+#    '2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
+#    '2017-10-27_Pilot_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
 #
-#              '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
-#              '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
+#    '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
+#    '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
 #
-#              '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx",  # MISSING!
+#    '2017-11-15_HighRES_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx",  # MISSING!
 #
-#              '2018-07-10_HighRES_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx',
-#              '2018-07-10_HighRES_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx',
+#    '2018-07-10_HighRES_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx',
+#    '2018-07-10_HighRES_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx',
 #
-#              '2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
-#              '2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
+#    '2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
+#    '2017-11-15_StorageInnov_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
 #
-#              '2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
-#              '2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
+#    '2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Input.xlsx',
+#    '2017-11-15_Base_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
 #
-#              '2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Input.xlsx',
-#              '2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx',
+#    '2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Input.xlsx',
+#    '2018-01-16_Base_TIMESPanEU_FrameworkV1_DataV2_Output.xlsx',
 #
-#              '2018-07-10_Base_TIMESPanEU_FrameworkV2_DataV1_Input.xlsx',
-#              '2018-07-10_Base_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx',
+#    '2018-07-10_Base_TIMESPanEU_FrameworkV2_DataV1_Input.xlsx',
+#    '2018-07-10_Base_TIMESPanEU_FrameworkV2_DataV1_Output.xlsx',
 #
-#              '2018-08-01_Base_TIMESPanEU_FrameworkV1_DataV3_Input.xlsx',
-#              '2018-07-19_Base_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx'
+#    '2018-08-01_Base_TIMESPanEU_FrameworkV1_DataV3_Input.xlsx',
+#    '2018-07-19_Base_TIMESPanEU_FrameworkV1_DataV3_Output.xlsx'
 #
-#              '2018-12-20_Base_TIMESPanEU_FrameworkV1_DataV4_Input.xlsx',
-#              '2018-12-20_Base_TIMESPanEU_FrameworkV1_DataV4_Output.xlsx',
-#              '2018-12-20_Base_TIMESPanEU_FrameworkV2_DataV2_Output.xlsx',
-#              '2018-12-20_HighRES_TIMESPanEU_FrameworkV1_DataV4_Output.xlsx',
+#    '2018-12-20_Base_TIMESPanEU_FrameworkV1_DataV4_Input.xlsx',
+#    '2018-12-20_Base_TIMESPanEU_FrameworkV1_DataV4_Output.xlsx',
+#    '2018-12-20_Base_TIMESPanEU_FrameworkV2_DataV2_Output.xlsx',
+#    '2018-12-20_HighRES_TIMESPanEU_FrameworkV1_DataV4_Output.xlsx',
 #
-#              '2019-02-07_LocalSolutions_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
+#    '2019-02-07_LocalSolutions_TIMESPanEU_FrameworkV1_DataV1_Output.xlsx',
 #
-#              '2019-03-28_GHG_TIMESPanEU_FrameworkV3_DataV1_Output.xlsx',
-              '2019-04-17_Base_TIMESPanEU_FrameworkV3_DataV1_Output.xlsx',
-#              '2019-05-02_LocalSolutions_TIMESPanEU_FrameworkV3_DataV2_Output.xlsx',
+#    '2019-03-28_GHG_TIMESPanEU_FrameworkV3_DataV1_Output.xlsx',
+#    '2019-04-17_Base_TIMESPanEU_FrameworkV3_DataV1_Output.xlsx',
+#    '2019-05-02_LocalSolutions_TIMESPanEU_FrameworkV3_DataV2_Output.xlsx',
 #
-#    '2019-05-06_All Pathways_TIMESPanEU_Input.xlsx',  # Can't process, wrong naming
-    '2019-05-20_LS_TIMESPanEU_FrameworkV3_DataV2_Output.xlsx',
-    '2019-05-20_PA_TIMESPanEU_FrameworkV3_DataV1_Output.xlsx'
+#    '2019-05-20_LS_TIMESPanEU_FrameworkV3_DataV2_Output.xlsx',
+#    '2019-05-20_PA_TIMESPanEU_FrameworkV3_DataV1_Output.xlsx',
+#
+    '2019-05-06_AllPathways_TIMESPanEU_Input.xlsx'
 ]
 
 # regions
