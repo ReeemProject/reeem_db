@@ -841,7 +841,7 @@ WHERE testee is NULL AND spec.mandatory <> 'source';
 
 
 -------
--- LeCA
+-- LEcA
 -------
 --------
 -- INPUT
