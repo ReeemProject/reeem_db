@@ -168,8 +168,8 @@ GRANT SELECT ON TABLE   model_draft.reeem_energypro_output TO reeem_read WITH GR
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_energypro_output IS 
-    '{"title": "REEEM EnergyPRO Input",
-    "description": "",
+    '{"title": "REEEM EnergyPRO Output",
+    "description": "none",
     "language": [ "eng" ],
     "spatial": 
         {"location": "erratic(PL-Warsaw;FI-Helsinki)",
@@ -182,7 +182,7 @@ COMMENT ON TABLE model_draft.reeem_energypro_output IS
         "resolution": "erratic(2020;2030;2050)"},
     "sources": [
         {"name": "EnergyPro", 
-        "description": "tba", 
+        "description": "none",
         "url": "https://openenergy-platform.org/factsheets/models/147/", 
         "license": "none", 
         "copyright": "EMD International A/S"} ],
@@ -196,7 +196,8 @@ COMMENT ON TABLE model_draft.reeem_energypro_output IS
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2018-10-25", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2018-10-31", "comment": "Update metadata and license"},
-        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"},
+        {"name": "4lm", "email": "none", "date": "2019-05-29", "comment": "Update metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_energypro_output",
         "format": "PostgreSQL",
