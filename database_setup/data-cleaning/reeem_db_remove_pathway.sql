@@ -39,3 +39,19 @@ DELETE FROM model_draft.reeem_times_paneu_output
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_times_paneu_output','reeem_db_remove_pathway.sql',' ');
+
+
+-- delete pathway from OSeMBE 2019-05-20 
+DELETE FROM model_draft.reeem_osembe_input
+    WHERE	pathway = 'C0T0E0';
+
+-- scenario log (project,version,io,schema_name,table_name,script_name,comment)
+SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_osembe_input','reeem_db_remove_pathway.sql',' ');
+
+
+-- delete pathway from TIMES 2019-05-27 
+DELETE FROM model_draft.reeem_times_paneu_output
+    WHERE	(pathway = 'PA' AND framework = 'FrameworkV3' AND version = 'DataV1');
+
+-- scenario log (project,version,io,schema_name,table_name,script_name,comment)
+SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_times_paneu_output','reeem_db_remove_pathway.sql',' ');
