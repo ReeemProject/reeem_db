@@ -54,10 +54,10 @@ COMMENT ON TABLE model_draft.reeem_ecosenseeva_input IS
         "extent": "Europe",
         "resolution": "Country, grid"},
     "temporal": 
-        {"reference_date": "",
-        "start": "",
-        "end": "",
-        "resolution": ""},
+        {"reference_date": "NA",
+        "start": "NA",
+        "end": "NA",
+        "resolution": "Annual"},
     "sources": [
         {"name": "JRC population density grid (disaggregated with Corine land cover 2000)", "description": "gridded population data used in EcoSense", "url": "https://www.eea.europa.eu/data-and-maps/data/population-density-disaggregated-with-corine-land-cover-2000-2", "license": "EEA standard re-use policy (https://www.eea.europa.eu/legal/copyright)", "copyright": "Joint Research Centre (JRC)"},
         {"name": "Eurostat population grid 2011", "description": "gridded population data used in EVA", "url": "https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/population-distribution-demography/geostat#geostat11", "license": "https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/population-distribution-demography", "copyright": "Eurostat, European Forum for Geography and Statistics (EFGS)"},
