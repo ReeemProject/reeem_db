@@ -54,9 +54,9 @@ COMMENT ON TABLE model_draft.reeem_ecosenseeva_input IS
         "extent": "Europe",
         "resolution": "Country, grid"},
     "temporal": 
-        {"reference_date": "NA",
-        "start": "NA",
-        "end": "NA",
+        {"reference_date": "none",
+        "start": "none",
+        "end": "none",
         "resolution": "Annual"},
     "sources": [
         {"name": "JRC population density grid (disaggregated with Corine land cover 2000)", "description": "gridded population data used in EcoSense", "url": "https://www.eea.europa.eu/data-and-maps/data/population-density-disaggregated-with-corine-land-cover-2000-2", "license": "EEA standard re-use policy (https://www.eea.europa.eu/legal/copyright)", "copyright": "Joint Research Centre (JRC)"},
@@ -78,7 +78,8 @@ COMMENT ON TABLE model_draft.reeem_ecosenseeva_input IS
         {"name": "Ludee", "email": "none", "date": "2018-04-12", "comment": "Finalize structure and update metadata"},
         {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metadata"},
         {"name": "doroschmid", "email": "none", "date": "2019-01-31", "comment": "Update structure and metadata"},
-        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Update structure and metadata"} ],
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Update structure and metadata"},
+        {"name": "doroschmid", "email": "none", "date": "2019-06-04", "comment": "Update temporal resolution metadata"},],
     "resources": [
         {"name": "model_draft.reeem_ecosenseeva_input",
         "format": "PostgreSQL",
