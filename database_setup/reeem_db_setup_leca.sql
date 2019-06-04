@@ -42,7 +42,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_leca_input TO reeem_read WITH GRANT OP
 -- metadata
 COMMENT ON TABLE model_draft.reeem_leca_input IS 
     '{"title": "REEEM LEcA Input",
-    "description": "",
+    "description": "Impacts on forest ecosystem services based on two bioenergy demand scenarios",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
@@ -55,21 +55,22 @@ COMMENT ON TABLE model_draft.reeem_leca_input IS
         "resolution": "5 years"},
     "sources": [
         {"name": "MESSAGE",
-        "description": "Biomass demands ",
+        "description": "Biomass demands",
         "url": "none",
         "license": "none",
         "copyright": "none"} ],
     "license":
-        {"id": "tba",
-        "name": "tba",
-        "version": "tba",
-        "url": "tba",
-        "instruction": "tba",
-        "copyright": "tba"},
+        {"id": "CC-BY-4.0",
+        "name": "Creative Commons Attribution 4.0 International",
+        "version": "4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "instruction": "You are free: To Share and To Adapt; As long as you: Attribute!",
+        "copyright": "© Ulla Mörtberg"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2018-11-12", "comment": "Create table and metadata"},
         {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Update structure and metadata"},
-        {"name": "Bachibouzouk", "email": "none", "date": "2019-05-29", "comment": "Fix typo in title of metadata"} ],
+        {"name": "Bachibouzouk", "email": "none", "date": "2019-05-29", "comment": "Fix typo in title of metadata"},
+        {"name": "4lm", "email": "none", "date": "2019-06-04", "comment": "Update metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_leca_input",
         "format": "PostgreSQL",
@@ -141,21 +142,22 @@ COMMENT ON TABLE model_draft.reeem_leca_output IS
         "end": "2110",
         "resolution": "5 years"},
     "sources": [
-        {"name": "MESSAGE",
-        "description": "Biomass demands ",
+        {"name": "REEEM_LEcA",
+        "description": "Impacts on forest ecosystem servicies based on two bioenergy demand scenarios",
         "url": "none",
         "license": "none",
         "copyright": "none"} ],
     "license":
-        {"id": "tba",
-        "name": "tba",
-        "version": "tba",
-        "url": "tba",
-        "instruction": "tba",
-        "copyright": "tba"},
+        {"id": "CC-BY-4.0",
+        "name": "Creative Commons Attribution 4.0 International",
+        "version": "4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "instruction": "You are free: To Share and To Adapt; As long as you: Attribute!",
+        "copyright": "© Ulla Mörtberg"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2018-11-12", "comment": "Create table and metadata"},
-        {"name": "Bachibouzouk", "email": "none", "date": "2019-05-29", "comment": "Fix typo in title of metadata"} ],
+        {"name": "Bachibouzouk", "email": "none", "date": "2019-05-29", "comment": "Fix typo in title of metadata"},
+        {"name": "4lm", "email": "none", "date": "2019-06-04", "comment": "Update metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_leca_output",
         "format": "PostgreSQL",
