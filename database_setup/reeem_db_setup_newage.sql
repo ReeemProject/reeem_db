@@ -122,7 +122,7 @@ COMMENT ON TABLE model_draft.reeem_newage_output IS '{
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
-        "extent": "gloabal",
+        "extent": "global",
         "resolution": "country"},
     "temporal": 
         {"reference_date": "none",

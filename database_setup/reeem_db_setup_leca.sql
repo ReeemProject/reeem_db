@@ -13,7 +13,7 @@ __author__      = "Ludwig Hülk"
 */
 
 
--- LeCA Input
+-- LEcA Input
 DROP TABLE IF EXISTS    model_draft.reeem_leca_input CASCADE;
 CREATE TABLE            model_draft.reeem_leca_input (
     "id"            serial NOT NULL,
@@ -41,7 +41,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_leca_input TO reeem_read WITH GRANT OP
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_leca_input IS 
-    '{"title": "REEEM LeCA Input",
+    '{"title": "REEEM LEcA Input",
     "description": "",
     "language": [ "eng" ],
     "spatial": 
@@ -68,7 +68,8 @@ COMMENT ON TABLE model_draft.reeem_leca_input IS
         "copyright": "tba"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2018-11-12", "comment": "Create table and metadata"},
-        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Update structure and metadata"} ],
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Update structure and metadata"},
+        {"name": "Bachibouzouk", "email": "none", "date": "2019-05-29", "comment": "Fix typo in title of metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_leca_input",
         "format": "PostgreSQL",
@@ -96,7 +97,7 @@ COMMENT ON TABLE model_draft.reeem_leca_input IS
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_leca_input','reeem_db_setup_leca.sql',' ');
 
 
--- LeCA Output
+-- LEcA Output
 DROP TABLE IF EXISTS    model_draft.reeem_leca_output CASCADE;
 CREATE TABLE            model_draft.reeem_leca_output (
     "id"            serial NOT NULL,
@@ -127,7 +128,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_leca_output TO reeem_read WITH GRANT O
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_leca_output IS 
-    '{"title": "REEEM LeCA Output",
+    '{"title": "REEEM LEcA Output",
     "description": "Bioenergy supply and impacts on other ecosystem services",
     "language": [ "eng" ],
     "spatial": 
@@ -153,7 +154,8 @@ COMMENT ON TABLE model_draft.reeem_leca_output IS
         "instruction": "tba",
         "copyright": "tba"},
     "contributors": [
-        {"name": "Ludee", "email": "none", "date": "2018-11-12", "comment": "Create table and metadata"}],
+        {"name": "Ludee", "email": "none", "date": "2018-11-12", "comment": "Create table and metadata"},
+        {"name": "Bachibouzouk", "email": "none", "date": "2019-05-29", "comment": "Fix typo in title of metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_leca_output",
         "format": "PostgreSQL",

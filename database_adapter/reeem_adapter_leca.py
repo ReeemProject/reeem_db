@@ -24,7 +24,7 @@ def leca_2_reeem_db(filename, fns, db_table, empty_rows, db_schema, con):
     """read csv file, make dataframe and write to database"""
 
     # read file
-    csv = os.path.join('Model_Data', 'LeCA', filename)
+    csv = os.path.join('Model_Data', 'LEcA', filename)
     df = pd.read_csv(csv, sep=';', index_col='rid', encoding='utf-8')
         # ,nrows = 100 
     
