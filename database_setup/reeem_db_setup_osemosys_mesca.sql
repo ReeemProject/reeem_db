@@ -60,9 +60,9 @@ COMMENT ON TABLE model_draft.reeem_osemosys_mesca_input IS
         "end": "2050",
         "resolution": "1 years"},
     "sources": [
-        {"name": "TIMES PanEU", "description": "", "url": "", "license": "", "copyright": ""},
-	{"name": "MESSAGE", "description": "", "url": "", "license": "", "copyright": ""},
-        {"name": "Technology data catalogue, 2018", "description": "", "url": "", "license": "", "copyright": ""} ],
+        {"name": "TIMES PanEU", "description": "TIMES is an energy system model generator which is a further development of the model generators MARKAL and EFOM-ENV, written in GAMS. TIMES is a bottom-up linear optimization model based on a technical approach. The aim of the model is to optimize the energy system cost according to the given energy demands, energy technologies, and policy requirements. The Pan-European TIMES energy system model (TIMES PanEU) is a 30 region partial equilibrium energy system model. The model covers the EU-28 countries, with addition of Norway and Switzerland. The base year is 2010 and the time horizon ends in 2050. The current structure accounts for 12 time slices, 4 seasonal and 3 daily.  The model is split in 5-year time steps. Both greenhouse gas emissions (CO2, CH4, N2O, SF6) and local air pollutant emissions (SO2, CO, NOx, NMVOC, PM10, PM2.5) are included. TIMES PanEU contains the country specific data covering all the sectors related to energy supply and demand. The system commences from the potential of different energy sources in a particular country and includes public and industrial generation of electricity, industry, agriculture, refineries, inventory power stations and the end-use service demands such as heating, lighting and transportation.", "url": "http://openenergyplatform.org/factsheets/models/41/", "license": "Open Data Commons Attribution License 1.0 (ODC-BY-1.0)", "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"},
+	      {"name": "MESSAGE", "description": "Model for Energy Supply Strategy Alternatives and their General Environmental Impacts", "url": "http://www.iiasa.ac.at/web/home/research/researchPrograms/Energy/MESSAGE.en.html", "license": "", "copyright": ""},
+        {"name": "Technology data catalogue, 2018", "description": "Technology Data provides information about technology, economy and environment for a number of energy installations and are among other things used by the Danish Energy Agency for energy projections.", "url": "https://ens.dk/en/our-services/projections-and-models/technology-data", "license": "none", "copyright": "none"} ],
     "license":
         {"id": "tba",
         "name": "tba",
@@ -72,7 +72,8 @@ COMMENT ON TABLE model_draft.reeem_osemosys_mesca_input IS
         "copyright": "tba"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2019-01-28", "comment": "Create table and metadata"},
-        {"name": "Linas", "email": "none", "date": "2019-01-29", "comment": "Update metadata"} ],
+        {"name": "Linas", "email": "none", "date": "2019-01-29", "comment": "Update metadata"},
+        {"name": "4lm", "email": "none", "date": "2019-06-04", "comment": "Update sources in metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_osemosys_mesca_input",
         "format": "PostgreSQL",
