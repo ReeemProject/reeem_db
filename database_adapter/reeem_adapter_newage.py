@@ -10,7 +10,11 @@ __version__ = "v0.2.0"
 from reeem_io import *
 
 # input
-filenames = ['2018-11-13_pilot_NEWAGE_FrameworkNA_DataV1_Output.csv']
+filenames = [
+    # '2018-11-13_pilot_NEWAGE_FrameworkNA_DataV1_Output.csv',
+    '2019-04-17_Base_NEWAGE_FrameworkV3_DataV1_Output.csv',
+    '2019-05-07_LS_NEWAGE_FrameworkV3_DataV1_Output.csv'
+             ]
 
 empty_rows = 1
 
