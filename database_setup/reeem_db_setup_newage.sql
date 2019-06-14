@@ -130,14 +130,13 @@ COMMENT ON TABLE model_draft.reeem_newage_output IS '{
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""} ],
     "license": 
-        {"id": "tba",
-        "name": "tba",
-        "version": "tba",
-        "url": "tba",
-        "instruction": "tba",
-        "copyright": "tba"},
+        {"id": "CC-BY-4.0",
+        "name": "Creative Commons Attribution 4.0 International",
+        "version": "4.0",
+        "url": "http://creativecommons.org/licenses/by/4.0/legalcode",
+        "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!",
+        "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"},
     "contributors": [
         {"name": "Ludwig Hülk", "email": "ludwig.huelk@rl-institut.de", "date": "2017-07-24", "comment": "Create table"},
         {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
