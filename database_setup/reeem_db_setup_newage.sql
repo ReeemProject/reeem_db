@@ -130,6 +130,7 @@ COMMENT ON TABLE model_draft.reeem_newage_output IS '{
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
+        {"name": "newage", "description": "the newage (national european worldwide applied general equilibrium) model is a global, recursive-dynamic computable general equilibrium (cge) model with a detailed specification of the energy sector", "url": "https://www.ier.uni-stuttgart.de/forschung/modelle/NEWAGE/index_en.html", "license": "proprietary", "copyright": "Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"} ],
     "license": 
         {"id": "CC-BY-4.0",
         "name": "Creative Commons Attribution 4.0 International",
