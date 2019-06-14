@@ -66,12 +66,12 @@ COMMENT ON TABLE model_draft.reeem_ecosenseeva_input IS
         {"name": "Eurostat health care database", "description": "health data for background disease rates", "url" : "https://ec.europa.eu/eurostat/web/health/health-care/data/database", "license": "https://ec.europa.eu/eurostat/about/policies/copyright", "copyright": "Eurostat"},
         {"name": "EMEP/CEIP 2017 Present state of emission data", "description": "Emissions (2013) used to derive unit cost factors", "url": "http://www.ceip.at/ms/ceip_home1/ceip_home/webdab_emepdatabase/emissions_emepmodels/", "license": "", "copyright": "Centre on Emission Inventories and Projections (CEIP)"}],
     "license":
-        {"id": "ODC-BY-1.0",
-        "name": "Open Data Commons Attribution License 1.0",
-        "version": "1.0",
-        "url": "http://opendatacommons.org/licenses/by",
-        "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!",
-        "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart / Departement of Environmental Science, Aarhus University"},
+        {"id": "none",
+        "name": "none",
+        "version": "none",
+        "url": "none",
+        "instruction": "none",
+        "copyright": "none"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2017-05-09", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
@@ -153,10 +153,10 @@ COMMENT ON TABLE model_draft.reeem_ecosenseeva_output IS
          {"name": "OEP Model Factsheet (EcoSense)", "description": "", "url": "https://openenergy-platform.org/factsheets/models/146/", "license": "none", "copyright": "none"},
          {"name": "EVA", "description": "Economic valuation of Air Pollution. EVA is an integrated impact assessment model to estimate health impacts and associated costs due to air pollution.", "url": "https://openenergy-platform.org/factsheets/models/153/", "license": "proprietary", "copyright": "Departement of Environmental Science, Aarhus University"}],
     "license":
-        {"id": "ODC-BY-1.0",
-        "name": "Open Data Commons Attribution License 1.0",
-        "version": "1.0",
-        "url": "http://opendatacommons.org/licenses/by",
+        {"id": "CC-BY-4.0",
+        "name": "Creative Commons Attribution 4.0 International",
+        "version": "4.0",
+        "url": "http://creativecommons.org/licenses/by/4.0/legalcode",
         "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!",
         "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart / Departement of Environmental Science, Aarhus University"},
     "contributors": [
