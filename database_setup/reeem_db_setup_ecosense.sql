@@ -164,7 +164,8 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
         {"name": "doroschmid", "email": "none", "date": "2018-11-08", "comment": "Update metadata"},
         {"name": "Ludee", "email": "none", "date": "2019-10-22", "comment": "Update metadata sources"},
         {"name": "doroschmid", "email": "none", "date": "2019-01-31", "comment": "Update metadata"},
-        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"},
+        {"name": "Bachibouzouk", "email": "none", "date": "2019-06-19", "comment": "Update metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_ecosense_output",
         "format": "PostgreSQL",
@@ -184,7 +185,8 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "tags", "description": "Free classification", "unit": "none"},
-            {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
+            {"name": "updated", "description": "Timestamp", "unit": "none"},
+            {"name": "schema", "description": "1. classification", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
