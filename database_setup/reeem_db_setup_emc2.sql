@@ -68,7 +68,8 @@ COMMENT ON TABLE model_draft.reeem_emc2_input IS
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2017-05-09", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
-        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Update structure"} ],
+        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Update structure"},
+        {"name": "Bachibouzouk", "email": "none", "date": "2019-06-19", "comment": "Fix metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_emc2_input",
         "format": "PostgreSQL",
@@ -85,7 +86,7 @@ COMMENT ON TABLE model_draft.reeem_emc2_input IS
             {"name": "unit", "description": "Unit", "unit": "none"},
             {"name": "notation", "description": "Notation", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "sources", "description": "Data source", "unit": "none"} ] } ],
+            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
@@ -147,7 +148,8 @@ COMMENT ON TABLE model_draft.reeem_emc2_output IS
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2017-05-09", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-11-08", "comment": "Update structure and metadata"},
-        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Update structure"} ],
+        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Update structure"},
+        {"name": "Bachibouzouk", "email": "none", "date": "2019-06-19", "comment": "Fix metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_emc2_output",
         "format": "PostgreSQL",
@@ -163,7 +165,7 @@ COMMENT ON TABLE model_draft.reeem_emc2_output IS
             {"name": "value", "description": "Specific value", "unit": "unit"},
             {"name": "unit", "description": "Unit", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "sources", "description": "Data source", "unit": "none"} ] } ],
+            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
