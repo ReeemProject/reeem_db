@@ -86,7 +86,12 @@ COMMENT ON TABLE model_draft.reeem_emc2_input IS
             {"name": "unit", "description": "Unit", "unit": "none"},
             {"name": "notation", "description": "Notation", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
+            {"name": "source", "description": "Data source", "unit": "none"},
+            {"name": "framework", "description": "REEEM framework", "unit": "none"},
+            {"name": "schema", "description": "1. classification", "unit": "none"},
+            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
+            {"name": "tags", "description": "Free classification", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
@@ -165,7 +170,12 @@ COMMENT ON TABLE model_draft.reeem_emc2_output IS
             {"name": "value", "description": "Specific value", "unit": "unit"},
             {"name": "unit", "description": "Unit", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
+            {"name": "source", "description": "Data source", "unit": "none"},
+            {"name": "framework", "description": "REEEM framework", "unit": "none"},
+            {"name": "schema", "description": "1. classification", "unit": "none"},
+            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
+            {"name": "tags", "description": "Free classification", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
