@@ -6,10 +6,10 @@ PLEXOS Output
 
 https://github.com/ReeemProject/reeem_db/issues/14
 
-__copyright__   = "© Reiner Lemoine Institut"
+__copyright__   = "Â© Reiner Lemoine Institut"
 __license__     = "GNU Affero General Public License Version 3 (AGPL-3.0)"
 __url__         = "https://www.gnu.org/licenses/agpl-3.0.en.html"
-__author__      = "Ludwig Hülk"
+__author__      = "Ludwig HÃ¼lk"
 __issue__       = "https://github.com/ReeemProject/reeem_db/issues/14"
 
  * This file is part of project REEEM (https://github.com/ReeemProject/reeem_db).
@@ -66,17 +66,18 @@ COMMENT ON TABLE model_draft.reeem_plexos_input IS
         "description": "Energy Consumption, Installed Capacities, Electricity Production, Heat Production, Fuel Input, Emissions, Mobility, Electricity Exchange", 
         "url": "tba", 
         "license": "Open Data Commons Attribution License 1.0 (ODC-BY-1.0)", 
-        "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"} ],
+        "copyright": "Â© Institut fÃ¼r Energiewirtschaft und Rationelle Energieanwendung (IER) der UniversitÃ¤t Stuttgart"} ],
     "license":
         {"id": "CC-BY-4.0",
         "name": "Creative Commons Attribution 4.0 International",
         "version": "4.0",
         "url": "http://creativecommons.org/licenses/by/4.0/legalcode",
         "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!",
-        "copyright": "© Energy Institute Hrvoje Požar"},
+        "copyright": "Â© Energy Institute Hrvoje PoÅ¾ar"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2017-11-20", "comment": "Create table"},
-        {"name": "Ludee", "email": "none", "date": "2018-10-29", "comment": "Update metadata"} ],
+        {"name": "Ludee", "email": "none", "date": "2018-10-29", "comment": "Update metadata"},
+        {"name": "Bachibouzouk", "email": "none", "date": "2019-06-19", "comment": "Fix encoding in metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_plexos_input",
         "format": "PostgreSQL",
@@ -143,7 +144,7 @@ COMMENT ON TABLE model_draft.reeem_plexos_output IS
         "end": "none",
         "resolution": "none"},
     "sources": [
-        {"name": "PLEXOS® Integrated Energy Model", 
+        {"name": "PLEXOSÂ© Integrated Energy Model",
         "description": "Optimization model for long, medium and short-term energy market analysis.", 
         "url": "https://openenergy-platform.org/factsheets/models/152/", 
         "license": "none", 
@@ -154,10 +155,11 @@ COMMENT ON TABLE model_draft.reeem_plexos_output IS
         "version": "4.0",
         "url": "http://creativecommons.org/licenses/by/4.0/legalcode",
         "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!",
-        "copyright": "© Energy Institute Hrvoje Požar"},
+        "copyright": "Â© Energy Institute Hrvoje PoÅ¾ar"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2017-11-20", "comment": "Create table"},
-        {"name": "Ludee", "email": "none", "date": "2018-10-29", "comment": "Update metadata and license"} ],
+        {"name": "Ludee", "email": "none", "date": "2018-10-29", "comment": "Update metadata and license"},
+        {"name": "Bachibouzouk", "email": "none", "date": "2019-06-19", "comment": "Fix encoding in metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_plexos_output",
         "format": "PostgreSQL",
