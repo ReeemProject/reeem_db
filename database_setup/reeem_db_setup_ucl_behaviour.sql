@@ -43,7 +43,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_ucl_behaviour_input TO reeem_read WITH
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ucl_behaviour_input IS
-    '{"title": "UCL behaviour input",
+    '{"title": "UCL Behaviour Input",
     "description": "",
     "language": [ "eng", "ger" ],
     "spatial":
@@ -121,7 +121,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_ucl_behaviour_output TO reeem_read WIT
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ucl_behaviour_output IS
-    '{"title": "UCL behaviour output",
+    '{"title": "UCL Behaviour Output",
     "description": "",
     "language": [ "eng", "ger" ],
     "spatial":
