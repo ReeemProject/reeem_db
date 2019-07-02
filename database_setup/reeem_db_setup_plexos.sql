@@ -131,7 +131,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_plexos_output TO reeem_read WITH GRANT
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_plexos_output IS 
-    '{"title": "REEEM Plexos Input",
+    '{"title": "REEEM Plexos Output",
     "description": "none",
     "language": [ "eng" ],
     "spatial": 
