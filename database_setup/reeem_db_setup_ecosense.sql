@@ -90,7 +90,6 @@ COMMENT ON TABLE model_draft.reeem_ecosense_input IS
             {"name": "schema", "description": "1. classification", "unit": "none"},
             {"name": "field", "description": "2. classification", "unit": "none"},
             {"name": "category", "description": "3. classification", "unit": "none"},
-            {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
