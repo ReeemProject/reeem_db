@@ -120,7 +120,6 @@ CREATE TABLE            model_draft.reeem_message_output (
     "unit"          text,
     "aggregation"   boolean,
     "updated"       timestamp with time zone,
-    "source"        text,
     CONSTRAINT reeem_message_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -172,8 +171,7 @@ COMMENT ON TABLE model_draft.reeem_message_output IS '{
             {"name": "value", "description": "Parameter value", "unit": "unit"},
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
-            {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
+            {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
