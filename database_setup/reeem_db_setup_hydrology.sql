@@ -43,7 +43,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_hydrology_input TO reeem_read WITH GRA
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_hydrology_input IS
-    '{"title": "",
+    '{"title": "Hydrology Input",
     "description": "",
     "language": [ "eng", "ger" ],
     "spatial":
@@ -121,7 +121,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_hydrology_output TO reeem_read WITH GR
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_hydrology_output IS
-    '{"title": "",
+    '{"title": "Hydrology Output",
     "description": "",
     "language": [ "eng", "ger" ],
     "spatial":
