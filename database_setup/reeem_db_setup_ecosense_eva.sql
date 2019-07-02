@@ -79,7 +79,7 @@ COMMENT ON TABLE model_draft.reeem_ecosenseeva_input IS
         {"name": "doroschmid", "email": "none", "date": "2018-06-07", "comment": "Update structure and metadata"},
         {"name": "doroschmid", "email": "none", "date": "2019-01-31", "comment": "Update structure and metadata"},
         {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Update structure and metadata"},
-        {"name": "doroschmid", "email": "none", "date": "2019-06-04", "comment": "Update temporal resolution metadata"},],
+        {"name": "doroschmid", "email": "none", "date": "2019-06-04", "comment": "Update temporal resolution metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_ecosenseeva_input",
         "format": "PostgreSQL",
