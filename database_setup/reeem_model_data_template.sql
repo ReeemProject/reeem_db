@@ -65,8 +65,7 @@ COMMENT ON TABLE model_draft.reeem_model_data_template IS
         "instruction": "",
         "copyright": ""},
     "contributors": [
-        {"name": "Ludee", "email": "none", "date": "2017--", "comment": "Create table"},
-        {"name": "", "email": "", "date": "", "comment": ""} ],
+        {"name": "Ludee", "email": "none", "date": "2017--", "comment": "Create table"} ],
     "resources": [
         {"name": "model_draft.reeem_model_data_template",        
         "format": "PostgreSQL",
