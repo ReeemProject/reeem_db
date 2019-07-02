@@ -66,8 +66,7 @@ COMMENT ON TABLE model_draft.reeem_hydrology_input IS
         "instruction": "",
         "copyright": ""},
     "contributors": [
-        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Create table"},
-        {"name": "", "email": "", "date": "", "comment": ""} ],
+        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Create table"} ],
     "resources": [
         {"name": "model_draft.reeem_model_data_template",
         "format": "PostgreSQL",
