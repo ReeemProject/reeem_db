@@ -63,7 +63,7 @@ COMMENT ON TABLE model_draft.reeem_ecosense_input IS
         {"name": "WHO Data Warehouse", "description": "health data for background disease rates", "url": "https://dw.euro.who.int/", "license": "http://www.euro.who.int/en/home/copyright-notice", "copyright": "World Health Organisation, Regional Office for Europe"},
         {"name": "Eurostat mortality database", "description": "health data for background disease rates", "url" : "https://ec.europa.eu/eurostat/web/population-demography-migration-projections/data/database", "license": "https://ec.europa.eu/eurostat/about/policies/copyright", "copyright": "Eurostat"},
         {"name": "Eurostat health care database", "description": "health data for background disease rates", "url" : "https://ec.europa.eu/eurostat/web/health/health-care/data/database", "license": "https://ec.europa.eu/eurostat/about/policies/copyright", "copyright": "Eurostat"},
-        {"name": "TIMES PanEU emisison data", "description": "Uses emission data from TIMES PanEU results for respective pahtway, framework and data version", "url": "", "license": "CC-BY-4.0", "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"} ],
+        {"name": "TIMES PanEU emisison data", "description": "Uses emission data from TIMES PanEU results for respective pahtway, framework and data version", "url": "none", "license": "CC-BY-4.0", "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"} ],
     "license":
         {"id": "none",
         "name": "none",
@@ -148,7 +148,7 @@ COMMENT ON TABLE model_draft.reeem_ecosense_output IS
         "resolution": "5 years"},
     "sources": [
         {"name": "EcoSense", "description": "EcoSense is an integrated impact assessment model following the Impact Pathway Appraoch. Assessment of external costs and health impacts in Europe due to air pollution.", "url": "http://ecosenseweb.ier.uni-stuttgart.de/", "license": "proprietary", "copyright": "Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"},
-        {"name": "OEP Model Factsheet", "description": "", "url": "https://openenergy-platform.org/factsheets/models/146/", "license": "none", "copyright": "none"} ],
+        {"name": "OEP Model Factsheet", "description": "none", "url": "https://openenergy-platform.org/factsheets/models/146/", "license": "none", "copyright": "none"} ],
     "license":
         {"id": "CC-BY-4.0",
         "name": "Creative Commons Attribution 4.0 International",
