@@ -43,7 +43,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosystem_input TO reeem_read WITH GRA
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosystem_input IS
-    '{"title": "",
+    '{"title": "Ecosystem Input",
     "description": "",
     "language": [ "eng", "ger" ],
     "spatial":
@@ -120,7 +120,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosystem_output TO reeem_read WITH GR
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosystem_output IS
-    '{"title": "",
+    '{"title": "Ecosystem Output",
     "description": "",
     "language": [ "eng", "ger" ],
     "spatial":
