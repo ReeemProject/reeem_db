@@ -60,15 +60,15 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""},
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""} ],
+        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"},
+        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"} ],
     "license":
-        {"id": "tba",
-        "name": "tba",
-        "version": "tba",
-        "url": "tba",
-        "instruction": "tba",
-        "copyright": "tba"},
+        {"id": "none",
+        "name": "none",
+        "version": "none",
+        "url": "none",
+        "instruction": "none",
+        "copyright": "none"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2016-12-01", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-01-18", "comment": "Update metadata"},
