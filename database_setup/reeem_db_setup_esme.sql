@@ -120,7 +120,6 @@ CREATE TABLE            model_draft.reeem_esme_output (
     "aggregation"   boolean,
     "tags"          hstore,
     "updated"       timestamp with time zone,
-    "source"        text,
     "schema"        text,
     "field"         text,
     "region"        text,
@@ -176,7 +175,6 @@ COMMENT ON TABLE model_draft.reeem_esme_output IS
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "source", "description": "Data source (model)", "unit": "none"},
             {"name": "schema", "description": "1. classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
