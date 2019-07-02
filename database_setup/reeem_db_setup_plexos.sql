@@ -178,8 +178,7 @@ COMMENT ON TABLE model_draft.reeem_plexos_output IS
             {"name": "value", "description": "Specific value", "unit": "unit"},
             {"name": "unit", "description": "Unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
-            {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
+            {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
