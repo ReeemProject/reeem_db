@@ -64,7 +64,7 @@ COMMENT ON TABLE model_draft.reeem_plexos_input IS
     "sources": [
         {"name": "REEEM Times PanEU", 
         "description": "Energy Consumption, Installed Capacities, Electricity Production, Heat Production, Fuel Input, Emissions, Mobility, Electricity Exchange", 
-        "url": "tba", 
+        "url": "none", 
         "license": "Open Data Commons Attribution License 1.0 (ODC-BY-1.0)", 
         "copyright": "© Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"} ],
     "license":
