@@ -52,14 +52,14 @@ COMMENT ON TABLE model_draft.reeem_newage_input IS '{
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""} ],
+        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"} ],
     "license":
-        {"id": "tba",
-        "name": "tba",
-        "version": "tba",
-        "url": "tba",
-        "instruction": "tba",
-        "copyright": "tba"},
+        {"id": "none",
+        "name": "none",
+        "version": "none",
+        "url": "none",
+        "instruction": "none",
+        "copyright": "none"},
     "contributors": [
         {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Update structure and add metadata"} ],
     "resources": [
