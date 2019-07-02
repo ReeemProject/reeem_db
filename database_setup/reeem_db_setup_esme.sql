@@ -49,7 +49,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_esme_input TO reeem_read WITH GRANT OP
 -- metadata
 COMMENT ON TABLE model_draft.reeem_esme_input IS 
     '{"title": "REEEM ESME Input",
-    "description": "",
+    "description": "none",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
@@ -63,12 +63,12 @@ COMMENT ON TABLE model_draft.reeem_esme_input IS
     "sources": [
         {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"} ],
     "license":
-        {"id": "tba",
-        "name": "tba",
-        "version": "tba",
-        "url": "tba",
-        "instruction": "tba",
-        "copyright": "tba"},
+        {"id": "none",
+        "name": "none",
+        "version": "none",
+        "url": "none",
+        "instruction": "none",
+        "copyright": "none"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2019-01-09", "comment": "Create table and metadata"},
         {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Alter table, add missing columns"},
@@ -137,22 +137,22 @@ COMMENT ON TABLE model_draft.reeem_esme_output IS
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
-        "extent": "",
-        "resolution": ""},
+        "extent": "none",
+        "resolution": "none"},
     "temporal": 
-        {"reference_date": "",
+        {"reference_date": "none",
         "start": "2020",
         "end": "2050",
         "resolution": "10 years"},
     "sources": [
-        {"name": "ESME Model", "description": "tba", "url": "https://openenergy-platform.org/factsheets/models/144/", "license": "none", "copyright": "Energy Technologies Institute (ETI), UCL"} ],
+        {"name": "ESME Model", "description": "none", "url": "https://openenergy-platform.org/factsheets/models/144/", "license": "none", "copyright": "Energy Technologies Institute (ETI), UCL"} ],
     "license":
-        {"id": "tba",
-        "name": "tba",
-        "version": "tba",
-        "url": "tba",
-        "instruction": "tba",
-        "copyright": "tba"},
+        {"id": "none",
+        "name": "none",
+        "version": "none",
+        "url": "none",
+        "instruction": "none",
+        "copyright": "none"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2019-01-09", "comment": "Create table and metadata"},
         {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"},
