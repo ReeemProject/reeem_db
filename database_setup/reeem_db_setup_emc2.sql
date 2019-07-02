@@ -89,7 +89,8 @@ COMMENT ON TABLE model_draft.reeem_emc2_input IS
             {"name": "source", "description": "Data source", "unit": "none"},
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "schema", "description": "1. classification", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "field", "description": "2. classification", "unit": "none"},
+            {"name": "category", "description": "3. classification", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "tags", "description": "Free classification", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
@@ -171,7 +172,8 @@ COMMENT ON TABLE model_draft.reeem_emc2_output IS
             {"name": "updated", "description": "Timestamp", "unit": "none"},
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "schema", "description": "1. classification", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "field", "description": "2. classification", "unit": "none"},
+            {"name": "category", "description": "3. classification", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "tags", "description": "Free classification", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
