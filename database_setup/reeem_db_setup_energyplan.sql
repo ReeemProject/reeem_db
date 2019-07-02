@@ -43,7 +43,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_energyplan_input TO reeem_read WITH GR
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_energyplan_input IS
-    '{"title": "",
+    '{"title": "EnergyPLAN Input",
     "description": "",
     "language": [ "eng", "ger" ],
     "spatial":
@@ -121,7 +121,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_energyplan_output TO reeem_read WITH G
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_energyplan_output IS
-    '{"title": "",
+    '{"title": "EnergyPLAN Output",
     "description": "",
     "language": [ "eng", "ger" ],
     "spatial":
