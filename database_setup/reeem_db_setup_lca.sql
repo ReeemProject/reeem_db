@@ -45,7 +45,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_lca_input TO reeem_read WITH GRANT OPT
 COMMENT ON TABLE model_draft.reeem_lca_input IS
     '{"title": "LCA Input",
     "description": "none",
-    "language": [ "eng", "ger" ],
+    "language": [ "none" ],
     "spatial":
         {"location": "none",
         "extent": "none",
@@ -123,7 +123,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_lca_output TO reeem_read WITH GRANT OP
 COMMENT ON TABLE model_draft.reeem_lca_output IS
     '{"title": "LCA Output",
     "description": "none",
-    "language": [ "eng", "ger" ],
+    "language": [ "none" ],
     "spatial":
         {"location": "none",
         "extent": "none",
