@@ -114,7 +114,6 @@ CREATE TABLE            model_draft.reeem_ucl_behaviour_output (
     "aggregation"   boolean,
     "tags"          hstore,
     "updated"       timestamp with time zone,
-    "source"        text,
     CONSTRAINT reeem_ucl_behaviour_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -166,8 +165,7 @@ COMMENT ON TABLE model_draft.reeem_ucl_behaviour_output IS
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "tags", "description": "Free classification", "unit": "none"},
-            {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
+            {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
