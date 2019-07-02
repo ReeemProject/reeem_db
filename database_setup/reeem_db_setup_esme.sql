@@ -85,7 +85,7 @@ COMMENT ON TABLE model_draft.reeem_esme_input IS
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "scenario", "description": "Model scenario id", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "category", "description": "3. classification", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
             {"name": "value", "description": "Parameter value", "unit": "unit"},
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
@@ -94,6 +94,7 @@ COMMENT ON TABLE model_draft.reeem_esme_input IS
             {"name": "updated", "description": "Timestamp", "unit": "none"},
             {"name": "source", "description": "Data source", "unit": "none"},
             {"name": "schema", "description": "1. classification", "unit": "none"},
+            {"name": "field", "description": "2. classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
@@ -168,7 +169,7 @@ COMMENT ON TABLE model_draft.reeem_esme_output IS
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "scenario", "description": "Model scenario id", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "category", "description": "3. classification", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
             {"name": "value", "description": "Parameter value", "unit": "unit"},
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
@@ -176,6 +177,7 @@ COMMENT ON TABLE model_draft.reeem_esme_output IS
             {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
             {"name": "schema", "description": "1. classification", "unit": "none"},
+            {"name": "field", "description": "2. classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
