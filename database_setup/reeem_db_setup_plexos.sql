@@ -98,6 +98,7 @@ COMMENT ON TABLE model_draft.reeem_plexos_input IS
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "tags", "description": "Free classification", "unit": "none"},
+            {"name": "updated", "description": "Timestamp", "unit": "none"},
             {"name": "source", "description": "Data source", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
@@ -180,6 +181,7 @@ COMMENT ON TABLE model_draft.reeem_plexos_output IS
             {"name": "value", "description": "Specific value", "unit": "unit"},
             {"name": "unit", "description": "Unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
+            {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
