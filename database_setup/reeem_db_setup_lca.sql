@@ -44,27 +44,27 @@ GRANT SELECT ON TABLE   model_draft.reeem_lca_input TO reeem_read WITH GRANT OPT
 -- metadata
 COMMENT ON TABLE model_draft.reeem_lca_input IS
     '{"title": "LCA Input",
-    "description": "",
+    "description": "none",
     "language": [ "eng", "ger" ],
     "spatial":
-        {"location": "",
-        "extent": "",
-        "resolution": ""},
+        {"location": "none",
+        "extent": "none",
+        "resolution": "none"},
     "temporal":
-        {"reference_date": "",
-        "start": "",
-        "end": "",
-        "resolution": ""},
+        {"reference_date": "none",
+        "start": "none",
+        "end": "none",
+        "resolution": "none"},
     "sources": [
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""},
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""} ],
+        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"},
+        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"} ],
     "license":
-        {"id": "",
-        "name": "",
-        "version": "",
-        "url": "",
-        "instruction": "",
-        "copyright": ""},
+        {"id": "none",
+        "name": "none",
+        "version": "none",
+        "url": "none",
+        "instruction": "none",
+        "copyright": "none"},
     "contributors": [
         {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Create table"} ],
     "resources": [
@@ -122,27 +122,27 @@ GRANT SELECT ON TABLE   model_draft.reeem_lca_output TO reeem_read WITH GRANT OP
 -- metadata
 COMMENT ON TABLE model_draft.reeem_lca_output IS
     '{"title": "LCA Output",
-    "description": "",
+    "description": "none",
     "language": [ "eng", "ger" ],
     "spatial":
-        {"location": "",
-        "extent": "",
-        "resolution": ""},
+        {"location": "none",
+        "extent": "none",
+        "resolution": "none"},
     "temporal":
-        {"reference_date": "",
-        "start": "",
-        "end": "",
-        "resolution": ""},
+        {"reference_date": "none",
+        "start": "none",
+        "end": "none",
+        "resolution": "none"},
     "sources": [
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""},
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""} ],
+        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"},
+        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"} ],
     "license":
-        {"id": "",
-        "name": "",
-        "version": "",
-        "url": "",
-        "instruction": "",
-        "copyright": ""},
+        {"id": "none",
+        "name": "none",
+        "version": "none",
+        "url": "none",
+        "instruction": "none",
+        "copyright": "none"},
     "contributors": [
         {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Create table"} ],
     "resources": [
