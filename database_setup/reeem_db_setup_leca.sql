@@ -120,7 +120,6 @@ CREATE TABLE            model_draft.reeem_leca_output (
     "aggregation"   boolean,
     "tags"          hstore,
     "updated"       timestamp with time zone,
-    "source"        text,
     CONSTRAINT reeem_leca_output_pkey PRIMARY KEY (id) );
 
 -- access rights
