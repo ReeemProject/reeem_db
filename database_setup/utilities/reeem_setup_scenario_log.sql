@@ -62,8 +62,7 @@ COMMENT ON TABLE model_draft.scenario_log IS '{
         "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute, Share-Alike, Keep open!",
         "copyright": "© Reiner Lemoine Institut"},
     "contributors": [
-        {"name": "Ludwig Hülk", "email": "none", "date": "2018-01-24", "comment": "Create table"},
-        {"name": "", "email": "", "date": "", "comment": ""} ],
+        {"name": "Ludwig Hülk", "email": "none", "date": "2018-01-24", "comment": "Create table"} ],
     "resources": [
         {"name": "model_draft.scenario_log",        
         "format": "PostgreSQL",
@@ -132,8 +131,7 @@ COMMENT ON TABLE model_draft.reeem_scenario_log IS '{
     "contributors": [
         {"name": "Ludwig Hülk", "email": "none", "date": "2016-12-01", "comment": "Create table"},
         {"name": "Ludwig Hülk", "email": "none", "date": "2017-01-18", "comment": "Update metadata"},
-        {"name": "Ludwig Hülk", "email": "none", "date": "2018-01-24", "comment": "Update metadata and license"},
-        {"name": "", "email": "", "date": "", "comment": ""} ],
+        {"name": "Ludwig Hülk", "email": "none", "date": "2018-01-24", "comment": "Update metadata and license"} ],
     "resources": [
         {"name": "model_draft.reeem_scenario_log",        
         "format": "PostgreSQL",

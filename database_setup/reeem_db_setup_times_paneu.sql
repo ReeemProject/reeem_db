@@ -60,15 +60,15 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""},
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""} ],
+        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"},
+        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"} ],
     "license":
-        {"id": "tba",
-        "name": "tba",
-        "version": "tba",
-        "url": "tba",
-        "instruction": "tba",
-        "copyright": "tba"},
+        {"id": "none",
+        "name": "none",
+        "version": "none",
+        "url": "none",
+        "instruction": "none",
+        "copyright": "none"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2016-12-01", "comment": "Create table"},
         {"name": "Ludee", "email": "none", "date": "2017-01-18", "comment": "Update metadata"},
@@ -90,14 +90,16 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_input IS
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "category", "description": "3. classification", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
             {"name": "value", "description": "Parameter value", "unit": "unit"},
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
+            {"name": "source", "description": "Data source", "unit": "none"},
+            {"name": "schema", "description": "1. classification", "unit": "none"},
+            {"name": "field", "description": "2. classification", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
@@ -176,13 +178,15 @@ COMMENT ON TABLE model_draft.reeem_times_paneu_output IS
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "category", "description": "3. classification", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
             {"name": "value", "description": "Parameter value", "unit": "unit"},
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "tags", "description": "Free classification", "unit": "none"},
-            {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
+            {"name": "updated", "description": "Timestamp", "unit": "none"},
+            {"name": "schema", "description": "1. classification", "unit": "none"},
+            {"name": "field", "description": "2. classification", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)

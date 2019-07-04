@@ -81,8 +81,8 @@ COMMENT ON TABLE model_draft.reeem_leca_input IS
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "schema", "description": "1. classification", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
-            {"name": "tags", "description": "Free classification", "unit": "none"},
+            {"name": "field", "description": "2. classification", "unit": "none"},
+            {"name": "category", "description": "3. classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
@@ -120,7 +120,6 @@ CREATE TABLE            model_draft.reeem_leca_output (
     "aggregation"   boolean,
     "tags"          hstore,
     "updated"       timestamp with time zone,
-    "source"        text,
     CONSTRAINT reeem_leca_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -169,7 +168,9 @@ COMMENT ON TABLE model_draft.reeem_leca_output IS
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "schema", "description": "1. classification", "unit": "none"},
+            {"name": "field", "description": "2. classification", "unit": "none"},
+            {"name": "category", "description": "3. classification", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
             {"name": "value", "description": "Parameter value", "unit": "unit"},
             {"name": "unit", "description": "Parameter unit", "unit": "none"},

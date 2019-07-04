@@ -49,7 +49,7 @@ GRANT SELECT ON TABLE   model_draft.reeem_esme_input TO reeem_read WITH GRANT OP
 -- metadata
 COMMENT ON TABLE model_draft.reeem_esme_input IS 
     '{"title": "REEEM ESME Input",
-    "description": "",
+    "description": "none",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
@@ -63,15 +63,16 @@ COMMENT ON TABLE model_draft.reeem_esme_input IS
     "sources": [
         {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"} ],
     "license":
-        {"id": "tba",
-        "name": "tba",
-        "version": "tba",
-        "url": "tba",
-        "instruction": "tba",
-        "copyright": "tba"},
+        {"id": "none",
+        "name": "none",
+        "version": "none",
+        "url": "none",
+        "instruction": "none",
+        "copyright": "none"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2019-01-09", "comment": "Create table and metadata"},
-        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Alter table, add missing columns"} ],
+        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Alter table, add missing columns"},
+        {"name": "Bachibouzouk", "email": "none", "date": "2019-06-19", "comment": "Fix metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_esme_input",
         "format": "PostgreSQL",
@@ -84,14 +85,17 @@ COMMENT ON TABLE model_draft.reeem_esme_input IS
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "scenario", "description": "Model scenario id", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "category", "description": "3. classification", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
             {"name": "value", "description": "Parameter value", "unit": "unit"},
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
+            {"name": "source", "description": "Data source", "unit": "none"},
+            {"name": "schema", "description": "1. classification", "unit": "none"},
+            {"name": "field", "description": "2. classification", "unit": "none"},
+            {"name": "region", "description": "Country or region", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)
@@ -117,7 +121,6 @@ CREATE TABLE            model_draft.reeem_esme_output (
     "aggregation"   boolean,
     "tags"          hstore,
     "updated"       timestamp with time zone,
-    "source"        text,
     "schema"        text,
     "field"         text,
     "region"        text,
@@ -134,25 +137,26 @@ COMMENT ON TABLE model_draft.reeem_esme_output IS
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
-        "extent": "",
-        "resolution": ""},
+        "extent": "none",
+        "resolution": "none"},
     "temporal": 
-        {"reference_date": "",
+        {"reference_date": "none",
         "start": "2020",
         "end": "2050",
         "resolution": "10 years"},
     "sources": [
-        {"name": "ESME Model", "description": "tba", "url": "https://openenergy-platform.org/factsheets/models/144/", "license": "none", "copyright": "Energy Technologies Institute (ETI), UCL"} ],
+        {"name": "ESME Model", "description": "none", "url": "https://openenergy-platform.org/factsheets/models/144/", "license": "none", "copyright": "Energy Technologies Institute (ETI), UCL"} ],
     "license":
-        {"id": "tba",
-        "name": "tba",
-        "version": "tba",
-        "url": "tba",
-        "instruction": "tba",
-        "copyright": "tba"},
+        {"id": "none",
+        "name": "none",
+        "version": "none",
+        "url": "none",
+        "instruction": "none",
+        "copyright": "none"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2019-01-09", "comment": "Create table and metadata"},
-        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"} ],
+        {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Alter table, add missing columns"},
+        {"name": "Bachibouzouk", "email": "none", "date": "2019-06-19", "comment": "Fix metadata"} ],
     "resources": [
         {"name": "model_draft.reeem_esme_output",
         "format": "PostgreSQL",
@@ -165,14 +169,16 @@ COMMENT ON TABLE model_draft.reeem_esme_output IS
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "scenario", "description": "Model scenario id", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "category", "description": "3. classification", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
             {"name": "value", "description": "Parameter value", "unit": "unit"},
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "source", "description": "Data source (model)", "unit": "none"} ] } ],
+            {"name": "schema", "description": "1. classification", "unit": "none"},
+            {"name": "field", "description": "2. classification", "unit": "none"},
+            {"name": "region", "description": "Country or region", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (version,io,schema_name,table_name,script_name,comment)

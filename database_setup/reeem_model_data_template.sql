@@ -65,8 +65,7 @@ COMMENT ON TABLE model_draft.reeem_model_data_template IS
         "instruction": "",
         "copyright": ""},
     "contributors": [
-        {"name": "Ludee", "email": "none", "date": "2017--", "comment": "Create table"},
-        {"name": "", "email": "", "date": "", "comment": ""} ],
+        {"name": "Ludee", "email": "none", "date": "2017--", "comment": "Create table"} ],
     "resources": [
         {"name": "model_draft.reeem_model_data_template",        
         "format": "PostgreSQL",
@@ -77,7 +76,8 @@ COMMENT ON TABLE model_draft.reeem_model_data_template IS
             {"name": "framework", "description": "REEEM framework", "unit": "none"},
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "schema", "description": "1. classification", "unit": "none"},
-            {"name": "category", "description": "2. classification", "unit": "none"},
+            {"name": "field", "description": "2. classification", "unit": "none"},
+            {"name": "category", "description": "3. classification", "unit": "none"},
             {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},

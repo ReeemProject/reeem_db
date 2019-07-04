@@ -43,31 +43,30 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosystem_input TO reeem_read WITH GRA
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosystem_input IS
-    '{"title": "",
-    "description": "",
-    "language": [ "eng", "ger" ],
+    '{"title": "Ecosystem Input",
+    "description": "none",
+    "language": [ "none" ],
     "spatial":
-        {"location": "",
-        "extent": "",
-        "resolution": ""},
+        {"location": "none",
+        "extent": "none",
+        "resolution": "none"},
     "temporal":
-        {"reference_date": "",
-        "start": "",
-        "end": "",
-        "resolution": ""},
+        {"reference_date": "none",
+        "start": "none",
+        "end": "none",
+        "resolution": "none"},
     "sources": [
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""},
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""} ],
+        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"},
+        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"} ],
     "license":
-        {"id": "",
-        "name": "",
-        "version": "",
-        "url": "",
-        "instruction": "",
-        "copyright": ""},
+        {"id": "none",
+        "name": "none",
+        "version": "none",
+        "url": "none",
+        "instruction": "none",
+        "copyright": "none"},
     "contributors": [
-        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Create table"},
-        {"name": "", "email": "", "date": "", "comment": ""} ],
+        {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Create table"} ],
     "resources": [
         {"name": "model_draft.reeem_model_data_template",
         "format": "PostgreSQL",
@@ -79,7 +78,6 @@ COMMENT ON TABLE model_draft.reeem_ecosystem_input IS
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "schema", "description": "1. classification", "unit": "none"},
             {"name": "category", "description": "2. classification", "unit": "none"},
-            {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
@@ -114,7 +112,6 @@ CREATE TABLE            model_draft.reeem_ecosystem_output (
     "aggregation"   boolean,
     "tags"          hstore,
     "updated"       timestamp with time zone,
-    "source"        text,
     CONSTRAINT reeem_ecosystem_output_pkey PRIMARY KEY (id) );
 
 -- access rights
@@ -123,28 +120,28 @@ GRANT SELECT ON TABLE   model_draft.reeem_ecosystem_output TO reeem_read WITH GR
 
 -- metadata
 COMMENT ON TABLE model_draft.reeem_ecosystem_output IS
-    '{"title": "",
-    "description": "",
-    "language": [ "eng", "ger" ],
+    '{"title": "Ecosystem Output",
+    "description": "none",
+    "language": [ "none" ],
     "spatial":
-        {"location": "",
-        "extent": "",
-        "resolution": ""},
+        {"location": "none",
+        "extent": "none",
+        "resolution": "none"},
     "temporal":
-        {"reference_date": "",
-        "start": "",
-        "end": "",
-        "resolution": ""},
+        {"reference_date": "none",
+        "start": "none",
+        "end": "none",
+        "resolution": "none"},
     "sources": [
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""},
-        {"name": "", "description": "", "url": "", "license": "", "copyright": ""} ],
+        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"},
+        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"} ],
     "license":
-        {"id": "",
-        "name": "",
-        "version": "",
-        "url": "",
-        "instruction": "",
-        "copyright": ""},
+        {"id": "none",
+        "name": "none",
+        "version": "none",
+        "url": "none",
+        "instruction": "none",
+        "copyright": "none"},
     "contributors": [
         {"name": "4lm", "email": "none", "date": "2019-02-07", "comment": "Create table"} ],
     "resources": [
@@ -158,7 +155,6 @@ COMMENT ON TABLE model_draft.reeem_ecosystem_output IS
             {"name": "version", "description": "REEEM version", "unit": "none"},
             {"name": "schema", "description": "1. classification", "unit": "none"},
             {"name": "category", "description": "2. classification", "unit": "none"},
-            {"name": "tags", "description": "Free classification", "unit": "none"},
             {"name": "region", "description": "Country or region", "unit": "none"},
             {"name": "year", "description": "Year", "unit": "none"},
             {"name": "indicator", "description": "Parameter name", "unit": "none"},
@@ -166,8 +162,7 @@ COMMENT ON TABLE model_draft.reeem_ecosystem_output IS
             {"name": "unit", "description": "Parameter unit", "unit": "none"},
             {"name": "aggregation", "description": "True if aggregated", "unit": "none"},
             {"name": "tags", "description": "Free classification", "unit": "none"},
-            {"name": "updated", "description": "Timestamp", "unit": "none"},
-            {"name": "source", "description": "Data source", "unit": "none"} ] } ],
+            {"name": "updated", "description": "Timestamp", "unit": "none"} ] } ],
     "metadata_version": "1.3"}';
 
 -- scenario log (project,version,io,schema_name,table_name,script_name,comment)
