@@ -44,7 +44,7 @@ COMMENT ON TABLE model_draft.reeem_newage_input IS '{
     "language": [ "eng" ],
     "spatial":
         {"location": "none",
-        "extent": "gloabal",
+        "extent": "global",
         "resolution": "country"},
     "temporal":
         {"reference_date": "none",
@@ -52,7 +52,10 @@ COMMENT ON TABLE model_draft.reeem_newage_input IS '{
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
-        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"} ],
+        {"name": "GTAP 9", "description": "Global data base describing bilateral trade patterns, production, consumption and intermediate use of commodities and services", "url": "https://www.gtap.agecon.purdue.edu/databases/v9/default.asp", "license": "proprietary", "copyright": "none"},
+        {"name": "IEA Electricity Information", "description": "none", "url": "none", "license": "none", "copyright": "none"},
+        {"name": "EconMap 2050", "description": "none", "url": "http://www.cepii.fr/CEPII/en/bdd_modele/presentation.asp?id=11", "license": "Licence Ouverte/ Open Licence", "copyright": "none"},
+        {"name": "CO2 Emissions Path", "description": "none", "url": "none", "license": "none", "copyright": "none"} ],
     "license":
         {"id": "none",
         "name": "none",
