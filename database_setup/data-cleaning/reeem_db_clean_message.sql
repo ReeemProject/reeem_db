@@ -83,8 +83,52 @@ UPDATE model_draft.reeem_message_output
 
 -- OUTPUT set field tag
 UPDATE model_draft.reeem_message_output
-    SET     tags = COALESCE(tags, '') || hstore('field', 'abc')
-    WHERE   category LIKE 'abc';
+    SET     tags = COALESCE(tags, '') || hstore('field', 'commercial_flows')
+    WHERE   category LIKE '%commercial flows%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'export')
+    WHERE   category LIKE '%export%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'import')
+    WHERE   category LIKE '%import%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'electricity_supply')
+    WHERE   category LIKE 'Electricity supply%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'emissions')
+    WHERE   category LIKE 'Emissions%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'cost')
+    WHERE   category LIKE '%cost%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'consumption')
+    WHERE   category LIKE 'Fuel consumption%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'production')
+    WHERE   category LIKE 'Heat production%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'investment')
+    WHERE   category LIKE 'Investments%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'capacity')
+    WHERE   category LIKE '%capacity%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'reserve')
+    WHERE   category LIKE '%reserve%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('field', 'requirement')
+    WHERE   category LIKE '%requirement%';
 
 -- OUTPUT set category tag
 UPDATE model_draft.reeem_message_output
