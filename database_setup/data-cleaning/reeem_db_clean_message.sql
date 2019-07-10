@@ -132,8 +132,52 @@ UPDATE model_draft.reeem_message_output
 
 -- OUTPUT set category tag
 UPDATE model_draft.reeem_message_output
-    SET     tags = COALESCE(tags, '') || hstore('category', 'xyz')
-    WHERE   category LIKE 'xyz';
+    SET     tags = COALESCE(tags, '') || hstore('category', 'electricity')
+    WHERE   category LIKE 'Electricity%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'fixed_cost')
+    WHERE   category LIKE 'Fixed cost%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'fuel_consumption')
+    WHERE   category LIKE 'Fuel consumption%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'fuel_cost')
+    WHERE   category LIKE 'Fuel cost%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'heat')
+    WHERE   category LIKE 'Heat%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'new_capacity')
+    WHERE   category LIKE 'New capacity%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'primary_reserve')
+    WHERE   category LIKE 'Primary reserve%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'secondary_reserve')
+    WHERE   category LIKE 'Secondary reserve%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'tertiary_reserve')
+    WHERE   category LIKE 'Tertiary reserve%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'total_installed')
+    WHERE   category LIKE 'Total installed%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'total_primary')
+    WHERE   category LIKE 'Total primary%';
+
+UPDATE model_draft.reeem_message_output
+    SET     tags = COALESCE(tags, '') || hstore('category', 'variable_cost')
+    WHERE   category LIKE 'Variable cost%';
 
 
 ---------------------------------------
