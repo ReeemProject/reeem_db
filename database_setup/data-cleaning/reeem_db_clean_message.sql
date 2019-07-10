@@ -47,7 +47,33 @@ UPDATE model_draft.reeem_message_output
 -- TODO: INPUT
 
 UPDATE model_draft.reeem_message_output
-    SET tags = COALESCE(tags, '') || hstore('schema', 'economy');
+    SET tags = COALESCE(tags, '') || hstore('schema', 'economy')
+    WHERE category LIKE 'Electricity commercial flows%' OR
+          category LIKE 'Electricity export%' OR
+          category LIKE 'Electricity import%' OR
+          category LIKE 'Fixed cost%' OR
+          category LIKE 'Fuel cost%' OR
+          category LIKE 'Investments%' OR
+          category LIKE 'Variable cost%';
+
+UPDATE model_draft.reeem_message_output
+    SET tags = COALESCE(tags, '') || hstore('schema', 'supply')
+    WHERE category LIKE 'Electricity supply%' OR
+          category LIKE 'Heat production%' OR
+          category LIKE 'New capacity%' OR
+          category LIKE 'Primary reserve%' OR
+          category LIKE 'Secondary reserve%' OR
+          category LIKE 'Tertiary reserve%' OR
+          category LIKE 'Total installed capacity%';
+
+UPDATE model_draft.reeem_message_output
+    SET tags = COALESCE(tags, '') || hstore('schema', 'demand')
+    WHERE category LIKE 'Fuel consumption%' OR
+          category LIKE 'Total primary energy requirement%';
+
+UPDATE model_draft.reeem_message_output
+    SET tags = COALESCE(tags, '') || hstore('schema', 'environment')
+    WHERE category LIKE 'Emissions%';
 
 -- INPUT set field tag
 -- TODO: INPUT
