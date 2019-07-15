@@ -11,7 +11,8 @@ from reeem_io import *
 
 # input
 filenames = [
-    '2019-01-28_Base_MESSAGE_FrameworkNA_DataV2_Output.xlsx'
+    # '2019-01-28_Base_MESSAGE_FrameworkNA_DataV2_Output.xlsx',
+    '2019-01-28_Base_MESSAGE_FrameworkNA_DataV2_Input.xlsx'
     ]
 
 # regions
@@ -40,14 +41,21 @@ def message_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
     if fns['io'] == "Input":
 
         # label columns
-        df.columns = ['indicator', 'unit',
-                    '2015', '2020', '2025', '2030', '2035', 
-                    '2040', '2045', '2050', 'field', 'category', 
-                    'aggregation', 'source']
+        df.columns = ['indicator', 'internal_id', 'unit',
+                      '2006', '2007', '2008', '2009', '2010',
+                      '2011', '2012', '2013', '2014', '2015',
+                      '2016', '2017', '2018', '2019', '2020',
+                      '2021', '2022', '2023', '2024', '2025',
+                      '2026', '2027', '2028', '2029', '2030',
+                      '2031', '2032', '2033', '2034', '2035',
+                      '2036', '2037', '2038', '2039', '2040',
+                      '2041', '2042', '2043', '2044', '2045',
+                      '2046', '2047', '2048', '2049', '2050',
+                      'field', 'category', 'aggregation', 'source']
         df.index.names = ['nid']
-    
+
         # seperate columns
-        dfunit = df[['category', 'indicator', 'unit', 'aggregation', 'source'
+        dfunit = df[['category', 'indicator', 'internal_id', 'unit', 'aggregation', 'source'
                     ]].copy()
         dfunit.index.names = ['nid']
         # dfunit.columns = ['category', 'indicator', 'unit', 'aggregation']
@@ -55,7 +63,7 @@ def message_2_reeem_db(filename, fns, db_table, empty_rows, db_schema,
     
         # drop seperated columns
         dfclean = df.drop(
-            ['field', 'category', 'indicator', 'unit', 'aggregation', 'source'],
+            ['internal_id', 'field', 'category', 'indicator', 'unit', 'aggregation', 'source'],
             axis=1) #, 'source'
         # print(dfclean.head())
         
