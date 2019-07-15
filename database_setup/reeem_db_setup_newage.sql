@@ -52,10 +52,10 @@ COMMENT ON TABLE model_draft.reeem_newage_input IS '{
         "end": "2050",
         "resolution": "5 years"},
     "sources": [
-        {"name": "GTAP 9", "description": "Global data base describing bilateral trade patterns, production, consumption and intermediate use of commodities and services", "url": "https://www.gtap.agecon.purdue.edu/databases/v9/default.asp", "license": "proprietary", "copyright": "none"},
-        {"name": "IEA Electricity Information", "description": "none", "url": "none", "license": "none", "copyright": "none"},
-        {"name": "EconMap 2050", "description": "none", "url": "http://www.cepii.fr/CEPII/en/bdd_modele/presentation.asp?id=11", "license": "Licence Ouverte/ Open Licence", "copyright": "none"},
-        {"name": "CO2 Emissions Path", "description": "none", "url": "none", "license": "none", "copyright": "none"} ],
+        {"name": "GTAP 9", "description": "Global data base describing bilateral trade patterns, production, consumption and intermediate use of commodities and services", "url": "https://www.gtap.agecon.purdue.edu/databases/v9/default.asp", "license": "proprietary", "copyright": "© 2019, Purdue University. All rights reserved. "},
+        {"name": "Electricity Information 2013", "description": "It provides comprehensive statistical details on overall energy consumption, economic indicators, electricity and heat production by energy form and plant type, electricity imports and exports, sectoral energy and electricity consumption, as well as prices for electricity and electricity input fuels for each country and regional aggregate.", "url": "https://doi.org/10.1787/electricity-2013-en", "license": "none", "copyright": "©OECD. All rights reserved."},
+        {"name": "EconMap 2050", "description": "EconMap is the database developed by the CEPII in 2010 to picture the world economy in the long term. EconMap was formerly known as Baseline. It presents projections for total population, employment according to education level, GDP and other parameters for 167 countries", "url": "http://www.cepii.fr/CEPII/en/bdd_modele/presentation.asp?id=11", "license": "Licence Ouverte/ Open Licence", "copyright": "CEPII. All rights reserved"},
+        {"name": "CO2 Emissions Path", "description": "CO2 emission targets for NEWAGE regions, sectors and scenarios", "url": "none", "license": "none", "copyright": "Institut für Energiewirtschaft und Rationelle Energieanwendung (IER) der Universität Stuttgart"} ],
     "license":
         {"id": "none",
         "name": "none",
