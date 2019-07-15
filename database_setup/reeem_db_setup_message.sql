@@ -25,6 +25,7 @@ CREATE TABLE            model_draft.reeem_message_input (
     "id"            serial NOT NULL,
     "nid"           integer,
     "dfid"          integer,
+    "internal_id"   text,
     "pathway"       text,
     "framework"     text,
     "version"       text,
