@@ -11,15 +11,20 @@ from reeem_io import *
 
 # input
 filenames = [
-    # '2019-01-28_Base_MESSAGE_FrameworkNA_DataV2_Output.xlsx',
-    '2019-01-28_Base_MESSAGE_FrameworkNA_DataV2_Input.xlsx'
+    #'2019-01-28_Base_MESSAGE_FrameworkNA_DataV2_Output.xlsx',
+    #'2019-01-28_Base_MESSAGE_FrameworkNA_DataV2_Input.xlsx',
+
+    '2019-01-28_All_MESSAGE_FrameworkNA_DataV3_Input.xlsx',
+    '2019-02-12_Base_MESSAGE_FrameworkNA_DataV3_Output.xlsx',
+    '2019-02-12_CO2Lin_MESSAGE_FrameworkNA_DataV3_Output.xlsx',
+    '2019-02-12_HighRES_MESSAGE_FrameworkNA_DataV3_Output.xlsx'
     ]
 
 # regions
 # regions = ['AT']
 regions = ['FI','EE','LT','LV']
 
-empty_rows = 4
+empty_rows = 4  # or 5
 
 # database table
 db_schema = 'model_draft'
