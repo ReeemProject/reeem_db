@@ -1,7 +1,7 @@
 /*
 MESSAGE Data Cleaning and TAGGING
 
--- TODO: MESSAGE Input
+MESSAGE Input
 MESSAGE Output
 
 https://github.com/ReeemProject/reeem_db/issues/11
@@ -32,19 +32,33 @@ __issue__       = "https://github.com/ReeemProject/reeem_db/issues/11"
 ----------
 
 -- INPUT|OUTPUT remove all tags
--- TODO: INPUT
+UPDATE model_draft.reeem_message_input
+    SET tags = NULL;
 
 UPDATE model_draft.reeem_message_output
     SET tags = NULL;
 
 -- INPUT|OUTPUT set model tag
--- TODO: INPUT
+UPDATE model_draft.reeem_message_input
+    SET tags = COALESCE(tags, '') || hstore('model', 'message');
 
 UPDATE model_draft.reeem_message_output
     SET tags = COALESCE(tags, '') || hstore('model', 'message');
 
 -- INPUT|OUTPUT set schema tag
--- TODO: INPUT
+UPDATE model_draft.reeem_message_input
+    SET tags = COALESCE(tags, '') || hstore('schema', 'economy')
+    WHERE category LIKE 'Investment cost%' OR
+          category LIKE 'Fixed operation and maintenance cost%' OR
+          category LIKE 'Variable operation and maintenance cost%' OR
+          category LIKE 'Variable cost%';
+
+UPDATE model_draft.reeem_message_input
+    SET tags = COALESCE(tags, '') || hstore('schema', 'supply')
+    WHERE category LIKE 'Construction time%' OR
+          category LIKE 'Technical lifetime%' OR
+          category LIKE 'Main output efficiency%' OR
+          category LIKE 'Related output%';
 
 UPDATE model_draft.reeem_message_output
     SET tags = COALESCE(tags, '') || hstore('schema', 'economy')
@@ -76,10 +90,47 @@ UPDATE model_draft.reeem_message_output
     WHERE category LIKE 'Emissions%';
 
 -- INPUT set field tag
--- TODO: INPUT
+UPDATE model_draft.reeem_message_input
+    SET     tags = COALESCE(tags, '') || hstore('field', 'cost')
+    WHERE   category LIKE 'Investment cost%';
+
+UPDATE model_draft.reeem_message_input
+    SET     tags = COALESCE(tags, '') || hstore('field', 'variable_cost')
+    WHERE   category LIKE 'Variable operation and maintenance cost%';
+
+UPDATE model_draft.reeem_message_input
+    SET     tags = COALESCE(tags, '') || hstore('field', 'fixed_cost')
+    WHERE   category LIKE 'Fixed operation and maintenance cost%';
+
+UPDATE model_draft.reeem_message_input
+    SET     tags = COALESCE(tags, '') || hstore('field', 'efficiency')
+    WHERE   category LIKE '%efficiency%';
+
+UPDATE model_draft.reeem_message_input
+    SET     tags = COALESCE(tags, '') || hstore('field', 'lifecycle')
+    WHERE   category LIKE 'Construction time%' OR
+            category LIKE 'Technical lifetime%';
 
 -- INPUT set category tag
--- TODO: INPUT
+UPDATE model_draft.reeem_message_input
+    SET     tags = COALESCE(tags, '') || hstore('category', 'operation_maintenance')
+    WHERE   category LIKE '%operation and maintenance%';
+
+UPDATE model_draft.reeem_message_input
+    SET     tags = COALESCE(tags, '') || hstore('category', 'construction')
+    WHERE   category LIKE 'Construction time%';
+
+UPDATE model_draft.reeem_message_input
+    SET     tags = COALESCE(tags, '') || hstore('category', 'lifetime_technical')
+    WHERE   category LIKE 'Technical lifetime%';
+
+UPDATE model_draft.reeem_message_input
+    SET     tags = COALESCE(tags, '') || hstore('category', 'output')
+    WHERE   category LIKE '%output%';
+
+UPDATE model_draft.reeem_message_input
+    SET     tags = COALESCE(tags, '') || hstore('category', 'investment')
+    WHERE   category LIKE 'Investment cost%';
 
 -- OUTPUT set field tag
 UPDATE model_draft.reeem_message_output
@@ -185,8 +236,17 @@ UPDATE model_draft.reeem_message_output
 ---------------------------------------
 
 -- INPUT example selects
--- TODO: INPUT
--- TODO: INPUT
+SELECT  field, category, indicator, tags
+FROM    model_draft.reeem_message_input
+WHERE   tags IS NOT NULL
+GROUP BY field, category, indicator, tags
+ORDER BY field, category, indicator;
+
+SELECT  field, category, indicator, tags
+FROM    model_draft.reeem_message_input
+WHERE   tags IS NULL
+GROUP BY field, category, indicator, tags
+ORDER BY field, category, indicator;
 
 -- OUTPUT example select
 SELECT  field, category, indicator, tags
@@ -207,6 +267,6 @@ ORDER BY field, category, indicator;
 ----------
 
 -- INPUT scenario log (project,version,io,schema_name,table_name,script_name,comment)
--- TODO: INPUT SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_message_input','reeem_db_clean_message.sql',' ');
+SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_message_input','reeem_db_clean_message.sql',' ');
 -- OUTPUT scenario log (project,version,io,schema_name,table_name,script_name,comment)
 SELECT scenario_log('REEEM','v0.2.0','setup','model_draft','reeem_message_output','reeem_db_clean_message.sql',' ');
