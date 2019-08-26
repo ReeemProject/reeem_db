@@ -53,15 +53,15 @@ COMMENT ON TABLE model_draft.reeem_esme_input IS
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
-        "extent": "none",
-        "resolution": "none"},
+        "extent": "UK",
+        "resolution": "UK Government Office Regions and constituent countries"},
     "temporal": 
         {"reference_date": "none",
-        "start": "none",
-        "end": "none",
-        "resolution": "none"},
+        "start": "2010",
+        "end": "2050",
+        "resolution": "10 year periods"},
     "sources": [
-        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"} ],
+        {"name": "ESME Data References Book and ESME data set", "description": "none", "url": "https://es.catapult.org.uk/wp-content/uploads/2019/06/ESME-v4.5-Draft-Data-References-Book.pdf and https://www.eti.co.uk/programmes/strategy/esme", "license": "none", "copyright": "none"} ],
     "license":
         {"id": "none",
         "name": "none",
@@ -133,12 +133,12 @@ GRANT SELECT ON TABLE   model_draft.reeem_esme_output TO reeem_read WITH GRANT O
 -- metadata
 COMMENT ON TABLE model_draft.reeem_esme_output IS 
     '{"title": "REEEM ESME Output",
-    "description": "Health externalities (unit cost factors) due to air pollution",
+    "description": "Low carbon technology metrics; mitigation costs",
     "language": [ "eng" ],
     "spatial": 
         {"location": "none",
-        "extent": "none",
-        "resolution": "none"},
+        "extent": "UK",
+        "resolution": "UK"},
     "temporal": 
         {"reference_date": "none",
         "start": "2020",

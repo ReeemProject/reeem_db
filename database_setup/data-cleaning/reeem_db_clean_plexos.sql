@@ -45,12 +45,45 @@ UPDATE model_draft.reeem_plexos_input
 UPDATE model_draft.reeem_plexos_output
     SET tags = COALESCE(tags, '') || hstore('model', 'plexos');
 
--- INPUT|OUTPUT set schema tag
+-- INPUT set schema tag
 UPDATE model_draft.reeem_plexos_input
-    SET tags = COALESCE(tags, '') || hstore('schema', 'demand');
+    SET tags = COALESCE(tags, '') || hstore('schema', 'grid')
+    WHERE   schema LIKE 'energy_grid';
+
+UPDATE model_draft.reeem_plexos_input
+    SET tags = COALESCE(tags, '') || hstore('schema', 'demand')
+    WHERE   schema LIKE 'energy_demand';
+
+UPDATE model_draft.reeem_plexos_input
+    SET tags = COALESCE(tags, '') || hstore('schema', 'supply')
+    WHERE   schema LIKE 'energy_supply';
+
+UPDATE model_draft.reeem_plexos_input
+    SET tags = COALESCE(tags, '') || hstore('schema', 'economy')
+    WHERE   schema LIKE 'economy' OR
+            (schema IS NULL AND indicator LIKE 'CO2');
+
+-- OUTPUT set schema tag
+UPDATE model_draft.reeem_plexos_output
+    SET tags = COALESCE(tags, '') || hstore('schema', 'grid')
+    WHERE   schema LIKE 'energy_grid';
 
 UPDATE model_draft.reeem_plexos_output
-    SET tags = COALESCE(tags, '') || hstore('schema', 'supply');
+    SET tags = COALESCE(tags, '') || hstore('schema', 'demand')
+    WHERE   schema LIKE 'energy_demand';
+
+UPDATE model_draft.reeem_plexos_output
+    SET tags = COALESCE(tags, '') || hstore('schema', 'supply')
+    WHERE   schema LIKE 'energy_supply';
+
+UPDATE model_draft.reeem_plexos_output
+    SET tags = COALESCE(tags, '') || hstore('schema', 'economy')
+    WHERE   schema LIKE 'economy' OR
+            (schema IS NULL AND indicator LIKE 'CO2');
+
+UPDATE model_draft.reeem_plexos_output
+    SET tags = COALESCE(tags, '') || hstore('schema', 'environment')
+    WHERE   schema LIKE 'climate';
 
 -- INPUT set field tag
 UPDATE model_draft.reeem_plexos_input
@@ -80,7 +113,8 @@ UPDATE model_draft.reeem_plexos_input
 UPDATE model_draft.reeem_plexos_input
     SET     tags = COALESCE(tags, '') || hstore('category', 'price')
     WHERE   field LIKE 'resource' AND
-            category LIKE '%prices%';
+            category LIKE '%prices%' OR
+            (schema IS NULL AND indicator LIKE 'CO2');
 
 -- OUTPUT set field tag
 UPDATE model_draft.reeem_plexos_output

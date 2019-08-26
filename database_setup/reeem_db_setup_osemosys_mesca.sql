@@ -64,12 +64,12 @@ COMMENT ON TABLE model_draft.reeem_osemosys_mesca_input IS
 	      {"name": "MESSAGE", "description": "Model for Energy Supply Strategy Alternatives and their General Environmental Impacts", "url": "http://www.iiasa.ac.at/web/home/research/researchPrograms/Energy/MESSAGE.en.html", "license": "none", "copyright": "none"},
         {"name": "Technology data catalogue, 2018", "description": "Technology Data provides information about technology, economy and environment for a number of energy installations and are among other things used by the Danish Energy Agency for energy projections.", "url": "https://ens.dk/en/our-services/projections-and-models/technology-data", "license": "none", "copyright": "none"} ],
     "license":
-        {"id": "none",
-        "name": "none",
-        "version": "none",
-        "url": "none",
-        "instruction": "none",
-        "copyright": "none"},
+        {"id": "CC-BY-4.0",
+        "name": "Creative Commons Attribution 4.0 International",
+        "version": "4.0",
+        "url": "http://creativecommons.org/licenses/by/4.0/legalcode",
+        "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!",
+        "copyright": "© Lithuanian Energy Institute"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2019-01-28", "comment": "Create table and metadata"},
         {"name": "Linas", "email": "none", "date": "2019-01-29", "comment": "Update metadata"},
@@ -145,12 +145,12 @@ COMMENT ON TABLE model_draft.reeem_osemosys_mesca_output IS
     "sources": [
         {"name": "OSeMOSYS MESCA", "description": "Model provides Energy Security Coefficient (ESC)", "url": "none", "license": "none", "copyright": "none"} ],
     "license":
-        {"id": "none",
-        "name": "none",
-        "version": "none",
-        "url": "none",
-        "instruction": "none",
-        "copyright": "none"},
+        {"id": "CC-BY-4.0",
+        "name": "Creative Commons Attribution 4.0 International",
+        "version": "4.0",
+        "url": "http://creativecommons.org/licenses/by/4.0/legalcode",
+        "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!",
+        "copyright": "© Lithuanian Energy Institute"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2019-01-28", "comment": "Create table and metadata"},
         {"name": "Linas", "email": "none", "date": "2019-01-29", "comment": "Update metadata"} ],

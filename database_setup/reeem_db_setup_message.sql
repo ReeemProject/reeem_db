@@ -62,15 +62,17 @@ COMMENT ON TABLE model_draft.reeem_message_input IS '{
         "end": "2060",
         "resolution": "1 year"},
     "sources": [
-        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"},
-        {"name": "none", "description": "none", "url": "none", "license": "none", "copyright": "none"} ],
-    "license": 
-        {"id": "none",
-        "name": "none",
-        "version": "none",
-        "url": "none",
-        "instruction": "none",
-        "copyright": "none"},
+        {"name": "Lietuvos energetikos sektoriaus pletros tyrimas", "description": "Report discusses energy supply options in Lithuania and overviews other countries in the region", "url": "http://www.lei.lt/_img/_up/File/atvir/2016/NES/2-Technine_ekonomine_energetikos_sektoriaus_pletros_analize-2015.11.16.pdf", "license": "none", "copyright": "© 2015, Lithuanian Energy Institute. All rights reserved. "},
+        {"name": "Technology Data for Energy Plants for Electricity and District heating generation", "description": "Technology data catalogue", "url": "https://ens.dk/sites/ens.dk/files/Analyser/technology_data_catalogue_for_el_and_dh_-_aug_2016_upd_oct18.pdf", "license": "none", "copyright": "Danish Energy Agency"},
+        {"name": "NORDPOOL", "description": "Nordpool market data", "url": "https://www.nordpoolgroup.com/Market-data1#/", "license": "none", "copyright": "© Nord Pool 2017"},
+        {"name": "Eurostat", "description": "Large statistical database that includes aggregated capacities, historical energy production, import and export flows, etc., ", "url": "https://ec.europa.eu/eurostat/data/database", "license": "free re-use, both for non-commercial and commercial purposes (https://ec.europa.eu/eurostat/about/policies/copyright)", "copyright": "© European Union, 1995 - today"} ],
+    "license":
+        {"id": "CC-BY-4.0",
+        "name": "Creative Commons Attribution 4.0 International",
+        "version": "4.0",
+        "url": "http://creativecommons.org/licenses/by/4.0/legalcode",
+        "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!",
+        "copyright": "© Lithuanian Energy Institute"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2019-01-22", "comment": "Create table and metadata"} ],
     "resources": [
@@ -143,13 +145,13 @@ COMMENT ON TABLE model_draft.reeem_message_output IS '{
         "resolution": "1 year"},
     "sources": [
         {"name": "MESSAGE", "description": "Model documentation", "url": "none", "license": "none", "copyright": "none"} ],
-    "license": 
-        {"id": "none",
-        "name": "none",
-        "version": "none",
-        "url": "none",
-        "instruction": "none",
-        "copyright": "none"},
+    "license":
+        {"id": "CC-BY-4.0",
+        "name": "Creative Commons Attribution 4.0 International",
+        "version": "4.0",
+        "url": "http://creativecommons.org/licenses/by/4.0/legalcode",
+        "instruction": "You are free: To Share, To Create, To Adapt; As long as you: Attribute!",
+        "copyright": "© Lithuanian Energy Institute"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2019-01-22", "comment": "Create table and metadata"} ],
     "resources": [
