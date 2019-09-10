@@ -65,12 +65,13 @@ COMMENT ON TABLE model_draft.reeem_leca_input IS
         "version": "4.0",
         "url": "https://creativecommons.org/licenses/by/4.0/",
         "instruction": "You are free: To Share and To Adapt; As long as you: Attribute!",
-        "copyright": "© Ulla Mörtberg"},
+        "copyright": "© Ulla Mörtberg, Renats Trubins"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2018-11-12", "comment": "Create table and metadata"},
         {"name": "4lm", "email": "none", "date": "2019-01-31", "comment": "Update structure and metadata"},
         {"name": "Bachibouzouk", "email": "none", "date": "2019-05-29", "comment": "Fix typo in title of metadata"},
-        {"name": "4lm", "email": "none", "date": "2019-06-04", "comment": "Update metadata"} ],
+        {"name": "4lm", "email": "none", "date": "2019-06-04", "comment": "Update metadata"},
+        {"name": "Ludee", "email": "none", "date": "2019-09-10", "comment": "Update copyright"} ],
     "resources": [
         {"name": "model_draft.reeem_leca_input",
         "format": "PostgreSQL",
@@ -152,11 +153,12 @@ COMMENT ON TABLE model_draft.reeem_leca_output IS
         "version": "4.0",
         "url": "https://creativecommons.org/licenses/by/4.0/",
         "instruction": "You are free: To Share and To Adapt; As long as you: Attribute!",
-        "copyright": "© Ulla Mörtberg"},
+        "copyright": "© Ulla Mörtberg, Renats Trubins"},
     "contributors": [
         {"name": "Ludee", "email": "none", "date": "2018-11-12", "comment": "Create table and metadata"},
         {"name": "Bachibouzouk", "email": "none", "date": "2019-05-29", "comment": "Fix typo in title of metadata"},
-        {"name": "4lm", "email": "none", "date": "2019-06-04", "comment": "Update metadata"} ],
+        {"name": "4lm", "email": "none", "date": "2019-06-04", "comment": "Update metadata"},
+        {"name": "Ludee", "email": "none", "date": "2019-09-10", "comment": "Update copyright"}],
     "resources": [
         {"name": "model_draft.reeem_leca_output",
         "format": "PostgreSQL",
